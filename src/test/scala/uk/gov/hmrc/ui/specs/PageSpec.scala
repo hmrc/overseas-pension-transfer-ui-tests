@@ -16,25 +16,25 @@
 
 package uk.gov.hmrc.ui.specs
 
-import com.typesafe.scalalogging.LazyLogging
-import org.scalatest.featurespec.AnyFeatureSpec
-import org.scalatest.matchers.should.Matchers
-import org.scalatest.{BeforeAndAfterEach, GivenWhenThen}
-import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
+import uk.gov.hmrc.ui.pages.{Page}
 
-trait BaseSpec
-    extends AnyFeatureSpec
-    with GivenWhenThen
-    with Matchers
-    with BeforeAndAfterEach
-    with Browser
-    with ScreenshotOnFailure
- {
+class PageSpec extends BaseSpec {
 
-  override def beforeEach(): Unit =
-    startBrowser()
+  private val page = Page
 
-  override def afterEach(): Unit =
-    quitBrowser()
+  Feature("Minimal UI Test") {
+
+    Scenario("User performs a basic interaction") {
+
+      Given("the user navigates to a minimal page")
+      page.goTo()
+
+      When("the user performs a minimal action")
+      page.performMinimalAction()
+
+      Then("the test should pass with a predefined outcome")
+      page.outcome() should be("Success")
+    }
+  }
 
 }
