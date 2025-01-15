@@ -5,10 +5,7 @@ ENV=$2
 
 if [ -z "$BROWSER_TYPE" ]; then
     echo "BROWSER_TYPE value not set, defaulting to $DEFAULT_BROWSER..."
-    echo ""
+    echo "BROWSER_TYPE value set to $BROWSER_TYPE..."
 fi
-
-# Scalafmt checks have been separated from the test command to avoid OutOfMemoryError in Jenkins
-sbt  scalafmtAll scalafmtCheckAll scalafmtSbtCheck
 
 sbt clean -Dbrowser="${BROWSER_TYPE:=$DEFAULT_BROWSER}" -Denvironment="${ENV:=local}" "testOnly uk.gov.hmrc.test.ui.runner.Runner" testReport
