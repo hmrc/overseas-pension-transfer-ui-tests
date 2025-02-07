@@ -16,16 +16,17 @@
 
 package uk.gov.hmrc.ui.pages
 
-object Page extends BasePage{
-    def goTo(): Unit = {
-      println("Navigating to the page...")
-    }
+object Page extends BasePage {
 
-    def performMinimalAction(): Unit = {
-      println("Performing minimal action...")
-    }
+  def goTo(): Unit = {
+    println("Navigating to the page...")
+  }
 
-    def outcome(): String = {
-      "Success"
-    }
+  def performMinimalAction(): Unit = {
+    println("Performing minimal action...")
+  }
+
+  def outcome(): String = {
+    "Success"
+  }
 }

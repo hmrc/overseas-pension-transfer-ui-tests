@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.ui.specs
 
-import uk.gov.hmrc.ui.pages.{Page}
+import uk.gov.hmrc.ui.pages.Page
 
 class PageSpec extends BaseSpec {
 
