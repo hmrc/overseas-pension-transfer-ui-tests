@@ -19,18 +19,15 @@ package uk.gov.hmrc.ui.pages
 import org.openqa.selenium.By
 import uk.gov.hmrc.configuration.TestEnvironment
 
-object IndexPage extends BasePage{
+object IndexPage extends BasePage {
 
   val authPage = AuthPage
 
   val nextPage = TestEnvironment.url("overseas-pension-transfer-frontend") + "/member-name"
 
-    def goTo(): Unit = {
-      authPage.authorise()
-    }
+  def goTo(): Unit =
+    authPage.authorise()
 
-    def continue(): Unit = {
-      click(By.className("govuk-button"))
-    }
-
+  def continue(): Unit =
+    click(By.className("govuk-button"))
 }

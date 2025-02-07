@@ -16,12 +16,12 @@
 
 package uk.gov.hmrc.ui.specs
 
-import uk.gov.hmrc.ui.pages.{AuthPage, IndexPage, Page}
+import uk.gov.hmrc.configuration.TestEnvironment
+import uk.gov.hmrc.ui.pages.IndexPage
 
 class IndexSpec extends BaseSpec {
 
   private val page = IndexPage
-
 
   Feature("User continues to members name") {
 
@@ -30,12 +30,11 @@ class IndexSpec extends BaseSpec {
       Given("the user navigates to the index")
       page.goTo()
 
-      When("the use clicks continue")
+      When("the user clicks continue")
       page.continue()
 
       Then("the user should be redirected to enter member name page")
-      page.nextPage should be("http://localhost:15600/overseas-pension-transfer-frontend/member-name")
+      page.nextPage should be(TestEnvironment.url("overseas-pension-transfer-frontend") + "/member-name")
     }
   }
-
 }

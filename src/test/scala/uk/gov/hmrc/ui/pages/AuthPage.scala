@@ -20,14 +20,10 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.configuration.TestEnvironment
 
 object AuthPage extends BasePage {
-  val url = "http://localhost:9949/auth-login-stub/gg-sign-in"
+  val url: String = TestEnvironment.url("auth-login-stub") + "/gg-sign-in"
 
-  def goTo(): Unit = {
+  def authorise(): Unit = {
     get(url)
-  }
-
-  def authorise(): Unit ={
-    this.goTo()
     sendKeys(By.id("redirectionUrl"), TestEnvironment.url("overseas-pension-transfer-frontend"))
     click(By.id("submit-top"))
   }
