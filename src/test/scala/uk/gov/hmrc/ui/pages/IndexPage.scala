@@ -25,8 +25,6 @@ object IndexPage extends BasePage {
 
   val nextPage = TestEnvironment.url("overseas-pension-transfer-frontend") + "/member-name"
 
-  def goTo(): Unit =
-    authPage.authorise()
 
   def continue(): Unit =
     click(By.className("govuk-button"))

@@ -17,18 +17,19 @@
 package uk.gov.hmrc.ui.specs
 
 import uk.gov.hmrc.configuration.TestEnvironment
-import uk.gov.hmrc.ui.pages.IndexPage
+import uk.gov.hmrc.ui.pages.{AuthPage, IndexPage}
 
 class IndexSpec extends BaseSpec {
 
   private val page = IndexPage
+  private val authPage = AuthPage
 
   Feature("User continues to members name") {
 
     Scenario("User continues to member page") {
 
-      Given("the user navigates to the index")
-      page.goTo()
+      Given("the user authenticates and navigates to the index")
+      authPage.authorise()
 
       When("the user clicks continue")
       page.continue()
