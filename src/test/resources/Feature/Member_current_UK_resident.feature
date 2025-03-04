@@ -1,34 +1,49 @@
 @AllTests @Membercurrentlyresident
 Feature: Testing of screen "Is undefined currently a resident of UK for tax purposes?"
 
-  Background: : Common Steps - Is Member a resident of UK
-    Given I access the url "http://localhost:15600/overseas-pension-transfer-frontend/member-is-resident-uk"
-    When I see the page "Member current UK Resident page"
-    And I see the heading "Is undefined currently a resident of UK for tax purposes?"
-    And I see the sentence "Choose One"
-    And I see a radio button "Yes"
-    And I see a radio button "No"
-    And I see the sentence "Return to task list"
-    And I see the sentence "Is this page not working properly? (opens in new tab)"
+  Background: Common Steps - Is Member a resident of UK
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirect URL on Auth Login Stub Page for "Member currently UK resident"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the " Is Jon Doe currently a resident in the UK for tax purposes? Page"
+    And I should see the following text on the page
+      | Is Jon Doe currently a resident in the UK for tax purposes? |
+    And I should see the following text on the page
+      | Select One |
+    And I should see the following text on the page
+      | Yes |
+    And I should see the following text on the page
+      | No |
+    And I should see the following text on the page
+      | save and continue |
+    
 
   @Test
   Scenario:1- Positive Journey - Select 'Yes' radio button
-    When I select the radio button "Yes" on "Member current UK Resident page"
+    When I select radio button "Yes" on "Member current UK Resident page"
     And I click continue button on "Member current UK Resident page"
-    Then I see the page "overseas pension transfer frontend page"
+    Then I am presented with the "overseas pension transfer frontend page"
     When I click continue button on "overseas pension transfer frontend page"
-    And I see the page "member's name page"
+    And I am presented with the "member's name page"
 
 @Test
   Scenario:1- Positive Journey - Select 'No' radio button
-    When I select the radio button "No" on "Member current UK Resident page"
+    When I select radio button "No" on "Member current UK Resident page"
     And I click continue button on "Member current UK Resident page"
-    Then I see the page "overseas pension transfer frontend page"
+    Then I am presented with the "overseas pension transfer frontend page"
     When I click continue button on "overseas pension transfer frontend page"
-    And I see the page "member's name page"
+    And I am presented with the "member's name page"
 
   @Test
     Scenario:1- Positive Journey - Select 'No' radio button
       When I click continue button on "Member current UK Resident page"
-      And I see the sentence "There is a problem"
-      And I see the sentence "Select one option"
+      Then I should see the following text on the page
+        | There is a problem |
+    And I should see the following text on the page
+      | Select one option |
+    When I select radio button "Yes" on "Member current UK Resident page"
+    And I click continue button on "Member current UK Resident page"
+    Then I am presented with the "overseas pension transfer frontend page"
+    When I click continue button on "overseas pension transfer frontend page"
+    And I am presented with the "member's name page"
