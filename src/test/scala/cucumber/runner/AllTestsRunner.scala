@@ -14,27 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.specs
+package cucumber.runner
 
-import uk.gov.hmrc.ui.pages.Page
+import io.cucumber.junit.{Cucumber, CucumberOptions}
+import org.junit.runner.RunWith
 
-class PageSpec extends BaseSpec {
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue     = Array("cucumber.stepdefs"),
+  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/AllTestsRunner.xml"),
+  tags     = "@AllTests"
+)
+class AllTestsRunner {}
 
-  private val page = Page
-
-  Feature("Minimal UI Test") {
-
-    Scenario("User performs a basic interaction") {
-
-      Given("the user navigates to a minimal page")
-      page.goTo()
-
-      When("the user performs a minimal action")
-      page.performMinimalAction()
-
-      Then("the test should pass with a predefined outcome")
-      page.outcome() should be("Success")
-    }
-  }
-
-}
+object AllTestsRunner extends AllTestsRunner

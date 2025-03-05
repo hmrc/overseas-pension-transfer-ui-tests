@@ -14,17 +14,8 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package pages.overseasPension.transferDetails
 
-import org.openqa.selenium.By
-import uk.gov.hmrc.configuration.TestEnvironment
+class SamplePlaceHolder {
 
-object AuthPage extends BasePage {
-  val url: String = TestEnvironment.url("auth-login-stub") + "/gg-sign-in"
-
-  def authorise(): Unit = {
-    get(url)
-    sendKeys(By.id("redirectionUrl"), TestEnvironment.url("overseas-pension-transfer-frontend"))
-    click(By.id("submit-top"))
-  }
 }

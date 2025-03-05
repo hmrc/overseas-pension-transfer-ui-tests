@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package cucumber.runner
 
-import org.openqa.selenium.By
-import uk.gov.hmrc.configuration.TestEnvironment
+import io.cucumber.junit.Cucumber
+import io.cucumber.junit.CucumberOptions
+import org.junit.runner.RunWith
 
-object IndexPage extends BasePage {
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue     = Array("uk.gov.hmrc.alcoholDuty.cucumber.stepdefs"),
+  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
+  tags     = "@Test"
+)
+class Runner {}
 
-  val authPage = AuthPage
-
-  val nextPage = TestEnvironment.url("overseas-pension-transfer-frontend") + "/member-name"
-
-
-  def continue(): Unit =
-    click(By.className("govuk-button"))
-}
+object Runner extends Runner

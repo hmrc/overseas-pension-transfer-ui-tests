@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package cucumber.runner
 
-object Page extends BasePage {
+import io.cucumber.junit.{Cucumber, CucumberOptions}
+import org.junit.runner.RunWith
 
-  def goTo(): Unit = {
-    println("Navigating to the page...")
-  }
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue     = Array("cucumber.stepdefs"),
+  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json"),
+  tags     = "@BrowserStack"
+)
+class BrowserStackRunner {}
 
-  def performMinimalAction(): Unit = {
-    println("Performing minimal action...")
-  }
-
-  def outcome(): String = {
-    "Success"
-  }
-}
+object BrowserStackRunner extends BrowserStackRunner

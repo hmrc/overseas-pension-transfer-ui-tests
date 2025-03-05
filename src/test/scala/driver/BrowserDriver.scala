@@ -14,8 +14,14 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.ui.pages
+package driver
 
-import uk.gov.hmrc.selenium.component.PageObject
+import com.typesafe.scalalogging.LazyLogging
+import org.openqa.selenium.WebDriver
+import uk.gov.hmrc.selenium.webdriver.Driver
 
-trait BasePage extends PageObject {}
+trait BrowserDriver extends LazyLogging {
+
+  implicit val driver: WebDriver = Driver.instance
+
+}
