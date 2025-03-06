@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-package cucumber.runner
+package uk.gov.hmrc.otc.driver
 
-import io.cucumber.junit.{Cucumber, CucumberOptions}
-import org.junit.runner.RunWith
+import com.typesafe.scalalogging.LazyLogging
+import org.openqa.selenium.WebDriver
+import uk.gov.hmrc.selenium.webdriver.Driver
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("src/test/resources/features"),
-  glue     = Array("cucumber.stepdefs"),
-  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/AllTestsRunner.xml"),
-  tags     = "@AllTests"
-)
-class AllTestsRunner {}
+trait BrowserDriver extends LazyLogging {
 
-object AllTestsRunner extends AllTestsRunner
+  implicit val driver: WebDriver = Driver.instance
+
+}

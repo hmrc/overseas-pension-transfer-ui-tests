@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package pages.auth
+package uk.gov.hmrc.otc.pages.auth
 
 import org.openqa.selenium.By
-import pages.BasePage
-import conf.TestConfiguration
+import uk.gov.hmrc.otc.conf.TestConfiguration
+import uk.gov.hmrc.otc.pages.BasePage
 
 object AuthLoginStubPage extends BasePage {
 

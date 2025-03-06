@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package cucumber.stepdefs
+package uk.gov.hmrc.otc.cucumber.stepdefinitions
 
 import io.cucumber.scala._
 import org.openqa.selenium._
+import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.selenium.webdriver.{Browser, Driver}
-import driver.BrowserDriver
 
 object Hooks extends ScalaDsl with EN with BrowserDriver with Browser {
 

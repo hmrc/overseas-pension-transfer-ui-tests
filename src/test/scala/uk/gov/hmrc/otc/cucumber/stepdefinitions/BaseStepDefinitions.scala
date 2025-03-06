@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cucumber.stepdefs
+package uk.gov.hmrc.otc.cucumber.stepdefinitions
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
@@ -23,16 +23,16 @@ import org.openqa.selenium.By
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.WebBrowser
-import conf.TestConfiguration
-import driver.BrowserDriver
-import pages.BasePage
-import pages.generic.PageObjectFinder
-import pages.generic.PageObjectFinder.DataTableConverters
+import uk.gov.hmrc.otc.conf.TestConfiguration
+import uk.gov.hmrc.otc.driver.BrowserDriver
+import uk.gov.hmrc.otc.pages.BasePage
+import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
+import uk.gov.hmrc.otc.pages.generic.PageObjectFinder
 import scala.jdk.CollectionConverters._
 
 import java.time.LocalDate
 
-trait BaseStepDef
+trait BaseStepDefinitions
     extends ScalaDsl
     with EN
     with BrowserDriver
@@ -58,14 +58,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
-  }
-
-  Then("""I am presented with the dynamic header page {string} {string}""") { (page: String, text: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
-    checkDynamicPageHeader(text)
   }
 
   Then("""I am presented with the {string} with new url""") { page: String =>
@@ -162,17 +154,17 @@ trait BaseStepDef
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
       case "Task List Page"            =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
+        driver.get(TestConfiguration.url("overseas-pension-transfer-frontend") + "/complete-return/task-list")
       case "Return Summary Page"       =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
+        driver.get(TestConfiguration.url("overseas-pension-transfer-frontend") + "/complete-return/check-return")
       case "Alcohol Duty Service"      =>
         driver.get(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey()
+          TestConfiguration.url("overseas-pension-transfer-frontend") + "/before-you-start-your-return/" + periodKey()
         )
       case "Previous Month Period Key" =>
         driver.get(
           TestConfiguration.url(
-            "alcohol-duty-returns-frontend"
+            "overseas-pension-transfer-frontend"
           ) + "/before-you-start-your-return/" + previousPeriodKey()
         )
     }
@@ -182,20 +174,6 @@ trait BaseStepDef
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
     val actualData   = PageObjectFinder.pageData
     actualData should be(expectedData)
-  }
-
-  And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val expected = PageObjectFinder.expectedOutstandingReturns
-    val actual   = outstandingReturnsList
-    actual should be(expected)
-  }
-
-  And("""I should verify the completed returns details on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val expected = PageObjectFinder.expectedCompletedReturns
-    val actual   = completedReturnsList
-    actual should be(expected)
   }
 
   And("""I verify the content {string} on {string}""") { (expectedText: String, page: String) =>
@@ -223,34 +201,6 @@ trait BaseStepDef
     actual should be(expected)
   }
 
-  And("""I should verify the {string} payment details of the table {int} on {string}""") {
-    (tableHeader: String, num: Int, page: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-
-      def getResultList(num: Int): Seq[List[String]] =
-        driver
-          .findElement(By.xpath("//div/table[" + num + "]"))
-          .findElements(By.tagName("tr"))
-          .asScala
-          .map(
-            _.findElements(By.xpath("td | th")).asScala
-              .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
-              .toList
-          )
-          .toList
-
-      val actual = getResultList(num)
-
-      tableHeader match {
-        case "Outstanding" =>
-          actual should be(expectedOutstandingPayments)
-        case "Unallocated" =>
-          actual should be(expectedUnallocatedPayments)
-        case "Historical"  =>
-          actual should be(expectedHistoricalPayments)
-      }
-  }
-
   And("""^I should see the following product details""") { data: DataTable =>
     val expected = data.asScalaListOfLists
     val actual   = productsList
@@ -273,7 +223,7 @@ trait BaseStepDef
 
     periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
       case Some((_, suffix)) =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + s"/view-your-return/$suffix")
+        driver.get(TestConfiguration.url("overseas-pension-transfer-frontend") + s"/view-your-return/$suffix")
       case None              =>
         logger.warn("No month returned to fit within the quarterly spirits requirement. Please check")
         Assert.fail()
@@ -318,23 +268,6 @@ trait BaseStepDef
     actualText should be(expectedText)
   }
 
-  Then("""I verify the return due date for {string} on {string}""") { (content: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
-
-    content match {
-      case "Latest Month Selected" =>
-        actualText should be(
-          "Use this service to submit your Alcohol Duty Return for " + firstDayOfCurrentMonth + " to " + lastDayOfCurrentMonth + "."
-        )
-
-      case "Previous Month Selected" =>
-        actualText should be(
-          "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
-        )
-    }
-  }
-
   And("""I should verify the table header displayed""") { (data: DataTable) =>
     val expectedText = data.asScalaListOfStrings
     tableHeaderText should be(expectedText)
@@ -344,25 +277,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expectedText = data.asScalaListOfStrings
     allTaxTypeCodeText() should be(expectedText)
-  }
-
-  Then("""I can see below text on the {string}""") { (page: String, data: DataTable) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val expectedText = data.asScalaListOfStrings
-    getBulletPointsTextPureAlcohol should be(expectedText)
-  }
-
-  Then("""I can see below text on the {string} for pure alcohol""") { (data: DataTable) =>
-    val expectedText = data.asScalaListOfStrings
-    getBulletPointsTextPureAlcohol should be(expectedText)
-  }
-
-  Then("""I can see below text for {string}""") { (entryType: String, data: DataTable) =>
-    val expectedText = data.asScalaListOfStrings
-    entryType match {
-      case "pure alcohol" => getBulletPointsTextPureAlcohol should be(expectedText)
-      case "duty due"     => getBulletPointsTextDutyDue     should be(expectedText)
-    }
   }
 
   Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>
@@ -388,7 +302,7 @@ trait BaseStepDef
   }
 
   Given("""I cleared the data for the service""") {
-    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+    driver.get(TestConfiguration.url("overseas-pension-transfer-frontend") + "/test-only/clear-all")
   }
 
   And("""I should see following details at the {string}""") { (page: String, data: DataTable) =>
@@ -425,11 +339,6 @@ trait BaseStepDef
         }
       }
     }
-  }
-
-  And("""I should see the following text on the page""") { data: DataTable =>
-    val expected = data.asScalaListOfStrings
-    alcoholToDeclareSectionText should be(expected)
   }
 
   And("""I click on change link {int} on {string} for alcohol type {string}""") {
@@ -477,10 +386,5 @@ trait BaseStepDef
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
     val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText
     actualText should be(paymentAmountText)
-  }
-
-  And("""I should see the following alcohol types""") { data: DataTable =>
-    val expected = data.asScalaListOfStrings
-    alcoholTypes should be(expected)
   }
 }

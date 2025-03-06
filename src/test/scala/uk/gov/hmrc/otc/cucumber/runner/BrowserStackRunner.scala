@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package cucumber.runner
+package uk.gov.hmrc.otc.cucumber.runner
 
-import io.cucumber.junit.Cucumber
-import io.cucumber.junit.CucumberOptions
+import io.cucumber.junit.{Cucumber, CucumberOptions}
 import org.junit.runner.RunWith
 
 @RunWith(classOf[Cucumber])
 @CucumberOptions(
   features = Array("src/test/resources/features"),
-  glue     = Array("uk.gov.hmrc.alcoholDuty.cucumber.stepdefs"),
-  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
-  tags     = "@Test"
+  glue     = Array("uk.gov.hmrc.otc.cucumber.stepdefinitions"),
+  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json"),
+  tags     = "@BrowserStack"
 )
-class Runner {}
+class BrowserStackRunner {}
 
-object Runner extends Runner
+object BrowserStackRunner extends BrowserStackRunner

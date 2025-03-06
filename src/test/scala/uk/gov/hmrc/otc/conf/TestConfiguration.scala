@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package conf
+package uk.gov.hmrc.otc.conf
 
 import com.typesafe.config.{Config, ConfigFactory}
 

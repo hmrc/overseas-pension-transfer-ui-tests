@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package pages
+package uk.gov.hmrc.otc.pages
 
-import driver.BrowserDriver
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
 import org.openqa.selenium.{By, WebDriver, WebElement}
 import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
+import uk.gov.hmrc.otc.driver.BrowserDriver
 
 import java.time.format.DateTimeFormatter
 import java.time.{Duration, LocalDate}
@@ -184,30 +184,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def listOfErrorMessages(): List[String] = errorMessage().getText.split("\n").toList
 
-  def checkDynamicPageHeader(text: String): Unit =
-    text match {
-      case "Under-declaration"           =>
-        driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for under-declared alcohol"
-        )
-      case "Over-declaration"            =>
-        driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for over-declared alcohol"
-        )
-      case "Spoilt"                      =>
-        driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for spoilt alcohol"
-        )
-      case "Drawback"                    =>
-        driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for duty drawback"
-        )
-      case "Repackaged draught products" =>
-        driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for repackaged draught products"
-        )
-    }
-
   def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
 
   def pageData: Map[String, String] = driver
@@ -243,135 +219,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       7
     else
       10
-
-  val currentDate: LocalDate          = LocalDate.now()
-  val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
-  val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
-  val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1)
-    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-  val lastDayOfCurrentMonth: String   =
-    firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-  val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1)
-    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-  val lastDayOfPreviousMonth: String  =
-    firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-
-  val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
-  val now: LocalDate               = LocalDate.now()
-
-  def getCompletedMonth1PeriodKey: String =
-    s"""${now.minusMonths(5).getYear.toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue + 64).toChar}"""
-
-  def expectedOutstandingReturns: List[List[String]] = List(
-    List("Period", "Status", "Action"),
-    List(now.minusMonths(1).format(formatter), "Due", "Submit Return"),
-    List(now.minusMonths(2).format(formatter), "Overdue", "Submit Return"),
-    List(now.minusMonths(3).format(formatter), "Overdue", "Submit Return"),
-    List(now.minusMonths(4).format(formatter), "Overdue", "Submit Return")
-  )
-
-  def expectedCompletedReturns: List[List[String]] = List(
-    List("Period", "Status", "Action"),
-    List(now.minusMonths(5).format(formatter), "Completed", "View Return"),
-    List(now.minusMonths(6).format(formatter), "Completed", "View Return"),
-    List(now.minusMonths(7).format(formatter), "Completed", "View Return")
-  )
-
-  val formatterPaymentMonth: DateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
-
-  def expectedOutstandingPayments: List[List[String]] = List(
-    List("To be paid by", "Description", "Left to pay", "Status", "Action"),
-    List(
-      (currentDate.plusMonths(1) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Payment for Alcohol Duty return",
-      "£237.44",
-      "Due",
-      "Pay now"
-    ),
-    List(
-      currentDate.format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Late payment interest charge",
-      "£20.56",
-      "Due",
-      "Pay now"
-    ),
-    List(
-      (currentDate.minusMonths(2) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Payment for Alcohol Duty return",
-      "£4,577.44",
-      "Overdue",
-      "Pay now"
-    ),
-    List(
-      (currentDate.minusMonths(3) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Payment for Alcohol Duty return",
-      "£2,577.44",
-      "Overdue",
-      "Pay now"
-    ),
-    List(
-      (currentDate.minusMonths(4) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Credit for Alcohol Duty return",
-      "−£2,577.44",
-      "Nothing to pay",
-      ""
-    ),
-    List(
-      (currentDate.minusMonths(5) withDayOfMonth 1)
-        .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Refund payment interest charge",
-      "−£20.56",
-      "Nothing to pay",
-      ""
-    ),
-    List(
-      (currentDate.minusMonths(6) withDayOfMonth 1)
-        .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Late payment interest charge",
-      "£10.56",
-      "Overdue",
-      "Pay now"
-    )
-  )
-
-  def expectedUnallocatedPayments: List[List[String]] = List(
-    List("Payment date", "Description", "Amount"),
-    List(
-      (currentDate withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Payment",
-      "−£1,000.00"
-    ),
-    List(
-      (currentDate.minusMonths(1) withDayOfMonth 1)
-        .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Payment",
-      "−£500.00"
-    )
-  )
-
-  def expectedHistoricalPayments: List[List[String]] = List(
-    List("Return period", "Description", "Amount"),
-    List(
-      currentDate.format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared late payment interest charge payments",
-      "£20.56"
-    ),
-    List(
-      currentDate.minusMonths(3).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared Alcohol Duty payments",
-      "£4,577.44"
-    ),
-    List(
-      currentDate.minusMonths(4).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared Alcohol Duty payments",
-      "£2,000.00"
-    ),
-    List(
-      currentDate.minusMonths(6).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared late payment interest charge payments",
-      "£10.00"
-    )
-  )
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
@@ -417,13 +264,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     )
     .toList
 
-  //To get the pure alcohol text
-  private def bulletPointsTextPureAlcohol() =
-    driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[1]"))
-
-  def getBulletPointsTextPureAlcohol: Seq[String] = bulletPointsTextPureAlcohol().getText.split("\n").toList
-
-  //To get the duty due text
+  // To get the duty due text
   private def bulletPointsTextDutyDue() =
     driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[2]"))
 
@@ -468,13 +309,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
     .toMap
 
-  def alcoholToDeclareSectionText: List[String] = driver
-    .findElement(By.xpath("//dd[@class='govuk-summary-list__value']/ul"))
-    .findElements(By.tagName("li"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
   def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
     case "first"       => 0
     case "second"      => 1
@@ -500,15 +334,4 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
-
-  def alcoholTypes: List[String] = driver
-    .findElement(By.cssSelector(".govuk-checkboxes"))
-    .findElements(By.tagName("label"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  //this method returns a string that contains a date of five months past
-  def getSpecificMonth: String =
-    now.minusMonths(5).format(formatter)
 }

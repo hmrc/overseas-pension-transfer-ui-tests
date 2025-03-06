@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-package driver
+package uk.gov.hmrc.otc.cucumber.runner
 
-import com.typesafe.scalalogging.LazyLogging
-import org.openqa.selenium.WebDriver
-import uk.gov.hmrc.selenium.webdriver.Driver
+import io.cucumber.junit.{Cucumber, CucumberOptions}
+import org.junit.runner.RunWith
 
-trait BrowserDriver extends LazyLogging {
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue     = Array("uk.gov.hmrc.otc.cucumber.stepdefinitions"),
+  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
+  tags     = "@Test and not @Ignore"
+)
+class Runner {}
 
-  implicit val driver: WebDriver = Driver.instance
-
-}
+object Runner extends Runner

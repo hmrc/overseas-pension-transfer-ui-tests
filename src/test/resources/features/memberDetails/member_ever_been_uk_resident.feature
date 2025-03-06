@@ -1,4 +1,4 @@
-@AllTests @Membercurrentlyresident
+@Ignore @Test @HasEverBeenResident
 Feature: Testing of screen "Is undefined currently a resident of UK for tax purposes?"
 
   Background: Common Steps - Is Member a resident of UK
@@ -18,8 +18,7 @@ Feature: Testing of screen "Is undefined currently a resident of UK for tax purp
     And I should see the following text on the page
       | save and continue |
 
-
-  @Test
+@Test
   Scenario:1- Positive Journey - Select 'Yes' radio button
     When I select radio button "Yes" on "Member ever been UK Resident page"
     And I click continue button on "Member ever been UK Resident page"

@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2023 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,18 @@
  * limitations under the License.
  */
 
-package pages.overseasPension.memberDetails
+package uk.gov.hmrc.otc.cucumber.runner
 
-class Membercurrentlyresident {
+import io.cucumber.junit.{Cucumber, CucumberOptions}
+import org.junit.runner.RunWith
 
-}
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue     = Array("uk.gov.hmrc.otc.cucumber.stepdefs"),
+  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/AllTestsRunner.xml"),
+  tags     = "@AllTests"
+)
+class AllTestsRunner {}
+
+object AllTestsRunner extends AllTestsRunner
