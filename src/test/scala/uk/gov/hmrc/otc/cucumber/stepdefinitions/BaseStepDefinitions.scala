@@ -44,7 +44,11 @@ trait BaseStepDefinitions
   val currentYear: Int  = LocalDate.now().minusMonths(5).getYear
   val shortYear: String = currentYear.toString.substring(2)
 
-  Then("""I navigate to the {string}""") { page: String =>
+  When("""I navigate to the {string}""") { page: String =>
+    go to PageObjectFinder.page(page)
+  }
+
+  Given("""I navigated to the {string}""") { page: String =>
     go to PageObjectFinder.page(page)
   }
 
@@ -174,6 +178,40 @@ trait BaseStepDefinitions
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
     val actualData   = PageObjectFinder.pageData
     actualData should be(expectedData)
+  }
+
+  And("""^I should see the heading "Is (.+) currently a resident of UK for tax purposes\?"$""") { (memberName: String) =>
+    val headingElement  = driver.findElement(By.tagName("h1")) // Assuming the heading is in an <h1> tag
+    val expectedHeading = s"Is $memberName currently a resident of UK for tax purposes?"
+    println(s"The expected page header is --------------------------------- $expectedHeading")
+    headingElement.getText should be(expectedHeading)
+  }
+
+  And("""^I should see the hint text "(.*)" with two radio buttons: "(.*)" and "(.*)"$""") { (hintText: String, optYes: String, optNo: String) =>
+    val hintElement = driver.findElement(By.className("govuk-hint")) // Adjust locator if needed
+    hintElement.getText should be(hintText)
+
+    val radioOptions = driver.findElements(By.cssSelector("label.govuk-label"))
+    val radioTexts   = radioOptions.asScala.map(_.getText)
+
+    radioTexts should contain(optYes)
+    radioTexts should contain(optNo)
+  }
+
+  /*And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>
+    // Locate button
+    val buttonElement = driver.findElement(By.xpath(s"//button[normalize-space(text())='$buttonLabel']"))
+
+    // Validate the button text
+    buttonElement.getText should be(buttonLabel)
+  }*/
+
+  And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>
+    // Locate button with type='submit'
+    val buttonElement = driver.findElement(By.xpath(s"//button[@type='submit' and normalize-space(text())='$buttonLabel']"))
+
+    // Validate the button label
+    buttonElement.getAttribute("value") should be(buttonLabel)
   }
 
   And("""I verify the content {string} on {string}""") { (expectedText: String, page: String) =>
