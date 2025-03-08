@@ -9,11 +9,10 @@ Feature: Is the member currently a resident of UK for tax purposes?
     # Redirection currently does not work for any other page other than the Index page
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Overseas Transfer Index Page"
-
-  @Test
-  Scenario Outline: Verify Is Member Currently UK Resident Page
-    Given I navigated to the "Is Member Currently UK Resident Page"
+    And I navigated to the "Is Member Currently UK Resident Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
+
+  Scenario Outline: Verify Is Member Currently UK Resident Page
     Then I should see the heading "Is <memberName> currently a resident of UK for tax purposes?"
     And I should see the hint text "Select one" with two radio buttons: "Yes" and "No"
 
@@ -21,28 +20,20 @@ Feature: Is the member currently a resident of UK for tax purposes?
       | memberName |
       | undefined  |
 
-  @Test
   Scenario:1. Positive Journey - Select 'Yes' radio button
     When I select radio button "Yes" on "Is Member Currently UK Resident Page"
-    And I click continue button on "Is Member Currently UK Resident Page"
+    And I click save and continue button on "Is Member Currently UK Resident Page"
     Then I am presented with the "Overseas Transfer Index Page"
 # Above action would have to be rewritten upon page gets connected
 
-  @Test
   Scenario:2. Positive Journey - Select 'No' radio button
     When I select radio button "No" on "Is Member Currently UK Resident Page"
-    And I click continue button on "Is Member Currently UK Resident Page"
+    And I click save and continue button on "Is Member Currently UK Resident Page"
     Then I am presented with the "Overseas Transfer Index Page"
 # Above action would have to be rewritten upon page gets connected
 
-  @Test
   Scenario:3. Negative Journey - No Selection Error
-    When I click continue button on "Is Member Currently UK Resident Page"
-    Then I should see the following text on the page
-      | There is a problem |
-      | Select one option  |
-    When I select radio button "Yes" on "Is Member Currently UK Resident Page"
-    And I click continue button on "Is Member Currently UK Resident Page"
-    Then I am presented with the "Overseas Transfer Index Page"
-    When I click continue button on "Overseas Transfer Index Page"
-    And I am presented with the "member's name page"
+    When I click save and continue button on "Is Member Currently UK Resident Page"
+    Then I am presented with the "Is Member Currently UK Resident Page" error page
+    And I should see the "There is a problem" and below error messages
+      | Select one option |

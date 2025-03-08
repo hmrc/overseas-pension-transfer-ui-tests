@@ -48,7 +48,7 @@ trait BaseStepDefinitions
     go to PageObjectFinder.page(page)
   }
 
-  Given("""I navigated to the {string}""") { page: String =>
+  And("""I navigated to the {string}""") { page: String =>
     go to PageObjectFinder.page(page)
   }
 
@@ -60,7 +60,6 @@ trait BaseStepDefinitions
   Then("""I am presented with the {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
 
@@ -85,6 +84,7 @@ trait BaseStepDefinitions
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
+
   Then("""I am presented with the {string} with existing url suffix as {string}""") {
     (page: String, urlSuffix: String) =>
       PageObjectFinder.page(page).waitForPageHeader

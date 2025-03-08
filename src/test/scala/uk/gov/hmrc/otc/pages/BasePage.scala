@@ -151,7 +151,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickSubmitButton(): Unit = click on cssSelector("#submit")
 
-  def clickSaveAndContinueButton(): Unit = click on id("saveAndContinueButton")
+  def clickSaveAndContinueButton(): Unit = click on cssSelector(".govuk-button")
 
   def clickContinueButton(): Unit = click on id("continueButton")
 
