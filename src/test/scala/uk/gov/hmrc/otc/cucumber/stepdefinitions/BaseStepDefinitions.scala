@@ -150,6 +150,14 @@ trait BaseStepDefinitions
       PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
   }
 
+  When("""I enter {string} in the textarea field on {string}""") {
+    (textToEnter: String, page: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      val textAreaElement = driver.findElement(By.className("govuk-textarea"))
+      textAreaElement.clear()
+      textAreaElement.sendKeys(textToEnter)
+  }
+
   When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month, year)
@@ -180,17 +188,17 @@ trait BaseStepDefinitions
     actualData should be(expectedData)
   }
 
-  And("""^I should see the heading "Is (.+) currently a resident of UK for tax purposes\?"$""") { (memberName: String) =>
-    val headingElement  = driver.findElement(By.tagName("h1")) // Assuming the heading is in an <h1> tag
-    val expectedHeading = s"Is $memberName currently a resident of UK for tax purposes?"
-    println(s"The expected page header is --------------------------------- $expectedHeading")
+  And("""^I should see the heading "(.*)"$""") { (expectedHeading: String) =>
+    val headingElement = driver.findElement(By.tagName("h1"))
     headingElement.getText should be(expectedHeading)
   }
 
-  And("""^I should see the hint text "(.*)" with two radio buttons: "(.*)" and "(.*)"$""") { (hintText: String, optYes: String, optNo: String) =>
-    val hintElement = driver.findElement(By.className("govuk-hint")) // Adjust locator if needed
+  And("""I should see the hint text {string}""") { (hintText: String) =>
+    val hintElement = driver.findElement(By.className("govuk-hint"))
     hintElement.getText should be(hintText)
+  }
 
+  And("""I should see two radio buttons: {string} and {string}""") { (optYes: String, optNo: String) =>
     val radioOptions = driver.findElements(By.cssSelector("label.govuk-label"))
     val radioTexts   = radioOptions.asScala.map(_.getText)
 
@@ -207,10 +215,7 @@ trait BaseStepDefinitions
   }*/
 
   And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>
-    // Locate button with type='submit'
     val buttonElement = driver.findElement(By.xpath(s"//button[@type='submit' and normalize-space(text())='$buttonLabel']"))
-
-    // Validate the button label
     buttonElement.getAttribute("value") should be(buttonLabel)
   }
 

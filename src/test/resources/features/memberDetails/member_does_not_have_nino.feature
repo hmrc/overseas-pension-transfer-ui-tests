@@ -1,25 +1,39 @@
-@Ignore @Test @DoesNotHaveNINO
+@Test @DoesNotHaveNINO
 Feature: Adding details for the member who does not have NINO
 
-  Background: : Common Steps - Reason for no NINO
+  Background: Common Steps - Member Details Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Member does not have NINO"
+    And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
+    # And I enter redirect URL on Auth Login Stub Page for "Is Member Currently UK Resident Page"
+    # Redirection currently does not work for any other page other than the Index page
     And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Member does not have NINO Page"
-    Then I should see the following text on the page
-      | Why doesn’t Jon Doe have a National Insurance number? |
-    Then I should see the following text on the page
-      | If the member has another HMRC reference number that relates to them as an individual, please give that number. |
-    When I click save and continue button on "overseas pension transfer frontend page"
+    Then I am presented with the "Overseas Transfer Index Page"
+    And I navigated to the "Member Does Not Have NINO Page"
+    Then I am presented with the "Member Does Not Have NINO Page"
 
-  @Test
-  Scenario:1- Happy Path for entering the reason for no NINO
-    When I enter "Card got lost and complaint raised" for "Why doesn’t Jon Doe have a National Insurance number?" on "Member does not have NINO Page"
-    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
-    And I click save and continue button on " Member does not have NINO Page"
-    Then I am presented with the "overseas pension transfer frontend page"
-    When I click continue button on "overseas pension transfer frontend page"
-    And I am presented with the "member's name page"
+  Scenario Outline: Verify Why the member does not have a National Insurance number?
+    Then I should see the heading "Why doesn’t <memberName> have a National Insurance number?"
+    And I should see the hint text "If the member has another HMRC reference number that relates to them as an individual, please give that number."
 
+    Examples:
+      | memberName          |
+      | undefined undefined |
 
+  Scenario:1. Positive journey - PSA/PSP enters 1 to 160 characters into the field
+    When I enter "This is the reason for not having NINO" in the textarea field on "Member Does Not Have NINO Page"
+    And I click save and continue button on "Member Does Not Have NINO Page"
+    Then I am presented with the "Member Date Of Birth Page"
+
+  Scenario:2. Negative Journey - PSA/PSP does not enter a value into the field
+    When I click save and continue button on "Member Does Not Have NINO Page"
+    Then I am presented with the "Member Does Not Have NINO Page" error page
+    And I should see the "There is a problem" and below error messages
+      | Enter the reason the member does not have a National Insurance number and a reference we can use to identify them |
+
+  Scenario:3. Negative Journey - PSA/PSP enters more than 160 characters into the field
+    When I enter "More than 160 characters, More than 160 characters, More than 160 characters, More than 160 characters, More than 160 characters, More than 160 characters. This is more." in the textarea field on "Member Does Not Have NINO Page"
+    And I click save and continue button on "Member Does Not Have NINO Page"
+    Then I am presented with the "Member Does Not Have NINO Page" error page
+    And I should see the "There is a problem" and below error messages
+      | The reason for not having a National Insurance number and reference in its place must be must be 160 characters or fewer |
