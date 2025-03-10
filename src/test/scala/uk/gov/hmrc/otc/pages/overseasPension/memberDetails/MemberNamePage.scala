@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension
+package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object OverseasTransferIndexPage extends BasePage {
+object MemberNamePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend")
-  override val title       = "overseas-pension-transfer-frontend"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-name"
+  override val title       = "What is the member's name?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error:  overseas-pension-transfer-frontend - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the member's name? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "overseas-pension-transfer-frontend - Report an overseas pension transfer - GOV.UK"
+    "What is the member's name? - Report an overseas pension transfer - GOV.UK"
   )
-
-  override def expectedPageHeader: Option[String] = Some("overseas-pension-transfer-frontend")
 
   override def clickContinueButton(): Unit = {
     click on cssSelector(".govuk-button")

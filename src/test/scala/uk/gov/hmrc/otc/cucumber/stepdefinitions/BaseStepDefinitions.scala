@@ -139,6 +139,10 @@ trait BaseStepDefinitions
     PageObjectFinder.page(page).enterDetails(data)
   }
 
+  When("""I enter {string} in the {string} field""") { (name: String, field: String) =>
+    driver.findElement(By.id(field)).sendKeys(name)
+  }
+
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
@@ -180,6 +184,12 @@ trait BaseStepDefinitions
           ) + "/before-you-start-your-return/" + previousPeriodKey()
         )
     }
+  }
+
+  And("""I enter nothing in the {string} field""") { (field: String) =>
+    val lastNameField = driver.findElement(By.id(field))
+    val fieldValue    = lastNameField.getAttribute("value")
+    fieldValue should be("")
   }
 
   And("""^I should see the following details""") { data: DataTable =>
