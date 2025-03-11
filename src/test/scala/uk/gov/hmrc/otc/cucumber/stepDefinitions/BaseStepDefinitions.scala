@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.cucumber.stepdefinitions
+package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
@@ -139,8 +139,10 @@ trait BaseStepDefinitions
     PageObjectFinder.page(page).enterDetails(data)
   }
 
-  When("""I enter {string} in the {string} field""") { (name: String, field: String) =>
-    driver.findElement(By.id(field)).sendKeys(name)
+  When("""I enter {string} in the {string} input field on {string}""") { (text: String, field: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val element = PageObjectFinder.page(page).textFieldElement(field)
+    element.sendKeys(text)
   }
 
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
@@ -162,9 +164,9 @@ trait BaseStepDefinitions
       textAreaElement.sendKeys(textToEnter)
   }
 
-  When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
+  When("""I enter day {string}, month {string} and year {string} on {string}""") { (day: String, month: String, year: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterDate(month, year)
+    PageObjectFinder.page(page).enterDate(day, month, year)
   }
 
   When("""I enter redirect url for {string}""") { (page: String) =>
@@ -186,9 +188,8 @@ trait BaseStepDefinitions
     }
   }
 
-  And("""I enter nothing in the {string} field""") { (field: String) =>
-    val lastNameField = driver.findElement(By.id(field))
-    val fieldValue    = lastNameField.getAttribute("value")
+  And("""I enter nothing in the {string} input field on {string}""") { (field: String, page: String) =>
+    val fieldValue = PageObjectFinder.page(page).textFieldElement(field).getAttribute("value")
     fieldValue should be("")
   }
 
@@ -200,7 +201,7 @@ trait BaseStepDefinitions
 
   And("""^I should see the heading "(.*)"$""") { (expectedHeading: String) =>
     val headingElement = driver.findElement(By.tagName("h1"))
-    headingElement.getText should be(expectedHeading)
+    headingElement.getText should be(expectedHeading.replace("  ", " "))
   }
 
   And("""I should see the hint text {string}""") { (hintText: String) =>

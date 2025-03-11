@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.cucumber.stepdefinitions
+package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage

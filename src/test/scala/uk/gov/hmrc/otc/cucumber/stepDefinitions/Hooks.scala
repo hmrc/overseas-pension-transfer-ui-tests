@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.cucumber.stepdefinitions
+package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import io.cucumber.scala._
 import org.openqa.selenium._

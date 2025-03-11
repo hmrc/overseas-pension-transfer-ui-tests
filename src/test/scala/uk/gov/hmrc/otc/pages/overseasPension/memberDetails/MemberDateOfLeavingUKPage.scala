@@ -19,17 +19,17 @@ package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object MemberDateOfBirthPage extends BasePage {
+object MemberDateOfLeavingUKPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-date-of-birth"
-  override val title       = "DateOfBirth" // TODO this title needs to be corrected in message file in main application
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-date-of-leaving-uk"
+  override val title       = "When did the member leave the UK?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: DateOfBirth - Report an overseas pension transfer - GOV.UK"
+    "Error: When did the member leave the UK? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "DateOfBirth - Report an overseas pension transfer - GOV.UK"
+    "When did the member leave the UK? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def enterDate(day: String, month: String, year: String): Unit = {

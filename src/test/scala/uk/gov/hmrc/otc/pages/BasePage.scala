@@ -169,6 +169,14 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickCheckBox(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
+  def textFieldElement(field: String): WebElement = field match {
+      case "firstName" => driver.findElement(By.id("memberFirstName"))
+      case "lastName" => driver.findElement(By.id("memberLastName"))
+      case "day" => driver.findElement(By.id("value.day"))
+      case "month" => driver.findElement(By.id("value.month"))
+      case "year" => driver.findElement(By.id("value.year"))
+  }
+
   def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
     val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-summary__title")).getText
     actualErrorSummaryTitle should be(errorSummaryTitle)
@@ -270,7 +278,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
 
-  def enterDate(month: String, year: String): Unit = {}
+  def enterDate(day: String, month: String, year: String): Unit = {}
 
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
