@@ -11,7 +11,7 @@ Feature: Adding names of the member
     Then I am presented with the "Overseas Transfer Index Page"
     And I click continue button on "Overseas Transfer Index Page"
     Then I am presented with the "Member Name Page"
-    And I should see the heading "What is the members name?"
+    And I should see the heading "What is the member's name?"
 
   Scenario:1. Positive journey - PSA/PSP enters both the First and Last names of the member
     When I enter "John" in the "firstName" input field on "Member Name Page"

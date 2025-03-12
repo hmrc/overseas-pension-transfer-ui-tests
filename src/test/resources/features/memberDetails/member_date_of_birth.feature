@@ -33,7 +33,7 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a day |
+      | Enter a Day |
 
   Scenario:3. Negative Journey - PSA/PSP does not enter the Month
     When I enter "31" in the "day" input field on "Member Date Of Birth Page"
@@ -42,7 +42,7 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a month |
+      | Enter a Month |
 
   Scenario:4. Negative Journey - PSA/PSP does not enter the Year
     When I enter "31" in the "day" input field on "Member Date Of Birth Page"
@@ -51,7 +51,7 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a year |
+      | Enter a Year |
 
   Scenario:5. Negative Journey - PSA/PSP enters a future date
     When I enter "31" in the "day" input field on "Member Date Of Birth Page"
@@ -60,6 +60,6 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter Day/Month/Year in the correct format |
+      | Date cannot be before 1901, or in the future |
     # Correct error message should be as below, needs to be changed in the application code
     #  | Enter the day, month, year in the correct format. For example 27 03 1970. |

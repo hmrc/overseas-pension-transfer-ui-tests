@@ -33,7 +33,7 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Leaving UK Page"
     Then I am presented with the "Member Date Of Leaving UK Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a day |
+      | Enter a Day |
 
   Scenario:3. Negative Journey - PSA/PSP does not enter the Month
     When I enter "31" in the "day" input field on "Member Date Of Leaving UK Page"
@@ -42,7 +42,7 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Leaving UK Page"
     Then I am presented with the "Member Date Of Leaving UK Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a month |
+      | Enter a Month |
 
   Scenario:4. Negative Journey - PSA/PSP does not enter the Year
     When I enter "31" in the "day" input field on "Member Date Of Leaving UK Page"
@@ -51,7 +51,7 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Leaving UK Page"
     Then I am presented with the "Member Date Of Leaving UK Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a year |
+      | Enter a Year |
 
   Scenario:5. Negative Journey - PSA/PSP enters a future date
     When I enter "31" in the "day" input field on "Member Date Of Leaving UK Page"
@@ -60,4 +60,4 @@ Feature: When did the member leave UK?
     And I click save and continue button on "Member Date Of Leaving UK Page"
     Then I am presented with the "Member Date Of Leaving UK Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the day, month, year in the correct format. For example 27 03 1970. |
+      | Date cannot be before 1901, or in the future |
