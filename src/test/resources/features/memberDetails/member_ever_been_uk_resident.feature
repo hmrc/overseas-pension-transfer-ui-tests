@@ -1,4 +1,4 @@
-@Test @HasEverBeenResident
+@Test   @EverBeenResident
 Feature: Has member ever been a resident in the UK for tax purposes?
 
   Background: Common Steps - Member Details Journey

@@ -25,13 +25,23 @@ Feature: Adding details for the member who does not have NINO
     And I click save and continue button on "Member Does Not Have NINO Page"
     Then I am presented with the "Member Date Of Birth Page"
 
-  Scenario:2. Negative Journey - PSA/PSP does not enter a value into the field
+  Scenario:2. Positive journey - PSA/PSP enters 1 character into the field
+    When I enter "A" in the textarea field on "Member Does Not Have NINO Page"
+    And I click save and continue button on "Member Does Not Have NINO Page"
+    Then I am presented with the "Member Date Of Birth Page"
+
+  Scenario:3. Positive journey - PSA/PSP enters 160 characters into the field
+    When I enter "I am currently not having a National Insurance Number due to new recent arrival in the UK, age, lack of employment, or awaiting processing of their application." in the textarea field on "Member Does Not Have NINO Page"
+    And I click save and continue button on "Member Does Not Have NINO Page"
+    Then I am presented with the "Member Date Of Birth Page"
+
+  Scenario:4. Negative Journey - PSA/PSP does not enter a value into the field
     When I click save and continue button on "Member Does Not Have NINO Page"
     Then I am presented with the "Member Does Not Have NINO Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter the reason the member does not have a National Insurance number and a reference we can use to identify them |
 
-  Scenario:3. Negative Journey - PSA/PSP enters more than 160 characters into the field
+  Scenario:5. Negative Journey - PSA/PSP enters more than 160 characters into the field
     When I enter "More than 160 characters, More than 160 characters, More than 160 characters, More than 160 characters, More than 160 characters, More than 160 characters. This is more." in the textarea field on "Member Does Not Have NINO Page"
     And I click save and continue button on "Member Does Not Have NINO Page"
     Then I am presented with the "Member Does Not Have NINO Page" error page
