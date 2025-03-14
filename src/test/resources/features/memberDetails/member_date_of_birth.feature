@@ -21,42 +21,49 @@ Feature: When did the member leave UK?
       | {0}        |
 
   Scenario:1. Positive journey - PSA/PSP enters all three fields of Day, Month and Year
-    When I enter day "31", month "12" and year "1901" on "Member Date Of Birth Page"
+    When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
+      | day   | 31   |
+      | month | 12   |
+      | year  | 1901 |
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Overseas Transfer Index Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Negative Journey - PSA/PSP does not enter the Day
-    When I enter nothing in the "day" input field on "Member Date Of Birth Page"
-    And I enter "12" in the "month" input field on "Member Date Of Birth Page"
-    And I enter "1980" in the "year" input field on "Member Date Of Birth Page"
+    When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
+      | day   |      |
+      | month | 12   |
+      | year  | 1980 |
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter a Day |
 
   Scenario:3. Negative Journey - PSA/PSP does not enter the Month
-    When I enter "31" in the "day" input field on "Member Date Of Birth Page"
-    And I enter nothing in the "month" input field on "Member Date Of Birth Page"
-    And I enter "1980" in the "year" input field on "Member Date Of Birth Page"
+    When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
+      | day   | 31   |
+      | month |      |
+      | year  | 1980 |
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter a Month |
 
   Scenario:4. Negative Journey - PSA/PSP does not enter the Year
-    When I enter "31" in the "day" input field on "Member Date Of Birth Page"
-    And I enter "12" in the "month" input field on "Member Date Of Birth Page"
-    And I enter nothing in the "year" input field on "Member Date Of Birth Page"
+    When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
+      | day   | 31 |
+      | month | 12 |
+      | year  |    |
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter a Year |
 
   Scenario:5. Negative Journey - PSA/PSP enters a future date
-    When I enter "31" in the "day" input field on "Member Date Of Birth Page"
-    And I enter "12" in the "month" input field on "Member Date Of Birth Page"
-    And I enter "2026" in the "year" input field on "Member Date Of Birth Page"
+    When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
+      | day   | 31   |
+      | month | 12   |
+      | year  | 2026 |
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages

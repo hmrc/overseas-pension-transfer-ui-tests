@@ -145,6 +145,18 @@ trait BaseStepDefinitions
     element.sendKeys(text)
   }
 
+  When("""I enter the following data into corresponding input fields on {string}""") { (page: String, data: DataTable) =>
+    // Ensures data is interpreted as a list of rows, preserving order
+    val rows                          = data.asLists(classOf[String]).asScala.toList
+    // Ensures correct mapping
+    val formData: Map[String, String] = rows.map(row => row.get(0) -> row.get(1)).toMap
+    for ((field, value) <- formData) {
+      val inputField = PageObjectFinder.page(page).textFieldElement(field)
+      inputField.clear()
+      inputField.sendKeys(Option(value).getOrElse(""))
+    }
+  }
+
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
@@ -162,11 +174,6 @@ trait BaseStepDefinitions
       val textAreaElement = driver.findElement(By.className("govuk-textarea"))
       textAreaElement.clear()
       textAreaElement.sendKeys(textToEnter)
-  }
-
-  When("""I enter day {string}, month {string} and year {string} on {string}""") { (day: String, month: String, year: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterDate(day, month, year)
   }
 
   When("""I enter redirect url for {string}""") { (page: String) =>
@@ -215,6 +222,10 @@ trait BaseStepDefinitions
 
     radioTexts should contain(optYes)
     radioTexts should contain(optNo)
+  }
+
+  And("""I should see the input fields with below labels on {string}""") { (page: String, data: DataTable) =>
+    PageObjectFinder.page(page).verifyInputFields(data.asScalaListOfStrings)
   }
 
   /*And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>

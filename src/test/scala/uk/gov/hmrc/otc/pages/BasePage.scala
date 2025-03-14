@@ -24,9 +24,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.otc.driver.BrowserDriver
 
-import java.time.format.DateTimeFormatter
 import java.time.{Duration, LocalDate}
-import java.util.Locale
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 import scala.util.matching.Regex
 
@@ -170,11 +168,19 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def textFieldElement(field: String): WebElement = field match {
-      case "firstName" => driver.findElement(By.id("memberFirstName"))
-      case "lastName" => driver.findElement(By.id("memberLastName"))
-      case "day" => driver.findElement(By.id("value.day"))
-      case "month" => driver.findElement(By.id("value.month"))
-      case "year" => driver.findElement(By.id("value.year"))
+    case "firstName" => driver.findElement(By.id("memberFirstName"))
+    case "lastName"  => driver.findElement(By.id("memberLastName"))
+    case "day"       => driver.findElement(By.id("value.day"))
+    case "month"     => driver.findElement(By.id("value.month"))
+    case "year"      => driver.findElement(By.id("value.year"))
+    case _           => driver.findElement(By.id(field))
+  }
+
+  def verifyInputFields(fieldLabels: List[String]): Unit = {
+    for (fieldLabel <- fieldLabels) {
+      val inputField = find(xpath(s"//label[contains(text(), '$fieldLabel')]/following-sibling::input"))
+      inputField.isDefined should be(true)
+    }
   }
 
   def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {

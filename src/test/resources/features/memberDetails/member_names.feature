@@ -12,25 +12,31 @@ Feature: Adding names of the member
     And I click continue button on "Overseas Transfer Index Page"
     Then I am presented with the "Member Name Page"
     And I should see the heading "What is the member's name?"
+    And I should see the input fields with below labels on "Member Name Page"
+      | First name |
+      | Last name  |
 
   Scenario:1. Positive journey - PSA/PSP enters both the First and Last names of the member
-    When I enter "John" in the "firstName" input field on "Member Name Page"
-    And  I enter "Doe" in the "lastName" input field on "Member Name Page"
+    When I enter the following data into corresponding input fields on "Member Name Page"
+      | firstName | John |
+      | lastName  | Doe  |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Overseas Transfer Index Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Negative Journey - PSA/PSP does not enter the Last name
-    When I enter "John" in the "firstName" input field on "Member Name Page"
-    And I enter nothing in the "lastName" input field on "Member Name Page"
+    When I enter the following data into corresponding input fields on "Member Name Page"
+      | firstName | John |
+      | lastName  |      |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Member Name Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter the member's last name |
 
   Scenario:3. Negative Journey - PSA/PSP does not enter the First name
-    When I enter nothing in the "firstName" input field on "Member Name Page"
-    And  I enter "Doe" in the "lastName" input field on "Member Name Page"
+    When I enter the following data into corresponding input fields on "Member Name Page"
+      | firstName |     |
+      | lastName  | Doe |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Member Name Page" error page
     And I should see the "There is a problem" and below error messages
