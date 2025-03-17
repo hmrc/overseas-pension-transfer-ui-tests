@@ -23,7 +23,7 @@ import org.junit.runner.RunWith
 @CucumberOptions(
   features = Array("src/test/resources/features"),
   glue     = Array("uk.gov.hmrc.otc.cucumber.stepDefinitions"),
-  plugin   = Array("pretty", "html:target/cucumber", "json:target/cucumber.json"),
+  plugin   = Array("pretty", "html:target/cucumber.html", "json:target/cucumber.json"),
   tags     = "@BrowserStack"
 )
 class BrowserStackRunner {}
