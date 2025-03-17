@@ -224,8 +224,12 @@ trait BaseStepDefinitions
     radioTexts should contain(optNo)
   }
 
+  And("""I should see below input fields on {string}""") { (page: String, data: DataTable) =>
+    PageObjectFinder.page(page).verifyInputFieldsByIds(data.asScalaListOfStrings)
+  }
+
   And("""I should see the input fields with below labels on {string}""") { (page: String, data: DataTable) =>
-    PageObjectFinder.page(page).verifyInputFields(data.asScalaListOfStrings)
+    PageObjectFinder.page(page).verifyInputFieldsWithLabels(data.asScalaListOfStrings)
   }
 
   /*And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>
@@ -382,6 +386,25 @@ trait BaseStepDefinitions
     PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
     PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessage)
   }
+
+  And("""I should see following erroneous fields are highlighted on {string}""") { (page: String, data: DataTable) =>
+    for (field <- data.asScalaListOfStrings) {
+      val classAttr = textFieldElement(field).getAttribute("class")
+      classAttr.split("\\s+") should contain("govuk-input--error")
+    }
+  }
+
+  And("""Clicking each error message should focus on the corresponding input field on {string}""") { (page: String) =>
+    val errorLinks = PageObjectFinder.listOfErrorLinks()
+    for (errorLink <- errorLinks) {
+      val fieldId       = errorLink.getAttribute("href").split("#").last
+      val inputField    = PageObjectFinder.textFieldElement(fieldId)
+      errorLink.click()
+      val activeElement = driver.switchTo().activeElement()
+      activeElement shouldBe inputField
+    }
+  }
+
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim
     val keyValuePairs      = data.asMaps(classOf[String], classOf[String]).asScala

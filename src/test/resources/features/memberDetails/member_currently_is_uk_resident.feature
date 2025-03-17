@@ -14,7 +14,7 @@ Feature: Is the member currently a resident of UK for tax purposes?
 
   Scenario Outline: Verify Is Member Currently UK Resident Page
     Then I should see the heading "Is <memberName> currently a resident of UK for tax purposes?"
-    And I should see the hint text "Select one"
+    And I should see the hint text "Select one."
     # the text is missing a DOT (.), this should be fixed
     And I should see two radio buttons: "Yes" and "No"
     Examples:

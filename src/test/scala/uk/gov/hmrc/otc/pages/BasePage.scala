@@ -176,7 +176,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     case _           => driver.findElement(By.id(field))
   }
 
-  def verifyInputFields(fieldLabels: List[String]): Unit = {
+  def verifyInputFieldsByIds(fields: List[String]): Unit = {
+    for (field <- fields) {
+      Some(textFieldElement(field)).isDefined should be(true)
+    }
+  }
+
+  def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
     for (fieldLabel <- fieldLabels) {
       val inputField = find(xpath(s"//label[contains(text(), '$fieldLabel')]/following-sibling::input"))
       inputField.isDefined should be(true)
@@ -196,7 +202,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 
-  def listOfErrorMessages(): List[String] = errorMessage().getText.split("\n").toList
+  def listOfErrorLinks(): List[WebElement] = driver.findElements(By.cssSelector(".govuk-error-summary__list a")).asScala.toList
+
+  def listOfErrorMessages(): List[String] = listOfErrorLinks().map(_.getText.trim)
 
   def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
 

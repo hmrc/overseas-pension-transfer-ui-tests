@@ -32,6 +32,9 @@ Feature: Adding names of the member
     Then I am presented with the "Member Name Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter the member's last name |
+    And I should see following erroneous fields are highlighted on "Member Name Page"
+      | lastName |
+    And Clicking each error message should focus on the corresponding input field on "Member Name Page"
 
   Scenario:3. Negative Journey - PSA/PSP does not enter the First name
     When I enter the following data into corresponding input fields on "Member Name Page"
@@ -41,3 +44,35 @@ Feature: Adding names of the member
     Then I am presented with the "Member Name Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter the member's first name |
+    And I should see following erroneous fields are highlighted on "Member Name Page"
+      | firstName |
+    And Clicking each error message should focus on the corresponding input field on "Member Name Page"
+
+  Scenario:4. Negative Journey - PSA/PSP does not enter both the First name and Last name
+    When I enter the following data into corresponding input fields on "Member Name Page"
+      | firstName |  |
+      | lastName  |  |
+    And I click continue button on "Member Name Page"
+    Then I am presented with the "Member Name Page" error page
+    And I should see the "There is a problem" and below error messages
+      | Enter the member's first name |
+      | Enter the member's last name  |
+    And I should see following erroneous fields are highlighted on "Member Name Page"
+      | firstName |
+      | lastName  |
+    And Clicking each error message should focus on the corresponding input field on "Member Name Page"
+
+
+  Scenario:5. Negative Journey - PSA/PSP enters invalid values for both the First name and Last name
+    When I enter the following data into corresponding input fields on "Member Name Page"
+      | firstName | Invalid @firstName |
+      | lastName  | Invalid @lastName  |
+    And I click continue button on "Member Name Page"
+    Then I am presented with the "Member Name Page" error page
+    And I should see the "There is a problem" and below error messages
+      | The member's first name must only include letters, apostrophes and hyphens |
+      | The member's last name must only include letters, apostrophes and hyphens  |
+    And I should see following erroneous fields are highlighted on "Member Name Page"
+      | firstName |
+      | lastName  |
+    And Clicking each error message should focus on the corresponding input field on "Member Name Page"
