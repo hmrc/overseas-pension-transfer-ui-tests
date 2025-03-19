@@ -18,7 +18,7 @@ Feature: Adding names of the member
     And I should see the input fields with below labels on "Members Last UK Address Page"
       | Address line 1            |
       | Address line 2 (optional) |
-      | Town or City              |
+      | Town or city              |
       | County (optional)         |
       | Postcode                  |
     Examples:
@@ -55,7 +55,7 @@ Feature: Adding names of the member
     And I should see the "There is a problem" and below error messages
       | Enter the first line of undefined undefined's last principal UK address |
 
-  Scenario:4. Negative journey - PSA/PSP does not enter the 'Town or City'
+  Scenario:4. Negative journey - PSA/PSP does not enter the 'Town or city'
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
       | addressLine1 | Some valid UK address line1 |
       | townOrCity   |                             |
@@ -63,7 +63,7 @@ Feature: Adding names of the member
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the Town or City for undefined undefined's last principal UK address |
+      | Enter the Town or city for undefined undefined's last principal UK address |
 
   Scenario:5. Negative journey - PSA/PSP does not enter the 'Postcode'
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
@@ -83,7 +83,7 @@ Feature: Adding names of the member
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
-      | Address line 1 must be 35 characters or fewer |
+      | Address line 1 must be 35 characters or less |
 
   Scenario:7. Negative journey - PSA/PSP enters more than 35 characters into the 'Address Line 2' field
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
@@ -94,9 +94,9 @@ Feature: Adding names of the member
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
-      | Address line 2 must be 35 characters or fewer |
+      | Address line 2 must be 35 characters or less |
 
-  Scenario:8. Negative journey - PSA/PSP enters more than 35 characters into the 'Town or City' field
+  Scenario:8. Negative journey - PSA/PSP enters more than 35 characters into the 'Town or city' field
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
       | addressLine1 | Some valid UK address line1                                             |
       | townOrCity   | Town or city longer than 35 characters, yes it is longer than the limit |
@@ -104,7 +104,7 @@ Feature: Adding names of the member
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
-      | Town or City must be 35 characters or fewer |
+      | Town or city must be 35 characters or less |
 
   Scenario:9. Negative journey - PSA/PSP enters more than 35 characters into the 'County' field
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
@@ -115,7 +115,7 @@ Feature: Adding names of the member
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
-      | County must be 35 characters or fewer |
+      | County must be 35 characters or less |
 
   Scenario:10. Negative journey - PSA/PSP enters invalid characters into one or more input fields
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
@@ -129,7 +129,7 @@ Feature: Adding names of the member
     And I should see the "There is a problem" and below error messages
       | Address line 1 must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes |
       | Address line 2 must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes |
-      | Town or City must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes   |
+      | Town or city must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes   |
       | County must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes         |
 
   Scenario:11. Negative journey - PSA/PSP enters incorrect postcode into the 'Postcode' field
