@@ -21,10 +21,10 @@ Feature: Is the member currently a resident of UK for tax purposes?
       | memberName |
       | undefined  |
 
-  Scenario:1. Positive Journey - Select 'Yes' radio button
-    When I select radio button "Yes" on "Is Member Currently UK Resident Page"
-    And I click save and continue button on "Is Member Currently UK Resident Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Scenario:1. Positive Journey - Select 'Yes' radio button
+      When I select radio button "Yes" on "Is Member Currently UK Resident Page"
+      And I click save and continue button on "Is Member Currently UK Resident Page"
+      Then I am presented with the "Overseas Transfer Index Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive Journey - Select 'No' radio button
@@ -38,3 +38,6 @@ Feature: Is the member currently a resident of UK for tax purposes?
     Then I am presented with the "Is Member Currently UK Resident Page" error page
     And I should see the "There is a problem" and below error messages
       | Select one option |
+    # And I should see following erroneous fields are highlighted on "Is Member Currently UK Resident Page"
+      # | orgIndLastName |
+    And Clicking each error message should focus on the corresponding input field on "Is Member Currently UK Resident Page"

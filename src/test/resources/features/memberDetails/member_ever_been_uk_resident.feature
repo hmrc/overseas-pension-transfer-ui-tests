@@ -37,3 +37,4 @@ Feature: Has member ever been a resident in the UK for tax purposes?
     Then I am presented with the "Has Member Ever Been UK Resident Page" error page
     And I should see the "There is a problem" and below error messages
       | Select one option |
+    And Clicking each error message should focus on the corresponding input field on "Has Member Ever Been UK Resident Page"
