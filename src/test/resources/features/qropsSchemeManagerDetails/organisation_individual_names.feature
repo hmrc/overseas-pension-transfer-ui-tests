@@ -23,7 +23,14 @@ Feature: Adding names of the member
     Then I am presented with the "Overseas Transfer Index Page"
 # Above action would have to be rewritten upon page gets connected
 
-  Scenario:2. Negative Journey - PSA/PSP does not enter the Last name of the organisation individual
+  Scenario:2. Positive journey - PSA/PSP enters both the First and Last names of the organisation individual
+    When I enter the following data into corresponding input fields on "Organisation Individual Name Page"
+      | orgIndFirstName | Gabriella-Anne-Marie O'Connor|
+      | orgIndLastName  | McLaughlin-Smythe O'Callaghan |
+    And I click save and continue button on "Organisation Individual Name Page"
+    Then I am presented with the "Overseas Transfer Index Page"
+
+  Scenario:3. Negative Journey - PSA/PSP does not enter the Last name of the organisation individual
     When I enter the following data into corresponding input fields on "Organisation Individual Name Page"
       | orgIndFirstName | John |
       | orgIndLastName  |      |
@@ -35,7 +42,7 @@ Feature: Adding names of the member
       | orgIndLastName |
     And Clicking each error message should focus on the corresponding input field on "Organisation Individual Name Page"
 
-  Scenario:3. Negative Journey - PSA/PSP does not enter the First name of the organisation individual
+  Scenario:4. Negative Journey - PSA/PSP does not enter the First name of the organisation individual
     When I enter the following data into corresponding input fields on "Organisation Individual Name Page"
       | orgIndFirstName |     |
       | orgIndLastName  | Doe |
@@ -47,7 +54,7 @@ Feature: Adding names of the member
       | orgIndFirstName |
     And Clicking each error message should focus on the corresponding input field on "Organisation Individual Name Page"
 
-  Scenario:4. Negative Journey - PSA/PSP does not enter both the First name and Last name of the organisation individual
+  Scenario:5. Negative Journey - PSA/PSP does not enter both the First name and Last name of the organisation individual
     When I enter the following data into corresponding input fields on "Organisation Individual Name Page"
       | orgIndFirstName |  |
       | orgIndLastName  |  |
@@ -61,8 +68,7 @@ Feature: Adding names of the member
       | orgIndLastName  |
     And Clicking each error message should focus on the corresponding input field on "Organisation Individual Name Page"
 
-
-  Scenario:5. Negative Journey - PSA/PSP enters invalid values for both the First name and Last name of the organisation individual
+  Scenario:6. Negative Journey - PSA/PSP enters invalid values for both the First name and Last name of the organisation individual
     When I enter the following data into corresponding input fields on "Organisation Individual Name Page"
       | orgIndFirstName | Invalid @firstName |
       | orgIndLastName  | Invalid @lastName  |
@@ -73,7 +79,6 @@ Feature: Adding names of the member
       | The individual's last name must only include letters, spaces, apostrophes and hyphens  |
     And I should see following erroneous fields are highlighted on "Organisation Individual Name Page"
       | orgIndFirstName |
-      | orgIndLastName  |
     And Clicking each error message should focus on the corresponding input field on "Organisation Individual Name Page"
 
   Scenario:6. Negative Journey - PSA/PSP enters more than 35 characters into the First name and Last name of the organisation individual

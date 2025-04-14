@@ -46,4 +46,4 @@ Feature: Adding details for the member who does not have NINO
     And I click save and continue button on "Member Does Not Have NINO Page"
     Then I am presented with the "Member Does Not Have NINO Page" error page
     And I should see the "There is a problem" and below error messages
-      | The reason for not having a National Insurance number and reference in its place must be must be 160 characters or fewer |
+      | The reason for not having a National Insurance number and reference in its place must be must be 160 characters or less |
