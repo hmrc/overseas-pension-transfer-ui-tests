@@ -29,6 +29,6 @@ object MemberNinoPage extends BasePage {
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    " Enter member's National Insurance number - Report an overseas pension transfer - GOV.UK"
+    "Enter member's National Insurance number - Report an overseas pension transfer - GOV.UK"
   )
 }

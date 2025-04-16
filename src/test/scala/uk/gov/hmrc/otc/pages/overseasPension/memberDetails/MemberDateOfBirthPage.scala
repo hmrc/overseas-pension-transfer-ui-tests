@@ -25,11 +25,11 @@ object MemberDateOfBirthPage extends BasePage {
   override val title       = "DateOfBirth" // TODO this title needs to be corrected in message file in main application
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: DateOfBirth - Report an overseas pension transfer - GOV.UK"
+    "Error: What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "DateOfBirth - Report an overseas pension transfer - GOV.UK"
+    "What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def enterDate(day: String, month: String, year: String): Unit = {

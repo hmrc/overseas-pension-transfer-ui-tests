@@ -13,7 +13,7 @@ Feature: Adding national insurance number for a member
     And I am presented with the "Member Nino Page"
 
   Scenario Outline: Verify the Member Nino Page
-    And I should see the heading "What is <memberName>’s National Insurance number?"
+    And I should see the heading "What is <memberName>'s National Insurance number?"
     And I should see the hint text "For example, QQ123456A."
 
     Examples:
@@ -28,47 +28,35 @@ Feature: Adding national insurance number for a member
     Then I am presented with the "Member Date Of Birth Page"
 # Above action would have to be rewritten upon page gets connected
 
-  Scenario:2. Positive journey - PSA/PSP enters a minimum of 1 character into the field
-    When I enter the following data into corresponding input fields on "Organisation Name Page"
-      | organisationName | A |
-    And I click save and continue button on "Organisation Name Page"
-    Then I am presented with the "Overseas Transfer Index Page"
-
-  Scenario:3. Positive journey - PSA/PSP enters a minimum of 160 characters into the field
-    When I enter the following data into corresponding input fields on "Organisation Name Page"
-      | organisationName | Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Orga |
-    And I click save and continue button on "Organisation Name Page"
-    Then I am presented with the "Overseas Transfer Index Page"
-
-  Scenario:4. Negative Journeys - PSA/PSP enters invalid data in the organisation name field
-    When I enter the following data into corresponding input fields on "Organisation Name Page"
-      | organisationName | %% |
-    And I click save and continue button on "Organisation Name Page"
-    Then I am presented with the "Organisation Name Page" error page
+  Scenario:2. Negative Journey - PSA/PSP enters a NINO in wrong format
+    When I enter the following data into corresponding input fields on "Member Nino Page"
+      | value | QQ123456AAB |
+    And I click save and continue button on "Member Nino Page"
+    Then I am presented with the "Member Nino Page" error page
     And I should see the "There is a problem" and below error messages
-      | The name of the organisation must only include letters, spaces, apostrophes and hyphens |
-    And I should see following erroneous fields are highlighted on "Organisation Name Page"
-      | organisationName |
-    And Clicking each error message should focus on the corresponding input field on "Organisation Name Page"
+      | Enter the member’s National Insurance number in the correct format |
+    And I should see following erroneous fields are highlighted on "Member Nino Page"
+      | value |
+    And Clicking each error message should focus on the corresponding input field on "Member Nino Page"
 
-  Scenario:5. Negative Journeys - PSA/PSP does not enter anything in organisation name field
-    When I enter the following data into corresponding input fields on "Organisation Name Page"
-      | organisationName |  |
-    And I click save and continue button on "Organisation Name Page"
-    Then I am presented with the "Organisation Name Page" error page
+  Scenario:3. Negative Journeys - Negative Journey - PSA/PSP enters a NINO with invalid character
+    When I enter the following data into corresponding input fields on "Member Nino Page"
+      | value | %QQ123456A |
+    And I click save and continue button on "Member Nino Page"
+    Then I am presented with the "Member Nino Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the name of the organisation |
-    And I should see following erroneous fields are highlighted on "Organisation Name Page"
-      | organisationName |
-    And Clicking each error message should focus on the corresponding input field on "Organisation Name Page"
+      | Enter the member’s National Insurance number in the correct format |
+    And I should see following erroneous fields are highlighted on "Member Nino Page"
+      | value |
+    And Clicking each error message should focus on the corresponding input field on "Member Nino Page"
 
-  Scenario:6. Negative Journeys - PSA/PSP enters data > 160 characters in organisation name field
-    When I enter the following data into corresponding input fields on "Organisation Name Page"
-      | organisationName | Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation Organisation |
-    And I click save and continue button on "Organisation Name Page"
-    Then I am presented with the "Organisation Name Page" error page
+  Scenario:4. Negative Journeys - PSA/PSP leaves the NINO field blank
+    When I enter the following data into corresponding input fields on "Member Nino Page"
+      | value |  |
+    And I click save and continue button on "Member Nino Page"
+    Then I am presented with the "Member Nino Page" error page
     And I should see the "There is a problem" and below error messages
-      | The name of the organisation must be 160 characters or fewer|
-    And I should see following erroneous fields are highlighted on "Organisation Name Page"
-      | organisationName |
-    And Clicking each error message should focus on the corresponding input field on "Organisation Name Page"
+      | Enter the member’s National Insurance number |
+    And I should see following erroneous fields are highlighted on "Member Nino Page"
+      | value |
+    And Clicking each error message should focus on the corresponding input field on "Member Nino Page"
