@@ -182,10 +182,23 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
   }
 
-  def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
+  /*def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
     for (fieldLabel <- fieldLabels) {
       val inputField = find(xpath(s"//label[contains(text(), '$fieldLabel')]/following-sibling::input"))
       inputField.isDefined should be(true)
+    }
+  }*/
+
+  def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
+    for (fieldLabel <- fieldLabels) {
+      val labelField = find(xpath(s"//label[contains(text(), '$fieldLabel')]"))
+
+      val inputFieldName = labelField.get.attribute("for").get
+      // get the value of the 'for' attribute of the 'label' element
+      // Search for an 'element' having the corresponding value
+      //Some(driver.findElement(By.name(inputFieldName)))
+
+      Some(driver.findElement(By.name(inputFieldName))).isDefined should be(true)
     }
   }
 
