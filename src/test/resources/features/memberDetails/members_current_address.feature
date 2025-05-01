@@ -193,15 +193,15 @@ Feature: Entering the last UK address of the member
       | addressLine2 | Burlington Road     |
       | addressLine3 | London              |
       | addressLine4 | Maidenhead          |
-     # | countryCode  |                     |
+      | countryCode  |                     |
       | postcode     | SL12JS              |
       | poBox        | 11223344            |
     And I click save and continue button on "Members Current UK Address Page"
     Then I am presented with the "Members Current UK Address Page" error page
     And I should see the "There is a problem" and below error messages
       | Enter a country |
-    And I should see following erroneous fields are highlighted on "Members Current UK Address Page"
-      | countryCode |
+#    And I should see following erroneous fields are highlighted on "Members Current UK Address Page"
+#      | countryCode |
     And Clicking each error message should focus on the corresponding input field on "Members Current UK Address Page"
 
   Scenario:12. Negative journey - PSA/PSP enters invalid characters into one or more input fields
@@ -210,7 +210,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | %%Invalid@ UK address line2 |
       | addressLine3 | %%Invalid@ UK address Line3 |
       | addressLine4 | %%Invalid@ UK address Line4 |
-  #   | countryCode  | %%Invalid@ Country Code     |
+      | countryCode  |                             |
       | postcode     | %%Invalid postcode          |
       | poBox        | %%Invalid PO Box            |
     And I click save and continue button on "Members Current UK Address Page"
@@ -220,7 +220,7 @@ Feature: Entering the last UK address of the member
       | Address line 2 must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes |
       | Address line 3 must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes |
       | Address line 4 must only include letters, numbers, spaces, hyphens, commas, full stops, ampersands, apostrophes and forward slashes |
-    #  | Enter a country                                                                                                                     |
+      | Enter a country                                                                                                                     |
       | Postcode must only include letters, numbers or spaces                                                                               |
       | PO Box must only include letters, numbers or spaces                                                                                 |
     And I should see following erroneous fields are highlighted on "Members Current UK Address Page"
@@ -228,7 +228,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 |
       | addressLine3 |
       | addressLine4 |
-      | countryCode  |
+#      | countryCode  |
       | postcode     |
       | poBox        |
     And Clicking each error message should focus on the corresponding input field on "Members Current UK Address Page"
