@@ -1,5 +1,5 @@
 @Test @MembersCurrentUKAddress
-Feature: Entering the last UK address of the member
+Feature: Entering the current UK address of the member
 
   Background: Common Steps - Member Details Journey
     Given I cleared the data for the service
