@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.qropsSchemeManagerDetails
+package uk.gov.hmrc.otc.pages.overseasPension.QROPSDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object OrganisationIndividualNamePage extends BasePage {
+object QROPSNumberPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/organisation-individual-name"
-  override val title       = "Contact details of an individual within the organisation with whom HMRC should correspond"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-reference"
+  override val title = "What is the QROPS reference?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Contact details of an individual within the organisation - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the QROPS reference? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Contact details of an individual within the organisation - Report an overseas pension transfer - GOV.UK"
+    "What is the QROPS reference? - Report an overseas pension transfer - GOV.UK"
   )
-
-  override def clickContinueButton(): Unit = {
-    click on cssSelector(".govuk-button")
-  }
 }

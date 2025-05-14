@@ -1,7 +1,7 @@
-@Test @OrganisationIndividualName
-Feature: Adding names of the member
+@Test @OrganisationIndividualNames
+Feature: Adding names of the individual within the organisation
 
-  Background: Common Steps - Member Details Journey
+  Background: Common Steps - QROPS and QROPS Manager details
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
@@ -20,7 +20,7 @@ Feature: Adding names of the member
       | orgIndFirstName | John |
       | orgIndLastName  | Doe  |
     And I click save and continue button on "Organisation Individual Name Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Organisation Individual Address Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP enters both the First and Last names of the organisation individual
@@ -28,7 +28,7 @@ Feature: Adding names of the member
       | orgIndFirstName | Gabriella-Anne-Marie O'Connor|
       | orgIndLastName  | McLaughlin-Smythe O'Callaghan |
     And I click save and continue button on "Organisation Individual Name Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Organisation Individual Address Page"
 
   Scenario:3. Negative Journey - PSA/PSP does not enter the Last name of the organisation individual
     When I enter the following data into corresponding input fields on "Organisation Individual Name Page"
@@ -88,8 +88,8 @@ Feature: Adding names of the member
     And I click save and continue button on "Organisation Individual Name Page"
     Then I am presented with the "Organisation Individual Name Page" error page
     And I should see the "There is a problem" and below error messages
-      | The individual's first name must be 35 characters or fewer |
-      | The individual's last name must be 35 characters or fewer  |
+      | The individual's first name must be 35 characters or less |
+      | The individual's last name must be 35 characters or less  |
     And I should see following erroneous fields are highlighted on "Organisation Individual Name Page"
       | orgIndFirstName |
       | orgIndLastName  |
