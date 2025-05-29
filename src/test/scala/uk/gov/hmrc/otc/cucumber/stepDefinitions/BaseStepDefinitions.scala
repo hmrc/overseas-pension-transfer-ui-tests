@@ -18,6 +18,7 @@ package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
+import uk.gov.hmrc.otc.conf.MessageReader._
 import org.junit.Assert
 import org.openqa.selenium.By
 import org.scalatest.concurrent.Eventually
@@ -28,8 +29,8 @@ import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.otc.pages.BasePage
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder
-import scala.jdk.CollectionConverters._
 
+import scala.jdk.CollectionConverters._
 import java.time.LocalDate
 
 trait BaseStepDefinitions
@@ -474,5 +475,17 @@ trait BaseStepDefinitions
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
     val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText
     actualText should be(paymentAmountText)
+  }
+
+  Then("""^I should see the following values on the page$""") { dataTable: DataTable =>
+    dataTable.asMaps(classOf[String], classOf[String]).asScala.foreach((data: java.util.Map[String, String]) => {
+      val text = getMessage(data.get("value"))
+      pageSource should include(text)
+    })
+  }
+  When("""I verify the value displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
+    actualText should be(expectedText)
   }
 }
