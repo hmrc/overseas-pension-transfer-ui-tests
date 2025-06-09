@@ -14,32 +14,16 @@ Feature: Adding name of the QROPS
     And I should see below input fields on "QROPS Name Page"
       | value |
 
-  Scenario:1. Positive journey - PSA/PSP enters a minimum of 1 character and a maximum 160 characters into the field
+  Scenario:1. Positive journey - PSA/PSP enters name between 1 and 160 characters (inclusive) with spaces, apostrophes and/or hyphen and is accepted successfully
     When I enter the following data into corresponding input fields on "QROPS Name Page"
       | value | The great QROPS|
-    And I click save and continue button on "QROPS Name Page"
-    Then I am presented with the "QROPS Number Page"
-# Above action would have to be rewritten upon page gets connected
-
-  Scenario:2. Positive journey - PSA/PSP enters a minimum of 1 character into the field
-    When I enter the following data into corresponding input fields on "QROPS Name Page"
       | value | A |
-    And I click save and continue button on "QROPS Name Page"
-    Then I am presented with the "QROPS Number Page"
-
-  Scenario:3. Positive journey - PSA/PSP enters a maximum of 160 characters into the field
-    When I enter the following data into corresponding input fields on "QROPS Name Page"
       | value | The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QaROPs |
-    And I click save and continue button on "QROPS Name Page"
-    Then I am presented with the "QROPS Number Page"
-
-  Scenario:4. Positive journey - PSA/PSP enters QROPS name with spaces, apostrophes and hyphen and is accepted successfully
-    When I enter the following data into corresponding input fields on "QROPS Name Page"
       | value | The Great - QROPS|
     And I click save and continue button on "QROPS Name Page"
     Then I am presented with the "QROPS Number Page"
 
-  Scenario:5. Negative Journeys - PSA/PSP does not enter anything in QROPS name field
+  Scenario:2. Negative Journeys - PSA/PSP does not enter anything in QROPS name field
     When I enter the following data into corresponding input fields on "QROPS Name Page"
       | value |  |
     And I click save and continue button on "QROPS Name Page"
@@ -50,7 +34,7 @@ Feature: Adding name of the QROPS
       | value |
     And Clicking each error message should focus on the corresponding input field on "QROPS Name Page"
 
-  Scenario:6. Negative Journeys - PSA/PSP enters data > 160 characters in QROPS name field
+  Scenario:3. Negative Journeys - PSA/PSP enters data > 160 characters in QROPS name field
     When I enter the following data into corresponding input fields on "QROPS Name Page"
       | value | The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QROPs The great QaROPs The great QROPs|
     And I click save and continue button on "QROPS Name Page"
