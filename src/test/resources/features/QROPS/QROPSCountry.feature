@@ -22,42 +22,12 @@ Feature: Adding QROPS Country
     Then I am presented with the "QROPS Check Your Answers Page"
 # Above action would have to be rewritten upon page gets connected
 
-  Scenario:2. Positive journey - PSA/PSP enters a valid QROPS reference with only the numbers
-    When I enter the following data into corresponding input fields on "QROPS Reference Page"
-      | qropsRef | 123456 |
-    And I click save and continue button on "QROPS Reference Page"
-    Then I am presented with the "QROPS Address Page"
-
-  Scenario:3. Negative Journeys - PSA/PSP does not enter anything in QROPS reference field
-    When I enter the following data into corresponding input fields on "QROPS Reference Page"
-      | qropsRef |  |
-    And I click save and continue button on "QROPS Reference Page"
-    Then I am presented with the "QROPS Reference Page" error page
+  Scenario:2. Positive journey - PSA/PSP leaves the QROPS country field blank
+    When I enter the following data into corresponding input fields on "QROPS Country Page"
+      | countryCode |  |
+    And I click save and continue button on "QROPS Country Page"
     And I should see the "There is a problem" and below error messages
-      | Enter the QROPS Reference |
-    And I should see following erroneous fields are highlighted on "QROPS Reference Page"
-      | qropsRef |
-    And Clicking each error message should focus on the corresponding input field on "QROPS Reference Page"
-
-  Scenario:4. Negative Journeys - PSA/PSP enters QROPS reference number in an invalid format (eg: 123456AB)
-    When I enter the following data into corresponding input fields on "QROPS Reference Page"
-      | qropsRef | 123456AB |
-    And I click save and continue button on "QROPS Reference Page"
-    Then I am presented with the "QROPS Reference Page" error page
-    And I should see the "There is a problem" and below error messages
-      | Enter the QROPS reference in a valid format |
-    And I should see following erroneous fields are highlighted on "QROPS Reference Page"
-      | qropsRef |
-    And Clicking each error message should focus on the corresponding input field on "QROPS Reference Page"
-
-
-  Scenario:5. Negative Journeys - PSA/PSP enters any charecters other than QROPS  in the QROPS reference number field (eg: PROPS123456)
-    When I enter the following data into corresponding input fields on "QROPS Reference Page"
-      | qropsRef | PROPS123456 |
-    And I click save and continue button on "QROPS Reference Page"
-    Then I am presented with the "QROPS Reference Page" error page
-    And I should see the "There is a problem" and below error messages
-      | Enter the QROPS reference in a valid format |
-    And I should see following erroneous fields are highlighted on "QROPS Reference Page"
-      | qropsRef |
-    And Clicking each error message should focus on the corresponding input field on "QROPS Reference Page"
+      | Enter a country or territory |
+    And I should see following erroneous dropdown fields are highlighted on "QROPS Country Page"
+      | countryCode |
+    And Clicking each error message should focus on the corresponding input field on "QROPS Country Page"

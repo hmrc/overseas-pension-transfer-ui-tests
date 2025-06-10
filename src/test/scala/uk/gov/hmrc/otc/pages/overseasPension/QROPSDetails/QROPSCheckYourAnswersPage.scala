@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object QROPSCheckYourAnswersPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/check-your-answers"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/check-your-answers"
   override val title = "QROPS Check your answers"
 
   override def expectedPageTitle: Option[String] = Some(

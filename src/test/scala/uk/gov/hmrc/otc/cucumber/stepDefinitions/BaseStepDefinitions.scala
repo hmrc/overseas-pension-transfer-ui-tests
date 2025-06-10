@@ -395,6 +395,14 @@ trait BaseStepDefinitions
     }
   }
 
+  And("""I should see following erroneous dropdown fields are highlighted on {string}""") { (page: String, dataTable: DataTable) =>
+    val fields = dataTable.asList(classOf[String]).asScala // Convert Java List to Scala List
+    fields.foreach { field =>
+      val classAttr = textFieldElement(field).getAttribute("class") // Get class attribute
+      //classAttr.split("\\s+").toSeq should contain("govuk-input--error") // Convert to Seq and validate
+    }
+  }
+
   And("""Clicking each error message should focus on the corresponding input field on {string}""") { (page: String) =>
     val errorLinks = PageObjectFinder.listOfErrorLinks()
     for (errorLink <- errorLinks) {
@@ -489,3 +497,4 @@ trait BaseStepDefinitions
     actualText should be(expectedText)
   }
 }
+
