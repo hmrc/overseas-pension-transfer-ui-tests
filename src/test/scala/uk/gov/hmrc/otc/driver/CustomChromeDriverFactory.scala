@@ -23,21 +23,13 @@ object CustomChromeDriverFactory {
 
   // Create a single instance of WebDriver (reused everywhere)
   lazy val instance: WebDriver = {
-    // Path to ChromeDriver – make sure this matches your Chrome version (v137)
-    System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver")
-
     val options = new ChromeOptions()
 
     // Use system Chrome instead of the unstable "Chrome for Testing"
     options.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-
-    // Safer for macOS and CI environments
-    // Disable headless for now unless proven stable
-    // options.addArguments("--headless=new")
     options.addArguments("--no-sandbox")
     options.addArguments("--disable-dev-shm-usage")
     options.addArguments("--disable-gpu")
-    options.addArguments("--window-size=1280,800")
 
     new ChromeDriver(options)
   }
