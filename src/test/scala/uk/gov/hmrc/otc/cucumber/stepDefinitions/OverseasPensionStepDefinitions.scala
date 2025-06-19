@@ -17,6 +17,7 @@
 package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
+import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.When
 import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
 
 class OverseasPensionStepDefinitions extends BaseStepDefinitions {
@@ -33,4 +34,14 @@ class OverseasPensionStepDefinitions extends BaseStepDefinitions {
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
     }
   }
+
+  When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") {
+    (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String) =>
+      page match {
+        case "Auth Login Stub Page" =>
+          AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
+      }
+  }
+
 }
+

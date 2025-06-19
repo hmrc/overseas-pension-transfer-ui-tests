@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.cucumber.runner
+package uk.gov.hmrc.otc.pages.overseasPension
 
-import io.cucumber.junit.{Cucumber, CucumberOptions}
-import org.junit.runner.RunWith
+import uk.gov.hmrc.otc.conf.TestConfiguration
+import uk.gov.hmrc.otc.pages.BasePage
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("src/test/resources/features"),
-  glue     = Array("uk.gov.hmrc.otc.cucumber.stepDefinitions"),
-  plugin   = Array("pretty", "html:target/cucumber.html", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
-  tags     = "@IsTransferPaymentTaxable and not @Ignore"
-)
-class Runner {}
+object WhatYouWillNeedPage extends BasePage {
 
-object Runner extends Runner
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed"
+  override val title       = "What you will need"
+
+  override def expectedPageTitle: Option[String] = Some(
+    "What you will need - Report an overseas pension transfer - GOV.UK"
+  )
+}

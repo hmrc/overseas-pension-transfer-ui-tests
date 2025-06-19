@@ -25,8 +25,10 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.WebBrowser
 import uk.gov.hmrc.otc.conf.TestConfiguration
+import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.When
 import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.otc.pages.BasePage
+import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder
 
@@ -497,4 +499,3 @@ trait BaseStepDefinitions
     actualText should be(expectedText)
   }
 }
-
