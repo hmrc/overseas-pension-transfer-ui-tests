@@ -1,4 +1,4 @@
-@Test @AmountOfTaxDeducted
+@Test @AmountOfTaxDeducted @acceptance
 Feature: Amount of Tax Deducted
 
   Background: Common Steps - Transfer Details Journey

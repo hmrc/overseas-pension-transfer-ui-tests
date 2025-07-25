@@ -1,4 +1,4 @@
-@Test @AddQuotedShareStart
+@Test @AddQuotedShareStart @acceptance
 Feature: Start Page of Adding Quoted Share
 
   Background: Common Steps - Transfer Details Journey

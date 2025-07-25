@@ -1,4 +1,4 @@
-@Test @AmountOfCashinTransfer
+@Test @AmountOfCashinTransfer @acceptance
 Feature: Amount of Cash in the Transfer
 
   Background: Common Steps - Transfer Details Journey

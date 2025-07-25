@@ -1,4 +1,4 @@
-@Test @AddPropertyStart
+@Test @AddPropertyStart @acceptance
 Feature: Start Page of Adding Property
 
   Background: Common Steps - Transfer Details Journey
