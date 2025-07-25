@@ -1,4 +1,4 @@
-@Test @MemberDateOfBirth
+@Test @MemberDateOfBirth @acceptance
 Feature: What is member's date of birth?
 
   Background: Common Steps - Member Details Journey

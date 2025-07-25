@@ -498,4 +498,12 @@ trait BaseStepDefinitions
     val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
     actualText should be(expectedText)
   }
+
+  When("""I click on the Details component {string} on {string}""") { (detailsSummary: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.cssSelector("span[class='govuk-details__summary-text']")).click()
+  }
+
 }
+
+
