@@ -1,4 +1,4 @@
-@Test @AddUnQuotedShareStart
+@Test @AddUnQuotedShareStart @acceptance
 Feature: Start Page of Adding UnQuoted Share
 
   Background: Common Steps - Transfer Details Journey

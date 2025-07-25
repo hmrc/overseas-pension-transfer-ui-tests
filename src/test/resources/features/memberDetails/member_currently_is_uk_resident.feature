@@ -1,4 +1,4 @@
-@Test @IsCurrentlyResident @acceptance
+@Test @IsCurrentlyResident
 Feature: Is the member currently a resident of UK for tax purposes?
 
   Background: Common Steps - Member Details Journey
