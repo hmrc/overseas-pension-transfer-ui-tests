@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
+package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object MemberDoesNotHaveNINOPage extends BasePage {
+object NameOfCompanyQuotedSharePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-does-not-have-nino"
-  override val title       = "Why the member doesn’t have a National Insurance number?"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/quoted-share-company-name"
+  override val title = "What is the name of the company these quoted shares relate to?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Why the member doesn’t have a National Insurance number? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the name of the company these quoted shares relate to? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Why the member doesn’t have a National Insurance number? - Report an overseas pension transfer - GOV.UK"
+    "What is the name of the company these quoted shares relate to? - Report an overseas pension transfer - GOV.UK"
   )
 }

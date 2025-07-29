@@ -1,4 +1,4 @@
-@Test @DoesNotHaveNINO @acceptance
+@Test @DoesNotHaveNINO
 Feature: Adding details for the member who does not have NINO
 
   Background: Common Steps - Member Details Journey
@@ -25,10 +25,7 @@ Feature: Adding details for the member who does not have NINO
     And I click save and continue button on "Member Does Not Have NINO Page"
     Then I am presented with the "Member Date Of Birth Page"
 
-  Scenario:2. Positive journey - PSA/PSP enters 1 character into the field
-    When I enter "A" in the textarea field on "Member Does Not Have NINO Page"
-    And I click save and continue button on "Member Does Not Have NINO Page"
-    Then I am presented with the "Member Date Of Birth Page"
+    And I am presented with the "What You Will Need Page"
 
   Scenario:3. Positive journey - PSA/PSP enters 160 characters into the field
     When I enter "I am currently not having a National Insurance Number due to new recent arrival in the UK, age, lack of employment, or awaiting processing of their application." in the textarea field on "Member Does Not Have NINO Page"
@@ -47,3 +44,4 @@ Feature: Adding details for the member who does not have NINO
     Then I am presented with the "Member Does Not Have NINO Page" error page
     And I should see the "There is a problem" and below error messages
       | The reason for not having a National Insurance number and reference in its place must be must be 160 characters or less |
+

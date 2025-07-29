@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object MemberNinoPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-nino"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-nino"
   override val title       = "What is Undefined Undefined's National Insurance number?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
