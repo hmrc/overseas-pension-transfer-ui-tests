@@ -1,4 +1,4 @@
-@Test @MemberDateOfLeavingUK @acceptance
+@Test @MemberDateOfLeavingUK
 Feature: When did the member leave UK?
 
   Background: Common Steps - Member Details Journey

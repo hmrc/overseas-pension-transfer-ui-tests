@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object MemberDateOfLeavingUKPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-date-of-leaving-uk"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-date-of-leaving-uk"
   override val title       = "When did the member leave the UK?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

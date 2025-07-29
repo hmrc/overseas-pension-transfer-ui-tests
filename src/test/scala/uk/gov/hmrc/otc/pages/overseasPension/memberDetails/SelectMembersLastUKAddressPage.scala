@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object SelectMembersLastUKAddressPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-select-last-uk-address"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-select-last-uk-address"
   override val title = "Select member's last UK address"
 
   override def expectedPageErrorTitle: Option[String] = Some(

@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object IsMemberCurrentlyUKResidentPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-is-resident-uk"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-is-resident-uk"
   override val title       = "Is the member a resident of the UK for tax purposes?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
