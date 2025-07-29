@@ -25,11 +25,11 @@ object HasMemberEverBeenUKResidentPage extends BasePage {
   override val title       = "Has undefined undefined ever been a resident in the UK for tax purposes?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Has undefined undefined ever been a resident in the UK for tax purposes? - Report an overseas pension transfer - GOV.UK"
+    "Error: Has {0} ever been a resident in the UK for tax purposes? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Has undefined undefined ever been a resident in the UK for tax purposes? - Report an overseas pension transfer - GOV.UK"
+    "Has {0} ever been a resident in the UK for tax purposes? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def clickRadioButton(text: String): Unit =
