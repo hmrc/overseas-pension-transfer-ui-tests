@@ -7,7 +7,7 @@ Feature: Is the member currently a resident of UK for tax purposes?
     And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
     When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-    And I am presented with the "What You Will Need Page"
+    Then I am presented with the "Overseas Transfer Index Page"
     And I navigated to the "Is Member Currently UK Resident Page"
 
   Scenario Outline: Verify Is Member Currently UK Resident Page
