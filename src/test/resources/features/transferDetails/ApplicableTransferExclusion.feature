@@ -1,4 +1,4 @@
-@Test @ApplicableTransferExclusion
+@Test @ApplicableTransferExclusion @acceptance
 Feature: Date of Transfer
 
   Background: Common Steps - Transfer Details Journey

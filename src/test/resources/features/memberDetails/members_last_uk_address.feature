@@ -1,15 +1,16 @@
-@Test @MembersLastUKAddress
+@Test @MembersLastUKAddress @acceptance
 Feature: Entering the last UK address of the member
   As a PSA/PSP
 
   Background: Common Steps - Member Details Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
+    And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
     # And I enter redirect URL on Auth Login Stub Page for "Is Member Currently UK Resident Page"
     # Redirection currently does not work for any other page other than the Index page
+    When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "What You Will Need Page"
     And I navigated to the "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page"
 
@@ -18,8 +19,8 @@ Feature: Entering the last UK address of the member
     And I should see the input fields with below labels on "Members Last UK Address Page"
       | Address line 1            |
       | Address line 2            |
-      | Address Line 3 (optional) |
-      | Address Line 4 (optional) |
+      | Address line 3 (optional) |
+      | Address line 4 (optional) |
       | Postcode                  |
     Examples:
       | memberName          |
@@ -190,3 +191,9 @@ Feature: Entering the last UK address of the member
     And I should see following erroneous fields are highlighted on "Members Last UK Address Page"
       | postcode |
     And Clicking each error message should focus on the corresponding input field on "Members Last UK Address Page"
+
+  #Scenario:5. Positive journey - PSA/PSP selects option to enter the address using post code screen
+   # When I click on "searching the postcode." hyperlink on "Members Last UK Address Page"
+    #And I am presented with the "Member Last UK Address Lookup Page"
+    #And I should see the heading "Find Undefined Undefined's last principal residential address in the UK"
+    #And I should see the hint text "For example, AA3 1AB."

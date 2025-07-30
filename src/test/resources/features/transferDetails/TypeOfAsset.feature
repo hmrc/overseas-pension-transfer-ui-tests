@@ -1,4 +1,4 @@
-@Test @TypeOfAsset
+@Test @TypeOfAsset @acceptance
 Feature: Type Of Asset
 
   Background: Common Steps - Transfer Details Journey

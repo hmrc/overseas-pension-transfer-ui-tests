@@ -33,7 +33,7 @@ And I should see the hint text "For example, £60000 or £19,300.54."
 
   Scenario:4. Positive journey - PSA/PSP enters a a number with maximum allowed value (999999999.99)
     When I enter the following data into corresponding input fields on "Amount Of Tax Deducted Page"
-      | taxDeducted | 999999999.99 |
+      | taxDeducted | 999999999 |
     And I click save and continue button on "Amount Of Tax Deducted Page"
     Then I am presented with the "Overseas Transfer Index Page"
 

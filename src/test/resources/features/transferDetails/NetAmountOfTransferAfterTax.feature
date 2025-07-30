@@ -1,4 +1,4 @@
-@Test @NetAmountOfTransferAfterTax
+@Test @NetAmountOfTransferAfterTax @acceptance
 Feature: Net Amount Transferred After Tax
 
   Background: Common Steps - Transfer Details Journey

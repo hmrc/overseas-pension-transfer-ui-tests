@@ -1,4 +1,4 @@
-@Test @WhyTransfernottaxable
+@Test @WhyTransfernottaxable @acceptance
 Feature: Why the transfer is not taxable
 
   Background: Common Steps - Transfer Details Journey
