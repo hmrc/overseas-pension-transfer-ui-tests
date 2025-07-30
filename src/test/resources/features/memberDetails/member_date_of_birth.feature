@@ -4,12 +4,12 @@ Feature: What is member's date of birth?
   Background: Common Steps - Member Details Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
+    And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
     # And I enter redirect URL on Auth Login Stub Page for "Is Member Currently UK Resident Page"
     # Redirection currently does not work for any other page other than the Index page
     When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "What You Will Need Page"
     And I navigated to the "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page"
 
@@ -18,8 +18,8 @@ Feature: What is member's date of birth?
     And I should see the hint text "For example, 31 03 1980."
 
     Examples:
-      | memberName |
-      | {0}        |
+      | memberName          |
+      | Undefined Undefined |
 
   Scenario:1. Positive journey - PSA/PSP enters all three fields of Day, Month and Year
     When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
@@ -27,7 +27,7 @@ Feature: What is member's date of birth?
       | month | 12   |
       | year  | 1991 |
     And I click save and continue button on "Member Date Of Birth Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Members Current UK Address Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP enters all three fields of Day, Month and Year but enters a single digit (eg: 1 instead of 01)
@@ -36,7 +36,7 @@ Feature: What is member's date of birth?
       | month | 12   |
       | year  | 1991 |
     And I click save and continue button on "Member Date Of Birth Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Members Current UK Address Page"
 
   Scenario:3. Negative Journey - PSA/PSP enters day in a wrong format
     When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
@@ -139,7 +139,7 @@ Feature: What is member's date of birth?
       | month | January |
       | year  | 2000    |
     And I click save and continue button on "Member Date Of Birth Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Members Current UK Address Page"
 
   Scenario:11. Negative Journey - PSA/PSP enters the wrong input using random alphabet and special character for month of birth(e.g. %ABC)
     When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
@@ -189,9 +189,9 @@ Feature: What is member's date of birth?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a Day |
+      | Enter a day |
     And I should see following erroneous fields are highlighted on "Member Date Of Birth Page"
-      | day |
+      | value.day |
     And Clicking each error message should focus on the corresponding input field on "Member Date Of Birth Page"
 
 
@@ -203,20 +203,20 @@ Feature: What is member's date of birth?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a Month |
+      | Enter a month |
     And I should see following erroneous fields are highlighted on "Member Date Of Birth Page"
-      | month |
+      | value.month |
     And Clicking each error message should focus on the corresponding input field on "Member Date Of Birth Page"
 
   Scenario:16. Negative Journey - PSA/PSP does not enter the Year
     When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
-      | day   | 31 |
-      | month | 12 |
-      | year  |    |
+      | day        | 31 |
+      | month      | 12 |
+      | value.year |    |
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a Year |
+      | Enter a year |
     And I should see following erroneous fields are highlighted on "Member Date Of Birth Page"
       | year |
     And Clicking each error message should focus on the corresponding input field on "Member Date Of Birth Page"
@@ -230,9 +230,9 @@ Feature: What is member's date of birth?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a Day and a Month |
+      | Enter a day and a month |
     And I should see following erroneous fields are highlighted on "Member Date Of Birth Page"
-      | day |
+      | value.day |
     And Clicking each error message should focus on the corresponding input field on "Member Date Of Birth Page"
 
   Scenario:18. Negative Journey - PSA/PSP does not enter the Month and Year
@@ -243,9 +243,9 @@ Feature: What is member's date of birth?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a Day and a Year |
+      | Enter a day and a year |
     And I should see following erroneous fields are highlighted on "Member Date Of Birth Page"
-      | day |
+      | value.day |
     And Clicking each error message should focus on the corresponding input field on "Member Date Of Birth Page"
 
 
@@ -257,8 +257,8 @@ Feature: What is member's date of birth?
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Member Date Of Birth Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter a Month and a Year |
+      | Enter a month and a year |
     And I should see following erroneous fields are highlighted on "Member Date Of Birth Page"
-      | month |
+      | value.month |
     And Clicking each error message should focus on the corresponding input field on "Member Date Of Birth Page"
 

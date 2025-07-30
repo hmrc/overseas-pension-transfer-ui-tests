@@ -9,4 +9,4 @@ echo "Browser:              ${BROWSER}"
 echo "Env:                  local"
 echo "Journey:              ${JOURNEY}"
 echo "=========================================="
-sbt clean -Dbrowser="${BROWSER}" -Denvironment=local "testOnly uk.gov.hmrc.otc.cucumber.runner.AllTestsRunner" testReport
+sbt clean -Dbrowser="${BROWSER}" -Dbrowser.option.headless=false -Denvironment=local "testOnly uk.gov.hmrc.otc.cucumber.runner.AllTestsRunner" testReport

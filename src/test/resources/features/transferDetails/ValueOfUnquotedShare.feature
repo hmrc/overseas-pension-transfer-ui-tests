@@ -1,4 +1,4 @@
-@Test @ValueOfUnQuotedShare
+@Test @ValueOfUnQuotedShare @acceptance
 Feature: Value Of Unquoted Share
 
   Background: Common Steps - Transfer Details Journey

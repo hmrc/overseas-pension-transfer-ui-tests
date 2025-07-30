@@ -1,4 +1,4 @@
-@Test @DateofTransfer
+@Test @DateofTransfer @acceptance
 Feature: Date of Transfer
 
   Background: Common Steps - Member Details Journey

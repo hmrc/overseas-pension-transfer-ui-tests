@@ -1,4 +1,4 @@
-@Test   @IsTransferPaymentTaxable
+@Test   @IsTransferPaymentTaxable @acceptance
 Feature: Is Transfer Payment Taxable?
 
   Background: Common Steps - Member Details Journey

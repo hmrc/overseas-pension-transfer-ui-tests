@@ -1,4 +1,4 @@
-@Test @OverseasTransferAllowance
+@Test @OverseasTransferAllowance @acceptance
 Feature: Member's Overseas Transfer Allowance
 
   Background: Common Steps - Transfer Details Journey

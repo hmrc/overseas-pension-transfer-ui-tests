@@ -1,4 +1,4 @@
-@Test   @WhyTransferAmountTaxable
+@Test   @WhyTransferAmountTaxable @acceptance
 Feature: Why Transfer amount Taxable?
 
   Background: Common Steps - Member Details Journey

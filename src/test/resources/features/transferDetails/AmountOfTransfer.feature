@@ -1,4 +1,4 @@
-@Test @AmountOfTransfer
+@Test @AmountOfTransfer @acceptance
 Feature: Member's Transfer Amount
 
   Background: Common Steps - Transfer Details Journey

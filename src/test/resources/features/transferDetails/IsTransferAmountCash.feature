@@ -1,4 +1,4 @@
-@Test   @IsTransferAmountCash
+@Test   @IsTransferAmountCash @acceptance
 Feature: Is Transfer amount cash?
 
   Background: Common Steps - Member Details Journey
