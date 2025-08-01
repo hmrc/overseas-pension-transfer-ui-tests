@@ -14,21 +14,27 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
+package uk.gov.hmrc.otc.pages.auth
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object IsTransferAmountCashPage extends BasePage {
+object NewLoginPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/is-transfer-cash-only"
-  override val title = "Is the transfer made up of cash only?"
+  override val url: String = TestConfiguration.url("report-transfer-qualified-recognised-overseas-pension-scheme")
+  override val title       = "What is Jon Doe’s date of birth?" // TODO this title needs to be corrected in message file in main application
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
+    "What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
   )
+
+  override def enterDate(day: String, month: String, year: String): Unit = {
+    enterText("value.day", day)
+    enterText("value.month", month)
+    enterText("value.year", year)
+  }
 }

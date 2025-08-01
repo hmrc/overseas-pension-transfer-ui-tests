@@ -5,9 +5,6 @@ Feature: Adding names of the member
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
-   # And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
-    # And I enter redirect URL on Auth Login Stub Page for "Is Member Currently UK Resident Page"
-    # Redirection currently does not work for any other page other than the Index page
     When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     And I am presented with the "What You Will Need Page"
@@ -17,7 +14,6 @@ Feature: Adding names of the member
     And I should see the input fields with below labels on "Member Name Page"
       | First name |
       | Last name  |
-
 
   Scenario:1. Positive journey - PSA/PSP enters both the First and Last names of the member
     When I enter the following data into corresponding input fields on "Member Name Page"

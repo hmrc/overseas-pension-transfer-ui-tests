@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object AmountOfCashInTransferPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/cash-amount-in-transfer"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/cash-amount-in-transfer"
   override val title = "What is the amount of cash?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
