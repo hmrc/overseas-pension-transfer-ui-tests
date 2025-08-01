@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object AddPropertyStartPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/add-property"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/property-start"
   override val title = "Add property"
 
   override def expectedPageTitle: Option[String] = Some(

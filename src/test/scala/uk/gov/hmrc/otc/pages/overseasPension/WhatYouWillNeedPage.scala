@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object WhatYouWillNeedPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("report-transfer-qualified-recognised-overseas-pension-scheme") + "/what-will-be-needed"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed"
   override val title       = "What you will need"
 
   override def expectedPageTitle: Option[String] = Some(

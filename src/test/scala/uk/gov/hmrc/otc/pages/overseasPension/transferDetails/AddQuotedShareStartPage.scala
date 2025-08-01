@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object AddQuotedShareStartPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/add-quoted-share"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/quoted-shares-start"
   override val title = "Add quoted shares"
 
   override def expectedPageTitle: Option[String] = Some(

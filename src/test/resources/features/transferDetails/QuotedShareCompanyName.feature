@@ -16,22 +16,22 @@ And I should see the heading "What is the name of the company these quoted share
     When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
       | value | Company XYZ|
     And I click save and continue button on "Name Of Company Quoted Share Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Value Of Quoted Share Page"
 
   Scenario:2. Positive journey - PSA/PSP types in a single character for name for the Company for Unquoted Share
     When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
       | value | C |
     And I click save and continue button on "Name Of Company Quoted Share Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Value Of Quoted Share Page"
 
   Scenario:3. Positive journey - PSA/PSP types in a name for the Company for Unquoted Share > 160 charecters
     When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
       | value | Quantum Synergy Dynamics Global Innovations & Solutions Enterprises Unlimited Ventures Technologies Future Forward Strategic Nexus Industries Corporation Ltd LL |
     And I click save and continue button on "Name Of Company Quoted Share Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Value Of Quoted Share Page"
 
   Scenario:4. Positive journey - PSA/PSP types in a name for the Company for Unquoted Share which includes a number as a part of the name
     When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
       | value | Company 11ABC|
     And I click save and continue button on "Name Of Company Quoted Share Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Value Of Quoted Share Page"
