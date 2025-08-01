@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object TypeOfAssetPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/type-of-asset"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/type-of-asset"
   override val title = "Type of assets included in the transfer"
 
   override def expectedPageErrorTitle: Option[String] = Some(
