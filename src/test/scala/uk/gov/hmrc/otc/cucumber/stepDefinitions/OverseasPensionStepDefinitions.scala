@@ -17,7 +17,6 @@
 package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.When
 import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
 
 class OverseasPensionStepDefinitions extends BaseStepDefinitions {
