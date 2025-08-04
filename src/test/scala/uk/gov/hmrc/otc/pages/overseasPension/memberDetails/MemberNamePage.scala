@@ -19,7 +19,7 @@ package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object MemberNamePage extends BasePage {
+object  MemberNamePage extends BasePage {
 
   override val url: String = TestConfiguration.url("report-transfer-qualified-recognised-overseas-pension-scheme") + "/member-details/member-name"
   override val title       = "What is the member's name?"
