@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object NewLoginPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("report-transfer-qualified-recognised-overseas-pension-scheme")
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend")
   override val title       = "report-transfer-qualified-recognised-overseas-pension-scheme" // TODO this title needs to be corrected in message file in main application
 
   //override def expectedPageErrorTitle: Option[String] = Some(

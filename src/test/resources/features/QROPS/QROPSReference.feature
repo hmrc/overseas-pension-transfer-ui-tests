@@ -1,14 +1,13 @@
-@Test @QROPSReference
+@Test @QROPSReference @acceptance
 Feature: Adding QROPS Reference
 
   Background: Common Steps - QROPS Details Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
-    # And I enter redirect URL on Auth Login Stub Page for "Is Member Currently UK Resident Page"
-    # Redirection currently does not work for any other page other than the Index page
+    And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
+    When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "What You Will Need Page"
     And I navigated to the "QROPS Reference Page"
     And I should see the heading "What is the QROPS reference?"
     And I should see below input fields on "QROPS Reference Page"

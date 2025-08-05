@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.qropsSchemeManagerDetails
+package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object SchemeManagerEmailPage extends BasePage {
+object ValueOfQuotedSharePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/scheme-managers-email"
-  override val title = "What is the scheme manager's email address?"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/quoted-shares-value?index=0"
+  override val title = "What is the value of these quoted shares?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the scheme manager's email address? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the value of these quoted shares? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the scheme manager's email address? - Report an overseas pension transfer - GOV.UK"
+    "What is the value of these quoted shares? - Report an overseas pension transfer - GOV.UK"
   )
 }

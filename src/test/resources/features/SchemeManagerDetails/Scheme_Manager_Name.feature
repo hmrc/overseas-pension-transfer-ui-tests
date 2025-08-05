@@ -1,14 +1,13 @@
-@Test @SchemeManagerName
+@Test @SchemeManagerName @acceptance
 Feature: Adding names of the Scheme Manager
 
   Background: Common Steps - Member Details Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Overseas Transfer Index Page"
-    # And I enter redirect URL on Auth Login Stub Page for "Is Member Currently UK Resident Page"
-    # Redirection currently does not work for any other page other than the Index page
+    And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
+    When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "What You Will Need Page"
     And I navigated to the "Scheme Manager Name Page"
     And I should see the heading "What is the manager's name?"
     And I should see the input fields with below labels on "Scheme Manager Name Page"

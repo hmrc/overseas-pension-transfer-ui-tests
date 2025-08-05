@@ -17,5 +17,5 @@ And I should see the heading "Add quoted shares"
 And I should see the following values on the page
       | The following questions are about quoted shares that are part of this transfer. |
     And I click save and continue button on "Add Quoted Share Start Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Name Of Company Quoted Share Page"
 

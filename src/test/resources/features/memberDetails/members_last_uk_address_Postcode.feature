@@ -1,4 +1,4 @@
-@Test @MembersLastUKAddressPostcode
+@Test @MembersLastUKAddressPostcode @acceptance
 Feature: Entering the last UK address of the member using postcode
   As a PSA/PSP
 

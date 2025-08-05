@@ -19,7 +19,7 @@ Feature: Type Of Asset
   Scenario:1. Positive journey - PSA/PSP selects one of the checkboxes
     When I "select" checkbox "Unquoted shares" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Add UnQuoted Share Start Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP selects all of the checkboxes
@@ -29,19 +29,19 @@ Feature: Type Of Asset
     And I "select" checkbox "Property" on "Type Of Asset Page"
     And I "select" checkbox "Other" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Add UnQuoted Share Start Page"
 
   Scenario:3. Positive Journey - PSA/PSP selects only 2 of the available checkboxes (excluding Cash)
     When I "select" checkbox "Unquoted shares" on "Type Of Asset Page"
     And I "select" checkbox "Property" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Add UnQuoted Share Start Page"
 
   Scenario:4. Positive Journey - PSA/PSP selects Cash and another of the available checkboxes
     When I "select" checkbox "Cash" on "Type Of Asset Page"
     And I "select" checkbox "Other" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "New Login Page"
 
   Scenario:5. Negative Journey - PSA/PSP selects only Cash in the checkbox
     When I "select" checkbox "Cash" on "Type Of Asset Page"
