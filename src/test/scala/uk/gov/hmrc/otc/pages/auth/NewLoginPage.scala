@@ -21,20 +21,20 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object NewLoginPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("report-transfer-qualified-recognised-overseas-pension-scheme")
-  override val title       = "What is Jon Doe’s date of birth?" // TODO this title needs to be corrected in message file in main application
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend")
+  override val title       = "report-transfer-qualified-recognised-overseas-pension-scheme" // TODO this title needs to be corrected in message file in main application
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
-  )
+  //override def expectedPageErrorTitle: Option[String] = Some(
+   // "Error: What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
+  //)
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
+    "report-transfer-qualified-recognised-overseas-pension-scheme - Report an overseas pension transfer - GOV.UK"
   )
 
-  override def enterDate(day: String, month: String, year: String): Unit = {
-    enterText("value.day", day)
-    enterText("value.month", month)
-    enterText("value.year", year)
-  }
+ // override def enterDate(day: String, month: String, year: String): Unit = {
+   // enterText("value.day", day)
+    //enterText("value.month", month)
+    //enterText("value.year", year)
+  //}
 }

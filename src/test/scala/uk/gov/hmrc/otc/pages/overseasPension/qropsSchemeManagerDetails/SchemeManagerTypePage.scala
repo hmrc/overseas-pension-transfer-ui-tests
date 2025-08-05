@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object SchemeManagerTypePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/scheme-manager-type"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/scheme-manager-type"
   override val title       = "Is the scheme manager an individual or organisation?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

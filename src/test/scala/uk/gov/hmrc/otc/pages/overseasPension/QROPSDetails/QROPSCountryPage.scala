@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object QROPSCountryPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-country"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/qrops-country"
   override val title = "Country or territory in which QROPS was established?"
 
  //override def expectedPageErrorTitle: Option[String] = Some(

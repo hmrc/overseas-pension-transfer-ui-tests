@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object QROPSReferencePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-reference"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/qrops-reference"
   override val title       = "What is the QROPS reference?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

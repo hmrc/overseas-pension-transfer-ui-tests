@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object OrganisationIndividualAddressPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/scheme-managers-address"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/scheme-managers-address"
   override val title       = "What is the scheme manager's address?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

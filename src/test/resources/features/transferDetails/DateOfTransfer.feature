@@ -23,7 +23,7 @@ Feature: Date of Transfer
       | month | 12 |
       | year  | 2024  |
     And I click save and continue button on "Date Of Transfer Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "New Login Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP enters all three fields of Day, Month and Year but enters a single digit (eg: 1 instead of 01)
@@ -32,7 +32,7 @@ Feature: Date of Transfer
       | month | 12   |
       | year  | 2024 |
     And I click save and continue button on "Date Of Transfer Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "New Login Page"
 
   Scenario:3. Negative Journey - PSA/PSP enters day in a wrong format
     When I enter the following data into corresponding input fields on "Date Of Transfer Page"
@@ -131,7 +131,7 @@ Feature: Date of Transfer
       | month | Sep  |
       | year  | 1991 |
     And I click save and continue button on "Date Of Transfer Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "New Login Page"
 
   Scenario:11. Negative Journey - PSA/PSP enters enters the wrong input using random alphabet and special character for month of Leaving
     When I enter the following data into corresponding input fields on "Date Of Transfer Page"

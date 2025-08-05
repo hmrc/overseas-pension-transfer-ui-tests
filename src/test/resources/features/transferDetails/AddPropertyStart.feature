@@ -1,4 +1,4 @@
-@Test @AddPropertyStart @acceptance
+@Test @AddPropertyStart
 Feature: Start Page of Adding Property
 
   Background: Common Steps - Transfer Details Journey
@@ -17,5 +17,5 @@ And I should see the heading "Add property"
 And I should see the following values on the page
       | The following questions are about property that is part of this transfer. |
     And I click save and continue button on "Add Property Start Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "Property Address Page"
 

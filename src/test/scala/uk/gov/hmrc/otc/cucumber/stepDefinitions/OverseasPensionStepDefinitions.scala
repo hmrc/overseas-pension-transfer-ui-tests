@@ -17,7 +17,6 @@
 package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.When
 import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
 
 class OverseasPensionStepDefinitions extends BaseStepDefinitions {
@@ -31,7 +30,10 @@ class OverseasPensionStepDefinitions extends BaseStepDefinitions {
       case "Member does not have NINO"                                  =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-does-not-have-nino")
       case  "What You Will Need Page"                                                         =>
+        //AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed")
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed")
+      case "New Login Page"                       =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
       case _                                                            =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
     }

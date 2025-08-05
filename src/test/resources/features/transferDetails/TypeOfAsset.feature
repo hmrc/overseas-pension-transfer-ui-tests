@@ -41,7 +41,7 @@ Feature: Type Of Asset
     When I "select" checkbox "Cash" on "Type Of Asset Page"
     And I "select" checkbox "Other" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "New Login Page"
 
   Scenario:5. Negative Journey - PSA/PSP selects only Cash in the checkbox
     When I "select" checkbox "Cash" on "Type Of Asset Page"

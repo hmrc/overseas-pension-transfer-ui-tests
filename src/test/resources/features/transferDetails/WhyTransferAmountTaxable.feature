@@ -22,13 +22,13 @@ Feature: Why Transfer amount Taxable?
   Scenario:1. Positive Journey - Select 'Transfer exceeds member's overseas transfer allowance and there is an applicable exclusion' radio button
     When I select radio button "Transfer exceeds member's overseas transfer allowance and there is an applicable exclusion." on "Why Transfer Amount Taxable Page"
     And I click save and continue button on "Why Transfer Amount Taxable Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "New Login Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive Journey - Select 'There is no applicable exclusion' radio button
     When I select radio button "There is no applicable exclusion." on "Why Transfer Amount Taxable Page"
     And I click save and continue button on "Why Transfer Amount Taxable Page"
-    Then I am presented with the "Overseas Transfer Index Page"
+    Then I am presented with the "New Login Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:3. Negative Journey - No Selection Error
