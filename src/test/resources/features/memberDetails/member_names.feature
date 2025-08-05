@@ -15,7 +15,6 @@ Feature: Adding names of the member
       | First name |
       | Last name  |
 
-
   Scenario:1. Positive journey - PSA/PSP enters both the First and Last names of the member
     When I enter the following data into corresponding input fields on "Member Name Page"
       | firstName | John |

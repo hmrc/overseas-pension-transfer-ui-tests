@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object CheckYourAnswersUnquotedSharePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/unquoted-share-check-your-answers?index=0"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/unquoted-share-check-your-answers?index=0"
   override val title = "Check your answers"
 
   override def expectedPageTitle: Option[String] = Some(
