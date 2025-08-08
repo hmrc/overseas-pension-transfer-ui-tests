@@ -17,8 +17,14 @@ And I should see the heading "What class are these quoted shares?"
     And I click save and continue button on "Class Of Quoted Share Page"
     Then I am presented with the "Check Your Answers Quoted Share Page"
 
-  Scenario:2. Positive journey - PSA/PSP types in a single character for name for the Company for Unquoted Share
+  Scenario:2. Positive journey - PSA/PSP types in a exactly 160 characters for name for the Company for Unquoted Share
     When I enter the following data into corresponding input fields on "Class Of Quoted Share Page"
       | value | Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A|
+    And I click save and continue button on "Class Of Quoted Share Page"
+    Then I am presented with the "Check Your Answers Quoted Share Page"
+
+  Scenario:2. Positive journey - PSA/PSP types in a single characters for name for the Company for Unquoted Share
+    When I enter the following data into corresponding input fields on "Class Of Quoted Share Page"
+      | value | A |
     And I click save and continue button on "Class Of Quoted Share Page"
     Then I am presented with the "Check Your Answers Quoted Share Page"
