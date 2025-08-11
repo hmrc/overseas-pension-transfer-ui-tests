@@ -13,7 +13,6 @@ Then I am presented with the "Add Property Start Page"
 
   Scenario:1. Positive journey - PSA/PSP sees the following in the Property add start page
 And I should see the heading "Add property"
-#And I should see the hint text "For example, £60000 or £19,300.54."
 And I should see the following values on the page
       | The following questions are about property that is part of this transfer. |
     And I click save and continue button on "Add Property Start Page"
