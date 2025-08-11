@@ -13,11 +13,11 @@ Feature: Start Page of Adding Property
 
   Scenario:1. Positive journey - PSA/PSP enters data into all the fields in Add Property Address page
     And I should see the heading "Add property"
-#And I should see the hint text "For example, £60000 or £19,300.54."
     And I should see the following values on the page
       | The following questions are about property that is part of this transfer. |
     And I click save and continue button on "Add Property Start Page"
     Then I am presented with the "Property Address Page"
+    And I should see the heading "What is the property address?"
     When I enter the following data into corresponding input fields on "Property Address Page"
       | addressLine1 | addressLine1         |
       | addressLine2 | addressLine2         |
@@ -30,7 +30,6 @@ Feature: Start Page of Adding Property
 
   Scenario:2. Positive journey - PSA/PSP enters data in required fields only in Add Property Address page
     And I should see the heading "Add property"
-#And I should see the hint text "For example, £60000 or £19,300.54."
     And I should see the following values on the page
       | The following questions are about property that is part of this transfer. |
     And I click save and continue button on "Add Property Start Page"
