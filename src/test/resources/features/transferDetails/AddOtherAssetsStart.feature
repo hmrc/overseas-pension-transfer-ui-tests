@@ -1,5 +1,5 @@
 @Test @AddOtherAssetsStart @acceptance
-Feature: Start Page of Adding Property
+Feature: Start Page of Adding Other Assets
 
   Background: Common Steps - Transfer Details Journey
 Given I cleared the data for the service

@@ -1,5 +1,5 @@
-@Test @AddOtherAssetsStart @acceptance
-Feature: Start Page of Adding Property
+@Test @OtherAssetsDescription @acceptance
+Feature: Description Of the Other Assets
 
   Background: Common Steps - Transfer Details Journey
 Given I cleared the data for the service
@@ -11,7 +11,7 @@ And I am presented with the "What You Will Need Page"
 And I navigated to the "Other Assets Description Page"
 Then I am presented with the "Other Assets Description Page"
 
-  Scenario:1. Positive journey - PSA/PSP sees the following in the Property add start page
+  Scenario:1. Positive journey - PSA/PSP sees the following in the Other Assets Description Page
 And I should see the heading "Describe the asset and how it was valued"
 When I enter the following data into corresponding input fields on "Other Assets Description Page"
       | value | Other assets description|

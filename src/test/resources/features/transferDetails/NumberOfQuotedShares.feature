@@ -1,5 +1,5 @@
-@Test @NumberOfUnquotedShares @acceptance
-Feature: Unquoted Share Number
+@Test @NumberOfQuotedShares @acceptance
+Feature: Quoted Share Number
 
   Background: Common Steps - Transfer Details Journey
 Given I cleared the data for the service
