@@ -63,8 +63,9 @@ Feature: Adding national insurance number for a member
       | value |
     And Clicking each error message should focus on the corresponding input field on "Member Nino Page"
 
-  #Scenario:5. Positive journey - PSA/PSP selects option to enter the address manually in the post code screen
-   #When I click on "Member doesn't have a National Insurance number." hyperlink on "Member Nino Page"
-    #And I am presented with the "Member Does Not Have NINO Page"
-    #And I should see the heading "Why doesn’t Undefined Undefined have a National Insurance number?"
-    #And I should see the hint text "If the member has another HMRC reference number that relates to them as an individual, please give that number."
+  Scenario:5. Positive journey - PSA/PSP selects option to enter the address manually in the post code screen
+    When I click on "Member doesn't have a National Insurance number." hyperlink on "Member Nino Page"
+    And I am presented with the "Member Does Not Have NINO Page"
+    And I should see the heading "Why doesn’t Undefined Undefined have a National Insurance number?"
+    And I should see the following values on the page
+      | If the member has another HMRC reference number that relates to them as an individual, please give that number. |
