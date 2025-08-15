@@ -361,7 +361,15 @@ trait BaseStepDefinitions
 
   When("""I click on {string} hyperlink on {string}""") { (hyperlink: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
+    hyperlink match {
+      case "Member doesn't have a National Insurance number." =>
+        driver.findElement(By.xpath("//*[@id=\"noNinoPageLink\"]")).click()
+
+      case "The member has a National Insurance number." =>
+        driver.findElement(By.xpath("//*[@id=\"memberNinoPageLink\"]")).click()
+      case _ =>
+        driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
+    }
   }
 
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
