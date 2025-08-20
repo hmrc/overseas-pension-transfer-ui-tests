@@ -370,13 +370,19 @@ trait BaseStepDefinitions
 
         //
       case "Change Address" =>
-        driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/dl/div[1]/dd[2]/a")).click()
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-address')]")).click()
 
       case "Change Value" =>
-        driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/dl/div[2]/dd[2]/a")).click()
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-value')]")).click()
 
       case "Change Description" =>
-        driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/dl/div[3]/dd[2]/a")).click()
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-description')]")).click()
+
+      case "Change Property Amend" =>
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-amend')]")).click()
+
+      case "Remove Property" =>
+        driver.findElement(By.xpath("//*[contains(@href,'property-confirm-removal')]")).click()
 
       case _ =>
         driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
