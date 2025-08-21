@@ -1,5 +1,5 @@
-@Test @TransferPropertyJourney
-Feature: Adding/Transferring Property journey
+@Test @PropertyMiniJourney
+Feature: Property Mini journey(Adding properties and removing)
 
   Background: Common Steps - Transfer Details Journey
 Given I cleared the data for the service
