@@ -367,6 +367,25 @@ trait BaseStepDefinitions
 
       case "The member has a National Insurance number." =>
         driver.findElement(By.xpath("//*[@id=\"memberNinoPageLink\"]")).click()
+
+        //User clicks on change link for address.
+      case "Change Property Address" =>
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-address')]")).click()
+
+      //User clicks on change link for property value.
+      case "Change Property Value" =>
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-value')]")).click()
+
+      //User clicks on change link for property description.
+      case "Change Property Description" =>
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-description')]")).click()
+
+      case "Change Property Amend" =>
+        driver.findElement(By.xpath("//*[contains(@href,'change-property-amend')]")).click()
+
+      case "Remove Property" =>
+        driver.findElement(By.xpath("//*[contains(@href,'property-confirm-removal')]")).click()
+
       case _ =>
         driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
     }
