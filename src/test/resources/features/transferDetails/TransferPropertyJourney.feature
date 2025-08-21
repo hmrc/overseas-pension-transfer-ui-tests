@@ -1,4 +1,4 @@
-@Test @TransferPropertyJourner
+@Test @TransferPropertyJourney
 Feature: Adding/Transferring Property journey
 
   Background: Common Steps - Transfer Details Journey
@@ -42,7 +42,7 @@ When I enter the following data into corresponding input fields on "Property Des
 And I click save and continue button on "Property Description Page"
 Then I am presented with the "Property Check Your Answers Page"
 And I should see the heading "Check your answers"
-When I click on "Change Address" hyperlink on "Property Check Your Answers Page"
+When I click on "Change Property Address" hyperlink on "Property Check Your Answers Page"
 Then I am presented with the "Change Property Address Page"
     When I enter the following data into corresponding input fields on "Property Address Page"
       | addressLine1 | addressLine one        |
@@ -52,12 +52,12 @@ Then I am presented with the "Change Property Address Page"
       | countryCode  | United Kingdom       |
       | postcode     | p0stC2d4          |
 And I click save and continue button on "Change Property Address Page"
-When I click on "Change Value" hyperlink on "Property Check Your Answers Page"
+When I click on "Change Property Value" hyperlink on "Property Check Your Answers Page"
 Then I am presented with the "Change Value Of Property Page"
 When I enter the following data into corresponding input fields on "Change Value Of Property Page"
       | value | 5000 |
 And I click save and continue button on "Change Value Of Property Page"
-When I click on "Change Description" hyperlink on "Property Check Your Answers Page"
+When I click on "Change Property Description" hyperlink on "Property Check Your Answers Page"
 Then I am presented with the "Change Property Description Page"
 When I enter the following data into corresponding input fields on "Change Property Description Page"
       | value | Change Property value description|
