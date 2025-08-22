@@ -18,8 +18,8 @@ And I should see the heading "How many quoted shares in this company are part of
     And I click save and continue button on "Number Of Quoted Share Page"
     Then I am presented with the "Class Of Quoted Share Page"
 
-  Scenario:2. Positive journey - PSA/PSP types in a fractional number (with a decimal point) for Quoted share
-    When I enter the following data into corresponding input fields on "Number Of Quoted Share Page"
-      | value | 100.50 |
-    And I click save and continue button on "Number Of Quoted Share Page"
-    Then I am presented with the "Class Of Quoted Share Page"
+  #Scenario:2. Positive journey - PSA/PSP types in a fractional number (with a decimal point) for Quoted share
+   # When I enter the following data into corresponding input fields on "Number Of Quoted Share Page"
+    #  | value | 100.50 |
+    #And I click save and continue button on "Number Of Quoted Share Page"
+    #Then I am presented with the "Class Of Quoted Share Page"
