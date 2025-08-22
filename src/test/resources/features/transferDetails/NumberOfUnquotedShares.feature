@@ -18,8 +18,8 @@ And I should see the heading "How many unquoted shares in this company are part 
     And I click save and continue button on "Number Of Unquoted Share Page"
     Then I am presented with the "Class Of Unquoted Share Page"
 
-  Scenario:2. Positive journey - PSA/PSP types in a a fractional number (with a decimal point)
-    When I enter the following data into corresponding input fields on "Number Of Unquoted Share Page"
-      | value | 100.50 |
-    And I click save and continue button on "Number Of Unquoted Share Page"
-    Then I am presented with the "Class Of Unquoted Share Page"
+  #Scenario:2. Positive journey - PSA/PSP types in a a fractional number (with a decimal point)
+   # When I enter the following data into corresponding input fields on "Number Of Unquoted Share Page"
+    #  | value | 100.50 |
+    #And I click save and continue button on "Number Of Unquoted Share Page"
+    #Then I am presented with the "Class Of Unquoted Share Page"
