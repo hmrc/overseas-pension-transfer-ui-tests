@@ -19,12 +19,16 @@ package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object UnquotedSharesCheckYourAnswersPage extends BasePage {
+object ChangeClassOfUnquotedSharePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/unquoted-shares-check-your-answers?index=0"
-  override val title = "Check your answers"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/change-unquoted-shares-class?index=0"
+  override val title = "What class are these unquoted shares?"
+
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: What class are these unquoted shares? - Report an overseas pension transfer - GOV.UK"
+  )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report an overseas pension transfer - GOV.UK"
+    "What class are these unquoted shares? - Report an overseas pension transfer - GOV.UK"
   )
 }

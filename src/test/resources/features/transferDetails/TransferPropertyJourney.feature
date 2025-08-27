@@ -63,7 +63,7 @@ Feature: Property Mini journey(Adding properties and removing)
     And I click save and continue button on "Property Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the heading "Check your answers"
-    And I click save and continue button on "Property Check Your Answers Page"
+    And I click save and continue button on "Check Your Answers Page"
 
   Scenario:2 . PSA/PSP user is able to transfer multiple properties
     And I "select" checkbox "Property" on "Type Of Asset Page"

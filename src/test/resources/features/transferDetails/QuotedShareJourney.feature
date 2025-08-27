@@ -1,0 +1,206 @@
+@Test @QuotedSharesMiniJourney
+Feature: Quoted Share Mini journey(Adding  and removing Quoted Shares)
+
+  Background: Common Steps - Transfer Details Journey
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
+    When I enter Enrollment Key "HMRC-PODSPP-ORG", Identifier Name "PSPID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    And I am presented with the "What You Will Need Page"
+    And I navigated to the "Type Of Asset Page"
+    Then I am presented with the "Type Of Asset Page"
+    And I should see the heading "Type of assets included in the transfer"
+
+  Scenario:1. PSA/PSP user is able to transfer a Quoted Shares
+    And I "select" checkbox "Quoted shares" on "Type Of Asset Page"
+    And I click save and continue button on "Type Of Asset Page"
+    Then I am presented with the "Add Quoted Share Start Page"
+    And I should see the following values on the page
+      | The following questions are about quoted shares that is part of this transfer. |
+    And I click save and continue button on "Add Quoted Share Start Page"
+    Then I am presented with the "Name Of Company Quoted Share Page"
+    And I should see the heading "What is the name of the company these quoted shares relate to?"
+    When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
+      | value | Company XYZ|
+    And I click save and continue button on "Name Of Company Quoted Share Page"
+    Then I am presented with the "Value Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Value Of Quoted Share Page"
+      | value | 500 |
+    And I click save and continue button on "Value Of Quoted Share Page"
+    Then I am presented with the "Number Of Quoted Share Page"
+    And I should see the heading "How many quoted shares in this company are part of this transfer?"
+    When I enter the following data into corresponding input fields on "Number Of Quoted Share Page"
+      | value | 100 |
+    And I click save and continue button on "Number Of Quoted Share Page"
+    Then I am presented with the "Class Of Quoted Share Page"
+    And I should see the heading "What class are these quoted shares?"
+    When I enter the following data into corresponding input fields on "Class Of Quoted Share Page"
+      | value | Class A|
+    And I click save and continue button on "Class Of Quoted Share Page"
+    Then I am presented with the "Quoted Share Check Your Answers Page"
+    And I should see the heading "Check your answers"
+    When I click on "change-quoted-shares-company-name" button on "Quoted Share Check Your Answers Page"
+    Then I am presented with the "Change Name Of Company Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
+      | value | Company ABC|
+    And I click save and continue button on "Change Name Of Company Quoted Share Page"
+    When I click on "change-quoted-shares-value" button on "Quoted Share Check Your Answers Page"
+    Then I am presented with the "Change Value Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Change Value Of Quoted Share Page"
+      | value | 5000 |
+    And I click save and continue button on "Change Value Of Quoted Share Page"
+    When I click on "change-quoted-shares-number" button on "Quoted ShareCheck Your Answers Page"
+    Then I am presented with the "Change Number Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Change Number Of Quoted Share Page"
+      | value | 10 |
+    And I click save and continue button on "Change Number Of Quoted Share Page"
+    When I click on "change-quoted-shares-class" button on "Quoted Share Check Your Answers Page"
+    Then I am presented with the "Change Class Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Change Class Of Quoted Share Page"
+      | value | Class B |
+    And I click save and continue button on "Change Class Of Quoted Share Page"
+    Then I am presented with the "Quoted Share Check Your Answers Page"
+    And I click save and continue button on "Quoted Share Check Your Answers Page"
+    Then I am presented with the "Quoted Share Amend Continue Page"
+    And I should see the heading "You have added 1 group of quoted shares"
+    And I should see two radio buttons: "Yes" and "No"
+    When I select radio button "No" on "Quoted Share Amend Continue Page"
+    And I click save and continue button on "Quoted Share Amend Continue Page"
+    Then I am presented with the "Check Your Answers Page"
+    And I should see the heading "Check your answers"
+    And I click save and continue button on "Check Your Answers Page"
+
+  Scenario:2 . PSA/PSP user is able to transfer multiple Quoted Shares
+    And I "select" checkbox "Quoted shares" on "Type Of Asset Page"
+    And I click save and continue button on "Type Of Asset Page"
+    Then I am presented with the "Add Quoted Share Start Page"
+    And I should see the following values on the page
+      | The following questions are about quoted shares that is part of this transfer. |
+    And I click save and continue button on "Add Quoted Share Start Page"
+    Then I am presented with the "Name Of Company Quoted Share Page"
+    And I should see the heading "What is the name of the company these quoted shares relate to?"
+    When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
+      | value | Company XYZ|
+    And I click save and continue button on "Name Of Company Quoted Share Page"
+    Then I am presented with the "Value Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Value Of Quoted Share Page"
+      | value | 500 |
+    And I click save and continue button on "Value Of Quoted Share Page"
+    Then I am presented with the "Number Of Quoted Share Page"
+    And I should see the heading "How many quoted shares in this company are part of this transfer?"
+    When I enter the following data into corresponding input fields on "Number Of Quoted Share Page"
+      | value | 100 |
+    And I click save and continue button on "Number Of Quoted Share Page"
+    Then I am presented with the "Class Of Quoted Share Page"
+    And I should see the heading "What class are these quoted shares?"
+    When I enter the following data into corresponding input fields on "Class Of Quoted Share Page"
+      | value | Class A|
+    And I click save and continue button on "Class Of Quoted Share Page"
+    Then I am presented with the "Quoted Share Check Your Answers Page"
+    And I should see the heading "Check your answers"
+    And I click save and continue button on "Quoted Share Check Your Answers Page"
+    Then I am presented with the "Quoted Share Amend Continue Page"
+    And I should see the heading "You have added 1 group of quoted shares"
+    When I select radio button "Yes" on "Quoted Share Amend Continue Page"
+    And I click save and continue button on "Quoted Share Amend Continue Page"
+    Then I am presented with the " Second Name Of Company Quoted Share Page"
+    And I should see the heading "What is the name of the company these quoted shares relate to?"
+    When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
+      | value | Company ABC|
+    And I click save and continue button on "Second Name Of Company Quoted Share Page"
+    Then I am presented with the "Second Value Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Second Value Of Quoted Share Page"
+      | value | 5000 |
+    And I click save and continue button on "Second Value Of Quoted Share Page"
+    Then I am presented with the "Second Number Of Quoted Share Page"
+    And I should see the heading "How many quoted shares in this company are part of this transfer?"
+    When I enter the following data into corresponding input fields on "Number Of Quoted Share Page"
+      | value | 1000 |
+    And I click save and continue button on "Second Number Of Quoted Share Page"
+    Then I am presented with the "Second Class Of Quoted Share Page"
+    And I should see the heading "What class are these quoted shares?"
+    When I enter the following data into corresponding input fields on "Class Of Quoted Share Page"
+      | value | Class B|
+    And I click save and continue button on "Second Class Of Quoted Share Page"
+    Then I am presented with the "Second Quoted Share Check Your Answers Page"
+    And I should see the heading "Check your answers"
+    And I click save and continue button on "Second Quoted Share Check Your Answers Page"
+    Then I am presented with the "Quoted Share Amend Continue Page"
+    And I should see the heading "You have added 2 groups of quoted shares"
+    And I should see two radio buttons: "Yes" and "No"
+    When I select radio button "No" on "Quoted Share Amend Continue Page"
+    And I click save and continue button on "Quoted Share Amend Continue Page"
+    Then I am presented with the "Check Your Answers Page"
+    And I should see the heading "Check your answers"
+    And I click save and continue button on "Check Your Answers Page"
+
+  Scenario:3 . PSA/PSP user is able to remove the Quoted Shares from the added list
+    And I "select" checkbox "Quoted shares" on "Type Of Asset Page"
+    And I click save and continue button on "Type Of Asset Page"
+    Then I am presented with the "Add Quoted Share Start Page"
+    And I should see the following values on the page
+      | The following questions are about quoted shares that is part of this transfer. |
+    And I click save and continue button on "Add Quoted Share Start Page"
+    Then I am presented with the "Name Of Company Quoted Share Page"
+    And I should see the heading "What is the name of the company these quoted shares relate to?"
+    When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
+      | value | Company XYZ|
+    And I click save and continue button on "Name Of Company Quoted Share Page"
+    Then I am presented with the "Value Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Value Of Quoted Share Page"
+      | value | 500 |
+    And I click save and continue button on "Value Of Quoted Share Page"
+    Then I am presented with the "Number Of Quoted Share Page"
+    And I should see the heading "How many quoted shares in this company are part of this transfer?"
+    When I enter the following data into corresponding input fields on "Number Of Quoted Share Page"
+      | value | 100 |
+    And I click save and continue button on "Number Of Quoted Share Page"
+    Then I am presented with the "Class Of Quoted Share Page"
+    And I should see the heading "What class are these quoted shares?"
+    When I enter the following data into corresponding input fields on "Class Of Quoted Share Page"
+      | value | Class A|
+    And I click save and continue button on "Class Of Quoted Share Page"
+    Then I am presented with the "Quoted Share Check Your Answers Page"
+    And I should see the heading "Check your answers"
+    And I click save and continue button on "Quoted Share Check Your Answers Page"
+    Then I am presented with the "Quoted Share Amend Continue Page"
+    And I should see the heading "You have added 1 group of quoted shares"
+    And I should see two radio buttons: "Yes" and "No"
+    When I select radio button "Yes" on "Quoted Share Amend Continue Page"
+    And I click save and continue button on "Quoted Share Amend Continue Page"
+    Then I am presented with the " Second Name Of Company Quoted Share Page"
+    And I should see the heading "What is the name of the company these quoted shares relate to?"
+    When I enter the following data into corresponding input fields on "Name Of Company Quoted Share Page"
+      | value | Company ABC|
+    And I click save and continue button on "Second Name Of Company Quoted Share Page"
+    Then I am presented with the "Second Value Of Quoted Share Page"
+    When I enter the following data into corresponding input fields on "Second Value Of Quoted Share Page"
+      | value | 5000 |
+    And I click save and continue button on "Second Value Of Quoted Share Page"
+    Then I am presented with the "Second Number Of Quoted Share Page"
+    And I should see the heading "How many quoted shares in this company are part of this transfer?"
+    When I enter the following data into corresponding input fields on "Number Of Quoted Share Page"
+      | value | 1000 |
+    And I click save and continue button on "Second Number Of Quoted Share Page"
+    Then I am presented with the "Second Class Of Quoted Share Page"
+    And I should see the heading "What class are these quoted shares?"
+    When I enter the following data into corresponding input fields on "Class Of Quoted Share Page"
+      | value | Class B|
+    And I click save and continue button on "Second Class Of Quoted Share Page"
+    Then I am presented with the "Second Quoted Share Check Your Answers Page"
+    And I should see the heading "Check your answers"
+    And I click save and continue button on "Second Quoted Share Check Your Answers Page"
+    Then I am presented with the "Quoted Share Amend Continue Page"
+    And I should see the heading "You have added 2 groups of quoted shares"
+    When I click on "quoted-shares-confirm-removal" button on "Quoted Share Amend Continue Page"
+    Then I am presented with the "Quoted Share Confirm Removal Page"
+    And I should see two radio buttons: "Yes" and "No"
+    When I select radio button "Yes" on "Quoted Share Confirm Removal Page"
+    And I click save and continue button on "Quoted Share Confirm Removal Page"
+    Then I am presented with the "Quoted Share Amend Continue Page"
+    And I should see the heading "You have added 1 group of quoted shares"
+    When I select radio button "No" on "Quoted Share Amend Continue Page"
+    And I click save and continue button on "Quoted Share Amend Continue Page"
+    Then I am presented with the "Check Your Answers Page"
+    And I click save and continue button on "Check Your Answers Page"

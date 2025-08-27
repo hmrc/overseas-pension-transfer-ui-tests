@@ -16,17 +16,17 @@ And I should see the heading "What class are these unquoted shares?"
     When I enter the following data into corresponding input fields on "Class Of Unquoted Share Page"
       | value | Class of shares |
     And I click save and continue button on "Class Of Unquoted Share Page"
-    Then I am presented with the "Unquoted Shares Check Your Answers Page"
+    Then I am presented with the "Unquoted Share Check Your Answers Page"
 
 
   Scenario:2. Positive journey - PSA/PSP types in a exactly 160 characters for class of Unquoted Share
     When I enter the following data into corresponding input fields on "Class Of Unquoted Share Page"
       | value | Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A Class A|
     And I click save and continue button on "Class Of Unquoted Share Page"
-    Then I am presented with the "Unquoted Shares Check Your Answers Page"
+    Then I am presented with the "Unquoted Share Check Your Answers Page"
 
   Scenario:3. Positive journey - PSA/PSP types in a single character for class of Unquoted Share
     When I enter the following data into corresponding input fields on "Class Of Unquoted Share Page"
       | value | A |
     And I click save and continue button on "Class Of Unquoted Share Page"
-    Then I am presented with the "Unquoted Shares Check Your Answers Page"
+    Then I am presented with the "Unquoted Share Check Your Answers Page"
