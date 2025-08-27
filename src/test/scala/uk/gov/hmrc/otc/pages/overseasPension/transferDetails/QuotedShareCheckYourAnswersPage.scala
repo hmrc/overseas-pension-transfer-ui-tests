@@ -19,7 +19,7 @@ package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object CheckYourAnswersQuotedSharePage extends BasePage {
+object QuotedShareCheckYourAnswersPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/quoted-shares-check-your-answers?index=0"
   override val title = "Check your answers"
