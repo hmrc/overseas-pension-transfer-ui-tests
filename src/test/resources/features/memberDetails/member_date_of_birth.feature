@@ -28,7 +28,6 @@ Feature: What is member's date of birth?
       | year  | 1991 |
     And I click save and continue button on "Member Date Of Birth Page"
     Then I am presented with the "Members Current Address Page"
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP enters all three fields of Day, Month and Year but enters a single digit (eg: 1 instead of 01)
     When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
