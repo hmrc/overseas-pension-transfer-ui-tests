@@ -1,4 +1,4 @@
-@Test @OtherAssetsMiniJourney
+@Test @OtherAssetsMiniJourney @acceptance
 Feature: Other Assets Mini journey(Adding  and removing other assets)
 
   Background: Common Steps - Transfer Details Journey

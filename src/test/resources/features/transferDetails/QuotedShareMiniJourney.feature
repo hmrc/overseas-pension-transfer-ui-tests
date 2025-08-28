@@ -1,4 +1,4 @@
-@Test @QuotedSharesMiniJourney
+@Test @QuotedSharesMiniJourney @acceptance
 Feature: Quoted Share Mini journey(Adding  and removing Quoted Shares)
 
   Background: Common Steps - Transfer Details Journey

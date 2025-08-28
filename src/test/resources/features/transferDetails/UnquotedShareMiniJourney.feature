@@ -1,4 +1,4 @@
-@Test @UnquotedSharesMiniJourney
+@Test @UnquotedSharesMiniJourney @acceptance
 Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
 
   Background: Common Steps - Transfer Details Journey
