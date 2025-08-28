@@ -27,7 +27,7 @@ Feature: What is member's date of birth?
       | month | 12   |
       | year  | 1991 |
     And I click save and continue button on "Member Date Of Birth Page"
-    Then I am presented with the "Members Current UK Address Page"
+    Then I am presented with the "Members Current Address Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP enters all three fields of Day, Month and Year but enters a single digit (eg: 1 instead of 01)
@@ -36,7 +36,7 @@ Feature: What is member's date of birth?
       | month | 12   |
       | year  | 1991 |
     And I click save and continue button on "Member Date Of Birth Page"
-    Then I am presented with the "Members Current UK Address Page"
+    Then I am presented with the "Members Current Address Page"
 
   Scenario:3. Negative Journey - PSA/PSP enters day in a wrong format
     When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
@@ -139,7 +139,7 @@ Feature: What is member's date of birth?
       | month | January |
       | year  | 2000    |
     And I click save and continue button on "Member Date Of Birth Page"
-    Then I am presented with the "Members Current UK Address Page"
+    Then I am presented with the "Members Current Address Page"
 
   Scenario:11. Negative Journey - PSA/PSP enters the wrong input using random alphabet and special character for month of birth(e.g. %ABC)
     When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
