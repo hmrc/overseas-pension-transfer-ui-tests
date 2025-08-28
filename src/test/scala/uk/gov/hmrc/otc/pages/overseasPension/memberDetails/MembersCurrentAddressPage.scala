@@ -19,7 +19,7 @@ package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object MembersCurrentUKAddressPage extends BasePage {
+object MembersCurrentAddressPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/members-current-address"
   override val title       = "What is {0}'s current address? - Report an overseas pension transfer - GOV.UK"

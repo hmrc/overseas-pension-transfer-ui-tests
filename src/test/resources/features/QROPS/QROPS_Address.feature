@@ -13,7 +13,7 @@ Feature: Entering the address of the QROPS
 
   Scenario Outline: Verify the Members Last UK Address Page
     And I should see the heading "Address of the QROPS"
-    And I should see the input fields with below labels on "Members Current UK Address Page"
+    And I should see the input fields with below labels on "QROPS Address Page"
       | Address line 1            |
       | Address line 2            |
       | Address line 3 (optional) |
