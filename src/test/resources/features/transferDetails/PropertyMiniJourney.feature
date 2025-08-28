@@ -1,4 +1,4 @@
-@Test  @PropertyMiniJourney
+@Test  @PropertyMiniJourney @acceptance
 Feature: Property Mini journey(Adding properties and removing)
 
   Background: Common Steps - Transfer Details Journey
