@@ -18,22 +18,20 @@ package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
-import uk.gov.hmrc.otc.conf.MessageReader._
 import org.junit.Assert
 import org.openqa.selenium.By
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.WebBrowser
+import uk.gov.hmrc.otc.conf.MessageReader._
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.When
 import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.otc.pages.BasePage
-import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
-import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder
+import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
 
-import scala.jdk.CollectionConverters._
 import java.time.LocalDate
+import scala.jdk.CollectionConverters._
 
 trait BaseStepDefinitions
     extends ScalaDsl
