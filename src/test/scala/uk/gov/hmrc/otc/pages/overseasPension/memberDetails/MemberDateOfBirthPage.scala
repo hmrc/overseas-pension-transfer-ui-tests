@@ -18,18 +18,10 @@ package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
-import uk.gov.hmrc.otc.support.TestData
 
 object MemberDateOfBirthPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-date-of-birth"
-  override val title       = "What is Jon Doe’s date of birth?" // TODO this title needs to be corrected in message file in main application
-
-  private def expectedFullName: String = {
-    val expectedFirstName = TestData.get("firstName").getOrElse("Undefined")
-    val expectedLastName  = TestData.get("lastName").getOrElse("Undefined")
-    s"$expectedFirstName $expectedLastName"
-  }
 
   override def expectedPageErrorTitle: Option[String] = Some(
     s"What is $expectedFullName’s date of birth? - Report an overseas pension transfer - GOV.UK"
