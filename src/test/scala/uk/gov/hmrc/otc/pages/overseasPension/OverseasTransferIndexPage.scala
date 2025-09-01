@@ -34,7 +34,7 @@ object OverseasTransferIndexPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("overseas-pension-transfer-frontend")
 
-//  override def clickContinueButton(): Unit = {
-//    click on cssSelector(".govuk-button")
-//  }
+  override def clickContinueButton(): Unit = {
+    click on cssSelector(".govuk-button")
+  }
 }

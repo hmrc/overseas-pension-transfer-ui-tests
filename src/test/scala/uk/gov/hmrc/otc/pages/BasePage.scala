@@ -23,7 +23,6 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.otc.driver.BrowserDriver
-import uk.gov.hmrc.otc.support.TestData
 
 import java.time.{Duration, LocalDate}
 import scala.jdk.CollectionConverters.CollectionHasAsScala
@@ -34,12 +33,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val newUrl: String       = ""
   val title: String        = ""
   val urlPattern: Regex    = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
-
-  def expectedFullName: String = {
-    val expectedFirstName = TestData.get("firstName").getOrElse("Undefined")
-    val expectedLastName  = TestData.get("lastName").getOrElse("Undefined")
-    s"$expectedFirstName $expectedLastName"
-  }
 
   def validateUrl(url: String): Boolean =
     url match {

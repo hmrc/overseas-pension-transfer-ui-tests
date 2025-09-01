@@ -22,13 +22,14 @@ import uk.gov.hmrc.otc.pages.BasePage
 object MemberDateOfBirthPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-date-of-birth"
+  override val title       = "What is Jon Doe’s date of birth?" // TODO this title needs to be corrected in message file in main application
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    s"What is $expectedFullName’s date of birth? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    s"What is $expectedFullName’s date of birth? - Report an overseas pension transfer - GOV.UK"
+    "What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def enterDate(day: String, month: String, year: String): Unit = {

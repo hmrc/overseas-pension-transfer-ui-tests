@@ -16,12 +16,14 @@
 
 package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
 
+import io.cucumber.datatable.DataTable
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
 object MembersLastUKAddressPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/members-last-uk-address"
+  override val title       = "What was member's last principal residential address in the UK?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: What was member's last principal residential address in the UK? - Report an overseas pension transfer - GOV.UK"
