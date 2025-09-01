@@ -22,12 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object MembersLastUKAddressLookupPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/members-last-uk-address-lookup"
+  override val title       = "Find member's last principal residential address in the UK"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    s"Error: Find $expectedFullName's last principal residential address in the UK - Report an overseas pension transfer - GOV.UK"
+    "Error: Find Undefined Undefined's last principal residential address in the UK - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    s"Find $expectedFullName's last principal residential address in the UK - Report an overseas pension transfer - GOV.UK"
+    "Find Undefined Undefined's last principal residential address in the UK - Report an overseas pension transfer - GOV.UK"
   )
 }
