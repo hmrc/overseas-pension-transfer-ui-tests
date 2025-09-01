@@ -8,7 +8,7 @@ Feature: Adding names of the member
     When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     And I am presented with the "What You Will Need Page"
-    #And I click continue button on "Overseas Transfer Index Page"
+#    And I click continue button on "Overseas Transfer Index Page"
     Then I navigated to the "Member Name Page"
     And I should see the heading "What is the member's name?"
     And I should see the input fields with below labels on "Member Name Page"

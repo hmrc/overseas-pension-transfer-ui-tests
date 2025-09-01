@@ -29,6 +29,7 @@ import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.otc.pages.BasePage
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
+import uk.gov.hmrc.otc.support.TestData
 
 import java.time.LocalDate
 import scala.jdk.CollectionConverters._
@@ -149,11 +150,12 @@ trait BaseStepDefinitions
   }
 
   When("""I enter the following data into corresponding input fields on {string}""") { (page: String, data: DataTable) =>
-    // Ensures data is interpreted as a list of rows, preserving order
     val rows                          = data.asLists(classOf[String]).asScala.toList
-    // Ensures correct mapping
     val formData: Map[String, String] = rows.map(row => row.get(0) -> row.get(1)).toMap
+
     for ((field, value) <- formData) {
+      val key = s"$field"
+      TestData.set(key, value)
       val inputField = PageObjectFinder.page(page).textFieldElement(field)
       inputField.clear()
       inputField.sendKeys(Option(value).getOrElse(""))
@@ -393,6 +395,7 @@ trait BaseStepDefinitions
 
   Given("""I cleared the data for the service""") {
     driver.get(TestConfiguration.url("overseas-pension-transfer-frontend") + "/test-only/clear-all")
+    TestData.clear()
   }
 
   And("""I should see following details at the {string}""") { (page: String, data: DataTable) =>
