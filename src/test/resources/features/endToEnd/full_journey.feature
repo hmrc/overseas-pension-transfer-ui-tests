@@ -1,5 +1,5 @@
 @Test @E2E @acceptance
-Feature: Is journey fully connected
+Feature: Is the journey fully connected
 
   Background: Common Steps
     Given I cleared the data for the service
@@ -7,7 +7,6 @@ Feature: Is journey fully connected
     And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
     When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-
 
   Scenario:1. Full Members Journey - Member is currently UK resident
     Then I navigated to the "Member Name Page"
@@ -126,8 +125,8 @@ Feature: Is journey fully connected
   Scenario:4. Full Members Journey - Member is not currently but has been UK resident with manual address entry
     Then I navigated to the "Member Name Page"
     When I enter the following data into corresponding input fields on "Member Name Page"
-      | firstName | Francois |
-      | lastName  | French   |
+      | firstName | John |
+      | lastName  | Doe  |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Member Nino Page"
     When I enter the following data into corresponding input fields on "Member Nino Page"

@@ -28,6 +28,6 @@ object MembersLastUKAddressPage extends BasePage {
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    s"What is $expectedFullName’s last principal residential address in the UK? - Report an overseas pension transfer - GOV.UK"
+    "What was member's last principal residential address in the UK? - Report an overseas pension transfer - GOV.UK"
   )
 }
