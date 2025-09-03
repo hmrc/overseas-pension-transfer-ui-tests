@@ -16,7 +16,6 @@
 
 package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
 
-import io.cucumber.datatable.DataTable
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 

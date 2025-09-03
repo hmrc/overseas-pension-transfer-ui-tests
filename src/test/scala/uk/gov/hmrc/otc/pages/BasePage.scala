@@ -23,6 +23,7 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.otc.driver.BrowserDriver
+import uk.gov.hmrc.otc.support.TestData
 
 import java.time.{Duration, LocalDate}
 import scala.jdk.CollectionConverters.CollectionHasAsScala
