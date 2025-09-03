@@ -7,7 +7,6 @@ Feature: Adding national insurance number for a member
     And I enter redirect URL on Auth Login Stub Page for "What You Will Need Page"
     When I enter Enrollment Key "HMRC-PODS-ORG", Identifier Name "PSAID" and Identifier Value "2131231231231" on "Auth Login Stub Page"
     # And I enter redirect URL on Auth Login Stub Page for "Is Member Currently UK Resident Page"
-    # Redirection currently does not work for any other page other than the Index page
     And I click submit button on "Auth Login Stub Page"
     And I am presented with the "What You Will Need Page"
     And I navigated to the "Member Nino Page"
@@ -27,8 +26,6 @@ Feature: Adding national insurance number for a member
       | value | QQ123456A |
     And I click save and continue button on "Member Nino Page"
     Then I am presented with the "Member Date Of Birth Page"
-
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Negative Journey - PSA/PSP enters a NINO in wrong format
     When I enter the following data into corresponding input fields on "Member Nino Page"

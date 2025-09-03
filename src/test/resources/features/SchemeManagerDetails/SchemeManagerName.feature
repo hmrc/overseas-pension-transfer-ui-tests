@@ -19,7 +19,7 @@ Feature: Adding names of the Scheme Manager
       | schemeManagersFirstName | John |
       | schemeManagersLastName | Doe  |
     And I click save and continue button on "Scheme Manager Name Page"
-    Then I am presented with the "Organisation Individual Address Page"
+    Then I am presented with the "Scheme Manager Address Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Negative Journey - PSA/PSP does not enter the Last name
@@ -166,11 +166,11 @@ Feature: Adding names of the Scheme Manager
       | schemeManagersFirstName | John O'Conner |
       | schemeManagersLastName  | Doe O'Conner  |
     And I click save and continue button on "Scheme Manager Name Page"
-    Then I am presented with the "Organisation Individual Address Page"
+    Then I am presented with the "Scheme Manager Address Page"
 
   Scenario:14. Positive journey - PSA/PSP enters both the First and Last names of the Scheme Manager with exactly 35 characters
     When I enter the following data into corresponding input fields on "Scheme Manager Name Page"
       | schemeManagersFirstName | Maximillian Alexander Montgomery ab |
       | schemeManagersLastName  | Featherstoneworthingtonfield Wright |
     And I click save and continue button on "Scheme Manager Name Page"
-    Then I am presented with the "Organisation Individual Address Page"
+    Then I am presented with the "Scheme Manager Address Page"

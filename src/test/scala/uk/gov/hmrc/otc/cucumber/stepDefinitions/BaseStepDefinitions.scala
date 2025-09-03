@@ -59,10 +59,11 @@ trait BaseStepDefinitions
     PageObjectFinder.page(page).clickSubmitButton()
   }
 
-  Then("""I am presented with the {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageTitle()
+  Then("I am presented with the {string}") { (pageName: String) =>
+    val page = PageObjectFinder.page(pageName)
+    page.waitForPageHeader
+    page.checkURL
+    page.checkPageTitle()
   }
 
   Then("""I am presented with the {string} with new url""") { page: String =>
@@ -154,7 +155,7 @@ trait BaseStepDefinitions
     val formData: Map[String, String] = rows.map(row => row.get(0) -> row.get(1)).toMap
 
     for ((field, value) <- formData) {
-      val key = s"$field"
+      val key = s"${page.trim.toLowerCase.replaceAll(" ", "_")}.$field"
       TestData.set(key, value)
       val inputField = PageObjectFinder.page(page).textFieldElement(field)
       inputField.clear()
@@ -394,7 +395,7 @@ trait BaseStepDefinitions
   }
 
   Given("""I cleared the data for the service""") {
-    driver.get(TestConfiguration.url("overseas-pension-transfer-frontend") + "/test-only/clear-all")
+    driver.get(TestConfiguration.url("overseas-pension-transfer-test") + "/test-only/reset-test-data")
     TestData.clear()
   }
 

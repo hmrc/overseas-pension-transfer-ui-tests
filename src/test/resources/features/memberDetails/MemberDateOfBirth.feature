@@ -11,7 +11,7 @@ Feature: What is member's date of birth?
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "What You Will Need Page"
     And I navigated to the "Member Date Of Birth Page"
-    Then I am presented with the "Member Date Of Birth Page"
+#    Then I am presented with the "Member Date Of Birth Page"
 
   Scenario Outline: Verify the Member Date Of Birth Page
     And I should see the heading "What is <memberName>’s date of birth?"

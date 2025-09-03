@@ -1,5 +1,5 @@
-@Test @E2E @acceptance
-Feature: Is the journey fully connected
+@Test @MembersE2E @acceptance
+Feature: Is the members details journey fully connected
 
   Background: Common Steps
     Given I cleared the data for the service
@@ -10,6 +10,7 @@ Feature: Is the journey fully connected
 
   Scenario:1. Full Members Journey - Member is currently UK resident
     Then I navigated to the "Member Name Page"
+    And I should see the heading "What is the member's name?"
     When I enter the following data into corresponding input fields on "Member Name Page"
       | firstName | John |
       | lastName  | Doe  |
@@ -41,9 +42,10 @@ Feature: Is the journey fully connected
 
   Scenario:2. Full Members Journey - Member is not currently or ever been UK resident
     Then I navigated to the "Member Name Page"
+    And I should see the heading "What is the member's name?"
     When I enter the following data into corresponding input fields on "Member Name Page"
-      | firstName | John |
-      | lastName  | Doe  |
+      | firstName | Sarah |
+      | lastName  | Smith |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Member Nino Page"
     When I enter the following data into corresponding input fields on "Member Nino Page"
@@ -75,9 +77,10 @@ Feature: Is the journey fully connected
 
   Scenario:3. Full Members Journey - Member is not currently but has been UK resident with Address Lookup
     Then I navigated to the "Member Name Page"
+    And I should see the heading "What is the member's name?"
     When I enter the following data into corresponding input fields on "Member Name Page"
-      | firstName | John |
-      | lastName  | Doe  |
+      | firstName | Craig  |
+      | lastName  | Newson |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Member Nino Page"
     When I enter the following data into corresponding input fields on "Member Nino Page"
@@ -124,9 +127,10 @@ Feature: Is the journey fully connected
 
   Scenario:4. Full Members Journey - Member is not currently but has been UK resident with manual address entry
     Then I navigated to the "Member Name Page"
+    And I should see the heading "What is the member's name?"
     When I enter the following data into corresponding input fields on "Member Name Page"
-      | firstName | John |
-      | lastName  | Doe  |
+      | firstName | Rebecca |
+      | lastName  | Miller  |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Member Nino Page"
     When I enter the following data into corresponding input fields on "Member Nino Page"
@@ -172,9 +176,10 @@ Feature: Is the journey fully connected
 
   Scenario:5. Full Members Journey - Member is currently UK resident with no Nino
     Then I navigated to the "Member Name Page"
+    And I should see the heading "What is the member's name?"
     When I enter the following data into corresponding input fields on "Member Name Page"
-      | firstName | John |
-      | lastName  | Doe  |
+      | firstName | Angelo   |
+      | lastName  | McMannis |
     And I click continue button on "Member Name Page"
     Then I am presented with the "Member Nino Page"
     When I click on "Member doesn't have a National Insurance number." hyperlink on "Member Nino Page"

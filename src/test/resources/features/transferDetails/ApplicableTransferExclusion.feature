@@ -19,7 +19,7 @@ Feature: Date of Transfer
   Scenario:1. Positive journey - PSA/PSP selects one of the checkboxes
     When I "select" checkbox "The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer." on "Applicable Transfer Exclusion Page"
     And I click save and continue button on "Applicable Transfer Exclusion Page"
-    Then I am presented with the "New Login Page"
+    Then I am presented with the "Amount Of Tax Deducted Page"
 # Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP selects all of the checkboxes
@@ -28,10 +28,10 @@ Feature: Date of Transfer
     And I "select" checkbox "The QROPS is a pension scheme of an international organisation and the individual is employed by that international organisation." on "Applicable Transfer Exclusion Page"
     And I "select" checkbox "Both the individual and QROPS are resident in the same country." on "Applicable Transfer Exclusion Page"
     And I click save and continue button on "Applicable Transfer Exclusion Page"
-    Then I am presented with the "New Login Page"
+    Then I am presented with the "Amount Of Tax Deducted Page"
 
   Scenario:3. Negative Journey - PSA/PSP selects only 2 of the available checkboxes
     When I "select" checkbox "The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer." on "Applicable Transfer Exclusion Page"
     And I "select" checkbox "Both the individual and QROPS are resident in the same country." on "Applicable Transfer Exclusion Page"
     And I click save and continue button on "Applicable Transfer Exclusion Page"
-    Then I am presented with the "New Login Page"
+    Then I am presented with the "Amount Of Tax Deducted Page"
