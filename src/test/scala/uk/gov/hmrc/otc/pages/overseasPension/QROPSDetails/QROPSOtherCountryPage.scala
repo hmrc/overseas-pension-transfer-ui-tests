@@ -14,26 +14,17 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
+package uk.gov.hmrc.otc.pages.overseasPension.QROPSDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object MemberDateOfBirthPage extends BasePage {
+object QROPSOtherCountryPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-date-of-birth"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    s"Error: What is $expectedFullName’s date of birth? - Report an overseas pension transfer - GOV.UK"
-  )
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/qrops-other-country"
+  override val title = "Country or territory in which QROPS was established?"
 
   override def expectedPageTitle: Option[String] = Some(
-    s"What is $expectedFullName’s date of birth? - Report an overseas pension transfer - GOV.UK"
+    "In which other country or territory was the QROPS established? - Report an overseas pension transfer - GOV.UK"
   )
-
-  override def enterDate(day: String, month: String, year: String): Unit = {
-    enterText("value.day", day)
-    enterText("value.month", month)
-    enterText("value.year", year)
-  }
 }

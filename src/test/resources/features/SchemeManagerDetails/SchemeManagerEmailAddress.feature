@@ -43,7 +43,7 @@ Feature: Entering the email address of the Scheme Manager
     And Clicking each error message should focus on the corresponding input field on "Scheme Manager Email Page"
 
   Scenario:4. Negative journey - PSA/PSP enters more than 254 characters for 'Address Line 3' in the Scheme Manager address page
-    When I enter the following data into corresponding input fields on "Organisation Individual Address Page"
+    When I enter the following data into corresponding input fields on "Scheme Manager Email Page"
       | emailAddress | longemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemaillongemail@gmail.com |
     And I click save and continue button on "Scheme Manager Email Page"
     Then I am presented with the "Scheme Manager Email Page" error page

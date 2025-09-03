@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.qropsSchemeManagerDetails
+package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object OrganisationIndividualAddressPage extends BasePage {
+object TransferDetailsCheckYourAnswersPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/scheme-managers-address"
-  override val title       = "What is the scheme manager's address?"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/check-your-answers"
+  override val title = "Check your answers"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the scheme manager's address? - Report an overseas pension transfer - GOV.UK"
-  )
+//  override def expectedPageErrorTitle: Option[String] = Some(
+//    "Error: Select Jon Doe's last UK address - Report an overseas pension transfer - GOV.UK"
+//  )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the scheme manager's address? - Report an overseas pension transfer - GOV.UK"
+    "Check your answers - Report an overseas pension transfer - GOV.UK"
   )
-
-  override def clickContinueButton(): Unit = {
-    click on cssSelector(".govuk-button")
-  }
 }
