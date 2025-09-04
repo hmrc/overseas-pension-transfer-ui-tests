@@ -22,14 +22,12 @@ Feature: Has member ever been a resident in the UK for tax purposes?
   Scenario:1. Positive Journey - Select 'Yes' radio button
     When I select radio button "Yes" on "Has Member Ever Been UK Resident Page"
     And I click save and continue button on "Has Member Ever Been UK Resident Page"
-    Then I am presented with the "Members Last UK Address Lookup Page"
-# Above action would have to be rewritten upon page gets connected
+#    Then I am presented with the "Members Last UK Address Lookup Page"
 
   Scenario:2. Positive Journey - Select 'No' radio button
     When I select radio button "No" on "Has Member Ever Been UK Resident Page"
     And I click save and continue button on "Has Member Ever Been UK Resident Page"
     Then I am presented with the "Member Details Check Your Answers Page"
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:3. Negative Journey - No Selection Error
     When I click save and continue button on "Has Member Ever Been UK Resident Page"

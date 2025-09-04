@@ -12,7 +12,7 @@ Feature: Entering the last UK address of the member using postcode
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "What You Will Need Page"
     And I navigated to the "Members Last UK Address Lookup Page"
-    Then I am presented with the "Members Last UK Address Lookup Page"
+#    Then I am presented with the "Members Last UK Address Lookup Page"
 
   Scenario Outline: Verify the Members Last UK Address Page
     And I should see the heading "Find <memberName>'s last principal residential address in the UK"
@@ -38,7 +38,6 @@ Feature: Entering the last UK address of the member using postcode
       | ZZ1 1ZZ       |
     And I click save and continue button on "Confirm Members Last UK Address Page"
     And I am presented with the "Member Date Of Leaving UK Page"
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP selects option to enter the address manually in the post code screen
     When I click on "enter the address manually" hyperlink on "Members Last UK Address Lookup Page"

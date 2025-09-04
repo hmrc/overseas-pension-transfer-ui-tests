@@ -14,21 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
+package uk.gov.hmrc.otc.pages.overseasPension.qropsSchemeManagerDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object IsTransferAmountCashPage extends BasePage {
+object SchemeManagerAddressPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/is-transfer-cash-only"
-  override val title = "Is the transfer made up of cash only?"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/scheme-managers-address"
+  override val title       = "What is the scheme manager's address?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the scheme manager's address? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
+    "What is the scheme manager's address? - Report an overseas pension transfer - GOV.UK"
   )
+
+  override def clickContinueButton(): Unit = {
+    click on cssSelector(".govuk-button")
+  }
 }

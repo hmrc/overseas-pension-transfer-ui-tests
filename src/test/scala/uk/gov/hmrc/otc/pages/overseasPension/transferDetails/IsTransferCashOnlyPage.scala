@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.QROPSDetails
+package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object QROPSNumberPage extends BasePage {
+object IsTransferCashOnlyPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/qrops-reference"
-  override val title = "What is the QROPS reference?"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/is-transfer-cash-only"
+  override val title = "Is the transfer made up of cash only?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the QROPS reference? - Report an overseas pension transfer - GOV.UK"
+    "Error: Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the QROPS reference? - Report an overseas pension transfer - GOV.UK"
+    "Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
   )
 }

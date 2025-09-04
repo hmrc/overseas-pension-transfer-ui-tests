@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.memberDetails
+package uk.gov.hmrc.otc.pages.overseasPension.QROPSDetails
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object ConfirmMembersLastUKAddressPage extends BasePage {
+object QROPSOtherCountryPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-confirm-last-uk-address"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    s"Error: Select $expectedFullName's last UK address - Report an overseas pension transfer - GOV.UK"
-  )
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/qrops-other-country"
+  override val title = "Country or territory in which QROPS was established?"
 
   override def expectedPageTitle: Option[String] = Some(
-    s"Confirm $expectedFullName's last principal residential address in the UK - Report an overseas pension transfer - GOV.UK"
+    "In which other country or territory was the QROPS established? - Report an overseas pension transfer - GOV.UK"
   )
 }

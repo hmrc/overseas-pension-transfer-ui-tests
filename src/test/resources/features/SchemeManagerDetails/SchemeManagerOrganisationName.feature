@@ -18,7 +18,6 @@ Feature: Adding name of the organisation
       | organisationName | Great Organisation |
     And I click save and continue button on "Organisation Name Page"
     Then I am presented with the "Organisation Individual Name Page"
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP enters a minimum of 1 character into the field
     When I enter the following data into corresponding input fields on "Organisation Name Page"

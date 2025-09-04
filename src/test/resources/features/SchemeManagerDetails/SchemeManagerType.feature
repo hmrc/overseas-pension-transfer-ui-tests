@@ -14,7 +14,6 @@ Feature: Is the scheme manager an individual or organisation?
   Scenario Outline: Verify Scheme Manager Type
     Then I should see the heading "Is the scheme manager an individual or organisation?"
     And I should see the hint text "Select one."
-    # the text is missing a DOT (.), this should be fixed
     And I should see two radio buttons: "Individual" and "Organisation"
     Examples:
       | memberName |
@@ -24,13 +23,11 @@ Feature: Is the scheme manager an individual or organisation?
       When I select radio button "Individual" on "Scheme Manager Type Page"
       And I click save and continue button on "Scheme Manager Type Page"
       Then I am presented with the "Scheme Manager Name Page"
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive Journey - Select 'Organisation' radio button
     When I select radio button "Organisation" on "Scheme Manager Type Page"
     And I click save and continue button on "Scheme Manager Type Page"
     Then I am presented with the "Organisation Name Page"
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:3. Negative Journey - No Selection Error
     When I click save and continue button on "Scheme Manager Type Page"

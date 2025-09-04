@@ -23,6 +23,7 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.otc.driver.BrowserDriver
+import uk.gov.hmrc.otc.support.TestData
 
 import java.time.{Duration, LocalDate}
 import scala.jdk.CollectionConverters.CollectionHasAsScala
@@ -33,6 +34,12 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val newUrl: String       = ""
   val title: String        = ""
   val urlPattern: Regex    = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
+
+  def expectedFullName: String = {
+    val expectedFirstName = TestData.get("member_name_page.firstName").getOrElse("Undefined")
+    val expectedLastName  = TestData.get("member_name_page.lastName").getOrElse("Undefined")
+    s"$expectedFirstName $expectedLastName"
+  }
 
   def validateUrl(url: String): Boolean =
     url match {
@@ -63,9 +70,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       header
   }
 
-  private val expectedPageTitleList      = expectedPageTitle.map(_.split(";").toList)
-  private val expectedPageErrorTitleList = expectedPageErrorTitle.map(_.split(";").toList)
-  private val expectedPageHeaderList     = expectedPageHeader.map(_.split(";").toList)
+  private def expectedPageTitleList      = expectedPageTitle.map(_.split(";").toList)
+  private def expectedPageErrorTitleList = expectedPageErrorTitle.map(_.split(";").toList)
+  private def expectedPageHeaderList     = expectedPageHeader.map(_.split(";").toList)
 
   def checkPageTitle(): Assertion = {
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
