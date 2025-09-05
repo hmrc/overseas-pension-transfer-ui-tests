@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object UnquotedShareAmendContinuePage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/unquoted-shares-amend-continue"
-  override val title = "unquotedSharesAmendContinue.common.title"
+  override val title = "unquotedSharesAmendContinue - Report an overseas pension transfer - GOV.UK"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: unquotedSharesAmendContinue.common.title - Report an overseas pension transfer - GOV.UK"
+    "Error: unquotedSharesAmendContinue - Report an overseas pension transfer - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "unquotedSharesAmendContinue.common.title - Report an overseas pension transfer - GOV.UK"
+    "unquotedSharesAmendContinue - Report an overseas pension transfer - GOV.UK"
   )
 }
