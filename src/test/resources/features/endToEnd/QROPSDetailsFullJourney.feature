@@ -14,7 +14,7 @@ Feature: Is the members details journey fully connected
     And I should see below input fields on "QROPS Name Page"
       | qropsName |
     When I enter the following data into corresponding input fields on "QROPS Name Page"
-      | qropsName | The great QROPS|
+      | qropsName | The great QROPS |
     And I click save and continue button on "QROPS Name Page"
     Then I am presented with the "QROPS Reference Page"
     When I enter the following data into corresponding input fields on "QROPS Reference Page"
@@ -22,19 +22,25 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "QROPS Reference Page"
     Then I am presented with the "QROPS Address Page"
     When I enter the following data into corresponding input fields on "QROPS Address Page"
-      | addressLine1 | 12 Burlington Avenue |
-      | addressLine2 | Burlington Road      |
-      | addressLine3 | Maidenhead           |
-      | addressLine4 | Berkshire            |
-      | addressLine5 | London               |
-      | countryCode  | United Kingdom       |
+      | addressLine1 | 21 Rosewood Close |
+      | addressLine2 | Maple Hill Estate |
+      | addressLine3 | Basingstoke       |
+      | addressLine4 | Hampshire         |
+      | addressLine5 | England           |
+      | countryCode  | United Kingdom    |
     And I click save and continue button on "QROPS Address Page"
     Then I am presented with the "QROPS Country Page"
     When I enter the following data into corresponding input fields on "QROPS Country Page"
-      | countryCode | United Kingdom|
+      | countryCode | United Kingdom |
     And I click save and continue button on "QROPS Country Page"
     And I click save and continue button on "QROPS Country Page"
     Then I am presented with the "QROPS Check Your Answers Page"
+    And I should see the following details
+      | QROPS full name                  | The great QROPS                                                                  |
+      | QROPS reference                  | QROPS123456                                                                      |
+      | QROPS address                    | 21 Rosewood Close,Maple Hill Estate,Basingstoke,Hampshire,England,United Kingdom |
+      | Country or territory established | United Kingdom                                                                   |
+
 
   Scenario:2. Full QROPS Details - Other country selected
     When I navigated to the "QROPS Name Page"
@@ -42,20 +48,20 @@ Feature: Is the members details journey fully connected
     And I should see below input fields on "QROPS Name Page"
       | qropsName |
     When I enter the following data into corresponding input fields on "QROPS Name Page"
-      | qropsName | The great QROPS|
+      | qropsName | QROPs but better than great|
     And I click save and continue button on "QROPS Name Page"
     Then I am presented with the "QROPS Reference Page"
     When I enter the following data into corresponding input fields on "QROPS Reference Page"
-      | qropsRef | QROPS123456 |
+      | qropsRef | QROPS452312 |
     And I click save and continue button on "QROPS Reference Page"
     Then I am presented with the "QROPS Address Page"
     When I enter the following data into corresponding input fields on "QROPS Address Page"
-      | addressLine1 | 12 Burlington Avenue |
-      | addressLine2 | Burlington Road      |
-      | addressLine3 | Maidenhead           |
-      | addressLine4 | Berkshire            |
-      | addressLine5 | London               |
-      | countryCode  | United Kingdom       |
+      | addressLine1 | 45 Oakfield Way  |
+      | addressLine2 | Sycamore Park    |
+      | addressLine3 | Sutton Coldfield |
+      | addressLine4 | West Midlands    |
+      | addressLine5 | England          |
+      | countryCode  | United Kingdom   |
     And I click save and continue button on "QROPS Address Page"
     Then I am presented with the "QROPS Country Page"
     When I enter the following data into corresponding input fields on "QROPS Country Page"
@@ -67,3 +73,9 @@ Feature: Is the members details journey fully connected
       | otherEstablishedCountry | Wales |
     And I click save and continue button on "QROPS Other Country Page"
     Then I am presented with the "QROPS Check Your Answers Page"
+    And I should see the following details
+      | QROPS full name                  | QROPs but better than great                                                         |
+      | QROPS reference                  | QROPS452312                                                                         |
+      | QROPS address                    | 45 Oakfield Way,Sycamore Park,Sutton Coldfield,West Midlands,England,United Kingdom |
+      | Country or territory established | Other                                                                                   |
+      | Other country or territory       | Wales                                                                               |
