@@ -207,7 +207,7 @@ trait BaseStepDefinitions
   }
 
   And("""^I should see the following details""") { data: DataTable =>
-    val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
+    val expectedData = data.asMap(classOf[String], classOf[String]).asScala.toMap
     val actualData   = PageObjectFinder.pageData
     actualData should be(expectedData)
   }
@@ -331,27 +331,9 @@ trait BaseStepDefinitions
     PageObjectFinder.page(page).clickButton(button)
   }
 
-  When("""I verify the ABV value displayed as {string} on {string}""") { (expectedText: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
-    actualText should be(expectedText)
-  }
-
-  Then("""I verify the due amount displayed as {string} on {string}""") { (expectedText: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val actualText = driver.findElement(By.xpath("//main/div/div/p[1]")).getText.trim.replaceAll("\n", " ")
-    actualText should be(expectedText)
-  }
-
   And("""I should verify the table header displayed""") { (data: DataTable) =>
     val expectedText = data.asScalaListOfStrings
     tableHeaderText should be(expectedText)
-  }
-
-  Then("""I can see below tax type codes on the {string}""") { (page: String, data: DataTable) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val expectedText = data.asScalaListOfStrings
-    allTaxTypeCodeText() should be(expectedText)
   }
 
   Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>
@@ -460,18 +442,6 @@ trait BaseStepDefinitions
         }
       }
     }
-  }
-
-  And("""I click on change link {int} on {string} for alcohol type {string}""") {
-    (changeLinkIndex: Int, page: String, alcoholType: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-      driver
-        .findElement(
-          By.xpath(
-            "(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/" + alcoholType + "/declare/check-your-answers'])[" + changeLinkIndex + "]"
-          )
-        )
-        .click()
   }
 
   And("""I should see the following details of the table {int} at the returns summary page""") {
