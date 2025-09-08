@@ -15,17 +15,17 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Scheme Manager Type Page"
     Then I am presented with the "Scheme Manager Name Page"
     When I enter the following data into corresponding input fields on "Scheme Manager Name Page"
-      | schemeManagersFirstName | John |
-      | schemeManagersLastName | Doe  |
+      | schemeManagersFirstName | Emily   |
+      | schemeManagersLastName  | Parker  |
     And I click save and continue button on "Scheme Manager Name Page"
     Then I am presented with the "Scheme Manager Address Page"
     When I enter the following data into corresponding input fields on "Scheme Manager Address Page"
-      | addressLine1 | 12 Burlington Avenue |
-      | addressLine2 | Burlington Road      |
-      | addressLine3 | Maidenhead           |
-      | addressLine4 | Berkshire            |
-      | addressLine5 | London               |
-      | countryCode  | United Kingdom       |
+      | addressLine1 | 88 Willow Street |
+      | addressLine2 | Oakwood Park     |
+      | addressLine3 | Stratford        |
+      | addressLine4 | Greater London   |
+      | addressLine5 | England          |
+      | countryCode  | United Kingdom   |
     And I click save and continue button on "Scheme Manager Address Page"
     Then I am presented with the "Scheme Manager Email Page"
     When I enter the following data into corresponding input fields on "Scheme Manager Email Page"
@@ -36,6 +36,12 @@ Feature: Is the members details journey fully connected
       | contactNumber | +441234567890 |
     And I click save and continue button on "Scheme Manager Telephone Page"
     Then I am presented with the "Scheme Manager Check Your Answer Page"
+    And I should see the following details
+      | Organisation or individual | Individual                                                                    |
+      | Manager name               | Emily Parker                                                                  |
+      | Manager address            | 88 Willow Street,Oakwood Park,Stratford,Greater London,England,United Kingdom |
+      | Manager email              | thismail@gmail.com                                                            |
+      | Manager telephone number   | +441234567890                                                                 |
 
   Scenario:2. Full Scheme Manager Details Journey - Organisation
     And I navigated to the "Scheme Manager Type Page"
@@ -48,24 +54,31 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Organisation Name Page"
     Then I am presented with the "Organisation Individual Name Page"
     When I enter the following data into corresponding input fields on "Organisation Individual Name Page"
-      | orgIndFirstName | John |
-      | orgIndLastName | Doe  |
+      | orgIndFirstName | Sarah    |
+      | orgIndLastName  | Thompson |
     And I click save and continue button on "Scheme Manager Name Page"
     Then I am presented with the "Scheme Manager Address Page"
     When I enter the following data into corresponding input fields on "Scheme Manager Address Page"
-      | addressLine1 | 12 Burlington Avenue |
-      | addressLine2 | Burlington Road      |
-      | addressLine3 | Maidenhead           |
-      | addressLine4 | Berkshire            |
-      | addressLine5 | London               |
-      | countryCode  | United Kingdom       |
+      | addressLine1           | 99 Elm Street       |
+      | addressLine2           | Greenfield Estate   |
+      | addressLine3           | Cambridge           |
+      | addressLine4           | Cambridgeshire      |
+      | addressLine5           | East of England     |
+      | countryCode            | United Kingdom      |
     And I click save and continue button on "Scheme Manager Address Page"
     Then I am presented with the "Scheme Manager Email Page"
     When I enter the following data into corresponding input fields on "Scheme Manager Email Page"
-      | emailAddress | thismail@gmail.com |
+      | emailAddress | sarah.thompson@example.com |
     And I click save and continue button on "Scheme Manager Email Page"
     Then I am presented with the "Scheme Manager Telephone Page"
     When I enter the following data into corresponding input fields on "Scheme Manager Telephone Page"
-      | contactNumber | +441234567890 |
+      | contactNumber | +447712345678 |
     And I click save and continue button on "Scheme Manager Telephone Page"
     Then I am presented with the "Scheme Manager Check Your Answer Page"
+    And I should see the following details
+      | Organisation or individual | Organisation                                                                            |
+      | Organisation name          | Great Organisation                                                                      |
+      | Organisation contact       | Sarah Thompson                                                                          |
+      | Manager address            | 99 Elm Street,Greenfield Estate,Cambridge,Cambridgeshire,East of England,United Kingdom |
+      | Manager email              | sarah.thompson@example.com                                                              |
+      | Manager telephone number   | +447712345678                                                                           |
