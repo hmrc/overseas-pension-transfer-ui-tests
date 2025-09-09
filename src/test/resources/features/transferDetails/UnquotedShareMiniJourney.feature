@@ -15,10 +15,10 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
   Scenario:1. PSA/PSP user is able to transfer a Unquoted Shares
     And I "select" checkbox "Unquoted shares" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Add UnQuoted Share Start Page"
+    Then I am presented with the "Add Unquoted Share Start Page"
     And I should see the following values on the page
       | The following questions are about Unquoted shares that is part of this transfer. |
-    And I click save and continue button on "Add UnQuoted Share Start Page"
+    And I click save and continue button on "Add Unquoted Share Start Page"
     Then I am presented with the "Name Of Company Unquoted Share Page"
     And I should see the heading "What is the name of the company these unquoted shares relate to?"
     When I enter the following data into corresponding input fields on "Name Of Company Unquoted Share Page"
@@ -74,10 +74,10 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
   Scenario:2 . PSA/PSP user is able to transfer multiple Unquoted Shares
     And I "select" checkbox "Unquoted shares" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Add UnQuoted Share Start Page"
+    Then I am presented with the "Add Unquoted Share Start Page"
     And I should see the following values on the page
       | The following questions are about Unquoted shares that is part of this transfer. |
-    And I click save and continue button on "Add UnQuoted Share Start Page"
+    And I click save and continue button on "Add Unquoted Share Start Page"
     Then I am presented with the "Name Of Company Unquoted Share Page"
     And I should see the heading "What is the name of the company these unquoted shares relate to?"
     When I enter the following data into corresponding input fields on "Name Of Company Unquoted Share Page"
@@ -138,10 +138,10 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
   Scenario:3 . PSA/PSP user is able to remove the Unquoted Shares from the added list
     And I "select" checkbox "Unquoted shares" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Add UnQuoted Share Start Page"
+    Then I am presented with the "Add Unquoted Share Start Page"
     And I should see the following values on the page
       | The following questions are about Unquoted shares that is part of this transfer. |
-    And I click save and continue button on "Add UnQuoted Share Start Page"
+    And I click save and continue button on "Add Unquoted Share Start Page"
     Then I am presented with the "Name Of Company Unquoted Share Page"
     And I should see the heading "What is the name of the company these unquoted shares relate to?"
     When I enter the following data into corresponding input fields on "Name Of Company Unquoted Share Page"
@@ -208,10 +208,10 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
   Scenario:4 . PSA/PSP user is able to add another Unquoted Share when they go from the CYA page
     And I "select" checkbox "Unquoted shares" on "Type Of Asset Page"
     And I click save and continue button on "Type Of Asset Page"
-    Then I am presented with the "Add UnQuoted Share Start Page"
+    Then I am presented with the "Add Unquoted Share Start Page"
     And I should see the following values on the page
       | The following questions are about unquoted shares that is part of this transfer. |
-    And I click save and continue button on "Add UnQuoted Share Start Page"
+    And I click save and continue button on "Add Unquoted Share Start Page"
     Then I am presented with the "Name Of Company Unquoted Share Page"
     And I should see the heading "What is the name of the company these unquoted shares relate to?"
     When I enter the following data into corresponding input fields on "Name Of Company Unquoted Share Page"
