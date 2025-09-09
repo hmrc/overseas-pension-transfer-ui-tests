@@ -19,7 +19,6 @@ Feature: Adding QROPS Country
     And I click save and continue button on "QROPS Country Page"
     And I click save and continue button on "QROPS Country Page"
     Then I am presented with the "QROPS Check Your Answers Page"
-# Above action would have to be rewritten upon page gets connected
 
   Scenario:2. Positive journey - PSA/PSP leaves the QROPS country field blank
     When I enter the following data into corresponding input fields on "QROPS Country Page"

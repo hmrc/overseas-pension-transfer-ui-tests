@@ -42,6 +42,8 @@ Feature: Is the members details journey fully connected
       | Manager address            | 88 Willow Street,Oakwood Park,Stratford,Greater London,England,United Kingdom |
       | Manager email              | thismail@gmail.com                                                            |
       | Manager telephone number   | +441234567890                                                                 |
+    And I click save and continue button on "Scheme Manager Check Your Answer Page"
+    Then I am presented with the "Task List Page"
 
   Scenario:2. Full Scheme Manager Details Journey - Organisation
     And I navigated to the "Scheme Manager Type Page"
@@ -82,3 +84,5 @@ Feature: Is the members details journey fully connected
       | Manager address            | 99 Elm Street,Greenfield Estate,Cambridge,Cambridgeshire,East of England,United Kingdom |
       | Manager email              | sarah.thompson@example.com                                                              |
       | Manager telephone number   | +447712345678                                                                           |
+    And I click save and continue button on "Scheme Manager Check Your Answer Page"
+    Then I am presented with the "Task List Page"
