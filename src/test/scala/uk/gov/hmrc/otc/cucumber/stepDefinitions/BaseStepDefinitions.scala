@@ -18,7 +18,6 @@ package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
-import org.junit.Assert
 import org.openqa.selenium.By
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
@@ -276,55 +275,9 @@ trait BaseStepDefinitions
     actual should be(expected)
   }
 
-  And("""^I should see the following product details""") { data: DataTable =>
-    val expected = data.asScalaListOfLists
-    val actual   = productsList
-    actual should be(expected)
-  }
-
   And("""I click on View Return link for one of the completed returns on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//div/table[2]/tbody/tr[1]/td[3]/ul/li/a")).click()
-  }
-  When("""I redirect to a URL with Spirits section on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
-    val periodToUrl    = Map(
-      s"January $currentYear" -> s"${shortYear}AA",
-      s"April $currentYear"   -> s"${shortYear}AD",
-      s"July $currentYear"    -> s"${shortYear}AG",
-      s"October $currentYear" -> s"${shortYear}AJ"
-    )
-
-    periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
-      case Some((_, suffix)) =>
-        driver.get(TestConfiguration.url("overseas-pension-transfer-frontend") + s"/view-your-return/$suffix")
-      case None              =>
-        logger.warn("No month returned to fit within the quarterly spirits requirement. Please check")
-        Assert.fail()
-    }
-
-  }
-
-  Then("""The page header is {string}""") { (pageHeader: String) =>
-    val actualPageHeader = driver.findElement(By.tagName("h1")).getText
-    val currentURL       = driver.getCurrentUrl
-
-    val urlToPeriod = Map(
-      s"${shortYear}AA" -> s"January $currentYear",
-      s"${shortYear}AD" -> s"April $currentYear",
-      s"${shortYear}AG" -> s"July $currentYear",
-      s"${shortYear}AJ" -> s"October $currentYear"
-    )
-
-    urlToPeriod.find { case (suffix, _) => currentURL.contains(suffix) } match {
-      case Some((_, period)) =>
-        val finalPageHeader = pageHeader.replace("SpiritsPeriod", period)
-        actualPageHeader should be(finalPageHeader)
-      case None              =>
-        logger.warn("No month to return")
-        Assert.fail()
-    }
   }
 
   When("""I click {string} on {string}""") { (button: String, page: String) =>
@@ -352,7 +305,7 @@ trait BaseStepDefinitions
         driver.findElement(By.xpath("//*[@id=\"memberNinoPageLink\"]")).click()
 
       case _ =>
-        driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
+        driver.findElement(By.xpath("//a[normalize-space()=\"" + hyperlink + "\"]")).click()
     }
   }
 
@@ -496,6 +449,14 @@ trait BaseStepDefinitions
     driver.findElement(By.cssSelector("span[class='govuk-details__summary-text']")).click()
   }
 
-}
+  Then("""I see the status {string} for task {string}""") { (expectedStatus: String, taskName: String) =>
+    val xpathExpression =
+      s"""//li[contains(@class,'govuk-task-list__item')][.//*[normalize-space(text())="$taskName"]]"""
 
+    val taskItem = driver.findElement(By.xpath(xpathExpression))
+    val statusElement = taskItem.findElement(By.cssSelector("strong.govuk-tag"))
+    statusElement.getText.trim should be(expectedStatus)
+  }
+
+}
 

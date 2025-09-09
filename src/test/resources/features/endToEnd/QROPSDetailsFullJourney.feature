@@ -40,7 +40,8 @@ Feature: Is the members details journey fully connected
       | QROPS reference                  | QROPS123456                                                                      |
       | QROPS address                    | 21 Rosewood Close,Maple Hill Estate,Basingstoke,Hampshire,England,United Kingdom |
       | Country or territory established | United Kingdom                                                                   |
-
+    And I click save and continue button on "QROPS Check Your Answers Page"
+    Then I am presented with the "Task List Page"
 
   Scenario:2. Full QROPS Details - Other country selected
     When I navigated to the "QROPS Name Page"
@@ -79,3 +80,5 @@ Feature: Is the members details journey fully connected
       | QROPS address                    | 45 Oakfield Way,Sycamore Park,Sutton Coldfield,West Midlands,England,United Kingdom |
       | Country or territory established | Other                                                                                   |
       | Other country or territory       | Wales                                                                               |
+    And I click save and continue button on "QROPS Check Your Answers Page"
+    Then I am presented with the "Task List Page"
