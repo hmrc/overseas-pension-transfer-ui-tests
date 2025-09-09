@@ -19,7 +19,7 @@ package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object AddUnQuotedShareStartPage extends BasePage {
+object AddUnquotedShareStartPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/unquoted-shares-start"
   override val title = "Add unquoted shares"

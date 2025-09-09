@@ -21,10 +21,10 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     When I enter the following data into corresponding input fields on "Amount Of Cash In Transfer Page"
       | cashInTransfer | £500 |
     And I click save and continue button on "Amount Of Cash In Transfer Page"
-    Then I am presented with the "Add UnQuoted Share Start Page"
+    Then I am presented with the "Add Unquoted Share Start Page"
     And I should see the following values on the page
       | The following questions are about Unquoted shares that is part of this transfer. |
-    And I click save and continue button on "Add UnQuoted Share Start Page"
+    And I click save and continue button on "Add Unquoted Share Start Page"
     Then I am presented with the "Name Of Company Unquoted Share Page"
     And I should see the heading "What is the name of the company these unquoted shares relate to?"
     When I enter the following data into corresponding input fields on "Name Of Company Unquoted Share Page"
