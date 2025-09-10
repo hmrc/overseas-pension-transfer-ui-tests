@@ -87,9 +87,9 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "QROPS Country Page"
     Then I am presented with the "QROPS Check Your Answers Page"
     And I should see the following details
-      | QROPS full name                  | The great QROPS                                                                  |
-      | QROPS reference                  | QROPS123456                                                                      |
-      | QROPS address                    | 21 Rosewood Close,Maple Hill Estate,Basingstoke,Hampshire,England,United Kingdom |
+      | Full name                        | The great QROPS                                                                  |
+      | Reference                        | QROPS123456                                                                      |
+      | Address                          | 21 Rosewood Close,Maple Hill Estate,Basingstoke,Hampshire,England,United Kingdom |
       | Country or territory established | United Kingdom                                                                   |
     And I click save and continue button on "QROPS Check Your Answers Page"
     Then I am presented with the "Task List Page"
