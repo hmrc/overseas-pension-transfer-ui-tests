@@ -29,6 +29,6 @@ object QROPSNamePage extends BasePage {
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    " What is the full name of the QROPS receiving the transfer? - Report an overseas pension transfer - GOV.UK"
+    "What is the full name of the QROPS receiving the transfer? - Report an overseas pension transfer - GOV.UK"
   )
 }
