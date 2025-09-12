@@ -23,6 +23,8 @@ class OverseasPensionStepDefinitions extends BaseStepDefinitions {
 
   When("""I enter redirect URL on Auth Login Stub Page for {string}""") { (typeOfJourney: String) =>
     typeOfJourney match {
+      case "Journey entry URL" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/start?srn=S2400000001")
       case "Is Member currently a resident of UK"                       =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-is-resident-uk")
       case "Has member ever been a resident in the UK for tax purposes" =>

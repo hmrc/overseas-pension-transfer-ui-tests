@@ -311,6 +311,9 @@ trait BaseStepDefinitions
       case "The member has a National Insurance number." =>
         driver.findElement(By.xpath("//*[@id=\"memberNinoPageLink\"]")).click()
 
+      case "Start new transfer" =>
+        driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/p/a")).click()
+
       case _ =>
         driver.findElement(By.xpath("//a[normalize-space()=\"" + hyperlink + "\"]")).click()
     }
