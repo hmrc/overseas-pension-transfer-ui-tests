@@ -65,6 +65,13 @@ trait BaseStepDefinitions
     page.checkPageTitle()
   }
 
+  Then("I am presented with the change {string}") { (pageName: String) =>
+    val page = PageObjectFinder.page(pageName)
+    page.waitForPageHeader
+    page.checkChangeURL
+    page.checkPageTitle()
+  }
+
   Then("""I am presented with the {string} with new url""") { page: String =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkNewURL

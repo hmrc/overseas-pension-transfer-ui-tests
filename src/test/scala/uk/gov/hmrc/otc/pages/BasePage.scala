@@ -31,6 +31,7 @@ import scala.util.matching.Regex
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
+  val changeUrl: String = ""
   val newUrl: String       = ""
   val title: String        = ""
   val urlPattern: Regex    = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
@@ -99,6 +100,17 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     } else {
       driver.getCurrentUrl should equal(url)
     }
+
+  def checkChangeURL: Assertion = {
+    val changeUrl = url.replaceAll("([^/]+)$", "change-$1")
+    if (url.contains("...")) {
+      driver.getCurrentUrl should fullyMatch regex (changeUrl.replace("...", "") + ".*").r
+    } else {
+      driver.getCurrentUrl should equal(changeUrl)
+    }
+  }
+
+
 
   def checkNewURL: Assertion =
     if (newUrl.contains("...")) {
