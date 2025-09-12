@@ -7,6 +7,8 @@ Feature: Why the transfer is not taxable
     And I enter redirect URL on Auth Login Stub Page for "Journey entry URL"
     When I enter Enrollment Key "HMRC-PODSPP-ORG", Identifier Name "PSPID" and Identifier Value "21000005" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Dashboard Page"
+    And I click on "Start new transfer" hyperlink on "Dashboard Page"
     And I am presented with the "What You Will Need Page"
     And I navigated to the "Why Transfer is not Taxable Page"
     Then I am presented with the "Why Transfer is not Taxable Page"
