@@ -25,10 +25,10 @@ object QROPSReferencePage extends BasePage {
   override val title       = "What is the QROPS reference?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the QROPS reference? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the QROPS reference? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the QROPS reference? - Report an overseas pension transfer - GOV.UK"
+    "What is the QROPS reference? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

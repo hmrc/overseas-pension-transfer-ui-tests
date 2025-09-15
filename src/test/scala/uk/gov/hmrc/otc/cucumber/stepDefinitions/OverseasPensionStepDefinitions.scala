@@ -27,7 +27,7 @@ class OverseasPensionStepDefinitions extends BaseStepDefinitions {
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/start?srn=S2400000001")
       case "Is Member currently a resident of UK"                       =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-is-resident-uk")
-      case "Has member ever been a resident in the UK for tax purposes" =>
+      case "Has member ever been a resident of the UK for tax purposes" =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-has-ever-been-resident-uk")
       case "Member does not have NINO"                                  =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-does-not-have-nino")

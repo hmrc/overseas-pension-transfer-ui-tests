@@ -25,6 +25,6 @@ object ChangeOtherAssetsAmendContinuePage extends BasePage {
   override val title = "Do you need to add another asset?"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Do you need to add another asset? - Report an overseas pension transfer - GOV.UK"
+    "Do you need to add another asset? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

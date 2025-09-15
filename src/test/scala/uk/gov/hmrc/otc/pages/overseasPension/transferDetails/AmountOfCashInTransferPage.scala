@@ -25,10 +25,10 @@ object AmountOfCashInTransferPage extends BasePage {
   override val title = "What is the amount of cash?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the amount of cash? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the amount of cash? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the amount of cash? - Report an overseas pension transfer - GOV.UK"
+    "What is the amount of cash? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

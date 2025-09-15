@@ -1,5 +1,5 @@
 @Test   @EverBeenResident @acceptance
-Feature: Has member ever been a resident in the UK for tax purposes?
+Feature: Has member ever been a resident of the UK for tax purposes?
 
   Background: Common Steps - Member Details Journey
     Given I cleared the data for the service
@@ -14,7 +14,7 @@ Feature: Has member ever been a resident in the UK for tax purposes?
     Then I am presented with the "Has Member Ever Been UK Resident Page"
 
   Scenario Outline: Verify Has Member Ever Been UK Resident Page
-    Then I should see the heading "Has <memberName> ever been a resident in the UK for tax purposes?"
+    Then I should see the heading "Has <memberName> ever been a resident of the UK for tax purposes?"
     And I should see the hint text "Select one."
     And I should see two radio buttons: "Yes" and "No"
     Examples:

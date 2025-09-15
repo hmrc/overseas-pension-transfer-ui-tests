@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object QROPSAddressPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/qrops-address"
-  override val title = "Address of the QROPS"
+  override val title = "What is the address of the QROPS"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Address of the QROPS - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the address of the QROPS? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Address of the QROPS - Report an overseas pension transfer - GOV.UK"
+    "What is the address of the QROPS? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

@@ -25,10 +25,10 @@ object ApplicableTransferExclusionPage extends BasePage {
   override val title = "Please provide the applicable exclusion"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Please provide the applicable exclusion - Report an overseas pension transfer - GOV.UK"
+    "Error: Please provide the applicable exclusion - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Please provide the applicable exclusion - Report an overseas pension transfer - GOV.UK"
+    "Please provide the applicable exclusion - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

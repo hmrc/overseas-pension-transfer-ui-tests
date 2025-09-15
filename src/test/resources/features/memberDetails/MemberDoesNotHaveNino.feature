@@ -1,4 +1,4 @@
-@Test @DoesNotHaveNINO @acceptance
+@Test @DoesNotHaveNINO @acceptance @solo
 Feature: Adding details for the member who does not have NINO
 
   Background: Common Steps - Member Details Journey
@@ -16,7 +16,7 @@ Feature: Adding details for the member who does not have NINO
     Then I am presented with the "Member Does Not Have NINO Page"
 
   Scenario Outline: Verify Why the member does not have a National Insurance number?
-    Then I should see the heading "Why doesn’t <memberName> have a National Insurance number?"
+    Then I should see the heading "Why does <memberName> not have a National Insurance number?"
     #And I should see the hint text "If the member has another HMRC reference number that relates to them as an individual, please give that number."
     And I should see the following values on the page
       | If the member has another HMRC reference number that relates to them as an individual, please give that number. |

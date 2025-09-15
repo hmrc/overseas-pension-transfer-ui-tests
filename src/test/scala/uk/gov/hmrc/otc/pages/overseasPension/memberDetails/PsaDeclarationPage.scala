@@ -25,11 +25,11 @@ object PsaDeclarationPage extends BasePage {
   override val title = "Declaration"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Declaration - Report an overseas pension transfer - GOV.UK"
+    "Error: Declaration - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Declaration - Report an overseas pension transfer - GOV.UK"
+    "Declaration - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }
 

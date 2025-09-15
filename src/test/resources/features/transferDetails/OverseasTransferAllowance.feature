@@ -12,7 +12,7 @@ And I click on "Start new transfer" hyperlink on "Dashboard Page"
 And I am presented with the "What You Will Need Page"
 And I navigated to the "Overseas Transfer Allowance Page"
 Then I am presented with the "Overseas Transfer Allowance Page"
-And I should see the heading "What is the amount of the overseas transfer allowance before making this transfer?"
+And I should see the heading "How much of the member's overseas transfer allowance is available before this transfer?"
 And I should see the hint text "For example, £60000 or £19,300.54."
 
   Scenario:1. Positive journey - PSA/PSP types in a numerical value into the field without ‘£’ sign

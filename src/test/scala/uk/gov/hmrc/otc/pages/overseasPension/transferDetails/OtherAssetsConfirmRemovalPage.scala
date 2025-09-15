@@ -25,6 +25,6 @@ object OtherAssetsConfirmRemovalPage extends BasePage {
   override val title = " Are you sure you want to remove these other assets?"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Are you sure you want to remove these other assets? - Report an overseas pension transfer - GOV.UK"
+    "Are you sure you want to remove these other assets? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

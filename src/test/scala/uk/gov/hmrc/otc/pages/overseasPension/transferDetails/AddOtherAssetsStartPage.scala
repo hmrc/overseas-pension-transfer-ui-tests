@@ -25,6 +25,6 @@ object AddOtherAssetsStartPage extends BasePage {
   override val title = "Add other assets"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Add other assets - Report an overseas pension transfer - GOV.UK"
+    "Add other assets - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

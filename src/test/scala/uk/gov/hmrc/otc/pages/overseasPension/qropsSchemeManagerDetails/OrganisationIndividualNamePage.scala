@@ -22,14 +22,14 @@ import uk.gov.hmrc.otc.pages.BasePage
 object OrganisationIndividualNamePage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/organisation-individual-name"
-  override val title       = "Contact details of an individual within the organisation with whom HMRC should correspond"
+  override val title       = "Who is the contact within the organisation"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Contact details of an individual within the organisation - Report an overseas pension transfer - GOV.UK"
+    "Error: Who is the contact within the organisation? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Contact details of an individual within the organisation - Report an overseas pension transfer - GOV.UK"
+    "Who is the contact within the organisation? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def clickContinueButton(): Unit = {

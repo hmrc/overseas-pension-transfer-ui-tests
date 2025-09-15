@@ -11,7 +11,7 @@ Feature: Adding names of the Scheme Manager
     And I click on "Start new transfer" hyperlink on "Dashboard Page"
     Then I am presented with the "What You Will Need Page"
     And I navigated to the "Scheme Manager Name Page"
-    And I should see the heading "What is the manager's name?"
+    And I should see the heading "What is the scheme manager's name?"
     And I should see the input fields with below labels on "Scheme Manager Name Page"
       | First name |
       | Last name  |

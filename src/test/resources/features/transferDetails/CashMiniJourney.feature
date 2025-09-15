@@ -191,7 +191,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     And I should see the heading "Check your answers"
     And I click save and continue button on "Other Assets Check Your Answers Page"
     Then I am presented with the "Other Assets Amend Continue Page"
-    And I should see the heading "You have added 1 group of assets"
+    And I should see the heading "You have added 1 asset"
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "No" on "Other Assets Amend Continue Page"
     And I click save and continue button on "Other Assets Amend Continue Page"

@@ -25,11 +25,11 @@ object MemberDateOfLeavingUKPage extends BasePage {
   override val title       = "When did the member leave the UK?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: When did the member leave the UK? - Report an overseas pension transfer - GOV.UK"
+    "Error: When did the member leave the UK? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "When did the member leave the UK? - Report an overseas pension transfer - GOV.UK"
+    "When did the member leave the UK? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def enterDate(day: String, month: String, year: String): Unit = {

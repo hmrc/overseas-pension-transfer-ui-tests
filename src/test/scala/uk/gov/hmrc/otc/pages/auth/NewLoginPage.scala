@@ -25,11 +25,11 @@ object NewLoginPage extends BasePage {
   override val title       = "report-transfer-qualified-recognised-overseas-pension-scheme" // TODO this title needs to be corrected in message file in main application
 
   //override def expectedPageErrorTitle: Option[String] = Some(
-   // "Error: What is Undefined Undefined’s date of birth? - Report an overseas pension transfer - GOV.UK"
+   // "Error: What is Undefined Undefined’s date of birth? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   //)
 
   override def expectedPageTitle: Option[String] = Some(
-    "report-transfer-qualified-recognised-overseas-pension-scheme - Report an overseas pension transfer - GOV.UK"
+    "report-transfer-qualified-recognised-overseas-pension-scheme - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
  // override def enterDate(day: String, month: String, year: String): Unit = {

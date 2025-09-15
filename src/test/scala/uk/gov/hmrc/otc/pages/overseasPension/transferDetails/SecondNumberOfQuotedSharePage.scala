@@ -25,10 +25,10 @@ object SecondNumberOfQuotedSharePage extends BasePage {
   override val title = "How many unquoted shares in this company are part of this transfer?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How many quoted shares in this company are part of this transfer? - Report an overseas pension transfer - GOV.UK"
+    "Error: How many quoted shares in this company are part of this transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "How many quoted shares in this company are part of this transfer? - Report an overseas pension transfer - GOV.UK"
+    "How many quoted shares in this company are part of this transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

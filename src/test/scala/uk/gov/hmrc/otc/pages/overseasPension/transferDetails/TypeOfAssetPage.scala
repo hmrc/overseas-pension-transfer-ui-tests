@@ -25,10 +25,10 @@ object TypeOfAssetPage extends BasePage {
   override val title = "Type of assets included in the transfer"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Type of assets included in the transfer - Report an overseas pension transfer - GOV.UK"
+    "Error: Type of assets included in the transfer - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Type of assets included in the transfer - Report an overseas pension transfer - GOV.UK"
+    "Type of assets included in the transfer - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }
