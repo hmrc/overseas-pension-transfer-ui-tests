@@ -24,10 +24,10 @@ object ConfirmMembersLastUKAddressPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-confirm-last-uk-address"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    s"Error: Select $expectedFullName's last UK address - Report an overseas pension transfer - GOV.UK"
+    s"Error: Select $expectedFullName's last UK address - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    s"Confirm $expectedFullName's last principal residential address in the UK - Report an overseas pension transfer - GOV.UK"
+    s"Confirm $expectedFullName's last principal residential address in the UK - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

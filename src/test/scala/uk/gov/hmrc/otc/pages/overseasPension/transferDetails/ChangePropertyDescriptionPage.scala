@@ -25,10 +25,10 @@ object ChangePropertyDescriptionPage extends BasePage {
   override val title = "Describe the property and how it was valued"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Describe the property and how it was valued - Report an overseas pension transfer - GOV.UK"
+    "Error: Describe the property and how it was valued - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Describe the property and how it was valued - Report an overseas pension transfer - GOV.UK"
+    "Describe the property and how it was valued - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

@@ -25,11 +25,11 @@ object  MemberNamePage extends BasePage {
   override val title       = "What is the member's name?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the member's name? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the member's name? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the member's name? - Report an overseas pension transfer - GOV.UK"
+    "What is the member's name? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def clickContinueButton(): Unit = {

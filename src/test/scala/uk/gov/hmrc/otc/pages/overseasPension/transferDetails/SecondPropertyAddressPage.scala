@@ -25,10 +25,10 @@ object SecondPropertyAddressPage extends BasePage {
   override val title = "What is the property address?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the property address? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the property address? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the property address? - Report an overseas pension transfer - GOV.UK"
+    "What is the property address? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

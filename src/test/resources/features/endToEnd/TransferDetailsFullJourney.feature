@@ -312,7 +312,7 @@ Feature: Is the members details journey fully connected
       | Value of asset                     | £400,800                       |
     And I click save and continue button on "Other Assets Check Your Answers Page"
     Then I am presented with the "Other Assets Amend Continue Page"
-    And I should see the heading "You have added 1 group of assets"
+    And I should see the heading "You have added 1 asset"
     When I select radio button "No" on "Other Assets Amend Continue Page"
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
@@ -437,7 +437,7 @@ Feature: Is the members details journey fully connected
       | Value of asset                     | £400,800                       |
     And I click save and continue button on "Other Assets Check Your Answers Page"
     Then I am presented with the "Other Assets Amend Continue Page"
-    And I should see the heading "You have added 1 group of assets"
+    And I should see the heading "You have added 1 asset"
     When I select radio button "No" on "Other Assets Amend Continue Page"
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"

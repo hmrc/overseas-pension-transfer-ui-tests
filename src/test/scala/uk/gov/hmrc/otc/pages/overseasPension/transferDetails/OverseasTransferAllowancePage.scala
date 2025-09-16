@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object OverseasTransferAllowancePage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/overseas-transfer-allowance"
-  override val title = "What is the amount of the overseas transfer allowance before making this transfer?"
+  override val title = "How much of the member's overseas transfer allowance is available before this transfer?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the amount of the overseas transfer allowance before making this transfer? - Report an overseas pension transfer - GOV.UK"
+    "Error: How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the amount of the overseas transfer allowance before making this transfer? - Report an overseas pension transfer - GOV.UK"
+    "How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

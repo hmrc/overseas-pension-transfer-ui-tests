@@ -25,9 +25,9 @@ object PropertyAmendContinuePage extends BasePage {
   override val title = "propertyAmendContinue"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: propertyAmendContinue - Report an overseas pension transfer - GOV.UK"
+    "Error: propertyAmendContinue - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
   override def expectedPageTitle: Option[String] = Some(
-    "propertyAmendContinue - Report an overseas pension transfer - GOV.UK"
+    "propertyAmendContinue - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

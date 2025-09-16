@@ -25,6 +25,6 @@ object AddUnquotedShareStartPage extends BasePage {
   override val title = "Add unquoted shares"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Add unquoted shares - Report an overseas pension transfer - GOV.UK"
+    "Add unquoted shares - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

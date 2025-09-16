@@ -25,10 +25,10 @@ object SecondNameOfCompanyUnquotedSharePage extends BasePage {
   override val title = "What is the name of the company these unquoted shares relate to?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the name of the company these unquoted shares relate to? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the name of the company these unquoted shares relate to? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the name of the company these unquoted shares relate to? - Report an overseas pension transfer - GOV.UK"
+    "What is the name of the company these unquoted shares relate to? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

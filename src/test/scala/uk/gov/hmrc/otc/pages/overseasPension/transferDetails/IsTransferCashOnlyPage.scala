@@ -25,10 +25,10 @@ object IsTransferCashOnlyPage extends BasePage {
   override val title = "Is the transfer made up of cash only?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
+    "Error: Is the transfer made up of cash only? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Is the transfer made up of cash only? - Report an overseas pension transfer - GOV.UK"
+    "Is the transfer made up of cash only? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

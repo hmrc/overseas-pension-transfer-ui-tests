@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object SchemeManagerNamePage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/scheme-managers-name"
-  override val title       = "What is the manager's name?"
+  override val title       = "What is the scheme manager's name?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the manager's name? - Report an overseas pension transfer - GOV.UK"
+    "Error: What is the scheme manager's name? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-      "What is the manager's name? - Report an overseas pension transfer - GOV.UK"
+      "What is the scheme manager's name? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

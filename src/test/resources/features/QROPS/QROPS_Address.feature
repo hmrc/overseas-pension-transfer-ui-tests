@@ -14,7 +14,7 @@ Feature: Entering the address of the QROPS
     Then I am presented with the "QROPS Address Page"
 
   Scenario Outline: Verify the Members Last UK Address Page
-    And I should see the heading "Address of the QROPS"
+    And I should see the heading "What is the address of the QROPS?"
     And I should see the input fields with below labels on "QROPS Address Page"
       | Address line 1            |
       | Address line 2            |

@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object MemberDoesNotHaveNINOPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-does-not-have-nino"
-  override val title       = "Why the member doesn’t have a National Insurance number?"
+  override val title       = "Why does the member not have a National Insurance number?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Why the member doesn’t have a National Insurance number? - Report an overseas pension transfer - GOV.UK"
+    "Error: Why does the member not have a National Insurance number? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Why the member doesn’t have a National Insurance number? - Report an overseas pension transfer - GOV.UK"
+    "Why does the member not have a National Insurance number? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }

@@ -24,11 +24,11 @@ object MemberDateOfBirthPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-date-of-birth"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    s"Error: What is $expectedFullName’s date of birth? - Report an overseas pension transfer - GOV.UK"
+    s"Error: What is $expectedFullName’s date of birth? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    s"What is $expectedFullName’s date of birth? - Report an overseas pension transfer - GOV.UK"
+    s"What is $expectedFullName’s date of birth? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 
   override def enterDate(day: String, month: String, year: String): Unit = {

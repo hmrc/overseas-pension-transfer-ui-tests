@@ -25,6 +25,6 @@ object UnquotedShareCheckYourAnswersPage extends BasePage {
   override val title = "Check your answers"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report an overseas pension transfer - GOV.UK"
+    "Check your answers - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
   )
 }
