@@ -1,4 +1,4 @@
-@Test @DoesNotHaveNINO @acceptance @solo
+@Test @DoesNotHaveNINO @acceptance
 Feature: Adding details for the member who does not have NINO
 
   Background: Common Steps - Member Details Journey

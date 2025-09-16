@@ -1,4 +1,4 @@
-  @Test @MemberNino @acceptance @solo
+  @Test @MemberNino @acceptance
 Feature: Adding national insurance number for a member
 
   Background: Common Steps - National Insurance Number Details Journey
