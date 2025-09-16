@@ -24,7 +24,7 @@ import org.junit.runner.RunWith
   features = Array("src/test/resources/features"),
   glue     = Array("uk.gov.hmrc.otc.cucumber.stepDefinitions"),
   plugin   = Array("pretty", "html:target/cucumber.html", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
-  tags     = "@acceptance and not @Ignore"
+  tags     = "@E2E or @journey"
 )
 class Runner {}
 
