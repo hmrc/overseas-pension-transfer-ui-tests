@@ -1,4 +1,4 @@
-@Test @QROPsDetailsE2E @acceptance
+@Test @QROPsDetailsE2E @acceptance @E2E
 Feature: Is the members details journey fully connected
 
   Background: Common Steps
