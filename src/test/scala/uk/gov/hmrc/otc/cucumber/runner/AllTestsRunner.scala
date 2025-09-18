@@ -24,7 +24,7 @@ import org.junit.runner.RunWith
   features = Array("src/test/resources/features"),
   glue     = Array("uk.gov.hmrc.otc.cucumber.stepDefinitions"),
   plugin   = Array("pretty", "html:target/cucumber.html", "json:target/cucumber.json", "junit:target/test-reports/AllTestsRunner.xml"),
-  tags     = "@AllTests"
+  tags     = "@acceptance"
 )
 class AllTestsRunner {}
 
