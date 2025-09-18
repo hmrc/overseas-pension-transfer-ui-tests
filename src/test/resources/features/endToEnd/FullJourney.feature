@@ -1,4 +1,4 @@
-@Test @FullJourneye2e @acceptance @E2E
+@Test @FullJourneye2e @acceptance @regression
 Feature: Is the members details journey fully connected
 
   Background: Common Steps
