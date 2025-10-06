@@ -32,7 +32,6 @@ class OverseasPensionStepDefinitions extends BaseStepDefinitions {
       case "Member does not have NINO"                                  =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-does-not-have-nino")
       case  "What You Will Need Page"                                                         =>
-        //AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed")
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed")
       case "New Login Page"                       =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
@@ -48,6 +47,5 @@ class OverseasPensionStepDefinitions extends BaseStepDefinitions {
           AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
       }
   }
-
 }
 
