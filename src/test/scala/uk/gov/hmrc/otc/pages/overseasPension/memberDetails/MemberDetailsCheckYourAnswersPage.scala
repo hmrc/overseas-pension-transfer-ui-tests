@@ -25,10 +25,10 @@ object MemberDetailsCheckYourAnswersPage extends BasePage {
   override val title = "Check your answers"
 
 //  override def expectedPageErrorTitle: Option[String] = Some(
-//    "Error: Select Jon Doe's last UK address - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+//    "Error: Select Jon Doe's last UK address - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 //  )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

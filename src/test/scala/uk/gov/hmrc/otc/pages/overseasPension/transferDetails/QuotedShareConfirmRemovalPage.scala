@@ -25,6 +25,6 @@ object QuotedShareConfirmRemovalPage extends BasePage {
   override val title = " Are you sure you want to remove these quoted shares?"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Are you sure you want to remove these quoted shares? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Are you sure you want to remove these quoted shares? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

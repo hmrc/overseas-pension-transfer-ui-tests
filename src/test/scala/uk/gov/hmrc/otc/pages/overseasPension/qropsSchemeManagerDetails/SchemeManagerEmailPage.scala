@@ -25,10 +25,10 @@ object SchemeManagerEmailPage extends BasePage {
   override val title = "What is the scheme manager's email address?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the scheme manager's email address? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: What is the scheme manager's email address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the scheme manager's email address? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "What is the scheme manager's email address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

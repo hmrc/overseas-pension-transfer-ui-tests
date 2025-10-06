@@ -25,10 +25,10 @@ object WhyTransferAmountTaxablePage extends BasePage {
   override val title = "Why is this a taxable overseas transfer?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Why is this a taxable overseas transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: Why is this a taxable overseas transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Why is this a taxable overseas transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Why is this a taxable overseas transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

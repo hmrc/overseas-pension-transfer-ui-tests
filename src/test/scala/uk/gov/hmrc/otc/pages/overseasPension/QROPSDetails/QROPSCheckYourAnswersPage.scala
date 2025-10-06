@@ -25,6 +25,6 @@ object QROPSCheckYourAnswersPage extends BasePage {
   override val title = "QROPS Check your answers"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

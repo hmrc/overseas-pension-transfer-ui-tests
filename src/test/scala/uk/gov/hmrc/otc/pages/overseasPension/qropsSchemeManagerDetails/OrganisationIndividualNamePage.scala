@@ -25,11 +25,11 @@ object OrganisationIndividualNamePage extends BasePage {
   override val title       = "Who is the contact within the organisation"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Who is the contact within the organisation? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: Who is the contact within the organisation? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Who is the contact within the organisation? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Who is the contact within the organisation? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def clickContinueButton(): Unit = {

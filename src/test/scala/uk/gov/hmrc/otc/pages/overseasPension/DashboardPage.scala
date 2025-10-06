@@ -22,9 +22,9 @@ import uk.gov.hmrc.otc.pages.BasePage
 object DashboardPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/dashboard"
-  override val title       = "Report a transfer to a qualified recognised overseas pension scheme"
+  override val title       = "Report a transfer to a qualifying recognised overseas pension scheme"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Report overseas transfer dashboard - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Report overseas transfer dashboard - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

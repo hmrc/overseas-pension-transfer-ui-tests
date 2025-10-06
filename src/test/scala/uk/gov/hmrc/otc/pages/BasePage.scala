@@ -201,13 +201,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
   }
 
-  /*def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
-    for (fieldLabel <- fieldLabels) {
-      val inputField = find(xpath(s"//label[contains(text(), '$fieldLabel')]/following-sibling::input"))
-      inputField.isDefined should be(true)
-    }
-  }*/
-
   def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
     for (fieldLabel <- fieldLabels) {
       val labelField = find(xpath(s"//label[contains(text(), '$fieldLabel')]"))
@@ -231,8 +224,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText.trim.replaceAll("\n", ",")
     assert(actualErrorMessage.contains(errorMessage))
   }
-
-  private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 
   def listOfErrorLinks(): List[WebElement] = driver.findElements(By.cssSelector(".govuk-error-summary__list a")).asScala.toList
 

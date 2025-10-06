@@ -175,7 +175,7 @@ Feature: Is the members details journey fully connected
     When I enter the following data into corresponding input fields on "Date Of Transfer Page"
       | day   | 01   |
       | month | 08   |
-      | year  | 1998 |
+      | year  | 2013 |
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Is Transfer Cash Only Page"
     When I select radio button "No" on "Is Transfer Cash Only Page"
@@ -330,7 +330,7 @@ Feature: Is the members details journey fully connected
       | Amount of transfer                      | £400,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
       | Why transfer is not taxable             | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
-      | Date of transfer                        | 1 8 1998                                                                                                  |
+      | Date of transfer                        | 1 8 2013                                                                                                  |
       | Is transfer cash only                   | No                                                                                                        |
       | Amount of cash                          | £400,300                                                                                                  |
       | Type of assets included in the transfer | Cash,,Unquoted shares,,Quoted shares,,Property,,Other                                                     |

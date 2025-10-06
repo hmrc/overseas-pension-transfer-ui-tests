@@ -25,10 +25,10 @@ object MemberDoesNotHaveNINOPage extends BasePage {
   override val title       = "Why does the member not have a National Insurance number?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Why does the member not have a National Insurance number? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: Why does the member not have a National Insurance number? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Why does the member not have a National Insurance number? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Why does the member not have a National Insurance number? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
