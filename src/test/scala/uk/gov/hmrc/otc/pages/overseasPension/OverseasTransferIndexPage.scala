@@ -25,11 +25,11 @@ object OverseasTransferIndexPage extends BasePage {
   override val title       = "overseas-pension-transfer-frontend"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error:  overseas-pension-transfer-frontend - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error:  overseas-pension-transfer-frontend - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "overseas-pension-transfer-frontend - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "overseas-pension-transfer-frontend - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("overseas-pension-transfer-frontend")

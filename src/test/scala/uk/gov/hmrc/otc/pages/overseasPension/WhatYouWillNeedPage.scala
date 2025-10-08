@@ -25,6 +25,6 @@ object WhatYouWillNeedPage extends BasePage {
   override val title       = "What you will need"
 
   override def expectedPageTitle: Option[String] = Some(
-    "What you will need - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "What you will need - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

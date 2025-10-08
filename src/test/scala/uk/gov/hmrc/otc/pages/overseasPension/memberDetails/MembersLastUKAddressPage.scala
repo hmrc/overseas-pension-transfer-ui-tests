@@ -25,10 +25,10 @@ object MembersLastUKAddressPage extends BasePage {
   override val title       = "What was member's last principal residential address in the UK?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What was member's last principal residential address in the UK? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: What was member's last principal residential address in the UK? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What was member's last principal residential address in the UK? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "What was member's last principal residential address in the UK? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

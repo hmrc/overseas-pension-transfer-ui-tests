@@ -25,10 +25,10 @@ object AmountOfTaxDeductedPage extends BasePage {
   override val title = "What is the amount of tax deducted at 25%?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the amount of tax deducted at 25%? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: What is the amount of tax deducted at 25%? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the amount of tax deducted at 25%? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "What is the amount of tax deducted at 25%? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

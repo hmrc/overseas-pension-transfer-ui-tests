@@ -25,6 +25,6 @@ object UnquotedShareConfirmRemovalPage extends BasePage {
   override val title = " Are you sure you want to remove these unquoted shares?"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Are you sure you want to remove these unquoted shares? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Are you sure you want to remove these unquoted shares? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

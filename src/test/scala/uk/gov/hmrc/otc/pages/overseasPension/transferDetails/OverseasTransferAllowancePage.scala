@@ -25,10 +25,10 @@ object OverseasTransferAllowancePage extends BasePage {
   override val title = "How much of the member's overseas transfer allowance is available before this transfer?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

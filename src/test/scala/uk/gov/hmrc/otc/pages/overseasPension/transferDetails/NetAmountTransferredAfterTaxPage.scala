@@ -25,10 +25,10 @@ object NetAmountTransferredAfterTaxPage extends BasePage {
   override val title = "What is the net amount of the transfer after deducting the tax charge?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the net amount of the transfer after deducting the tax charge? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: What is the net amount of the transfer after deducting the tax charge? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the net amount of the transfer after deducting the tax charge? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "What is the net amount of the transfer after deducting the tax charge? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

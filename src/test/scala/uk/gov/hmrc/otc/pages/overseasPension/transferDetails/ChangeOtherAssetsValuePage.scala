@@ -25,6 +25,6 @@ object ChangeOtherAssetsValuePage extends BasePage {
   override val title = "What is the value of the asset?"
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the value of the asset? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "What is the value of the asset? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

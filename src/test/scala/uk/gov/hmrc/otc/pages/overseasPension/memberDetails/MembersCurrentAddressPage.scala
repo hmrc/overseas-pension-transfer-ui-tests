@@ -22,14 +22,14 @@ import uk.gov.hmrc.otc.pages.BasePage
 object MembersCurrentAddressPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/members-current-address"
-  override val title       = s"What is $expectedFullName's current address? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+  override val title       = s"What is $expectedFullName's current address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    s"Error: What is $expectedFullName's current address? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    s"Error: What is $expectedFullName's current address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    s"What is $expectedFullName's current address? - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    s"What is $expectedFullName's current address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
 }

@@ -25,10 +25,10 @@ object SecondOtherAssetsDescriptionPage extends BasePage {
   override val title = "Describe the asset and how it was valued"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Describe the asset and how it was valued - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Error: Describe the asset and how it was valued - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Describe the asset and how it was valued - Report a transfer to a qualified recognised overseas pension scheme - GOV.UK"
+    "Describe the asset and how it was valued - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
