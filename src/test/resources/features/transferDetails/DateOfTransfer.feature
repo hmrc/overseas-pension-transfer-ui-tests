@@ -44,7 +44,7 @@ Feature: Date of Transfer
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Date Of Transfer Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the day, month, year in the correct format. For example, 27 03 1970 |
+      | Enter the day, month, year in the correct format. For example, 27 03 2018 |
     And I should see following erroneous fields are highlighted on "Date Of Transfer Page"
       | day |
     And Clicking each error message should focus on the corresponding input field on "Date Of Transfer Page"
@@ -57,7 +57,7 @@ Feature: Date of Transfer
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Date Of Transfer Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the day, month, year in the correct format. For example, 27 03 1970 |
+      | Enter the day, month, year in the correct format. For example, 27 03 2018 |
     And I should see following erroneous fields are highlighted on "Date Of Transfer Page"
       | day |
     And Clicking each error message should focus on the corresponding input field on "Date Of Transfer Page"
@@ -70,7 +70,7 @@ Feature: Date of Transfer
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Date Of Transfer Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the day, month, year in the correct format. For example, 27 03 1970 |
+      | Enter the day, month, year in the correct format. For example, 27 03 2018 |
     And I should see following erroneous fields are highlighted on "Date Of Transfer Page"
       | month |
     And Clicking each error message should focus on the corresponding input field on "Date Of Transfer Page"
@@ -83,7 +83,7 @@ Feature: Date of Transfer
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Date Of Transfer Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the day, month, year in the correct format. For example, 27 03 1970 |
+      | Enter the day, month, year in the correct format. For example, 27 03 2018 |
     And I should see following erroneous fields are highlighted on "Date Of Transfer Page"
       | month |
     And Clicking each error message should focus on the corresponding input field on "Date Of Transfer Page"
@@ -96,7 +96,7 @@ Feature: Date of Transfer
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Date Of Transfer Page" error page
     And I should see the "There is a problem" and below error messages
-      | Date cannot be before 1901, or in the future |
+      | Date cannot be before 6 April 2012, or in the future |
     And I should see following erroneous fields are highlighted on "Date Of Transfer Page"
       | year |
     And Clicking each error message should focus on the corresponding input field on "Date Of Transfer Page"
@@ -109,7 +109,7 @@ Feature: Date of Transfer
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Date Of Transfer Page" error page
     And I should see the "There is a problem" and below error messages
-      | Date cannot be before 1901, or in the future |
+      | Date cannot be before 6 April 2012, or in the future |
     And I should see following erroneous fields are highlighted on "Date Of Transfer Page"
       | year |
     And Clicking each error message should focus on the corresponding input field on "Date Of Transfer Page"
@@ -131,7 +131,7 @@ Feature: Date of Transfer
     When I enter the following data into corresponding input fields on "Date Of Transfer Page"
       | day   | 1    |
       | month | Sep  |
-      | year  | 1991 |
+      | year  | 2014 |
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Is Transfer Cash Only Page"
 
@@ -143,7 +143,7 @@ Feature: Date of Transfer
     And I click save and continue button on "Date Of Transfer Page"
     Then I am presented with the "Date Of Transfer Page" error page
     And I should see the "There is a problem" and below error messages
-      | Enter the day, month, year in the correct format. For example, 27 03 1970 |
+      | Enter the day, month, year in the correct format. For example, 27 03 2018 |
     And I should see following erroneous fields are highlighted on "Date Of Transfer Page"
       | month |
     And Clicking each error message should focus on the corresponding input field on "Date Of Transfer Page"

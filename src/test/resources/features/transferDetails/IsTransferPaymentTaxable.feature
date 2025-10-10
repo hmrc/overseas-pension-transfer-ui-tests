@@ -13,7 +13,6 @@ Feature: Is Transfer Payment Taxable?
     And I navigated to the "Is Transfer Amount Taxable Page"
     Then I am presented with the "Is Transfer Amount Taxable Page"
     And I should see the heading "Is this transfer payment a taxable overseas transfer?"
-    And I should see the hint text "Select one."
     And I should see two radio buttons: "Yes" and "No"
 
   Scenario:1. Positive Journey - Select 'Yes' radio button

@@ -1,4 +1,4 @@
-@Test @MembersLastUKAddressPostcode @acceptance
+@Test  @MembersLastUKAddressPostcode  @acceptance
 Feature: Entering the last UK address of the member using postcode
   As a PSA/PSP
 
@@ -78,7 +78,7 @@ Feature: Entering the last UK address of the member using postcode
       | Some District |
       | ZZ1 1ZZ       |
     And I click on "select a different address" hyperlink on "Confirm Members Last UK Address Page"
-    And I am presented with the "Members Last UK Address Lookup Page"
+    And I am presented with the "Select Members Last UK Address Page"
 
   Scenario:6. Positive Journey - PSA/PSP clicks on the link to select a different address in the confirm last address screen
     When I enter the following data into corresponding input fields on "Members Last UK Address Lookup Page"

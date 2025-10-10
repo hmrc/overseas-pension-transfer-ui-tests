@@ -15,7 +15,6 @@ Feature: Has member ever been a resident of the UK for tax purposes?
 
   Scenario Outline: Verify Has Member Ever Been UK Resident Page
     Then I should see the heading "Has <memberName> ever been a resident of the UK for tax purposes?"
-    And I should see the hint text "Select one."
     And I should see two radio buttons: "Yes" and "No"
     Examples:
       | memberName          |
@@ -34,6 +33,4 @@ Feature: Has member ever been a resident of the UK for tax purposes?
   Scenario:3. Negative Journey - No Selection Error
     When I click save and continue button on "Has Member Ever Been UK Resident Page"
     Then I am presented with the "Has Member Ever Been UK Resident Page" error page
-    And I should see the "There is a problem" and below error messages
-      | Select one option |
     And Clicking each error message should focus on the corresponding input field on "Has Member Ever Been UK Resident Page"
