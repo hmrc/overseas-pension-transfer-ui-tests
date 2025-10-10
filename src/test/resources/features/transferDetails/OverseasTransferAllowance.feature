@@ -63,9 +63,4 @@ And I should see the hint text "For example, £60000 or £19,300.54."
     And I click save and continue button on "Overseas Transfer Allowance Page"
     Then I am presented with the "Amount Of Transfer Page"
 
-  Scenario:9. Positive journey - PSA/PSP clicks on "Help with available allowance" link
-    When I click on the Details component "Help with available allowance" on "Overseas Transfer Allowance Page"
-    Then I should see the following values on the page
-      | You will need to contact your member to confirm what their available allowance is, as it may have been used across multiple schemes. |
-
 

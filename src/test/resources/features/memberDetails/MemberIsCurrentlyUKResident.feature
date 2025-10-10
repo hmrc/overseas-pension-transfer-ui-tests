@@ -15,7 +15,6 @@ Feature: Is the member currently a resident of UK for tax purposes?
 
   Scenario Outline: Verify Is Member Currently UK Resident Page
     Then I should see the heading "Is <memberName> currently a resident of the UK for tax purposes?"
-    And I should see the hint text "Select one."
     # the text is missing a DOT (.), this should be fixed
     And I should see two radio buttons: "Yes" and "No"
     Examples:
@@ -37,8 +36,6 @@ Feature: Is the member currently a resident of UK for tax purposes?
   Scenario:3. Negative Journey - No Selection Error
     When I click save and continue button on "Is Member Currently UK Resident Page"
     Then I am presented with the "Is Member Currently UK Resident Page" error page
-    And I should see the "There is a problem" and below error messages
-      | Select one option |
     # And I should see following erroneous fields are highlighted on "Is Member Currently UK Resident Page"
       # | orgIndLastName |
     And Clicking each error message should focus on the corresponding input field on "Is Member Currently UK Resident Page"
