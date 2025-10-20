@@ -22,9 +22,9 @@ import uk.gov.hmrc.otc.pages.BasePage
 object TaskListPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/task-list"
-  override val title       = "What you will need"
+  override val title       = "Complete your transfer report"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Task list"
+    "Complete your transfer report"
   )
 }

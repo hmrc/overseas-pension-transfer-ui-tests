@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object WhyTransferisnotTaxablePage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/why-transfer-is-not-taxable"
-  override val title = "Why isn't this a taxable overseas transfer?"
+  override val title = "Why is this not a taxable overseas transfer?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Why isn't this a taxable overseas transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Error: Why is this not a taxable overseas transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Why isn't this a taxable overseas transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Why is this not a taxable overseas transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

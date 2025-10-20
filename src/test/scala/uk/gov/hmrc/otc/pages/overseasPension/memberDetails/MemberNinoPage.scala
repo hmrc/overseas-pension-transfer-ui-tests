@@ -25,10 +25,10 @@ object MemberNinoPage extends BasePage {
   override val title       = "What is Undefined Undefined's National Insurance number?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Enter member's National Insurance number - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Error: What is the member's National Insurance number? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Enter member's National Insurance number - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "What is the member's National Insurance number? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

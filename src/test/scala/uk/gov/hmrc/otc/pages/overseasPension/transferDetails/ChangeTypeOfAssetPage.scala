@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object ChangeTypeOfAssetPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/change-type-of-asset"
-  override val title = "Type of assets included in the transfer"
+  override val title = "What type of assets are part of this transfer?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Type of assets included in the transfer - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Error: What type of assets are part of this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Type of assets included in the transfer - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "What type of assets are part of this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
