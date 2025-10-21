@@ -22,14 +22,14 @@ import uk.gov.hmrc.otc.pages.BasePage
 object HasMemberEverBeenUKResidentPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/member-has-ever-been-resident-uk"
-  override val title       = "Has undefined undefined ever been a resident of the UK for tax purposes?"
+  override val title       = "Has the member ever been a resident of the UK for tax purposes?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Has {0} ever been a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Error: Has the member ever been a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Has {0} ever been a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Has the member ever been a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def clickRadioButton(text: String): Unit =

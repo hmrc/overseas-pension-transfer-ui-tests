@@ -25,6 +25,6 @@ object DashboardPage extends BasePage {
   override val title       = "Report a transfer to a qualifying recognised overseas pension scheme"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Report overseas transfer dashboard - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Report a transfer to a qualifying recognised overseas pension scheme - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
