@@ -18,12 +18,15 @@ package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
+import uk.gov.hmrc.otc.support.TestData
 
 class OverseasPensionStepDefinitions extends BaseStepDefinitions {
 
   When("""I enter redirect URL on Auth Login Stub Page for {string}""") { (typeOfJourney: String) =>
     typeOfJourney match {
       case "Journey entry URL" =>
+        TestData.set("srn", "S2400000001")
+        TestData.set("pstr", "24000001IN")
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/start?srn=S2400000001")
       case "Is Member currently a resident of UK"                       =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-is-resident-uk")
