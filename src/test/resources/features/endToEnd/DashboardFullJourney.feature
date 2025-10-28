@@ -29,7 +29,6 @@ Feature: Is the members details journey fully connected
       | Jeffrey Jefferson | In progress | -                  | <TODAY_DATE> |
     When I click on "Jeffrey Jefferson" hyperlink on "Dashboard Page"
     Then I am presented with the "Task List Page"
-#    Then I see the status "In progress" for task "Add details about the member" //TODO revert this when the update to the tasklist is made
 
   Scenario:2. Dashboard Journey - Can view a submitted journey
     Then I am presented with the "Dashboard Page"
