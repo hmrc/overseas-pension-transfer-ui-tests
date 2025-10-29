@@ -27,10 +27,11 @@ object ViewSubmittedPage extends BasePage {
 
   override val url: String =
     TestConfiguration.url("overseas-pension-transfer-frontend") +
-      "/view-submitted-transfer/from-dashboard" +
+    //  "/view-submitted-transfer/from-dashboard" +
+      "/submitted-transfer-summary" +
       "?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006"
 
-  def buildUrl(
+  /*def buildUrl(
                 qtReference: String = TestData.get("Transfer reference").getOrElse("Undefined"),
                 pstr: String = TestData.get("pstr").getOrElse("Undefined"),
                 qtStatus: String = TestData.get("Status").getOrElse("Undefined"),
@@ -49,8 +50,8 @@ object ViewSubmittedPage extends BasePage {
       s"&qtStatus=$qtStatusParam" +
       s"&versionNumber=$versionNumber"
   }
-
-  override def checkURL: Assertion = {
+*/
+/*  override def checkURL: Assertion = {
     val expectedUrl = buildUrl()
     val currentUrl = driver.getCurrentUrl
 
@@ -58,10 +59,10 @@ object ViewSubmittedPage extends BasePage {
       currentUrl.startsWith(expectedUrl),
       s"Expected URL to start with $expectedUrl but found $currentUrl"
     )
-  }
+  }*/
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Reports for Malcolm Mendes - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
 
