@@ -9,6 +9,7 @@ Feature: Is the members details journey fully connected
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Dashboard Page"
     And I click on "Start new transfer" hyperlink on "Dashboard Page"
+    And I click save and continue button on "What You Will Need Page"
 
   Scenario:1. Full Transfer Details - Transfer Amount Taxable with applicable exclusion - Cash only
     And I navigated to the "Overseas Transfer Allowance Page"
