@@ -10,6 +10,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     Then I am presented with the "Dashboard Page"
     And I click on "Start new transfer" hyperlink on "Dashboard Page"
     And I am presented with the "What You Will Need Page"
+    And I click save and continue button on "What You Will Need Page"
     And I navigated to the "Type Of Asset Page"
     Then I am presented with the "Type Of Asset Page"
     And I should see the heading "Type of assets included in the transfer"

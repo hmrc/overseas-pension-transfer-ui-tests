@@ -9,6 +9,9 @@ Feature: Is the members details journey fully connected
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Dashboard Page"
     And I click on "Start new transfer" hyperlink on "Dashboard Page"
+    Then I am presented with the "What You Will Need Page"
+    And I click save and continue button on "What You Will Need Page"
+    Then I am presented with the "Task List Page"
 
   Scenario:1. Full Members Journey - Member is currently UK resident
     Then I navigated to the "Member Name Page"
