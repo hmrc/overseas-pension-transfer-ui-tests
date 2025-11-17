@@ -28,9 +28,11 @@ import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.otc.pages.BasePage
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
+import uk.gov.hmrc.otc.pages.overseasPension.DashboardPage
 import uk.gov.hmrc.otc.support.TestData
 
-import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.{LocalDate, ZoneId, ZonedDateTime}
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDefinitions
@@ -218,6 +220,48 @@ trait BaseStepDefinitions
     actualData should be(expectedData)
   }
 
+  And("""^I should see the following details in the dashboard$""") { data: DataTable =>
+    val zoneUtc = ZoneId.of("UTC")
+    val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy h:mma").withLocale(java.util.Locale.UK)
+
+    val nowUtc = ZonedDateTime.now(zoneUtc)
+    val nowFormatted = nowUtc.format(formatter)
+    val nowStr = nowFormatted.dropRight(2) + nowFormatted.takeRight(2).toLowerCase
+    val expectedRows = data.asMaps(classOf[String], classOf[String]).asScala.map { row =>
+      val mutableRow = scala.collection.mutable.Map(row.asScala.toSeq: _*)
+      mutableRow.get("Last updated").foreach { value =>
+        if (value == "<TODAY_DATE>") mutableRow.update("Last updated", nowStr)
+      }
+      mutableRow.toMap
+    }
+
+    val actualRows: Seq[Map[String, String]] = DashboardPage.getDashboardTableRows
+
+    expectedRows.foreach { expectedRow =>
+      actualRows should contain(expectedRow)
+    }
+  }
+
+  And("""^I should see the following details in the dashboard ignoring last updated$""") { data: DataTable =>
+    val expectedRows = data.asMaps(classOf[String], classOf[String]).asScala.map(_.asScala.toMap)
+
+    val actualRows: Seq[Map[String, String]] = DashboardPage.getDashboardTableRows
+
+    expectedRows.foreach { expectedRow =>
+      val matched = actualRows.exists { actualRow =>
+        expectedRow.forall { case (key, value) =>
+          TestData.set(key, value)
+          actualRow.get(key).contains(value)
+        }
+      }
+
+      withClue(s"Expected to find a row matching (ignoring 'Last updated'): $expectedRow\nActual rows: $actualRows\n") {
+        matched shouldBe true
+      }
+    }
+  }
+
+
   And("""^I should see the heading "(.*)"$""") { (expectedHeading: String) =>
     val headingElement = driver.findElement(By.tagName("h1"))
     headingElement.getText should be(expectedHeading.replace("  ", " "))
@@ -243,14 +287,6 @@ trait BaseStepDefinitions
   And("""I should see the input fields with below labels on {string}""") { (page: String, data: DataTable) =>
     PageObjectFinder.page(page).verifyInputFieldsWithLabels(data.asScalaListOfStrings)
   }
-
-  /*And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>
-    // Locate button
-    val buttonElement = driver.findElement(By.xpath(s"//button[normalize-space(text())='$buttonLabel']"))
-
-    // Validate the button text
-    buttonElement.getText should be(buttonLabel)
-  }*/
 
   And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>
     val buttonElement = driver.findElement(By.xpath(s"//button[@type='submit' and normalize-space(text())='$buttonLabel']"))
@@ -317,6 +353,13 @@ trait BaseStepDefinitions
       case _ =>
         driver.findElement(By.xpath("//a[normalize-space()=\"" + hyperlink + "\"]")).click()
     }
+  }
+
+
+  When("""I click on {string} hyperlink on Dashboard Page version {string}""") { (hyperlink: String, version: String) =>
+    TestData.set("versionNumber", version)
+    PageObjectFinder.page("Dashboard Page").waitForPageHeader
+    driver.findElement(By.xpath("//a[normalize-space()=\"" + hyperlink + "\"]")).click()
   }
 
   When("""I click on {string} button on {string}""") { (button: String, page: String) =>

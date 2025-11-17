@@ -116,6 +116,18 @@ Feature: Is the members details journey fully connected
     Then I see the status "Completed" for task "Add information about the QROPS"
     Then I see the status "In progress" for task "Add QROPS scheme manager's details"
     Then I see the status "Cannot start yet" for task "Check your answers and submit the report"
+    When I click on "Return to Report a transfer to a QROPS dashboard" hyperlink on "Task List Page"
+    Then I am presented with the "Dashboard Page"
+    And I should see the following details in the dashboard ignoring last updated
+      | Member name  | Status      | Transfer reference |
+      | Amelia Hayes | In progress | -                  |
+    When I click on "Amelia Hayes" hyperlink on "Dashboard Page"
+    Then I am presented with the "Task List Page"
+    Then I see the status "Completed" for task "Add details about the member"
+    Then I see the status "Not started yet" for task "Add information about the transfer"
+    Then I see the status "Completed" for task "Add information about the QROPS"
+    Then I see the status "In progress" for task "Add QROPS scheme manager's details"
+    Then I see the status "Cannot start yet" for task "Check your answers and submit the report"
     When I click on "Add QROPS scheme manager's details" hyperlink on "Task List Page"
     Then I am presented with the "Scheme Manager Type Page"
     When I select radio button "Individual" on "Scheme Manager Type Page"
@@ -345,4 +357,3 @@ Feature: Is the members details journey fully connected
     Then I see the status "Completed" for task "Add information about the QROPS"
     Then I see the status "Completed" for task "Add QROPS scheme manager's details"
     Then I see the status "Not started yet" for task "Check your answers and submit the report"
-    #   TODO submission tests

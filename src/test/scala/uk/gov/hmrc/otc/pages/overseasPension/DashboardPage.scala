@@ -16,8 +16,11 @@
 
 package uk.gov.hmrc.otc.pages.overseasPension
 
+import org.openqa.selenium.By
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
+
+import scala.jdk.CollectionConverters.CollectionHasAsScala
 
 object DashboardPage extends BasePage {
 
@@ -27,4 +30,16 @@ object DashboardPage extends BasePage {
   override def expectedPageTitle: Option[String] = Some(
     "Report a transfer to a qualifying recognised overseas pension scheme - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
+
+  def getDashboardTableRows: Seq[Map[String, String]] = {
+    val table = driver.findElement(By.cssSelector(".govuk-table"))
+    val headers = table.findElements(By.cssSelector("thead th")).asScala.map(_.getText.trim)
+    val rows = table.findElements(By.cssSelector("tbody tr")).asScala
+
+    rows.map { row =>
+      val cells = row.findElements(By.cssSelector("td")).asScala.map(_.getText.trim.replaceAll("\\s+", " "))
+      val trimmedHeaders = headers.take(cells.size)
+      trimmedHeaders.zip(cells).toMap
+    }.toSeq
+  }
 }
