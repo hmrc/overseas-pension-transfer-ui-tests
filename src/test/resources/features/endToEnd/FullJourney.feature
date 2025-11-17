@@ -326,14 +326,14 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
-      | Transfer allowance                      | £400,100                                                                                                  |
-      | Amount of transfer                      | £400,200                                                                                                  |
+      | Available transfer allowance            | £400,100                                                                                                  |
+      | Transfer amount                         | £400,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
-      | Why transfer is not taxable             | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
+      | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
       | Date of transfer                        | 1 8 2013                                                                                                  |
       | Is transfer cash only                   | No                                                                                                        |
       | Amount of cash                          | £400,300                                                                                                  |
-      | Type of assets included in the transfer | Cash,,Unquoted shares,,Quoted shares,,Property,,Other                                                     |
+      | Type of assets included in the transfer | Cash,Unquoted shares,Quoted shares,Property,Other                                                     |
       | Unquoted shares                         | 1 added                                                                                                   |
       | Quoted shares                           | 2 added                                                                                                   |
       | Property                                | 1 added                                                                                                   |

@@ -1,4 +1,4 @@
-@Test @TransferDetailsE2E @acceptance @regression
+@Test @acceptance @regression @TransferDetailsE2E
 Feature: Is the members details journey fully connected
 
   Background: Common Steps
@@ -50,13 +50,13 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Is Transfer Cash Only Page"
     Then I am presented with the "Transfer Details Check Your Answers Page"
     And I should see the following details
-      | Transfer allowance                       | £100,100                                                                                                                                                                   |
-      | Amount of transfer                       | £100,200                                                                                                                                                                   |
+      | Available transfer allowance             | £100,100                                                                                                                                                                   |
+      | Transfer amount                          | £100,200                                                                                                                                                                   |
       | Is transfer taxable                      | Yes                                                                                                                                                                        |
-      | Why is this a taxable overseas transfer? | Transfer exceeds member's overseas transfer allowance and there is an applicable exclusion.                                                                                |
+      | Why is this transfer taxable             | Transfer exceeds member's overseas transfer allowance and there is an applicable exclusion.                                                                                |
       | Applicable exclusion                     | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer.,,Both the individual and QROPS are resident in the same country. |
-      | Amount deducted at 25%                   | £100,300                                                                                                                                                                   |
-      | Net amount                               | £100,400                                                                                                                                                                   |
+      | Amount of tax deducted at 25%            | £100,300                                                                                                                                                                   |
+      | Net amount of transfer                   | £100,400                                                                                                                                                                   |
       | Date of transfer                         | 31 12 2024                                                                                                                                                                 |
       | Is transfer cash only                    | Yes                                                                                                                                                                        |
     And I click save and continue button on "Transfer Details Check Your Answers Page"
@@ -97,12 +97,12 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Is Transfer Cash Only Page"
     Then I am presented with the "Transfer Details Check Your Answers Page"
     And I should see the following details
-      | Transfer allowance                       | £200,100                          |
-      | Amount of transfer                       | £200,200                          |
+      | Available transfer allowance             | £200,100                          |
+      | Transfer amount                          | £200,200                          |
       | Is transfer taxable                      | Yes                               |
-      | Why is this a taxable overseas transfer? | There is no applicable exclusion. |
-      | Amount deducted at 25%                   | £200,300                          |
-      | Net amount                               | £200,400                          |
+      | Why is this transfer taxable             | There is no applicable exclusion. |
+      | Amount of tax deducted at 25%            | £200,300                          |
+      | Net amount of transfer                   | £200,400                          |
       | Date of transfer                         | 13 2 2020                         |
       | Is transfer cash only                    | Yes                               |
     And I click save and continue button on "Transfer Details Check Your Answers Page"
@@ -135,10 +135,10 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Is Transfer Cash Only Page"
     Then I am presented with the "Transfer Details Check Your Answers Page"
     And I should see the following details
-      | Transfer allowance                      | £300,100                                                                                                  |
-      | Amount of transfer                      | £300,200                                                                                                  |
+      | Available transfer allowance            | £300,100                                                                                                  |
+      | Transfer amount                         | £300,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
-      | Why transfer is not taxable             | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
+      | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
       | Date of transfer                        | 15 10 2013                                                                                                |
       | Is transfer cash only                   | Yes                                                                                                       |
     And I click save and continue button on "Transfer Details Check Your Answers Page"
@@ -315,14 +315,14 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
-      | Transfer allowance                      | £400,100                                                                                                  |
-      | Amount of transfer                      | £400,200                                                                                                  |
+      | Available transfer allowance            | £400,100                                                                                                  |
+      | Transfer amount                         | £400,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
-      | Why transfer is not taxable             | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
+      | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
       | Date of transfer                        | 1 8 2014                                                                                                  |
       | Is transfer cash only                   | No                                                                                                        |
       | Amount of cash                          | £400,300                                                                                                  |
-      | Type of assets included in the transfer | Cash,,Unquoted shares,,Quoted shares,,Property,,Other                                                     |
+      | Type of assets included in the transfer | Cash,Unquoted shares,Quoted shares,Property,Other                                                         |
       | Unquoted shares                         | 1 added                                                                                                   |
       | Quoted shares                           | 2 added                                                                                                   |
       | Property                                | 1 added                                                                                                   |
@@ -440,13 +440,13 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
-      | Transfer allowance                      | £400,100                                                                                                  |
-      | Amount of transfer                      | £400,200                                                                                                  |
+      | Available transfer allowance            | £400,100                                                                                                  |
+      | Transfer amount                         | £400,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
-      | Why transfer is not taxable             | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
+      | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
       | Date of transfer                        | 1 8 2015                                                                                                  |
       | Is transfer cash only                   | No                                                                                                        |
-      | Type of assets included in the transfer | Unquoted shares,,Quoted shares,,Other                                                                     |
+      | Type of assets included in the transfer | Unquoted shares,Quoted shares,Other                                                                     |
       | Unquoted shares                         | 1 added                                                                                                   |
       | Quoted shares                           | 1 added                                                                                                   |
       | Other assets                            | 1 added                                                                                                   |
