@@ -51,10 +51,10 @@ Feature: Is the members details journey fully connected
     Then I am presented with the "Member Details Check Your Answers Page"
     And I should see the following details
       | Name                      | Amelia Hayes                                                                                  |
-      | Is member a UK resident   | Yes                                                                                           |
+      | Is member a UK resident for tax purposes | Yes                                                                                           |
       | Date of birth             | 14 7 1986                                                                                     |
       | National Insurance number | QQ987654B                                                                                     |
-      | Current address           | 78 Kingsway Crescent,Westfield Avenue,Bath,Somerset,United Kingdom,BA15XY,55667788           |
+      | Principal residential address | 78 Kingsway Crescent,Westfield Avenue,Bath,Somerset,United Kingdom,BA15XY,55667788           |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
     Then I see the status "Completed" for task "Add details about the member"
