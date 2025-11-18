@@ -52,7 +52,7 @@ Feature: Is the members details journey fully connected
     And I should see the following details
       | Name                      | Amelia Hayes                                                                                  |
       | Is member a UK resident for tax purposes | Yes                                                                                           |
-      | Date of birth             | 14 7 1986                                                                                     |
+      | Date of birth             | 14 July 1986                                                                                     |
       | National Insurance number | QQ987654B                                                                                     |
       | Principal residential address | 78 Kingsway Crescent,Westfield Avenue,Bath,Somerset,United Kingdom,BA15XY,55667788           |
     And I click save and continue button on "Member Details Check Your Answers Page"
@@ -330,7 +330,7 @@ Feature: Is the members details journey fully connected
       | Transfer amount                         | £400,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
       | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
-      | Date of transfer                        | 1 8 2013                                                                                                  |
+      | Date of transfer                        | 1 August 2013                                                                                                  |
       | Is transfer cash only                   | No                                                                                                        |
       | Amount of cash                          | £400,300                                                                                                  |
       | Type of assets included in the transfer | Cash,Unquoted shares,Quoted shares,Property,Other                                                     |

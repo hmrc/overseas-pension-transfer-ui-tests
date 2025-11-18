@@ -57,7 +57,7 @@ Feature: Is the members details journey fully connected
       | Applicable exclusion                     | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer.,,Both the individual and QROPS are resident in the same country. |
       | Amount of tax deducted at 25%            | £100,300                                                                                                                                                                   |
       | Net amount of transfer                   | £100,400                                                                                                                                                                   |
-      | Date of transfer                         | 31 12 2024                                                                                                                                                                 |
+      | Date of transfer                         | 31 December 2024                                                                                                                                                                 |
       | Is transfer cash only                    | Yes                                                                                                                                                                        |
     And I click save and continue button on "Transfer Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
@@ -103,7 +103,7 @@ Feature: Is the members details journey fully connected
       | Why is this transfer taxable             | There is no applicable exclusion. |
       | Amount of tax deducted at 25%            | £200,300                          |
       | Net amount of transfer                   | £200,400                          |
-      | Date of transfer                         | 13 2 2020                         |
+      | Date of transfer                         | 13 February 2020                         |
       | Is transfer cash only                    | Yes                               |
     And I click save and continue button on "Transfer Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
@@ -139,7 +139,7 @@ Feature: Is the members details journey fully connected
       | Transfer amount                         | £300,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
       | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
-      | Date of transfer                        | 15 10 2013                                                                                                |
+      | Date of transfer                        | 15 October 2013                                                                                                |
       | Is transfer cash only                   | Yes                                                                                                       |
     And I click save and continue button on "Transfer Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
@@ -319,7 +319,7 @@ Feature: Is the members details journey fully connected
       | Transfer amount                         | £400,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
       | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
-      | Date of transfer                        | 1 8 2014                                                                                                  |
+      | Date of transfer                        | 1 August 2014                                                                                                  |
       | Is transfer cash only                   | No                                                                                                        |
       | Amount of cash                          | £400,300                                                                                                  |
       | Type of assets included in the transfer | Cash,Unquoted shares,Quoted shares,Property,Other                                                         |
@@ -444,7 +444,7 @@ Feature: Is the members details journey fully connected
       | Transfer amount                         | £400,200                                                                                                  |
       | Is transfer taxable                     | No                                                                                                        |
       | Why transfer isn't taxable              | The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. |
-      | Date of transfer                        | 1 8 2015                                                                                                  |
+      | Date of transfer                        | 1 August 2015                                                                                                  |
       | Is transfer cash only                   | No                                                                                                        |
       | Type of assets included in the transfer | Unquoted shares,Quoted shares,Other                                                                     |
       | Unquoted shares                         | 1 added                                                                                                   |
