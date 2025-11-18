@@ -148,7 +148,7 @@ Feature: Is the members details journey fully connected
       | Manager name               | Emily Parker                                                                  |
       | Manager address            | 88 Willow Street,Oakwood Park,Stratford,Greater London,England,United Kingdom |
       | Manager email              | thismail@gmail.com                                                            |
-      | Manager telephone number   | +441234567890                                                                 |
+      | Manager telephone number   | +441234567890,+4 4 1 2 3 4 5 6 7 8 9 0|
     And I click save and continue button on "Scheme Manager Check Your Answer Page"
     Then I am presented with the "Task List Page"
     Then I see the status "Completed" for task "Add details about the member"

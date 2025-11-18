@@ -44,7 +44,7 @@ Feature: Is the members details journey fully connected
       | Manager name               | Emily Parker                                                                  |
       | Manager address            | 88 Willow Street,Oakwood Park,Stratford,Greater London,England,United Kingdom |
       | Manager email              | thismail@gmail.com                                                            |
-      | Manager telephone number   | +441234567890                                                                 |
+      | Manager telephone number   | +441234567890,+4 4 1 2 3 4 5 6 7 8 9 0|
     And I click save and continue button on "Scheme Manager Check Your Answer Page"
     Then I am presented with the "Task List Page"
 
@@ -86,7 +86,7 @@ Feature: Is the members details journey fully connected
       | Organisation contact       | Sarah Thompson                                                                          |
       | Manager address            | 99 Elm Street,Greenfield Estate,Cambridge,Cambridgeshire,East of England,United Kingdom |
       | Manager email              | sarah.thompson@example.com                                                              |
-      | Manager telephone number   | +447712345678                                                                           |
+      | Manager telephone number   | +447712345678,+4 4 7 7 1 2 3 4 5 6 7 8|
     And I click save and continue button on "Scheme Manager Check Your Answer Page"
     Then I am presented with the "Task List Page"
 
@@ -128,7 +128,7 @@ Feature: Is the members details journey fully connected
       | Organisation contact       | Sarah Thompson                                                                          |
       | Manager address            | 99 Elm Street,Greenfield Estate,Cambridge,Cambridgeshire,East of England,United Kingdom |
       | Manager email              | sarah.thompson@example.com                                                              |
-      | Manager telephone number   | +447712345678                                                                           |
+      | Manager telephone number   | +447712345678,+4 4 7 7 1 2 3 4 5 6 7 8|
     When I click on "change-organisation-name" button on "Check Your Answers Page"
     Then I am presented with the change "Organisation Name Page"
     And I click save and continue button on "Organisation Name Page"
