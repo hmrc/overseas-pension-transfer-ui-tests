@@ -1,4 +1,4 @@
-@Test @OtherAssetsMiniJourney @acceptance @journey
+@Test  @acceptance @journey @OtherAssetsMiniJourney
 Feature: Other Assets Mini journey(Adding  and removing other assets)
 
   Background: Common Steps - Transfer Details Journey
@@ -14,7 +14,6 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     And I navigated to the "Type Of Asset Page"
     Then I am presented with the "Type Of Asset Page"
     And I should see the heading "Type of assets included in the transfer"
-
 
   Scenario:1. PSA/PSP user is able to transfer a Other Assets
     And I "select" checkbox "Other" on "Type Of Asset Page"
@@ -35,16 +34,16 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     And I click save and continue button on "Other Assets Value Page"
     Then I am presented with the "Other Assets Check Your Answers Page"
     And I should see the heading "Check your answers"
-    When I click on "change-other-assets-value" button on "Other Assets Check Your Answers Page"
-    Then I am presented with the "Change Other Assets Value Page"
+    When I click on "other-assets-value" button on "Other Assets Check Your Answers Page"
+    Then I am presented with the "Other Assets Value Page"
     When I enter the following data into corresponding input fields on "Change Other Assets Value Page"
       | value | 5000 |
-    And I click save and continue button on "Change Other Assets Value Page"
-    When I click on "change-other-assets-description" button on "Other Assets Check Your Answers Page"
-    Then I am presented with the "Change Other Assets Description Page"
-    When I enter the following data into corresponding input fields on "Change Other Assets Description Page"
+    And I click save and continue button on "Other Assets Value Page"
+    When I click on "other-assets-description" button on "Other Assets Check Your Answers Page"
+    Then I am presented with the "Other Assets Description Page"
+    When I enter the following data into corresponding input fields on "Other Assets Description Page"
       | value | Change Other Assets value description|
-    And I click save and continue button on "Change Other Assets Description Page"
+    And I click save and continue button on "Other Assets Description Page"
     And I click save and continue button on "Other Assets Check Your Answers Page"
     Then I am presented with the "Other Assets Amend Continue Page"
     And I should see the heading "You have added 1 asset"
@@ -54,6 +53,7 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     Then I am presented with the "Check Your Answers Page"
     And I should see the heading "Check your answers"
     And I click save and continue button on "Check Your Answers Page"
+
 
   Scenario:2 . PSA/PSP user is able to transfer multiple other assets
     And I "select" checkbox "Other" on "Type Of Asset Page"
@@ -87,21 +87,21 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "Yes" on "Change Other Assets Amend Continue Page"
     And I click save and continue button on "Change Other Assets Amend Continue Page"
-    Then I am presented with the "Second Other Assets Description Page"
+    Then I am presented with the "Change Other Assets Description Page"
     #And I should see the heading "Describe the Other Assets and how it was valued"
-    When I enter the following data into corresponding input fields on "Second Other Assets Description Page"
+    When I enter the following data into corresponding input fields on "Change Other Assets Description Page"
       | value | Other Assets value description|
-    And I click save and continue button on "Second Other Assets Description Page"
-    Then I am presented with the "Second Other Assets Value Page"
+    And I click save and continue button on "Change Other Assets Description Page"
+    Then I am presented with the "Change Other Assets Value Page"
     When I enter the following data into corresponding input fields on "Second Other Assets Value Page"
       | value | 5000 |
-    And I click save and continue button on "Second Other Assets Value Page"
-    And I click save and continue button on "Second Other Assets Check Your Answers Page"
-    Then I am presented with the "Other Assets Amend Continue Page"
+    And I click save and continue button on "Change Other Assets Value Page"
+    And I click save and continue button on "Other Assets Check Your Answers Page"
+    Then I am presented with the "Change Other Assets Amend Continue Page"
     And I should see the heading "You have added 2 assets"
     And I should see two radio buttons: "Yes" and "No"
-    When I select radio button "No" on "Other Assets Amend Continue Page"
-    And I click save and continue button on "Other Assets Amend Continue Page"
+    When I select radio button "No" on "Change Other Assets Amend Continue Page"
+    And I click save and continue button on "Change Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the heading "Check your answers"
     And I click save and continue button on "Check Your Answers Page"
@@ -138,17 +138,17 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "Yes" on "Change Other Assets Amend Continue Page"
     And I click save and continue button on "Change Other Assets Amend Continue Page"
-    Then I am presented with the "Second Other Assets Description Page"
+    Then I am presented with the "Change Other Assets Description Page"
     #And I should see the heading "Describe the Other Assets and how it was valued"
-    When I enter the following data into corresponding input fields on "Second Other Assets Description Page"
+    When I enter the following data into corresponding input fields on "Change Other Assets Description Page"
       | value | Other Assets value description|
-    And I click save and continue button on "Second Other Assets Description Page"
-    Then I am presented with the "Second Other Assets Value Page"
+    And I click save and continue button on "Change Other Assets Description Page"
+    Then I am presented with the "Change Other Assets Value Page"
     When I enter the following data into corresponding input fields on "Second Other Assets Value Page"
       | value | 5000 |
-    And I click save and continue button on "Second Other Assets Value Page"
-    And I click save and continue button on "Second Other Assets Check Your Answers Page"
-    Then I am presented with the "Other Assets Amend Continue Page"
+    And I click save and continue button on "Change Other Assets Value Page"
+    And I click save and continue button on "Other Assets Check Your Answers Page"
+    Then I am presented with the "Change Other Assets Amend Continue Page"
     And I should see the heading "You have added 2 assets"
     When I click on "other-assets-confirm-removal" button on "Property Amend Continue Page"
     Then I am presented with the "Other Assets Confirm Removal Page"

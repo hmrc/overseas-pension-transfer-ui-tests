@@ -1,4 +1,4 @@
-@Test  @PropertyMiniJourney @acceptance @journey
+@Test   @acceptance @journey @PropertyMiniJourney
 Feature: Property Mini journey(Adding properties and removing)
 
   Background: Common Steps - Transfer Details Journey
@@ -44,20 +44,20 @@ Feature: Property Mini journey(Adding properties and removing)
     And I click save and continue button on "Property Description Page"
     Then I am presented with the "Property Check Your Answers Page"
     And I should see the heading "Check your answers"
-    When I click on "change-property-address" button on "Property Check Your Answers Page"
-    Then I am presented with the "Change Property Address Page"
-    And I click save and continue button on "Change Property Address Page"
+    When I click on "property-address" button on "Property Check Your Answers Page"
+    Then I am presented with the "Property Address Page"
+    And I click save and continue button on "Property Address Page"
     Then I am presented with the "Property Check Your Answers Page"
-    When I click on "change-property-value" button on "Property Check Your Answers Page"
-    Then I am presented with the "Change Value Of Property Page"
-    When I enter the following data into corresponding input fields on "Change Value Of Property Page"
+    When I click on "property-value" button on "Property Check Your Answers Page"
+    Then I am presented with the "Value Of Property Page"
+    When I enter the following data into corresponding input fields on "Value Of Property Page"
       | value | 5000 |
-    And I click save and continue button on "Change Value Of Property Page"
-    When I click on "change-property-description" button on "Property Check Your Answers Page"
-    Then I am presented with the "Change Property Description Page"
-    When I enter the following data into corresponding input fields on "Change Property Description Page"
+    And I click save and continue button on "Value Of Property Page"
+    When I click on "property-description" button on "Property Check Your Answers Page"
+    Then I am presented with the "Property Description Page"
+    When I enter the following data into corresponding input fields on "Property Description Page"
       | value | Change Property value description|
-    And I click save and continue button on "Change Property Description Page"
+    And I click save and continue button on "Property Description Page"
     And I click save and continue button on "Property Check Your Answers Page"
     Then I am presented with the "Property Amend Continue Page"
     And I should see the heading "You have added 1 property"
@@ -67,6 +67,7 @@ Feature: Property Mini journey(Adding properties and removing)
     Then I am presented with the "Check Your Answers Page"
     And I should see the heading "Check your answers"
     And I click save and continue button on "Check Your Answers Page"
+
 
   Scenario:2 . PSA/PSP user is able to transfer multiple properties
     And I "select" checkbox "Property" on "Type Of Asset Page"
@@ -110,7 +111,7 @@ Feature: Property Mini journey(Adding properties and removing)
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "Yes" on "Change Property Amend Continue Page"
     And I click save and continue button on "Change Property Amend Continue Page"
-    Then I am presented with the "Second Property Address Page"
+    Then I am presented with the "Change Property Address Page"
     And I should see the heading "What is the property address?"
     When I enter the following data into corresponding input fields on "Property Address Page"
       | addressLine1 | addressLine one      |
@@ -119,18 +120,18 @@ Feature: Property Mini journey(Adding properties and removing)
       | addressLine4 | addressLine four      |
       | countryCode  | United Kingdom       |
       | postcode     | postcode             |
-    And I click save and continue button on "Second Property Address Page"
-    Then I am presented with the "Value Of Second Property Page"
-    When I enter the following data into corresponding input fields on "Value Of Property Page"
+    And I click save and continue button on "Change Property Address Page"
+    Then I am presented with the "Change Value Of Property Page"
+    When I enter the following data into corresponding input fields on "Change Value Of Property Page"
       | value | 5000 |
-    And I click save and continue button on "Value Of Second Property Page"
-    Then I am presented with the "Second Property Description Page"
+    And I click save and continue button on "Change Value Of Property Page"
+    Then I am presented with the "Change Property Description Page"
     And I should see the heading "Describe the property and how it was valued"
-    When I enter the following data into corresponding input fields on "Second Property Description Page"
+    When I enter the following data into corresponding input fields on "Change Property Description Page"
       | value | Property value description|
-    And I click save and continue button on "Second Property Description Page"
-    And I click save and continue button on "Second Property Check Your Answers Page"
-    Then I am presented with the "Property Amend Continue Page"
+    And I click save and continue button on "Change Property Description Page"
+    And I click save and continue button on "Property Check Your Answers Page"
+    Then I am presented with the "Change Property Amend Continue Page"
     And I should see the heading "You have added 2 properties"
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "No" on "Property Amend Continue Page"
@@ -181,7 +182,7 @@ Feature: Property Mini journey(Adding properties and removing)
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "Yes" on "Change Property Amend Continue Page"
     And I click save and continue button on "Change Property Amend Continue Page"
-    Then I am presented with the "Second Property Address Page"
+    Then I am presented with the "Change Property Address Page"
     And I should see the heading "What is the property address?"
     When I enter the following data into corresponding input fields on "Property Address Page"
       | addressLine1 | addressLine one      |
@@ -190,18 +191,18 @@ Feature: Property Mini journey(Adding properties and removing)
       | addressLine4 | addressLine four      |
       | countryCode  | United Kingdom       |
       | postcode     | postcode             |
-    And I click save and continue button on "Second Property Address Page"
-    Then I am presented with the "Value Of Second Property Page"
-    When I enter the following data into corresponding input fields on "Value Of Property Page"
+    And I click save and continue button on "Change Property Address Page"
+    Then I am presented with the "Change Value Of Property Page"
+    When I enter the following data into corresponding input fields on "Change Value Of Property Page"
       | value | 5000 |
-    And I click save and continue button on "Value Of Second Property Page"
-    Then I am presented with the "Second Property Description Page"
+    And I click save and continue button on "Change Value Of Property Page"
+    Then I am presented with the "Change Property Description Page"
     And I should see the heading "Describe the property and how it was valued"
-    When I enter the following data into corresponding input fields on "Second Property Description Page"
+    When I enter the following data into corresponding input fields on "Change Property Description Page"
       | value | Property value description|
-    And I click save and continue button on "Second Property Description Page"
-    And I click save and continue button on "Second Property Check Your Answers Page"
-    Then I am presented with the "Property Amend Continue Page"
+    And I click save and continue button on "Change Property Description Page"
+    And I click save and continue button on "Property Check Your Answers Page"
+    Then I am presented with the "Change Property Amend Continue Page"
     And I should see the heading "You have added 2 properties"
     When I click on "property-confirm-removal" button on "Property Amend Continue Page"
     Then I am presented with the "Property Confirm Removal Page"

@@ -21,7 +21,7 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object ChangeNumberOfUnquotedSharePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/change-unquoted-shares-number?index=0"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/change-unquoted-shares-number?index=1"
   override val title = "How many unquoted shares in this company are part of this transfer?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
