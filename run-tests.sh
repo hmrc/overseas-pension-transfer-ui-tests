@@ -10,4 +10,4 @@ else
     echo "BROWSER_TYPE value set to $BROWSER_TYPE..."
 fi
 
-sbt clean -Dbrowser="${BROWSER_TYPE:=$DEFAULT_BROWSER}" -Denvironment="${ENV:=local}" "testOnly uk.gov.hmrc.otc.cucumber.runner.Runner" testReport
+sbt clean -Dbrowser="${BROWSER_TYPE:=$DEFAULT_BROWSER}" -Daccessibility.timeout=5000.millis -Denvironment="${ENV:=local}" "testOnly uk.gov.hmrc.otc.cucumber.runner.Runner" testReport
