@@ -77,7 +77,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     When I select radio button "No" on "Unquoted Share Amend Continue Page"
     And I click save and continue button on "Unquoted Share Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     #And I click save and continue button on "Check Your Answers Page"
     When I click on "change-type-of-asset" button on "Check Your Answers Page"
     Then I am presented with the "Change Type Of Asset Page"
@@ -115,7 +115,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     When I select radio button "No" on "Change Quoted Share Amend Continue Page"
     And I click save and continue button on "Change Quoted Share Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
   Scenario:2. PSA/PSP user is able to transfer a Cash and Property
@@ -160,7 +160,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     When I select radio button "No" on "Property Amend Continue Page"
     And I click save and continue button on "Property Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
   Scenario:3. PSA/PSP user is able to transfer a Cash and Other assets
@@ -195,5 +195,5 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     When I select radio button "No" on "Other Assets Amend Continue Page"
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"

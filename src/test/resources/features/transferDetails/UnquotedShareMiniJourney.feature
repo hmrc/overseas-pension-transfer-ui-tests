@@ -71,7 +71,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     When I select radio button "No" on "Unquoted Share Amend Continue Page"
     And I click save and continue button on "Unquoted Share Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
   Scenario:2 . PSA/PSP user is able to transfer multiple Unquoted Shares
@@ -135,7 +135,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
     When I select radio button "No" on "Unquoted Share Amend Continue Page"
     And I click save and continue button on "Unquoted Share Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
   Scenario:3 . PSA/PSP user is able to remove the Unquoted Shares from the added list
