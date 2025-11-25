@@ -71,7 +71,7 @@ Feature: Quoted Share Mini journey(Adding  and removing Quoted Shares)
     When I select radio button "No" on "Quoted Share Amend Continue Page"
     And I click save and continue button on "Quoted Share Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
   Scenario:2 . PSA/PSP user is able to transfer multiple Quoted Shares
@@ -135,7 +135,7 @@ Feature: Quoted Share Mini journey(Adding  and removing Quoted Shares)
     When I select radio button "No" on "Quoted Share Amend Continue Page"
     And I click save and continue button on "Quoted Share Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
   Scenario:3 . PSA/PSP user is able to remove the Quoted Shares from the added list

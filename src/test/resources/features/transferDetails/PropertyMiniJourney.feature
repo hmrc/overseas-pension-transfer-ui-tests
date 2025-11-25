@@ -65,7 +65,7 @@ Feature: Property Mini journey(Adding properties and removing)
     When I select radio button "No" on "Property Amend Continue Page"
     And I click save and continue button on "Property Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
 
@@ -105,7 +105,7 @@ Feature: Property Mini journey(Adding properties and removing)
     When I select radio button "No" on "Property Amend Continue Page"
     And I click save and continue button on "Property Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     When I click on "change-property-amend" button on "Check Your Answers Page"
     Then I am presented with the "Change Property Amend Continue Page"
     And I should see two radio buttons: "Yes" and "No"
@@ -137,7 +137,7 @@ Feature: Property Mini journey(Adding properties and removing)
     When I select radio button "No" on "Property Amend Continue Page"
     And I click save and continue button on "Property Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Property Check Your Answers Page"
 
   Scenario:3 . PSA/PSP user is able to remove the property from added list
@@ -176,7 +176,7 @@ Feature: Property Mini journey(Adding properties and removing)
     When I select radio button "No" on "Property Amend Continue Page"
     And I click save and continue button on "Property Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     When I click on "change-property-amend" button on "Check Your Answers Page"
     Then I am presented with the "Change Property Amend Continue Page"
     And I should see two radio buttons: "Yes" and "No"

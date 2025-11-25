@@ -51,7 +51,7 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     When I select radio button "No" on "Other Assets Amend Continue Page"
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
 
@@ -81,7 +81,7 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     When I select radio button "No" on "Other Assets Amend Continue Page"
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     When I click on "change-other-assets-amend" button on "Check Your Answers Page"
     Then I am presented with the "Change Other Assets Amend Continue Page"
     And I should see two radio buttons: "Yes" and "No"
@@ -103,7 +103,7 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     When I select radio button "No" on "Change Other Assets Amend Continue Page"
     And I click save and continue button on "Change Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     And I click save and continue button on "Check Your Answers Page"
 
   Scenario:3 . PSA/PSP user is able to remove the other assets from the added list
@@ -132,7 +132,7 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
     When I select radio button "No" on "Other Assets Amend Continue Page"
     And I click save and continue button on "Other Assets Amend Continue Page"
     Then I am presented with the "Check Your Answers Page"
-    And I should see the heading "Check your answers"
+    And I should see the heading "Check transfer details"
     When I click on "change-other-assets-amend" button on "Check Your Answers Page"
     Then I am presented with the "Change Other Assets Amend Continue Page"
     And I should see two radio buttons: "Yes" and "No"
