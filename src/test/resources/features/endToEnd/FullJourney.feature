@@ -109,7 +109,8 @@ Feature: Is the members details journey fully connected
       | schemeManagersLastName  | Parker  |
     And I click save and continue button on "Scheme Manager Name Page"
     Then I am presented with the "Scheme Manager Address Page"
-    When I click on "Return to task list" hyperlink on "Scheme Manager Address Page"
+    #When I click on "Return to task list" hyperlink on "Scheme Manager Address Page"
+    When I click on "Return to complete your transfer report" hyperlink on "Scheme Manager Address Page"
     Then I am presented with the "Task List Page"
     Then I see the status "Completed" for task "Add details about the member"
     Then I see the status "Not started yet" for task "Add information about the transfer"
