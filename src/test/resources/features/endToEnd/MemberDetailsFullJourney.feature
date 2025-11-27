@@ -1,4 +1,4 @@
-@Test @MembersE2E @acceptance @regression
+@Test  @acceptance @regression
 Feature: Is the members details journey fully connected
 
   Background: Common Steps
@@ -156,6 +156,7 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
 
+  @MembersE2E
   Scenario: 4. Full Members Journey - Member is not currently but has been UK resident with manual address entry
     Then I navigated to the "Member Name Page"
     And I should see the heading "What is the member's name?"
@@ -208,7 +209,7 @@ Feature: Is the members details journey fully connected
       | Date of birth                     | 4 September 1980                                                    |
       | National Insurance number         | QQ112233B                                                   |
       | Principal residential address     | 78 Kingsway Crescent,Westfield Avenue,United Kingdom,BA15XY |
-      | Last UK address                   | 9 Greenbank Terrace,Old Road,ZZ99ZZ                         |
+      | Last UK address                   | 9 Greenbank Terrace,Old Road,ZZ9 9ZZ                        |
       | Date member left UK               | 20 October 2015                                                  |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
