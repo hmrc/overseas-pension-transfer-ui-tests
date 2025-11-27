@@ -297,7 +297,7 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Property Description Page"
     Then I am presented with the "Property Check Your Answers Page"
     And I should see the following details
-      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW1 6XE |
+      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW16XE |
       | Property value                            | £400,700                                                                  |
       | Description of the property and valuation | Property value description                                                |
     And I click save and continue button on "Property Check Your Answers Page"
