@@ -25,8 +25,8 @@ import uk.gov.hmrc.otc.pages.BasePage
 object DashboardPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/dashboard"
-  override val title       = "Report a transfer to a qualifying recognised overseas pension scheme"
-  private val expectedTitleStart = "Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK - All transfers (page"
+  override val title       = "Report a transfer to a qualifying recognised overseas pension scheme (QROPS)"
+  private val expectedTitleStart = "Report a transfer to a qualifying recognised overseas pension scheme (QROPS) - GOV.UK - All transfers (page"
   override def checkPageTitle(): Assertion = {
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
     pageTitle should startWith(expectedTitleStart)
