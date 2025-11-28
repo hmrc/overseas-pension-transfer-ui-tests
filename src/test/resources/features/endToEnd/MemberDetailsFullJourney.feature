@@ -1,4 +1,4 @@
-@Test  @acceptance @regression
+@Test @MembersE2E @acceptance @regression
 Feature: Is the members details journey fully connected
 
   Background: Common Steps
@@ -156,7 +156,6 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
 
-  @MembersE2E
   Scenario: 4. Full Members Journey - Member is not currently but has been UK resident with manual address entry
     Then I navigated to the "Member Name Page"
     And I should see the heading "What is the member's name?"
