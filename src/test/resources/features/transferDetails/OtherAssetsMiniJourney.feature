@@ -97,7 +97,7 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
       | value | 5000 |
     And I click save and continue button on "Change Other Assets Value Page"
     And I click save and continue button on "Other Assets Check Your Answers Page"
-    Then I am presented with the "Change Other Assets Amend Continue Page"
+    Then I am presented with the "Change Other Assets Amend Continue 2 Page"
     And I should see the heading "You have added 2 assets"
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "No" on "Change Other Assets Amend Continue Page"
@@ -148,7 +148,7 @@ Feature: Other Assets Mini journey(Adding  and removing other assets)
       | value | 5000 |
     And I click save and continue button on "Change Other Assets Value Page"
     And I click save and continue button on "Other Assets Check Your Answers Page"
-    Then I am presented with the "Change Other Assets Amend Continue Page"
+    Then I am presented with the "Change Other Assets Amend Continue 2 Page"
     And I should see the heading "You have added 2 assets"
     When I click on "other-assets-confirm-removal" button on "Property Amend Continue Page"
     Then I am presented with the "Other Assets Confirm Removal Page"

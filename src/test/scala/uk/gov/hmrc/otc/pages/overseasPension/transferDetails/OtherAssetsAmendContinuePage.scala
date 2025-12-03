@@ -22,9 +22,12 @@ import uk.gov.hmrc.otc.pages.BasePage
 object OtherAssetsAmendContinuePage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/other-assets-amend-continue"
-  override val title = "Do you need to add another asset?"
+  override val title = " You have added 1 asset - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: You have added 1 asset - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  )
   override def expectedPageTitle: Option[String] = Some(
-    "Do you need to add another asset? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "You have added 1 asset - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

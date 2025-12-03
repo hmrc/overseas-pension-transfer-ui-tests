@@ -19,16 +19,16 @@ package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object ChangeOtherAssetsAmendContinuePage extends BasePage {
+object ChangeOtherAssetsAmendContinue2Page extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/change-other-assets-amend-continue"
-  override val title = "You have added 1 asset - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  override val title = "You have added 2 assets - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: You have added 1 asset - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Error: You have added 2 assets - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "You have added 1 asset - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "You have added 2 assets - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

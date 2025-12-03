@@ -117,9 +117,7 @@ trait BaseStepDefinitions
 
   When("""I click save and continue button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    //Thread.sleep(6000)
     PageObjectFinder.page(page).clickSaveAndContinueButton()
-    //Thread.sleep(100000)
   }
 
   When("""I click continue button on {string}""") { (page: String) =>
