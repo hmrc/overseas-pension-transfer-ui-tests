@@ -1,5 +1,5 @@
 @Test @acceptance @regression @TransferDetailsE2E
-Feature: Is the members details journey fully connected
+Feature: Is the Transfer details journey fully connected
 
   Background: Common Steps
     Given I cleared the data for the service
@@ -262,7 +262,7 @@ Feature: Is the members details journey fully connected
       | Number of quoted shares | 402                    |
       | Class of quoted shares  | Class Quoted A         |
     And I click save and continue button on "Second Quoted Share Check Your Answers Page"
-    Then I am presented with the "Quoted Share Amend Continue Page"
+    Then I am presented with the "Quoted Share Amend Continue 2 Page"
     And I should see the heading "You have added 2 groups of quoted shares"
     When I select radio button "No" on "Quoted Share Amend Continue Page"
     And I click save and continue button on "Quoted Share Amend Continue Page"

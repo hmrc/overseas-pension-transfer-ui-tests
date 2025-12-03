@@ -131,7 +131,7 @@ Feature: Property Mini journey(Adding properties and removing)
       | value | Property value description|
     And I click save and continue button on "Change Property Description Page"
     And I click save and continue button on "Property Check Your Answers Page"
-    Then I am presented with the "Change Property Amend Continue Page"
+    Then I am presented with the "Change Property Amend Continue 2 Page"
     And I should see the heading "You have added 2 properties"
     And I should see two radio buttons: "Yes" and "No"
     When I select radio button "No" on "Property Amend Continue Page"
@@ -202,7 +202,7 @@ Feature: Property Mini journey(Adding properties and removing)
       | value | Property value description|
     And I click save and continue button on "Change Property Description Page"
     And I click save and continue button on "Property Check Your Answers Page"
-    Then I am presented with the "Change Property Amend Continue Page"
+    Then I am presented with the "Change Property Amend Continue 2 Page"
     And I should see the heading "You have added 2 properties"
     When I click on "property-confirm-removal" button on "Property Amend Continue Page"
     Then I am presented with the "Property Confirm Removal Page"
