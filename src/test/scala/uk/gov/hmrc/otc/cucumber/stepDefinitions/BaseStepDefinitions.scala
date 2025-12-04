@@ -466,5 +466,9 @@ trait BaseStepDefinitions
     statusElement.getText.trim should be(expectedStatus)
   }
 
+  When("""I click agree and submit button on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickAgreeSubmitButton()
+  }
 }
 
