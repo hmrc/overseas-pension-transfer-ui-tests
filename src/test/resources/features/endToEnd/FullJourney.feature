@@ -1,4 +1,4 @@
-@Test @FullJourneye2e @acceptance @regression
+@Test @FullJourneye2e @acceptance @regression @submission
 Feature: Is the members details journey fully connected
 
   Background: Common Steps
@@ -346,4 +346,18 @@ Feature: Is the members details journey fully connected
     Then I see the status "Completed" for task "Add information about the QROPS"
     Then I see the status "Completed" for task "Add QROPS scheme manager's details"
     Then I see the status "Not started yet" for task "Check your answers and submit the report"
+    And I click on "Check your answers and submit the report" hyperlink on "Dashboard Page"
+    Then I am presented with the "Final Check Your Answers Page"
+    And I click save and continue button on "Final Check Your Answers Page"
+    Then I am presented with the "Final Submission Page"
+    When I select radio button "Yes" on "Final Submission Page"
+    And I click save and continue button on "Final Submission Page"
+    Then I am presented with the "Declaration Page"
+    And I click agree and submit button on "Declaration Page"
+    Then I am presented with the "Transfer Submission Page"
+    And I should see the heading "Transfer submitted"
+  #  And I verify the value displayed as "Your reference number" on "Transfer Submission Page"
+   # And I should see the following details
+    #  | Your reference number |
+
     #   TODO submission tests

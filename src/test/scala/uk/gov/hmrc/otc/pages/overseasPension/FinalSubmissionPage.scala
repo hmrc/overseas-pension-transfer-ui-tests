@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.QROPSDetails
+package uk.gov.hmrc.otc.pages.overseasPension
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object QROPSCheckYourAnswersPage extends BasePage {
+object FinalSubmissionPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/check-your-answers"
-  override val title = "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/submit-to-hmrc"
+  override val title = " Do you want to submit this report to HMRC? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: Do you want to submit this report to HMRC? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Do you want to submit this report to HMRC? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

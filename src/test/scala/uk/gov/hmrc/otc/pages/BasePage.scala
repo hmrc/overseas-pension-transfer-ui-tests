@@ -168,6 +168,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickSubmitButton(): Unit = click on cssSelector("#submit")
 
+  //def clickAgreeSubmitButton(): Unit = click on xpath("//button[text()='Agree and Submit']")
+
+  //def clickAgreeSubmitButton(): Unit = click on xpath("//*[@id="main-content"]/div/div/form/button")
+  def clickAgreeSubmitButton(): Unit = click on cssSelector(".govuk-button")
+
   def clickSaveAndContinueButton(): Unit = click on cssSelector(".govuk-button")
 
   def clickContinueButton(): Unit = click on id("continueButton")
