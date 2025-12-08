@@ -19,12 +19,16 @@ package uk.gov.hmrc.otc.pages.overseasPension
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object FinalCheckYourAnswersPage extends BasePage {
+object FinalChangeQROPSReferencePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/check-your-answers"
-  override val title       = "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/final-change-qrops-reference"
+  override val title       = " What is the QROPS reference? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: What is the QROPS reference? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "What is the QROPS reference? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
