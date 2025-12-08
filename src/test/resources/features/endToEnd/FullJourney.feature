@@ -376,15 +376,6 @@ Feature: Is the members details journey fully connected
     And I should see the following values on the page
       | qropsRef | QROPS123456 |
 
-    #When I click on "final-change-qrops-country" button on "Final Check Your Answers Page"
-    #Then I am presented with the "Final Change QROPS Country Page"
-    #When I enter the following data into corresponding input fields on "Final Change QROPS Country Page"
-     # | countryCode | Aland Islands |
-    #And I click save and continue button on "Final Change QROPS Country Page"
-    #Then I am presented with the "Final Check Your Answers Page"
-    #And I should see the following values on the page
-     # | Country or territory established | Aland Islands |
-
     When I click on "final-change-qrops-reference" button on "Final Check Your Answers Page"
     Then I am presented with the "Final Change QROPS Reference Page"
     When I enter the following data into corresponding input fields on "Final Change QROPS Reference Page"
