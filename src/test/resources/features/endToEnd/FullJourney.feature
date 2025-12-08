@@ -402,8 +402,3 @@ Feature: Is the members details journey fully connected
     And I click agree and submit button on "Declaration Page"
     Then I am presented with the "Transfer Submission Page"
     And I should see the heading "Transfer submitted"
-  #  And I verify the value displayed as "Your reference number" on "Transfer Submission Page"
-   # And I should see the following details
-    #  | Your reference number |
-
-    #   TODO submission tests
