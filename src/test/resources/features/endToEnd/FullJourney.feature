@@ -348,6 +348,52 @@ Feature: Is the members details journey fully connected
     Then I see the status "Not started yet" for task "Check your answers and submit the report"
     And I click on "Check your answers and submit the report" hyperlink on "Dashboard Page"
     Then I am presented with the "Final Check Your Answers Page"
+
+    When I click on "final-change-members-current-address" button on "Final Check Your Answers Page"
+    Then I am presented with the "Final Change Member Current Address Page"
+    And I enter the following data into corresponding input fields on "Final Change Member Current Address Page"
+      | addressLine1 | 78 Queensway Crescent |
+    And I click save and continue button on "Final Change Member Current Address Page"
+    Then I am presented with the "Final Check Your Answers Page"
+    And I should see the following values on the page
+      | Principal residential address | 78 Queensway Crescent |
+
+   When I click on "final-change-amount-of-transfer" button on "Final Check Your Answers Page"
+    Then I am presented with the "Final Change Amount Of Transfer Page"
+    When I enter the following data into corresponding input fields on "Final Change Amount Of Transfer Page"
+      | value | 50000 |
+    And I click save and continue button on "Final Change Amount Of Transfer Page"
+    Then I am presented with the "Final Check Your Answers Page"
+    And I should see the following values on the page
+      | Transfer Amount | £50000 |
+
+    When I click on "final-change-qrops-reference" button on "Final Check Your Answers Page"
+    Then I am presented with the "Final Change QROPS Reference Page"
+    When I enter the following data into corresponding input fields on "Final Change QROPS Reference Page"
+      | qropsRef | QROPS123456 |
+    And I click save and continue button on "Final Change QROPS Reference Page"
+    Then I am presented with the "Final Check Your Answers Page"
+    And I should see the following values on the page
+      | qropsRef | QROPS123456 |
+
+    When I click on "final-change-qrops-reference" button on "Final Check Your Answers Page"
+    Then I am presented with the "Final Change QROPS Reference Page"
+    When I enter the following data into corresponding input fields on "Final Change QROPS Reference Page"
+      | qropsRef | QROPS123456 |
+    And I click save and continue button on "Final Change QROPS Reference Page"
+    Then I am presented with the "Final Check Your Answers Page"
+    And I should see the following values on the page
+      | qropsRef | QROPS123456 |
+
+    When I click on "final-change-scheme-managers-name" button on "Final Check Your Answers Page"
+    Then I am presented with the "Final Change Scheme Managers Name Page"
+    When I enter the following data into corresponding input fields on "Final Change Scheme Managers Name Page"
+      | schemeManagersFirstName | Humpty |
+      | schemeManagersLastName  | Dumpty |
+    And I click save and continue button on "Final Change Scheme Managers Name Page"
+    Then I am presented with the "Final Check Your Answers Page"
+    And I should see the following values on the page
+      | Manager Name | Humpty Dumpty |
     And I click save and continue button on "Final Check Your Answers Page"
     Then I am presented with the "Final Submission Page"
     When I select radio button "Yes" on "Final Submission Page"
@@ -356,8 +402,3 @@ Feature: Is the members details journey fully connected
     And I click agree and submit button on "Declaration Page"
     Then I am presented with the "Transfer Submission Page"
     And I should see the heading "Transfer submitted"
-  #  And I verify the value displayed as "Your reference number" on "Transfer Submission Page"
-   # And I should see the following details
-    #  | Your reference number |
-
-    #   TODO submission tests
