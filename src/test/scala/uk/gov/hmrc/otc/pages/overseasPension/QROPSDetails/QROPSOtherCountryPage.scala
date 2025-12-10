@@ -22,9 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object QROPSOtherCountryPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-details/qrops-other-country"
-  override val title = "Country or territory in which QROPS was established?"
+  override val title = "In which other country or territory is the QROPS established? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: In which other country or territory is the QROPS established? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  )
 
   override def expectedPageTitle: Option[String] = Some(
-    "In which other country or territory was the QROPS established? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "In which other country or territory is the QROPS established? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
