@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object ApplicableTransferExclusionPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/applicable-tax-exclusions"
-  override val title = "Please provide the applicable exclusion"
+  override val title = "What are the applicable exclusions? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Please provide the applicable exclusion - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Error: What are the applicable exclusions? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Please provide the applicable exclusion - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "What are the applicable exclusions? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
