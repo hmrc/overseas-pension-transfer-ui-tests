@@ -16,19 +16,15 @@
 
 package uk.gov.hmrc.otc.pages.overseasPension
 
-import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.ExpectedConditions
-import org.scalatest.Assertion
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.pages.BasePage
 
-object DashboardPage extends BasePage {
+object AmendDeclarationPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/dashboard"
-  override val title       = "All transfers (page – Report a transfer to a qualifying recognised overseas pension scheme (QROPS) – GOV.UK"
-  private val expectedTitleStart = "All transfers (page"
-  override def checkPageTitle(): Assertion = {
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
-    pageTitle should startWith(expectedTitleStart)
-  }
+  override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/psa-declaration-amendment"
+  override val title       = "Declaration - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+
+  override def expectedPageTitle: Option[String] = Some(
+    "Declaration - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+  )
 }
