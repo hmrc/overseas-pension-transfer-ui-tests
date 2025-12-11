@@ -24,11 +24,25 @@ import uk.gov.hmrc.otc.pages.BasePage
 
 object DashboardPage extends BasePage {
 
+
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/dashboard"
-  override val title       = "Report a transfer to a qualifying recognised overseas pension scheme (QROPS)"
-  private val expectedTitleStart = "Report a transfer to a qualifying recognised overseas pension scheme (QROPS) - GOV.UK - All transfers (page"
+  override val title       = "All transfers (page – Report a transfer to a qualifying recognised overseas pension scheme (QROPS) – GOV.UK"
+  private val pageNumberPattern = """page \d+ of \d+""".r
+
+
   override def checkPageTitle(): Assertion = {
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
-    pageTitle should startWith(expectedTitleStart)
+    val actualTitle = pageTitle
+    actualTitle should startWith("All transfers (page")
+    actualTitle should endWith("– GOV.UK")
+    pageNumberPattern.findFirstIn(actualTitle) match {
+      case Some(_) => succeed
+      case None =>
+        fail(
+          s"Dynamic page number format not found in title.\n" +
+            s"Expected pattern: 'page X of Y'\n" +
+            s"Actual title: $actualTitle"
+        )
+    }
   }
 }
