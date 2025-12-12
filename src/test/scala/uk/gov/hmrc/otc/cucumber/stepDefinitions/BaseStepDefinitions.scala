@@ -312,6 +312,9 @@ trait BaseStepDefinitions
       case "Start new transfer" =>
         driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/p/a")).click()
 
+      case "Member Name" =>
+        driver.findElement(By.xpath("//*[contains(@href,'Malcolm')]")).click()
+
       case _ =>
         driver.findElement(By.xpath("//a[normalize-space()=\"" + hyperlink + "\"]")).click()
     }

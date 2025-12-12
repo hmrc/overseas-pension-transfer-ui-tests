@@ -25,7 +25,7 @@ import org.junit.runner.RunWith
   glue     = Array("uk.gov.hmrc.otc.cucumber.stepDefinitions"),
   plugin   = Array("pretty", "html:target/cucumber.html", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
   tags     = "@regression or @journey"
-  //tags     = "@submission"
+
 )
 class Runner {}
 
