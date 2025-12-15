@@ -22,13 +22,13 @@ import uk.gov.hmrc.otc.pages.BasePage
 object MemberDetailsCheckYourAnswersPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-details/check-your-answers"
-  override val title = "Check your answers"
+  override val title = "Check member details - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
 //  override def expectedPageErrorTitle: Option[String] = Some(
 //    "Error: Select Jon Doe's last UK address - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 //  )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Check member details - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }

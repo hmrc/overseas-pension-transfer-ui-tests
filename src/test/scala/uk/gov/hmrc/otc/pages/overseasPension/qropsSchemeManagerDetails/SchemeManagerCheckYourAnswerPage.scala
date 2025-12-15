@@ -22,9 +22,9 @@ import uk.gov.hmrc.otc.pages.BasePage
 object SchemeManagerCheckYourAnswerPage extends BasePage {
 
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/qrops-scheme-manager-details/check-your-answers"
-  override val title = "Check your answers"
+  override val title = "Check QROPS scheme manager details - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
+    "Check QROPS scheme manager details - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 }
