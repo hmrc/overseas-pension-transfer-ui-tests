@@ -4,7 +4,7 @@ import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
 object OverseasPensionStepDefinitionsSteps {
 
   // I enter redirect URL on Auth Login Stub Page for {string}
-  def whenIEnterRedirectURLOnAuthLoginStubPageFor{string}(typeOfJourney: String): Unit = {
+  def whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney: String): Unit = {
     typeOfJourney match {
           case "Journey entry URL" =>
             AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/start?srn=S2400000001")
@@ -24,7 +24,7 @@ object OverseasPensionStepDefinitionsSteps {
   }
 
   // I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}
-  def whenIEnterEnrollmentKey{string},IdentifierName{string}AndIdentifierValue{string}On{string}(enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String): Unit = {
+  def whenIEnterEnrollmentKey (enrollmentKey:String, IdentifierName:String, IdentifierValue:String, page:String): Unit = {
     page match {
             case "Auth Login Stub Page" =>
               AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
