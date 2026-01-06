@@ -16,6 +16,7 @@
 
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.featurespec.AnyFeatureSpec
+import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Then, When}
 
 class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
 

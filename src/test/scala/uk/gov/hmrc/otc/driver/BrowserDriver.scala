@@ -15,13 +15,24 @@
  */
 
 package uk.gov.hmrc.otc.driver
-
+import org.openqa.selenium.WebDriver
+import uk.gov.hmrc.selenium.webdriver.Driver
+//import uk.gov.hmrc.otc.driver.Driver
+trait BrowserDriver {
+  val driver: WebDriver = Driver.instance
+}
 import com.typesafe.scalalogging.LazyLogging
 import org.openqa.selenium.WebDriver
 import uk.gov.hmrc.selenium.webdriver.Driver
 
-trait BrowserDriver extends LazyLogging {
+//**trait BrowserDriver extends LazyLogging {
 
-  implicit val driver: WebDriver = Driver.instance
+ // val driver: WebDriver = Driver.instance
 
-}
+ //** override implicit lazy val webDriver: WebDriver = driver
+
+
+  //**trait BrowserDriver {
+   //** val driver: WebDriver = Driver.instance
+
+

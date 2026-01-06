@@ -17,26 +17,26 @@
 package uk.gov.hmrc.otc.cucumber.stepDefinitions
 
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPage
+import uk.gov.hmrc.otc.pages.auth.AuthLoginStubPageOld
 
 class OverseasPensionStepDefinitions extends BaseStepDefinitions {
 
   When("""I enter redirect URL on Auth Login Stub Page for {string}""") { (typeOfJourney: String) =>
     typeOfJourney match {
       case "Journey entry URL" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/start?srn=S2400000001")
+        AuthLoginStubPageOld.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/start?srn=S2400000001")
       case "Is Member currently a resident of UK"                       =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-is-resident-uk")
+        AuthLoginStubPageOld.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-is-resident-uk")
       case "Has member ever been a resident of the UK for tax purposes" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-has-ever-been-resident-uk")
+        AuthLoginStubPageOld.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-has-ever-been-resident-uk")
       case "Member does not have NINO"                                  =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-does-not-have-nino")
+        AuthLoginStubPageOld.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-does-not-have-nino")
       case  "What You Will Need Page"                                                         =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed")
+        AuthLoginStubPageOld.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed")
       case "New Login Page"                       =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
+        AuthLoginStubPageOld.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
       case _                                                            =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
+        AuthLoginStubPageOld.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
     }
   }
 
@@ -44,7 +44,7 @@ class OverseasPensionStepDefinitions extends BaseStepDefinitions {
     (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String) =>
       page match {
         case "Auth Login Stub Page" =>
-          AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
+          AuthLoginStubPageOld.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
       }
   }
 }

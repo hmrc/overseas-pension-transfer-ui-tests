@@ -26,8 +26,8 @@ import uk.gov.hmrc.otc.conf.MessageReader._
 import uk.gov.hmrc.otc.conf.TestConfiguration
 import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.otc.pages.BasePage
-import uk.gov.hmrc.otc.pages.generic.PageObjectFinder
-import uk.gov.hmrc.otc.pages.generic.PageObjectFinder.DataTableConverters
+import uk.gov.hmrc.otc.pages.generic.PageObjectFinderBackup
+import uk.gov.hmrc.otc.pages.generic.PageObjectFinderBackup.DataTableConverters
 import uk.gov.hmrc.otc.support.TestData
 
 import java.time.LocalDate
@@ -46,111 +46,111 @@ trait BaseStepDefinitions
   val shortYear: String = currentYear.toString.substring(2)
 
   When("""I navigate to the {string}""") { page: String =>
-    go to PageObjectFinder.page(page)
+    go to PageObjectFinderBackup.page(page)
   }
 
   And("""I navigated to the {string}""") { page: String =>
-    go to PageObjectFinder.page(page)
+    go to PageObjectFinderBackup.page(page)
   }
 
   When("""I click submit button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickSubmitButton()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).clickSubmitButton()
   }
 
   Then("I am presented with the {string}") { (pageName: String) =>
-    val page = PageObjectFinder.page(pageName)
+    val page = PageObjectFinderBackup.page(pageName)
     page.waitForPageHeader
     page.checkURL
     page.checkPageTitle()
   }
 
   Then("I am presented with the change {string}") { (pageName: String) =>
-    val page = PageObjectFinder.page(pageName)
+    val page = PageObjectFinderBackup.page(pageName)
     page.waitForPageHeader
     page.checkChangeURL
     page.checkPageTitle()
   }
 
   Then("""I am presented with the {string} with new url""") { page: String =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkNewURL
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).checkNewURL
+    PageObjectFinderBackup.page(page).checkPageHeader()
+    PageObjectFinderBackup.page(page).checkPageTitle()
   }
 
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
     (page: String, urlPrefix: String, urlSuffix: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-      PageObjectFinder.page(page).checkNewURLWithTwoDynamicValues(urlPrefix, urlSuffix)
-      PageObjectFinder.page(page).checkPageHeader()
-      PageObjectFinder.page(page).checkPageTitle()
+      PageObjectFinderBackup.page(page).waitForPageHeader
+      PageObjectFinderBackup.page(page).checkNewURLWithTwoDynamicValues(urlPrefix, urlSuffix)
+      PageObjectFinderBackup.page(page).checkPageHeader()
+      PageObjectFinderBackup.page(page).checkPageTitle()
   }
 
   Then("""I am presented with the {string} with url suffix as {string}""") { (page: String, urlSuffix: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).checkNewDynamicURL(urlSuffix)
+    PageObjectFinderBackup.page(page).checkPageHeader()
+    PageObjectFinderBackup.page(page).checkPageTitle()
   }
 
   Then("""I am presented with the {string} with existing url suffix as {string}""") {
     (page: String, urlSuffix: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-      PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
-      PageObjectFinder.page(page).checkPageHeader()
-      PageObjectFinder.page(page).checkPageTitle()
+      PageObjectFinderBackup.page(page).waitForPageHeader
+      PageObjectFinderBackup.page(page).checkExistingDynamicURL(urlSuffix)
+      PageObjectFinderBackup.page(page).checkPageHeader()
+      PageObjectFinderBackup.page(page).checkPageTitle()
   }
 
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickRadioButton(choice)
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).clickRadioButton(choice)
   }
 
   When("""I {string} checkbox {string} on {string}""") { (checkBoxAction: String, choice: String, page: String) =>
     checkBoxAction match {
       case "select" | "unselect" =>
-        PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
+        PageObjectFinderBackup.page(page).waitForPageHeader
+        PageObjectFinderBackup.page(page).selectCheckBoxes(choice.split(","))
     }
   }
 
   When("""I click save and continue button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickSaveAndContinueButton()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).clickSaveAndContinueButton()
   }
 
   When("""I click continue button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickContinueButton()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).clickContinueButton()
   }
 
   When("""I click back button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickBackButton()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).clickBackButton()
   }
 
   Then("""I am presented with the {string} error page""") { page: String =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageErrorTitle()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).checkURL
+    PageObjectFinderBackup.page(page).checkPageErrorTitle()
   }
 
   Then("""The error summary title is {string} and the error message is {string}""") {
     (errorSummaryTitle: String, errorMessage: String) =>
-      PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
+      PageObjectFinderBackup.checkPageErrorSummaryTitle(errorSummaryTitle)
       val finalErrorMessage = errorMessage.replace("^", "’")
-      PageObjectFinder.checkPageErrorMessage(finalErrorMessage)
+      PageObjectFinderBackup.checkPageErrorMessage(finalErrorMessage)
   }
 
   When("""I enter {string} on {string}""") { (data: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterDetails(data)
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).enterDetails(data)
   }
 
   When("""I enter {string} in the {string} input field on {string}""") { (text: String, field: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val element = PageObjectFinder.page(page).textFieldElement(field)
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    val element = PageObjectFinderBackup.page(page).textFieldElement(field)
     element.sendKeys(text)
   }
 
@@ -161,26 +161,26 @@ trait BaseStepDefinitions
     for ((field, value) <- formData) {
       val key = s"${page.trim.toLowerCase.replaceAll(" ", "_")}.$field"
       TestData.set(key, value)
-      val inputField = PageObjectFinder.page(page).textFieldElement(field)
+      val inputField = PageObjectFinderBackup.page(page).textFieldElement(field)
       inputField.clear()
       inputField.sendKeys(Option(value).getOrElse(""))
     }
   }
 
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).enterMultipleDetails(textToEnter, text)
   }
 
   When("""I enter {string} for {string} on {string} at {string} input box""") {
     (textToEnter: String, text: String, page: String, index: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-      PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
+      PageObjectFinderBackup.page(page).waitForPageHeader
+      PageObjectFinderBackup.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
   }
 
   When("""I enter {string} in the textarea field on {string}""") {
     (textToEnter: String, page: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
+      PageObjectFinderBackup.page(page).waitForPageHeader
       val textAreaElement = driver.findElement(By.className("govuk-textarea"))
       textAreaElement.clear()
       textAreaElement.sendKeys(textToEnter)
@@ -206,13 +206,13 @@ trait BaseStepDefinitions
   }
 
   And("""I enter nothing in the {string} input field on {string}""") { (field: String, page: String) =>
-    val fieldValue = PageObjectFinder.page(page).textFieldElement(field).getAttribute("value")
+    val fieldValue = PageObjectFinderBackup.page(page).textFieldElement(field).getAttribute("value")
     fieldValue should be("")
   }
 
   And("""^I should see the following details""") { data: DataTable =>
     val expectedData = data.asMap(classOf[String], classOf[String]).asScala.toMap
-    val actualData   = PageObjectFinder.pageData
+    val actualData   = PageObjectFinderBackup.pageData
     actualData should be(expectedData)
   }
 
@@ -235,11 +235,11 @@ trait BaseStepDefinitions
   }
 
   And("""I should see below input fields on {string}""") { (page: String, data: DataTable) =>
-    PageObjectFinder.page(page).verifyInputFieldsByIds(data.asScalaListOfStrings)
+    PageObjectFinderBackup.page(page).verifyInputFieldsByIds(data.asScalaListOfStrings)
   }
 
   And("""I should see the input fields with below labels on {string}""") { (page: String, data: DataTable) =>
-    PageObjectFinder.page(page).verifyInputFieldsWithLabels(data.asScalaListOfStrings)
+    PageObjectFinderBackup.page(page).verifyInputFieldsWithLabels(data.asScalaListOfStrings)
   }
 
   /*And("""^I should see a button with label "(.*)"$""") { (buttonLabel: String) =>
@@ -256,13 +256,13 @@ trait BaseStepDefinitions
   }
 
   And("""I verify the content {string} on {string}""") { (expectedText: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).waitForPageHeader
     val actualText = driver.findElement(By.className("govuk-heading-l")).getText
     actualText should be(expectedText)
   }
 
   And("""I should verify the details of the table {int} on {string}""") { (num: Int, page: String, data: DataTable) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).waitForPageHeader
     val expected                                   = data.asScalaListOfLists
     def getResultList(num: Int): Seq[List[String]] =
       driver
@@ -281,12 +281,12 @@ trait BaseStepDefinitions
   }
 
   And("""I click on View Return link for one of the completed returns on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).waitForPageHeader
     driver.findElement(By.xpath("//div/table[2]/tbody/tr[1]/td[3]/ul/li/a")).click()
   }
 
   When("""I click {string} on {string}""") { (button: String, page: String) =>
-    PageObjectFinder.page(page).clickButton(button)
+    PageObjectFinderBackup.page(page).clickButton(button)
   }
 
   And("""I should verify the table header displayed""") { (data: DataTable) =>
@@ -295,13 +295,13 @@ trait BaseStepDefinitions
   }
 
   Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageTitle(specificPage)
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).checkURL
+    PageObjectFinderBackup.page(page).checkPageTitle(specificPage)
   }
 
   When("""I click on {string} hyperlink on {string}""") { (hyperlink: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).waitForPageHeader
     hyperlink match {
       case "Member doesn't have a National Insurance number." =>
         driver.findElement(By.xpath("//*[@id=\"noNinoPageLink\"]")).click()
@@ -321,7 +321,7 @@ trait BaseStepDefinitions
   }
 
   When("""I click on {string} button on {string}""") { (button: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).waitForPageHeader
     button match {
       case _ =>
         driver.findElement(By.xpath("//*[contains(@href,'"+button+"')]")).click()
@@ -331,7 +331,7 @@ trait BaseStepDefinitions
 
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-    val actualData   = PageObjectFinder.taskListPageContentView
+    val actualData   = PageObjectFinderBackup.taskListPageContentView
     actualData should be(expectedData)
   }
 
@@ -347,15 +347,15 @@ trait BaseStepDefinitions
 
   And("""I should see following details at the {string}""") { (page: String, data: DataTable) =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-    PageObjectFinder.page(page).waitForPageHeader
-    val actualData   = PageObjectFinder.dataAtCheckYourAnswersPage
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    val actualData   = PageObjectFinderBackup.dataAtCheckYourAnswersPage
     actualData should be(expectedData)
   }
 
   And("""I should see the {string} and below error messages""") { (errorSummaryTitle: String, data: DataTable) =>
     val expectedErrorMessage = data.asScalaListOfStrings
-    PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
-    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessage)
+    PageObjectFinderBackup.checkPageErrorSummaryTitle(errorSummaryTitle)
+    PageObjectFinderBackup.listOfErrorMessages() should be(expectedErrorMessage)
   }
 
   And("""I should see following erroneous fields are highlighted on {string}""") { (page: String, data: DataTable) =>
@@ -374,10 +374,10 @@ trait BaseStepDefinitions
   }
 
   And("""Clicking each error message should focus on the corresponding input field on {string}""") { (page: String) =>
-    val errorLinks = PageObjectFinder.listOfErrorLinks()
+    val errorLinks = PageObjectFinderBackup.listOfErrorLinks()
     for (errorLink <- errorLinks) {
       val fieldId       = errorLink.getAttribute("href").split("#").last
-      val inputField    = PageObjectFinder.textFieldElement(fieldId)
+      val inputField    = PageObjectFinderBackup.textFieldElement(fieldId)
       errorLink.click()
       val activeElement = driver.switchTo().activeElement()
       activeElement shouldBe inputField
@@ -434,8 +434,8 @@ trait BaseStepDefinitions
   }
 
   When("""I click on Agree and send return button {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).clickAgreeAndSendReturnButton()
   }
 
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
@@ -450,13 +450,13 @@ trait BaseStepDefinitions
     })
   }
   When("""I verify the value displayed as {string} on {string}""") { (expectedText: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).waitForPageHeader
     val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
     actualText should be(expectedText)
   }
 
   When("""I click on the Details component {string} on {string}""") { (detailsSummary: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).waitForPageHeader
     driver.findElement(By.cssSelector("span[class='govuk-details__summary-text']")).click()
   }
 
@@ -470,8 +470,8 @@ trait BaseStepDefinitions
   }
 
   When("""I click agree and submit button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickAgreeSubmitButton()
+    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinderBackup.page(page).clickAgreeSubmitButton()
   }
 }
 
