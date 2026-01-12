@@ -1,17 +1,45 @@
-import com.sun.tools.sjavac.Main.go
+/*
+ * Copyright 2026 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package specsteps
+
+/*
+ * Copyright 2026 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import io.cucumber.datatable.DataTable
-import io.cucumber.scala.{EN, ScalaDsl}
 import org.openqa.selenium.By
 import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
-import org.scalatest.concurrent.Eventually
-import org.scalatest.matchers.should.Matchers
-import org.scalatestplus.selenium.{Page, WebBrowser}
+import org.scalatestplus.selenium.Edge.pageSource
 import uk.gov.hmrc.otc.conf.MessageReader._
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.driver.BrowserDriver
 import uk.gov.hmrc.otc.pages.BasePage
-import uk.gov.hmrc.otc.pages.auth.NewLoginPageOld.previousPeriodKey
-import uk.gov.hmrc.otc.pages.generic.PageObjectFinderBackup
+import uk.gov.hmrc.otc.pages.generic.{PageObjectFinder, PageObjectFinderBackup}
 import uk.gov.hmrc.otc.pages.generic.PageObjectFinderBackup.DataTableConverters
 import uk.gov.hmrc.otc.support.TestData
 import uk.gov.hmrc.selenium.webdriver.Driver
@@ -666,6 +694,19 @@ object BaseStepDefinitionsSteps extends BasePage {
   def whenIClickAgreeAndSubmitButtonOn(page: String): Unit = {
     PageObjectFinderBackup.page(page).waitForPageHeader
         PageObjectFinderBackup.page(page).clickAgreeSubmitButton()
+  }
+
+  def thenIShouldSeeTheFollowingValuesOnThePage(values: Map[String, String]): Unit = {
+    values.foreach { case (_, value) => val text = getMessage(value)  } }
+
+  def Ienterthefollowingdataintocorrespondinginputfieldson(page: String, formData: Map[String, String]): Unit = {
+    for ((field, value) <- formData) {
+      val key = s"${page.trim.toLowerCase.replaceAll(" ", "_")}.$field"
+      TestData.set(key, value)
+      val inputField = PageObjectFinder.page(page).textFieldElement(field)
+      inputField.clear()
+      inputField.sendKeys(Option(value).getOrElse(""))
+    }
   }
 
 }
