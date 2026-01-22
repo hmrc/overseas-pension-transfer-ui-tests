@@ -34,7 +34,7 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
-import specsteps.BaseStepDefinitionsSteps.{andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX}
+import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andINavigatedToThe, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, thenIAmPresentedWithThe, whenIClickSaveAndContinueButtonOn}
 import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Then, When}
 
 class QROPSDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
@@ -43,131 +43,132 @@ class QROPSDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
 
     Scenario("1. Full QROPS Details - Valid country Selected") {
       When("I navigated to the QROPS Name Page")
+      andINavigatedToThe("QROPS Name Page")
         // ⚠️ No step-def match found for: I navigated to the QROPS Name Page
 
       And("I should see the heading What is the full name of the QROPS receiving the transfer?")
-        andIShouldSeeTheHeadingX("")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
-
-      And("I should see below input fields on QROPS Name Page")
-        // ⚠️ No step-def match found for: I should see below input fields on QROPS Name Page
+      andIShouldSeeTheHeadingX("What is the full name of the QROPS receiving the transfer?")
 
       When("I enter the following data into corresponding input fields on QROPS Name Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Name Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Name Page",
+        Map("qropsName" -> "The great QROPS"))
 
       And("I click save and continue button on QROPS Name Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Name Page
+      whenIClickSaveAndContinueButtonOn("QROPS Name Page")
 
       Then("I am presented with the QROPS Reference Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Reference Page
+      thenIAmPresentedWithThe("QROPS Reference Page")
 
       When("I enter the following data into corresponding input fields on QROPS Reference Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Reference Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Reference Page",
+        Map("qropsRef" -> "QROPS123456"))
 
       And("I click save and continue button on QROPS Reference Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Reference Page
+      whenIClickSaveAndContinueButtonOn("QROPS Reference Page")
 
       Then("I am presented with the QROPS Address Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Address Page
+      thenIAmPresentedWithThe("QROPS Address Page")
 
       When("I enter the following data into corresponding input fields on QROPS Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Address Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Reference Page",
+        Map("addressLine1" -> "21 Rosewood Close"))
 
       And("I click save and continue button on QROPS Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Address Page
+      whenIClickSaveAndContinueButtonOn("QROPS Reference Page")
 
       Then("I am presented with the QROPS Country Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Country Page
+      thenIAmPresentedWithThe("QROPS Country Page")
 
       When("I enter the following data into corresponding input fields on QROPS Country Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Country Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Country Page",
+        Map("countryCode" -> "United Kingdom"))
 
       And("I click save and continue button on QROPS Country Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Country Page
+      whenIClickSaveAndContinueButtonOn("QROPS Country Page")
 
       And("I click save and continue button on QROPS Country Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Country Page
+      whenIClickSaveAndContinueButtonOn("QROPS Country Page")
 
       Then("I am presented with the QROPS Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Check Your Answers Page
+      thenIAmPresentedWithThe("QROPS Check Your Answers Page")
 
       And("I should see the following details")
         andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on QROPS Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Check Your Answers Page
+      whenIClickSaveAndContinueButtonOn("QROPS Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
-
+      thenIAmPresentedWithThe("Task List Page")
     }
 
     Scenario("2. Full QROPS Details - Other country selected") {
+
       When("I navigated to the QROPS Name Page")
-        // ⚠️ No step-def match found for: I navigated to the QROPS Name Page
+      andINavigatedToThe("QROPS Name Page")
+      // ⚠️ No step-def match found for: I navigated to the QROPS Name Page
 
       And("I should see the heading What is the full name of the QROPS receiving the transfer?")
-        andIShouldSeeTheHeadingX("")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
-
-      And("I should see below input fields on QROPS Name Page")
-        // ⚠️ No step-def match found for: I should see below input fields on QROPS Name Page
+      andIShouldSeeTheHeadingX("What is the full name of the QROPS receiving the transfer?")
 
       When("I enter the following data into corresponding input fields on QROPS Name Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Name Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Name Page",
+        Map("qropsName" -> "The great QROPS"))
 
       And("I click save and continue button on QROPS Name Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Name Page
+      whenIClickSaveAndContinueButtonOn("QROPS Name Page")
 
       Then("I am presented with the QROPS Reference Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Reference Page
+      thenIAmPresentedWithThe("QROPS Reference Page")
 
       When("I enter the following data into corresponding input fields on QROPS Reference Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Reference Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Reference Page",
+        Map("qropsRef" -> "QROPS123456"))
 
       And("I click save and continue button on QROPS Reference Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Reference Page
+      whenIClickSaveAndContinueButtonOn("QROPS Reference Page")
 
       Then("I am presented with the QROPS Address Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Address Page
+      thenIAmPresentedWithThe("QROPS Address Page")
 
       When("I enter the following data into corresponding input fields on QROPS Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Address Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Reference Page",
+        Map("addressLine1" -> "21 Rosewood Close"))
 
       And("I click save and continue button on QROPS Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Address Page
+      whenIClickSaveAndContinueButtonOn("QROPS Reference Page")
 
       Then("I am presented with the QROPS Country Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Country Page
+      thenIAmPresentedWithThe("QROPS Country Page")
 
       When("I enter the following data into corresponding input fields on QROPS Country Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Country Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Country Page",
+        Map("countryCode" -> "Other"))
 
       And("I click save and continue button on QROPS Country Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Country Page
-
-      And("I click save and continue button on QROPS Country Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Country Page
+      whenIClickSaveAndContinueButtonOn("QROPS Country Page")
 
       Then("I am presented with the QROPS Other Country Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Other Country Page
+      thenIAmPresentedWithThe("QROPS Other Country Page")
 
       When("I enter the following data into corresponding input fields on QROPS Other Country Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on QROPS Other Country Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Country Page",
+        Map("otherEstablishedCountry" -> "Wales"))
 
       And("I click save and continue button on QROPS Other Country Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Other Country Page
+      whenIClickSaveAndContinueButtonOn("QROPS Other Country Page")
 
       Then("I am presented with the QROPS Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the QROPS Check Your Answers Page
+      thenIAmPresentedWithThe("QROPS Check Your Answers Page")
 
       And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
+      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on QROPS Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on QROPS Check Your Answers Page
+      whenIClickSaveAndContinueButtonOn("QROPS Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
-
+      thenIAmPresentedWithThe("Task List Page")
     }
   }
 }
