@@ -34,7 +34,7 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
-import specsteps.BaseStepDefinitionsSteps.{andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX}
+import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andINavigatedToThe, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, thenIAmPresentedWithThe, whenIClickContinueButtonOn, whenIClickOnHyperlinkOn, whenIClickSaveAndContinueButtonOn, whenISelectRadioButtonOn}
 import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Then, When}
 
 class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
@@ -43,406 +43,312 @@ class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
 
     Scenario("1. Full Members Journey - Member is currently UK resident") {
       Then("I navigated to the Member Name Page")
-        // ⚠️ No step-def match found for: I navigated to the Member Name Page
+      andINavigatedToThe("Member Name Page")
 
       And("I should see the heading What is the member's name?")
-        andIShouldSeeTheHeadingX("")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+        andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
 
       When("I enter the following data into corresponding input fields on Member Name Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Name Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
+        Map("firstName" -> "John"))
 
       And("I click continue button on Member Name Page")
-        // ⚠️ No step-def match found for: I click continue button on Member Name Page
+      whenIClickContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Nino Page
+      thenIAmPresentedWithThe("Member Nino Page")
 
       When("I enter the following data into corresponding input fields on Member Nino Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Nino Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Nino Page",
+        Map("value" -> "QQ987654B"))
 
       And("I click save and continue button on Member Nino Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Nino Page
+      whenIClickSaveAndContinueButtonOn("Member Nino Page")
 
       Then("I am presented with the Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Birth Page
+      thenIAmPresentedWithThe("Member Date Of Birth Page")
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Birth Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Birth Page
+      whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
 
       Then("I am presented with the Members Current Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Current Address Page
+      thenIAmPresentedWithThe("Members Current Address Page")
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Current Address Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Members Current Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Current Address Page
+      whenIClickSaveAndContinueButtonOn("Members Current Address Page")
 
       Then("I am presented with the Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Member Currently UK Resident Page
+      thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button Yes on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button Yes on Is Member Currently UK Resident Page
+      whenISelectRadioButtonOn("Yes" , "Is Member Currently UK Resident")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Member Currently UK Resident Page
+      whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
 
       Then("I am presented with the Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Details Check Your Answers Page
+      thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
       And("I should see the following details")
         andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Details Check Your Answers Page
+      whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
+      thenIAmPresentedWithThe("Task List Page")
 
     }
 
     Scenario("2. Full Members Journey - Member is not currently or ever been UK resident") {
       Then("I navigated to the Member Name Page")
-        // ⚠️ No step-def match found for: I navigated to the Member Name Page
+      andINavigatedToThe("Member Name Page")
 
       And("I should see the heading What is the member's name?")
-        andIShouldSeeTheHeadingX("")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+      andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
 
       When("I enter the following data into corresponding input fields on Member Name Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Name Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
+        Map("firstName" -> "Sarah"))
 
       And("I click continue button on Member Name Page")
-        // ⚠️ No step-def match found for: I click continue button on Member Name Page
+      whenIClickContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Nino Page
+      thenIAmPresentedWithThe("Member Nino Page")
 
       When("I enter the following data into corresponding input fields on Member Nino Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Nino Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Nino Page",
+        Map("value" -> "QQ987654B"))
 
       And("I click save and continue button on Member Nino Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Nino Page
+      whenIClickSaveAndContinueButtonOn("Member Nino Page")
 
       Then("I am presented with the Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Birth Page
+      thenIAmPresentedWithThe("Member Date Of Birth Page")
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Birth Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Birth Page
+      whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
 
       Then("I am presented with the Members Current Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Current Address Page
+      thenIAmPresentedWithThe("Members Current Address Page")
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Current Address Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Members Current Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Current Address Page
+      whenIClickSaveAndContinueButtonOn("Members Current Address Page")
 
       Then("I am presented with the Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Member Currently UK Resident Page
+      thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button No on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button No on Is Member Currently UK Resident Page
+      whenISelectRadioButtonOn("No" , "Is Member Currently UK Resident")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Member Currently UK Resident Page
+      whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
 
       Then("I am presented with the Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Has Member Ever Been UK Resident Page
+      thenIAmPresentedWithThe("Has Member Ever Been UK Resident Page")
 
       When("I select radio button No on Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button No on Has Member Ever Been UK Resident Page
+      whenISelectRadioButtonOn("No" , "Has Member Ever Been UK Resident Page")
 
       And("I click save and continue button on Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Has Member Ever Been UK Resident Page
+      whenIClickSaveAndContinueButtonOn("Has Member Ever Been UK Resident Page")
 
       Then("I am presented with the Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Details Check Your Answers Page
+      thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
       And("I should see the following details")
         andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Details Check Your Answers Page
+      whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
-
+      thenIAmPresentedWithThe("Member Details Check Your Answers Page")
     }
 
-    Scenario("3. Full Members Journey - Member is not currently but has been UK resident with Address Lookup") {
+    Scenario("3. Full Members Journey - Member is not currently but has been UK resident with manual address entry") {
       Then("I navigated to the Member Name Page")
-        // ⚠️ No step-def match found for: I navigated to the Member Name Page
+      andINavigatedToThe("Member Name Page")
 
       And("I should see the heading What is the member's name?")
-        andIShouldSeeTheHeadingX("")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+      andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
 
       When("I enter the following data into corresponding input fields on Member Name Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Name Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
+        Map("firstName" -> "Sarah"))
 
       And("I click continue button on Member Name Page")
-        // ⚠️ No step-def match found for: I click continue button on Member Name Page
+      whenIClickContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Nino Page
+      thenIAmPresentedWithThe("Member Nino Page")
 
       When("I enter the following data into corresponding input fields on Member Nino Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Nino Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Nino Page",
+        Map("value" -> "QQ987654B"))
 
       And("I click save and continue button on Member Nino Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Nino Page
+      whenIClickSaveAndContinueButtonOn("Member Nino Page")
 
       Then("I am presented with the Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Birth Page
+      thenIAmPresentedWithThe("Member Date Of Birth Page")
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Birth Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Birth Page
+      whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
 
       Then("I am presented with the Members Current Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Current Address Page
+      thenIAmPresentedWithThe("Members Current Address Page")
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Current Address Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Members Current Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Current Address Page
+      whenIClickSaveAndContinueButtonOn("Members Current Address Page")
 
       Then("I am presented with the Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Member Currently UK Resident Page
+      thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button No on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button No on Is Member Currently UK Resident Page
+      whenISelectRadioButtonOn("No" , "Is Member Currently UK Resident")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Member Currently UK Resident Page
+      whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
 
       Then("I am presented with the Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Has Member Ever Been UK Resident Page
+      thenIAmPresentedWithThe("Has Member Ever Been UK Resident Page")
 
       When("I select radio button Yes on Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button Yes on Has Member Ever Been UK Resident Page
+      whenISelectRadioButtonOn("Yes" , "Has Member Ever Been UK Resident Page")
 
       And("I click save and continue button on Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Has Member Ever Been UK Resident Page
+      whenIClickSaveAndContinueButtonOn("Has Member Ever Been UK Resident Page")
 
       Then("I am presented with the Members Last UK Address Lookup Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Last UK Address Lookup Page
+      thenIAmPresentedWithThe("Members Last UK Address Lookup Page")
 
       When("I enter the following data into corresponding input fields on Members Last UK Address Lookup Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Last UK Address Lookup Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Last UK Address Lookup Page",
+        Map("addressLine1" -> "9 Greenbank Terrace"))
 
       And("I click save and continue button on Members Last UK Address Lookup Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Last UK Address Lookup Page
-
-      And("I am presented with the Select Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Select Members Last UK Address Page
-
-      And("I select radio button 2 Other Place, Some District, ZZ1 1ZZ on Select Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I select radio button 2 Other Place, Some District, ZZ1 1ZZ on Select Members Last UK Address Page
-
-      And("I click save and continue button on Select Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Select Members Last UK Address Page
-
-      And("I am presented with the Confirm Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Confirm Members Last UK Address Page
-
-      And("I click save and continue button on Confirm Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Confirm Members Last UK Address Page
+      whenIClickSaveAndContinueButtonOn("Members Last UK Address Lookup Page")
 
       And("I am presented with the Member Date Of Leaving UK Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Leaving UK Page
+      thenIAmPresentedWithThe("Members Last UK Address Lookup Page")
 
       When("I enter the following data into corresponding input fields on Member Date Of Leaving UK Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Leaving UK Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Last UK Address Lookup Page",
+        Map("addressLine1" -> "9 Greenbank Terrace"))
 
       And("I click save and continue button on Member Date Of Leaving UK Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Leaving UK Page
+      whenIClickSaveAndContinueButtonOn("Members Last UK Address Lookup Page")
 
       Then("I am presented with the Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Details Check Your Answers Page
+      thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
       And("I should see the following details")
         andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Details Check Your Answers Page
+      whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
+      thenIAmPresentedWithThe("Task List Page")
 
     }
 
-    Scenario("4. Full Members Journey - Member is not currently but has been UK resident with manual address entry") {
+    Scenario("4. Full Members Journey - Member is currently UK resident with no Nino") {
       Then("I navigated to the Member Name Page")
-        // ⚠️ No step-def match found for: I navigated to the Member Name Page
+      andINavigatedToThe("Member Name Page")
 
       And("I should see the heading What is the member's name?")
-        andIShouldSeeTheHeadingX("")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+      andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
 
       When("I enter the following data into corresponding input fields on Member Name Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Name Page
+      Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
+        Map("firstName" -> "Sarah"))
 
       And("I click continue button on Member Name Page")
-        // ⚠️ No step-def match found for: I click continue button on Member Name Page
+      whenIClickContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Nino Page
-
-      When("I enter the following data into corresponding input fields on Member Nino Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Nino Page
-
-      And("I click save and continue button on Member Nino Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Nino Page
-
-      Then("I am presented with the Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Birth Page
-
-      When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Birth Page
-
-      And("I click save and continue button on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Birth Page
-
-      Then("I am presented with the Members Current Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Current Address Page
-
-      When("I enter the following data into corresponding input fields on Members Current Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Current Address Page
-
-      And("I click save and continue button on Members Current Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Current Address Page
-
-      Then("I am presented with the Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Member Currently UK Resident Page
-
-      When("I select radio button No on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button No on Is Member Currently UK Resident Page
-
-      And("I click save and continue button on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Member Currently UK Resident Page
-
-      Then("I am presented with the Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Has Member Ever Been UK Resident Page
-
-      When("I select radio button Yes on Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button Yes on Has Member Ever Been UK Resident Page
-
-      And("I click save and continue button on Has Member Ever Been UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Has Member Ever Been UK Resident Page
-
-      Then("I am presented with the Members Last UK Address Lookup Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Last UK Address Lookup Page
-
-      When("I click on enter the address manually hyperlink on Members Last UK Address Lookup Page")
-        // ⚠️ No step-def match found for: I click on enter the address manually hyperlink on Members Last UK Address Lookup Page
-
-      And("I am presented with the Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Last UK Address Page
-
-      When("I enter the following data into corresponding input fields on Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Last UK Address Page
-
-      And("I click save and continue button on Members Last UK Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Last UK Address Page
-
-      Then("I am presented with the Member Date Of Leaving UK Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Leaving UK Page
-
-      When("I enter the following data into corresponding input fields on Member Date Of Leaving UK Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Leaving UK Page
-
-      And("I click save and continue button on Member Date Of Leaving UK Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Leaving UK Page
-
-      Then("I am presented with the Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Details Check Your Answers Page
-
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
-      And("I click save and continue button on Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Details Check Your Answers Page
-
-      Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
-
-    }
-
-    Scenario("5. Full Members Journey - Member is currently UK resident with no Nino") {
-      Then("I navigated to the Member Name Page")
-        // ⚠️ No step-def match found for: I navigated to the Member Name Page
-
-      And("I should see the heading What is the member's name?")
-        andIShouldSeeTheHeadingX("")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
-
-      When("I enter the following data into corresponding input fields on Member Name Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Name Page
-
-      And("I click continue button on Member Name Page")
-        // ⚠️ No step-def match found for: I click continue button on Member Name Page
-
-      Then("I am presented with the Member Nino Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Nino Page
+      thenIAmPresentedWithThe("Member Nino Page")
 
       When("I click on Member doesn't have a National Insurance number. hyperlink on Member Nino Page")
-        // ⚠️ No step-def match found for: I click on Member doesn't have a National Insurance number. hyperlink on Member Nino Page
+      whenIClickOnHyperlinkOn("Member doesn't have a National Insurance number.","Member Nino Page")
 
       And("I am presented with the Member Does Not Have NINO Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Does Not Have NINO Page
+      thenIAmPresentedWithThe("Member Does Not Have NINO Page")
 
       When("I enter Individual has recently moved to the UK and has not been issued a NINO yet. in the textarea field on Member Does Not Have NINO Page")
-        // ⚠️ No step-def match found for: I enter Individual has recently moved to the UK and has not been issued a NINO yet. in the textarea field on Member Does Not Have NINO Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Does Not Have NINO Page",
+        Map("value" -> "Individual has recently moved"))
 
       And("I click save and continue button on Member Does Not Have NINO Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Does Not Have NINO Page
+      whenIClickSaveAndContinueButtonOn("Member Does Not Have NINO Page")
 
       Then("I am presented with the Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Birth Page
+      thenIAmPresentedWithThe("Member Date Of Birth Page")
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Birth Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Birth Page
+      whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
 
       Then("I am presented with the Members Current Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Current Address Page
+      thenIAmPresentedWithThe("Members Current Address Page")
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Current Address Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
+        Map("day" -> "14"))
 
       And("I click save and continue button on Members Current Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Current Address Page
+      whenIClickSaveAndContinueButtonOn("Members Current Address Page")
 
       Then("I am presented with the Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Member Currently UK Resident Page
+      thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button Yes on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I select radio button Yes on Is Member Currently UK Resident Page
+      whenISelectRadioButtonOn("Yes" , "Is Member Currently UK Resident")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Member Currently UK Resident Page
+      whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
 
       Then("I am presented with the Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Details Check Your Answers Page
+      thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
       And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
+      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Details Check Your Answers Page
+      whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
+      thenIAmPresentedWithThe("Task List Page")
 
     }
   }

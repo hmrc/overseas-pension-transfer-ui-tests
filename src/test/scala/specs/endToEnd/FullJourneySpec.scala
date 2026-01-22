@@ -104,59 +104,46 @@ class FullJourneySpec extends AnyFeatureSpec with Matchers {
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Nino Page
+
 
       When("I enter the following data into corresponding input fields on Member Nino Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Nino Page",
         Map("value" -> "QQ987654B"))
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Nino Page
 
       And("I click save and continue button on Member Nino Page")
       whenIClickSaveAndContinueButtonOn("Member Nino Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Nino Page
 
       Then("I am presented with the Member Date Of Birth Page")
       thenIAmPresentedWithThe("Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Date Of Birth Page
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
         Map("day" -> "14"))
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Member Date Of Birth Page
 
       And("I click save and continue button on Member Date Of Birth Page")
       whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Member Date Of Birth Page
 
       Then("I am presented with the Members Current Address Page")
       thenIAmPresentedWithThe("Members Current Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Members Current Address Page
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
         Map("day" -> "14"))
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Members Current Address Page
 
       And("I click save and continue button on Members Current Address Page")
       whenIClickSaveAndContinueButtonOn("Members Current Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Members Current Address Page
 
       Then("I am presented with the Is Member Currently UK Resident Page")
       thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Member Currently UK Resident Page
 
       When("I select radio button Yes on Is Member Currently UK Resident Page")
       whenISelectRadioButtonOn("Yes" , "Is Member Currently UK Resident")
 
-        // ⚠️ No step-def match found for: I select radio button Yes on Is Member Currently UK Resident Page
-
       And("I click save and continue button on Is Member Currently UK Resident Page")
       whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Member Currently UK Resident Page
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the Member Details Check Your Answers Page
 
       And("I should see the following details")
         andIShouldSeeTheFollowingDetails()

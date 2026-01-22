@@ -59,7 +59,7 @@ object BaseStepDefinitionsSteps extends BasePage {
   }
 
   // I navigated to the {string}
-  def andINavigatedToThe(): Unit = {
+  def andINavigatedToThe(pageName: String): Unit = {
     page: String =>
         go to PageObjectFinderBackup.page(page)
   }
