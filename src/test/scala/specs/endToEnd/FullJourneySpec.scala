@@ -295,41 +295,31 @@ class FullJourneySpec extends AnyFeatureSpec with Matchers {
 
       When("I select radio button Individual on Scheme Manager Type Page")
       whenISelectRadioButtonOn("Individual" , "Scheme Manager Type")
-        // ⚠️ No step-def match found for: I select radio button Individual on Scheme Manager Type Page
 
       And("I click save and continue button on Scheme Manager Type Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Type Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Scheme Manager Type Page
 
       Then("I am presented with the Scheme Manager Name Page")
       thenIAmPresentedWithThe("Scheme Manager Name Page")
-        // ⚠️ No step-def match found for: I am presented with the Scheme Manager Name Page
 
       When("I enter the following data into corresponding input fields on Scheme Manager Name Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager Name Page",
         Map("schemeManagersFirstName" -> "Emily"))
 
-      // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Scheme Manager Name Page
-
       And("I click save and continue button on Scheme Manager Name Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Name Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Scheme Manager Name Page
 
       Then("I am presented with the Scheme Manager Address Page")
       thenIAmPresentedWithThe("Scheme Manager Address Page")
-        // ⚠️ No step-def match found for: I am presented with the Scheme Manager Address Page
 
       When("I click on Return to complete your transfer report hyperlink on Scheme Manager Address Page")
       whenIClickOnHyperlinkOn("Return to complete your transfer report","Scheme Manager Address Page")
-        // ⚠️ No step-def match found for: I click on Return to complete your transfer report hyperlink on Scheme Manager Address Page
 
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
 
       Then("I see the status Completed for task Add details about the member")
       thenISeeTheStatusForTask("Completed","Add details about the member")
-        // ⚠️ No step-def match found for: I see the status Completed for task Add details about the member
 
       Then("I see the status Not started yet for task Add information about the transfer")
       thenISeeTheStatusForTask("Not started yet","Add information about the transfer")
@@ -362,25 +352,19 @@ class FullJourneySpec extends AnyFeatureSpec with Matchers {
 
       And("I click save and continue button on Scheme Manager Type Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Type Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Scheme Manager Type Page
 
       Then("I am presented with the Scheme Manager Address Page")
       thenIAmPresentedWithThe("Scheme Manager Page")
-        // ⚠️ No step-def match found for: I am presented with the Scheme Manager Address Page
 
       When("I enter the following data into corresponding input fields on Scheme Manager Address Page")
-
       Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager Address Page",
         Map("addressLine1" -> "88 Willow Street"))
-      // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Scheme Manager Address Page
 
       And("I click save and continue button on Scheme Manager Address Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Address Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Scheme Manager Address Page
 
       Then("I am presented with the Scheme Manager Email Page")
       thenIAmPresentedWithThe("Scheme Manager Email Page")
-        // ⚠️ No step-def match found for: I am presented with the Scheme Manager Email Page
 
       When("I enter the following data into corresponding input fields on Scheme Manager Email Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager Email Page",
