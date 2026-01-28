@@ -34,14 +34,27 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
-import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andINavigatedToThe, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, thenIAmPresentedWithThe, whenIClickSaveAndContinueButtonOn}
-import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Then, When}
+import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andINavigatedToThe, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, givenIClearedTheDataForTheService, thenIAmPresentedWithThe, whenIClickSaveAndContinueButtonOn}
+import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Given, Then, When}
 
 class QROPSDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
 
   Feature("Is the members details journey fully connected") {
 
     Scenario("1. Full QROPS Details - Valid country Selected") {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
+
+      When ("I navigate to the Auth Login Stub Page")
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page")
+      And ("I click submit button on Auth Login Stub Page")
+      Then ("I am presented with the Dashboard page")
+      //And I click on "Start new transfer" hyperlink on "Dashboard Page"
+      //Then I am presented with the "What You Will Need Page"
+      //And I click save and continue button on "What You Will Need Page"
+      //Then I am presented with the "Task List Page"
       When("I navigated to the QROPS Name Page")
       andINavigatedToThe("QROPS Name Page")
         // ⚠️ No step-def match found for: I navigated to the QROPS Name Page

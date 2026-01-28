@@ -183,7 +183,7 @@ class FullJourneySpec extends AnyFeatureSpec with Matchers {
         // ⚠️ No step-def match found for: I click on Add information about the QROPS hyperlink on Task List Page
 
       And("I should see below input fields on QROPS Name Page")
-      andIShouldSeeBelowInputFieldsOn("Name","QROPS Name Page")
+      andIShouldSeeBelowInputFieldsOn(("Name","QROPS Name Page"))
         // ⚠️ No step-def match found for: I should see below input fields on QROPS Name Page
 
       When("I enter the following data into corresponding input fields on QROPS Name Page")
