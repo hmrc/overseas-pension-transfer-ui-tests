@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-package findyourninumberacceptancetests.utils
-
 import java.io.{File, PrintWriter}
 import java.util.regex.{Matcher, Pattern}
+import scala.collection.immutable.ArraySeq
 import scala.io.Source
 import scala.util.Using
-import scala.collection.immutable.ArraySeq
-import scala.jdk.CollectionConverters._
 
 object InjectStepDefsIntoSpecs {
 

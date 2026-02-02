@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package findyourninumberacceptancetests.utils
-
 /*
  * Copyright 2025 HM Revenue & Customs
  *

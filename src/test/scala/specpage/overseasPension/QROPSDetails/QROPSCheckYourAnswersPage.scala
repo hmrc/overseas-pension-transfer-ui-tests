@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.QROPSDetails
+package specpage.overseasPension.QROPSDetails
 
+import specpage.BasePage
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.pages.BasePage
 
 object QROPSCheckYourAnswersPage extends BasePage {
 

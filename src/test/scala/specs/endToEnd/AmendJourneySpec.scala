@@ -34,7 +34,7 @@ package specs.endToEnd
 
 import org.scalatest.matchers.should.Matchers
 import specs.BaseSpec
-import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andIShouldSeeTheHeadingX, andIShouldSeeTwoRadioButtonsAnd, thenIAmPresentedWithThe, thenIShouldSeeTheFollowingValuesOnThePage, whenIClickAgreeAndSubmitButtonOn, whenIClickOnButtonOn, whenIClickOnHyperlinkOn, whenIClickSaveAndContinueButtonOn, whenISelectRadioButtonOn}
+import specsteps.BaseStepDefinitionsSteps._
 //import specs.BaseSpec
 
 class AmendJourneySpec extends BaseSpec with Matchers {

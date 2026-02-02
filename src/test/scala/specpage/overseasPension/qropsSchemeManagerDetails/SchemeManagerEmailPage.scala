@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.qropsSchemeManagerDetails
+package specpage.overseasPension.qropsSchemeManagerDetails
 
+import specpage.BasePage
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.pages.BasePage
 
 object SchemeManagerEmailPage extends BasePage {
 

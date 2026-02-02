@@ -34,9 +34,10 @@ package specs.endToEnd
 
 
 import org.scalatest.matchers.should.Matchers
+import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
 import specs.tags.AllTests
-import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andINavigatedToThe, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, givenIClearedTheDataForTheService, thenIAmPresentedWithThe, whenIClickSaveAndContinueButtonOn}
+import specsteps.BaseStepDefinitionsSteps._
 
 class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
 
@@ -51,18 +52,33 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
       givenIClearedTheDataForTheService()
 
       When ("I navigate to the Auth Login Stub Page")
-      andINavigatedToThe("Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
 
       And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
-      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
       And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
       Then ("I am presented with the Dashboard page")
-      //And I click on "Start new transfer" hyperlink on "Dashboard Page"
-      //Then I am presented with the "What You Will Need Page"
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickOnHyperlinkOn("Start new transfer","Dashboard Page")
+
+      When("I navigated to the What You Will Need Page Page")
+      andINavigatedToThe("What You Will Need Page")
+
+      Then ("I am presented with the What You Will Need Page")
+     thenIAmPresentedWithThe("What You Will Need Page")
+
       //And I click save and continue button on "What You Will Need Page"
       //Then I am presented with the "Task List Page"
-//      When("I navigated to the QROPS Name Page")
-//      andINavigatedToThe("QROPS Name Page")
+     //   When("I navigated to the QROPS Name Page")
+     //   andINavigatedToThe("QROPS Name Page")
 //        // ⚠️ No step-def match found for: I navigated to the QROPS Name Page
 //
 //      And("I should see the heading What is the full name of the QROPS receiving the transfer?")
@@ -73,10 +89,10 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
 //        Map("qropsName" -> "The great QROPS"))
 //
 //      And("I click save and continue button on QROPS Name Page")
-//      whenIClickSaveAndContinueButtonOn("QROPS Name Page")
+    // whenIClickSaveAndContinueButtonOn("QROPS Name Page")
 //
 //      Then("I am presented with the QROPS Reference Page")
-//      thenIAmPresentedWithThe("QROPS Reference Page")
+       // thenIAmPresentedWithThe("QROPS Reference Page")
 //
 //      When("I enter the following data into corresponding input fields on QROPS Reference Page")
 //      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Reference Page",

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.auth
+package specpage.auth
 
+import specpage.BasePage
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.pages.BasePage
 
 object NewLoginPage extends BasePage {
 

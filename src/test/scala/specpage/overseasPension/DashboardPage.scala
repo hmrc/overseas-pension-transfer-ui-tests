@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension
+package specpage.overseasPension
 
 import org.openqa.selenium.By
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.scalatest.Assertion
+import specpage.BasePage
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.pages.BasePage
 
 object DashboardPage extends BasePage {
 

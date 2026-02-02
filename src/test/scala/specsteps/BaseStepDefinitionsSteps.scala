@@ -36,11 +36,13 @@ import io.cucumber.datatable.DataTable
 import org.openqa.selenium.By
 import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
 import org.scalatestplus.selenium.Edge.pageSource
+import org.scalatestplus.selenium.Page
+import specpage.BasePage
+import specpage.auth.AuthLoginStubPage
+import specpage.generic.PageObjectFinder
+import specpage.generic.PageObjectFinder.DataTableConverters
 import uk.gov.hmrc.otc.conf.MessageReader._
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.pages.BasePage
-import uk.gov.hmrc.otc.pages.generic.{PageObjectFinder, PageObjectFinderBackup}
-import uk.gov.hmrc.otc.pages.generic.PageObjectFinderBackup.DataTableConverters
 import uk.gov.hmrc.otc.support.TestData
 import uk.gov.hmrc.selenium.webdriver.Driver
 
@@ -53,6 +55,10 @@ object BaseStepDefinitionsSteps extends BasePage {
   val shortYear: String = currentYear.toString.substring(2)
 
   // I navigate to the {string}
+  def navigateToPage(page: Page): Unit =
+    go to page
+
+  // I navigate to the {string}
   def whenINavigateToThe(): Unit = {
     page: String =>
         go to page
@@ -61,18 +67,25 @@ object BaseStepDefinitionsSteps extends BasePage {
   // I navigated to the {string}
   def andINavigatedToThe(pageName: String): Unit = {
     page: String =>
-        go to PageObjectFinderBackup.page(page)
+        go to PageObjectFinder.page(page)
   }
 
   // I click submit button on {string}
   def whenIClickSubmitButtonOn(page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).clickSubmitButton()
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).clickSubmitButton()
+  }
+
+  // I am presented with the {string}
+  def thenIAmPresentedWith (pageName: String): Unit = {
+    val page = PageObjectFinder.page(pageName)
+    page.checkURL
+    page.checkPageTitle()
   }
 
   // I am presented with the {string}
   def thenIAmPresentedWithThe (pageName: String): Unit = {
-    val page = PageObjectFinderBackup.page(pageName)
+    val page = PageObjectFinder.page(pageName)
         page.waitForPageHeader
         page.checkURL
         page.checkPageTitle()
@@ -80,7 +93,7 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I am presented with the change {string}
   def thenIAmPresentedWithTheChange(pageName: String): Unit = {
-    val page = PageObjectFinderBackup.page(pageName)
+    val page = PageObjectFinder.page(pageName)
         page.waitForPageHeader
         page.checkChangeURL
         page.checkPageTitle()
@@ -89,94 +102,115 @@ object BaseStepDefinitionsSteps extends BasePage {
   // I am presented with the {string} with new url
   def thenIAmPresentedWithTheWithNewUrl(): Unit = {
     page: String =>
-        PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).checkNewURL
-        PageObjectFinderBackup.page(page).checkPageHeader()
-        PageObjectFinderBackup.page(page).checkPageTitle()
+        PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).checkNewURL
+        PageObjectFinder.page(page).checkPageHeader()
+        PageObjectFinder.page(page).checkPageTitle()
   }
-
+  def whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney: String): Unit = {
+    typeOfJourney match {
+      case "Journey entry URL" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/start?srn=S2400000001")
+      case "Is Member currently a resident of UK"                       =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-is-resident-uk")
+      case "Has member ever been a resident of the UK for tax purposes" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-has-ever-been-resident-uk")
+      case "Member does not have NINO"                                  =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/member-does-not-have-nino")
+      case  "What You Will Need Page"                                                         =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed")
+      case "New Login Page"                       =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
+      case _                                                            =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
+    }}
+  def whenIEnterEnrollmentKey (enrollmentKey:String, IdentifierName:String, IdentifierValue:String, page:String): Unit = {
+    page match {
+      case "Auth Login Stub Page" =>
+        AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
+    }}
   // I am presented with the {string} with new url containing prefix as {string} and suffix as {string}
   def thenIAmPresentedWithTheWithNewUrlContainingPrefixAsAndSuffixAs(page: String, urlPrefix: String, urlSuffix: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-          PageObjectFinderBackup.page(page).checkNewURLWithTwoDynamicValues(urlPrefix, urlSuffix)
-          PageObjectFinderBackup.page(page).checkPageHeader()
-          PageObjectFinderBackup.page(page).checkPageTitle()
+    PageObjectFinder.page(page).waitForPageHeader
+          PageObjectFinder.page(page).checkNewURLWithTwoDynamicValues(urlPrefix, urlSuffix)
+          PageObjectFinder.page(page).checkPageHeader()
+          PageObjectFinder.page(page).checkPageTitle()
   }
 
   // I am presented with the {string} with url suffix as {string}
   def thenIAmPresentedWithTheWithUrlSuffixAs(page: String, urlSuffix: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).checkNewDynamicURL(urlSuffix)
-        PageObjectFinderBackup.page(page).checkPageHeader()
-        PageObjectFinderBackup.page(page).checkPageTitle()
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
+        PageObjectFinder.page(page).checkPageHeader()
+        PageObjectFinder.page(page).checkPageTitle()
   }
 
   // I am presented with the {string} with existing url suffix as {string}
   def thenIAmPresentedWithTheWithExistingUrlSuffixAs(page: String, urlSuffix: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-          PageObjectFinderBackup.page(page).checkExistingDynamicURL(urlSuffix)
-          PageObjectFinderBackup.page(page).checkPageHeader()
-          PageObjectFinderBackup.page(page).checkPageTitle()
+    PageObjectFinder.page(page).waitForPageHeader
+          PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
+          PageObjectFinder.page(page).checkPageHeader()
+          PageObjectFinder.page(page).checkPageTitle()
   }
 
   // I select radio button {string} on {string}
   def whenISelectRadioButtonOn(choice: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).clickRadioButton(choice)
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).clickRadioButton(choice)
   }
 
   // I {string} checkbox {string} on {string}
   def whenICheckboxOn(checkBoxAction: String, choice: String, page: String): Unit = {
     checkBoxAction match {
           case "select" | "unselect" =>
-            PageObjectFinderBackup.page(page).waitForPageHeader
-            PageObjectFinderBackup.page(page).selectCheckBoxes(choice.split(","))
+            PageObjectFinder.page(page).waitForPageHeader
+            PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
         }
   }
 
   // I click save and continue button on {string}
   def whenIClickSaveAndContinueButtonOn(page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).clickSaveAndContinueButton()
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).clickSaveAndContinueButton()
   }
 
   // I click continue button on {string}
   def whenIClickContinueButtonOn(page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).clickContinueButton()
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).clickContinueButton()
   }
 
   // I click back button on {string}
   def whenIClickBackButtonOn(page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).clickBackButton()
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).clickBackButton()
   }
 
   // I am presented with the {string} error page
   def thenIAmPresentedWithTheErrorPage(): Unit = {
     page: String =>
-        PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).checkURL
-        PageObjectFinderBackup.page(page).checkPageErrorTitle()
+        PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).checkURL
+        PageObjectFinder.page(page).checkPageErrorTitle()
   }
 
   // The error summary title is {string} and the error message is {string}
   def thenTheErrorSummaryTitleIsAndTheErrorMessageIs(errorSummaryTitle: String, errorMessage: String): Unit = {
-    PageObjectFinderBackup.checkPageErrorSummaryTitle(errorSummaryTitle)
+    PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
           val finalErrorMessage = errorMessage.replace("^", "’")
-          PageObjectFinderBackup.checkPageErrorMessage(finalErrorMessage)
+          PageObjectFinder.checkPageErrorMessage(finalErrorMessage)
   }
 
   // I enter {string} on {string}
   def whenIEnterOn(data: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).enterDetails(data)
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).enterDetails(data)
   }
 
   // I enter {string} in the {string} input field on {string}
   def whenIEnterInTheInputFieldOn(text: String, field: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        val element = PageObjectFinderBackup.page(page).textFieldElement(field)
+    PageObjectFinder.page(page).waitForPageHeader
+        val element = PageObjectFinder.page(page).textFieldElement(field)
         element.sendKeys(text)
   }
 
@@ -188,7 +222,7 @@ object BaseStepDefinitionsSteps extends BasePage {
         for ((field, value) <- formData) {
           val key = s"${page.trim.toLowerCase.replaceAll(" ", "_")}.$field"
           TestData.set(key, value)
-          val inputField = PageObjectFinderBackup.page(page).textFieldElement(field)
+          val inputField = PageObjectFinder.page(page).textFieldElement(field)
           inputField.clear()
           inputField.sendKeys(Option(value).getOrElse(""))
         }
@@ -210,19 +244,19 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I enter {string} for {string} on {string}
   def whenIEnterForOn(textToEnter: String, text: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).enterMultipleDetails(textToEnter, text)
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
   }
 
   // I enter {string} for {string} on {string} at {string} input box
   def whenIEnterForOnAtInputBox(textToEnter: String, text: String, page: String, index: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-          PageObjectFinderBackup.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
+    PageObjectFinder.page(page).waitForPageHeader
+          PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
   }
 
   // I enter {string} in the textarea field on {string}
   def whenIEnterInTheTextareaFieldOn(textToEnter: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
           val textAreaElement = Driver.instance.findElement(By.className("govuk-textarea"))
           textAreaElement.clear()
           textAreaElement.sendKeys(textToEnter)
@@ -250,7 +284,7 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I enter nothing in the {string} input field on {string}
   def andIEnterNothingInTheInputFieldOn(field: String, page: String): Unit = {
-    val fieldValue = PageObjectFinderBackup.page(page).textFieldElement(field).getAttribute("value")
+    val fieldValue = PageObjectFinder.page(page).textFieldElement(field).getAttribute("value")
         fieldValue should be("")
   }
 
@@ -258,7 +292,7 @@ object BaseStepDefinitionsSteps extends BasePage {
   def andIShouldSeeTheFollowingDetails(): Unit = {
     data: DataTable =>
         val expectedData = data.asMap(classOf[String], classOf[String]).asScala.toMap
-        val actualData   = PageObjectFinderBackup.pageData
+        val actualData   = PageObjectFinder.pageData
         actualData should be(expectedData)
   }
 
@@ -285,7 +319,7 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I should see below input fields on {string}
   def andIShouldSeeBelowInputFieldsOn(page: String, data: DataTable): Unit = {
-    PageObjectFinderBackup.page(page).verifyInputFieldsByIds(data.asScalaListOfStrings)
+    PageObjectFinder.page(page).verifyInputFieldsByIds(data.asScalaListOfStrings)
   }
 
   // Overload for ScalaTest (no DataTable, accepts varargs)
@@ -304,7 +338,7 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I should see the input fields with below labels on {string}
   def andIShouldSeeTheInputFieldsWithBelowLabelsOn(page: String, data: DataTable): Unit = {
-    PageObjectFinderBackup.page(page).verifyInputFieldsWithLabels(data.asScalaListOfStrings)
+    PageObjectFinder.page(page).verifyInputFieldsWithLabels(data.asScalaListOfStrings)
   }
 
   // Overload for ScalaTest (no DataTable, accepts varargs)
@@ -338,14 +372,14 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I verify the content {string} on {string}
   def andIVerifyTheContentOn(expectedText: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
         val actualText = Driver.instance.findElement(By.className("govuk-heading-l")).getText
         actualText should be(expectedText)
   }
 
   // I should verify the details of the table {int} on {string}
   def andIShouldVerifyTheDetailsOfTheTableOn(num: Int, page: String, data: DataTable): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
         val expected                                   = data.asScalaListOfLists
         def getResultList(num: Int): Seq[List[String]] =
           webDriver
@@ -379,13 +413,13 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I click on View Return link for one of the completed returns on {string}
   def andIClickOnViewReturnLinkForOneOfTheCompletedReturnsOn(page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
         Driver.instance.findElement(By.xpath("//div/table[2]/tbody/tr[1]/td[3]/ul/li/a")).click()
   }
 
   // I click {string} on {string}
   def whenIClickOn(button: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).clickButton(button)
+    PageObjectFinder.page(page).clickButton(button)
   }
 
   // I should verify the table header displayed
@@ -410,14 +444,14 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I am presented with the {string} {string}
   def thenIAmPresentedWithThe(page: String, specificPage: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).checkURL
-        PageObjectFinderBackup.page(page).checkPageTitle(specificPage)
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).checkURL
+        PageObjectFinder.page(page).checkPageTitle(specificPage)
   }
 
   // I click on {string} hyperlink on {string}
   def whenIClickOnHyperlinkOn(hyperlink: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
         hyperlink match {
           case "Member doesn't have a National Insurance number." =>
             Driver.instance.findElement(By.xpath("//*[@id=\"noNinoPageLink\"]")).click()
@@ -426,7 +460,7 @@ object BaseStepDefinitionsSteps extends BasePage {
             Driver.instance.findElement(By.xpath("//*[@id=\"memberNinoPageLink\"]")).click()
 
           case "Start new transfer" =>
-            Driver.instance.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/p/a")).click()
+            driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/p/a")).click()
 
           case "Member Name" =>
             Driver.instance.findElement(By.xpath("//*[contains(@href,'Malcolm')]")).click()
@@ -438,7 +472,7 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I click on {string} button on {string}
   def whenIClickOnButtonOn(button: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
         button match {
           case _ =>
             Driver.instance.findElement(By.xpath("//*[contains(@href,'"+button+"')]")).click()
@@ -450,7 +484,7 @@ object BaseStepDefinitionsSteps extends BasePage {
   def andIShouldSeeTheFollowingStatusOfTheSubmissionJourney(): Unit = {
     data: DataTable =>
         val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-        val actualData   = PageObjectFinderBackup.taskListPageContentView
+        val actualData   = PageObjectFinder.taskListPageContentView
         actualData should be(expectedData)
   }
 
@@ -470,8 +504,8 @@ object BaseStepDefinitionsSteps extends BasePage {
   // I should see following details at the {string}
   def andIShouldSeeFollowingDetailsAtThe(page: String, data: DataTable): Unit = {
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-        PageObjectFinderBackup.page(page).waitForPageHeader
-        val actualData   = PageObjectFinderBackup.dataAtCheckYourAnswersPage
+        PageObjectFinder.page(page).waitForPageHeader
+        val actualData   = PageObjectFinder.dataAtCheckYourAnswersPage
         actualData should be(expectedData)
   }
 
@@ -492,8 +526,8 @@ object BaseStepDefinitionsSteps extends BasePage {
   // I should see the {string} and below error messages
   def andIShouldSeeTheAndBelowErrorMessages(errorSummaryTitle: String, data: DataTable): Unit = {
     val expectedErrorMessage = data.asScalaListOfStrings
-        PageObjectFinderBackup.checkPageErrorSummaryTitle(errorSummaryTitle)
-        PageObjectFinderBackup.listOfErrorMessages() should be(expectedErrorMessage)
+        PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
+        PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessage)
   }
 
   // Overload for ScalaTest (no DataTable, accepts varargs)
@@ -557,10 +591,10 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // Clicking each error message should focus on the corresponding input field on {string}
   def andClickingEachErrorMessageShouldFocusOnTheCorrespondingInputFieldOn(page: String): Unit = {
-    val errorLinks = PageObjectFinderBackup.listOfErrorLinks()
+    val errorLinks = PageObjectFinder.listOfErrorLinks()
         for (errorLink <- errorLinks) {
           val fieldId       = errorLink.getAttribute("href").split("#").last
-          val inputField    = PageObjectFinderBackup.textFieldElement(fieldId)
+          val inputField    = PageObjectFinder.textFieldElement(fieldId)
           errorLink.click()
           val activeElement = Driver.instance.switchTo().activeElement()
           activeElement shouldBe inputField
@@ -648,8 +682,8 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I click on Agree and send return button {string}
   def whenIClickOnAgreeAndSendReturnButton(page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).clickAgreeAndSendReturnButton()
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
   }
 
   // the page source contains {string}
@@ -669,14 +703,14 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I verify the value displayed as {string} on {string}
   def whenIVerifyTheValueDisplayedAsOn(expectedText: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
         val actualText = Driver.instance.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
         actualText should be(expectedText)
   }
 
   // I click on the Details component {string} on {string}
   def whenIClickOnTheDetailsComponentOn(detailsSummary: String, page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
         Driver.instance.findElement(By.cssSelector("span[class='govuk-details__summary-text']")).click()
   }
 
@@ -692,8 +726,8 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   // I click agree and submit button on {string}
   def whenIClickAgreeAndSubmitButtonOn(page: String): Unit = {
-    PageObjectFinderBackup.page(page).waitForPageHeader
-        PageObjectFinderBackup.page(page).clickAgreeSubmitButton()
+    PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).clickAgreeSubmitButton()
   }
 
   def thenIShouldSeeTheFollowingValuesOnThePage(values: Map[String, String]): Unit = {

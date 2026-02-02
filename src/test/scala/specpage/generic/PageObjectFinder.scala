@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.generic
+package specpage.generic
 
 import io.cucumber.datatable.DataTable
 import org.apache.commons.io.FileUtils
 import org.scalatest.exceptions.TestFailedException
-import uk.gov.hmrc.otc.pages.BasePage
+import specpage.BasePage
 
 import java.io.{File, FileNotFoundException}
 import scala.jdk.CollectionConverters.CollectionHasAsScala
@@ -31,7 +31,7 @@ object PageObjectFinder extends BasePage {
 
   private val files = {
     val directories = Seq(
-      file("src/test/scala/uk/gov/hmrc/otc/pages/")
+      file("src/test/scala/specpage")
     )
 
     val fileList: File => List[File] = f =>
@@ -46,7 +46,7 @@ object PageObjectFinder extends BasePage {
     val page = pageIn.replaceAll(" ", "")
     println(s"The page is --------------------------------- $page")
     files.find(_.getName == s"$page.scala")
-      .map(_.getAbsolutePath.replaceAll(".*/(uk/.*).scala", "$1").replaceAll("/", "."))
+      .map(_.getAbsolutePath.replaceAll(".*/(specpage/.*).scala", "$1").replaceAll("/", "."))
       .map(str => Class.forName(str + "$").getField("MODULE$").get(classOf[BasePage]).asInstanceOf[BasePage])
       .getOrElse(throw new TestFailedException(s"$page does not exist in tests, or it does not conform to Web page format", new FileNotFoundException(), 12))
   }

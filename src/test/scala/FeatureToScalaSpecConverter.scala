@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package findyourninumberacceptancetests.utils
-
-import scala.util.matching.Regex
 import java.io.{File, PrintWriter}
 import scala.io.Source
+import scala.util.matching.Regex
 
 object FeatureToScalaSpecConverter {
 

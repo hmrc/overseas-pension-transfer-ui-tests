@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.auth
+package specpage.auth
 
 import org.openqa.selenium.By
+import specpage.BasePage
 import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.pages.BasePage
 
 object AuthLoginStubPage extends BasePage {
 
@@ -39,7 +39,13 @@ object AuthLoginStubPage extends BasePage {
     webDriver.findElement(By.id("enrolment[0].name")).sendKeys(enrollmentKey)
     webDriver.findElement(By.id("input-0-0-name")).sendKeys(IdentifierName)
     webDriver.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
+    //clickSubmitButton()
   }
+
+  def whenIClickSubmitButtonOn(): Unit = {
+    webDriver.findElement(By.id("submit")).click()
+  }
+
 
   def selectAffinityGroup(value: String): Unit = {
     webDriver.findElement(By.cssSelector("select[name=affinityGroup]")).sendKeys(value)

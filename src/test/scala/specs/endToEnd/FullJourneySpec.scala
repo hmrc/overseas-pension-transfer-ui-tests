@@ -34,7 +34,7 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
-import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andIShouldSeeBelowInputFieldsOn, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, andTheStatusOfTheSendReturnIsMarkedAs, thenIAmPresentedWithThe, thenIAmPresentedWithTheWithExistingUrlSuffixAs, thenIAmPresentedWithTheWithNewUrlContainingPrefixAsAndSuffixAs, thenISeeTheStatusForTask, thenIShouldSeeTheFollowingValuesOnThePage, whenICheckboxOn, whenIClickContinueButtonOn, whenIClickOnAgreeAndSendReturnButton, whenIClickOnButtonOn, whenIClickOnHyperlinkOn, whenIClickSaveAndContinueButtonOn, whenISelectRadioButtonOn}
+import specsteps.BaseStepDefinitionsSteps._
 import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Then, When}
 
 class FullJourneySpec extends AnyFeatureSpec with Matchers {

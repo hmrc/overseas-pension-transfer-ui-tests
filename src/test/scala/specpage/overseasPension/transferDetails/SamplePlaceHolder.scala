@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages.overseasPension.transferDetails
+package specpage.overseasPension.transferDetails
 
 class SamplePlaceHolder {
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.pages
+package specpage
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
 import org.openqa.selenium.{By, WebDriver, WebElement}
@@ -186,6 +186,8 @@ import scala.util.matching.Regex
   def clickContinueButton(): Unit = click on id("continueButton")
 
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
+
+    def clickOnLink(): Unit = click on id("continueButton")
 
   def enterDetails(data: String): Unit = {}
 
@@ -420,10 +422,6 @@ import scala.util.matching.Regex
 object Driver {
   lazy val instance: WebDriver = new ChromeDriver()
 }
-
-  import java.time.{Duration, LocalDate}
-  import scala.jdk.CollectionConverters.CollectionHasAsScala
-  import scala.util.matching.Regex
 
 // trait BasePage extends Page with Matchers with Eventually with WebBrowser {
  //override implicit def webDriver: WebDriver = Driver.instance
