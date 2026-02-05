@@ -34,10 +34,10 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
+import specs.BaseSpec
 import specsteps.BaseStepDefinitionsSteps.{andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX}
-import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Then, When}
 
-class TransferDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
+class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
   Feature("Is the Transfer details journey fully connected") {
 

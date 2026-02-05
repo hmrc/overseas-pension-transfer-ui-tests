@@ -66,34 +66,37 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then ("I am presented with the Dashboard page")
       thenIAmPresentedWithThe("Dashboard Page")
 
-      And ("I click on Start new transfer hyperlink on Dashboard Page")
-      whenIClickOnHyperlinkOn("Start new transfer","Dashboard Page")
+      When ("I am enter search value and click on search")
+      whenEnterOnSearch("Dashboard Page","Malcolm")
+      whenIClickSearchButtonOn("Dashboard Page")
 
-      When("I navigated to the What You Will Need Page Page")
-      andINavigatedToThe("What You Will Need Page")
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
 
       Then ("I am presented with the What You Will Need Page")
-     thenIAmPresentedWithThe("What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
 
-      //And I click save and continue button on "What You Will Need Page"
-      //Then I am presented with the "Task List Page"
-     //   When("I navigated to the QROPS Name Page")
-     //   andINavigatedToThe("QROPS Name Page")
-//        // ⚠️ No step-def match found for: I navigated to the QROPS Name Page
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+//       When("I navigated to the QROPS Name Page")
+//      andINavigatedToThe("QROPS Name Page")
 //
 //      And("I should see the heading What is the full name of the QROPS receiving the transfer?")
 //      andIShouldSeeTheHeadingX("What is the full name of the QROPS receiving the transfer?")
 //
 //      When("I enter the following data into corresponding input fields on QROPS Name Page")
-//      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Name Page",
-//        Map("qropsName" -> "The great QROPS"))
+//     Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Name Page", Map("qropsName" -> "The great QROPS"))
 //
-//      And("I click save and continue button on QROPS Name Page")
-    // whenIClickSaveAndContinueButtonOn("QROPS Name Page")
+//     And("I click save and continue button on QROPS Name Page")
+//     whenIClickSaveAndContinueButtonOn("QROPS Name Page")
 //
-//      Then("I am presented with the QROPS Reference Page")
-       // thenIAmPresentedWithThe("QROPS Reference Page")
-//
+//     Then("I am presented with the QROPS Reference Page")
+//      thenIAmPresentedWithThe("QROPS Reference Page")
+
 //      When("I enter the following data into corresponding input fields on QROPS Reference Page")
 //      Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Reference Page",
 //        Map("qropsRef" -> "QROPS123456"))

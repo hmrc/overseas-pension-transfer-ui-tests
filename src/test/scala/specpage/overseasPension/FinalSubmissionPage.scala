@@ -16,8 +16,8 @@
 
 package specpage.overseasPension
 
+import otc.conf.TestConfiguration
 import specpage.BasePage
-import uk.gov.hmrc.otc.conf.TestConfiguration
 
 object FinalSubmissionPage extends BasePage {
 

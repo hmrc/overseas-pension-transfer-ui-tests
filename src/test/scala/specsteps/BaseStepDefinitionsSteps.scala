@@ -41,9 +41,9 @@ import specpage.BasePage
 import specpage.auth.AuthLoginStubPage
 import specpage.generic.PageObjectFinder
 import specpage.generic.PageObjectFinder.DataTableConverters
-import uk.gov.hmrc.otc.conf.MessageReader._
-import uk.gov.hmrc.otc.conf.TestConfiguration
-import uk.gov.hmrc.otc.support.TestData
+import otc.conf.MessageReader._
+import otc.conf.TestConfiguration
+import otc.support.TestData
 import uk.gov.hmrc.selenium.webdriver.Driver
 
 import java.time.{Duration, LocalDate}
@@ -89,6 +89,7 @@ object BaseStepDefinitionsSteps extends BasePage {
         page.waitForPageHeader
         page.checkURL
         page.checkPageTitle()
+
   }
 
   // I am presented with the change {string}
@@ -730,6 +731,26 @@ object BaseStepDefinitionsSteps extends BasePage {
         PageObjectFinder.page(page).clickAgreeSubmitButton()
   }
 
+  def whenEnterOnSearch(page: String , searchItem: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).enterText("dashboard-search",searchItem)
+
+  }
+  def whenIClickSearchButtonOn(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).searchField()
+  }
+
+
+  def whenIClickStartNewTransferLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).startNewTransfer()
+  }
+
+  def whenIClickStartMemberDetailsLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).startMemberDetails()
+  }
   def thenIShouldSeeTheFollowingValuesOnThePage(values: Map[String, String]): Unit = {
     values.foreach { case (_, value) => val text = getMessage(value)  } }
 

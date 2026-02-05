@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,26 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.cucumber.runner
+package otc.support
 
-import io.cucumber.junit.{Cucumber, CucumberOptions}
-import org.junit.runner.RunWith
+import scala.collection.concurrent.TrieMap
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("src/test/resources/features"),
-  glue     = Array("uk.gov.hmrc.otc.cucumber.stepDefinitions"),
-  plugin   = Array("pretty", "html:target/cucumber.html", "json:target/cucumber.json", "junit:target/test-reports/AllTestsRunner.xml"),
-  tags     = "@acceptance"
-)
-class AllTestsRunner {}
+object TestData {
+  private val data = TrieMap.empty[String, String]
 
-object AllTestsRunner extends AllTestsRunner
+  def set(key: String, value: String): Unit = {
+    data.put(key, value)
+  }
+
+  def get(key: String): Option[String] = {
+    data.get(key)
+  }
+
+  def remove(key: String): Unit = {
+    data.remove(key)
+  }
+
+  def clear(): Unit = {
+    data.clear()
+  }
+}

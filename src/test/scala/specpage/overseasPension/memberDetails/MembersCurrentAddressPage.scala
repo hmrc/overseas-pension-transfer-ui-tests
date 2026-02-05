@@ -16,8 +16,9 @@
 
 package specpage.overseasPension.memberDetails
 
+import otc.conf.TestConfiguration
 import specpage.BasePage
-import uk.gov.hmrc.otc.conf.TestConfiguration
+
 
 object MembersCurrentAddressPage extends BasePage {
 

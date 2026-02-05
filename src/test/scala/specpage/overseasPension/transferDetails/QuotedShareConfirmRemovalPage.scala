@@ -17,7 +17,7 @@
 package specpage.overseasPension.transferDetails
 
 import specpage.BasePage
-import uk.gov.hmrc.otc.conf.TestConfiguration
+import otc.conf.TestConfiguration
 
 object QuotedShareConfirmRemovalPage extends BasePage {
 

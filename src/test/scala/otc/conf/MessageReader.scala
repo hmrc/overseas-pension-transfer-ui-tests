@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.otc.conf
+package otc.conf
 
 import java.io.FileInputStream
 import java.util.{Properties, PropertyResourceBundle}

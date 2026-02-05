@@ -34,33 +34,68 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
+import specpage.auth.AuthLoginStubPage
+import specs.BaseSpec
+import specs.tags.AllTests
 import specsteps.BaseStepDefinitionsSteps._
-import uk.gov.hmrc.otc.cucumber.stepDefinitions.Hooks.{And, Then, When}
 
-class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
+class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
   Feature("Is the members details journey fully connected") {
 
-    Scenario("1. Full Members Journey - Member is currently UK resident") {
-      Then("I navigated to the Member Name Page")
-      andINavigatedToThe("Member Name Page")
+    Scenario(
+      "1. Full Members Journey - Member is currently UK resident",
+      AllTests
+    ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
 
-      And("I should see the heading What is the member's name?")
-        andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
 
-      When("I enter the following data into corresponding input fields on Member Name Page")
-      Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
-        Map("firstName" -> "John"))
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
 
-      And("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
 
-      Then("I am presented with the Member Nino Page")
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Add details about the member hyperlink on Task List Page")
+      whenIClickStartMemberDetailsLink("Task List Page")
+
+       Then("I am presented with the Member's Name Page")
+          thenIAmPresentedWithThe("Member Name Page")
+
+       When("I enter the following data into corresponding input fields on Member Name Page")
+       Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
+       Map("firstName" -> "John","lastName" -> "Doe"))
+
+       When("I click continue button on Member Name Page")
+       whenIClickContinueButtonOn("Member Name Page")
+
+       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
 
       When("I enter the following data into corresponding input fields on Member Nino Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Nino Page",
-        Map("value" -> "QQ987654B"))
+      Map("value" -> "QQ987654B"))
 
       And("I click save and continue button on Member Nino Page")
       whenIClickSaveAndContinueButtonOn("Member Nino Page")
@@ -70,7 +105,7 @@ class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
-        Map("day" -> "14"))
+        Map("day" -> "31","month" -> "12","year" -> "1991"))
 
       And("I click save and continue button on Member Date Of Birth Page")
       whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
@@ -79,17 +114,16 @@ class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
       thenIAmPresentedWithThe("Members Current Address Page")
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
-      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
-        Map("day" -> "14"))
+     Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page", Map("addressLine1" -> "12 Burlington Avenue","addressLine2" -> "Burlington Road","addressLine3" -> "Maidenhead","addressLine4" -> "Berkshire","countryCode" -> "United Kingdom","postcode" -> "AB12CD","poBox" -> "11223344"))
 
       And("I click save and continue button on Members Current Address Page")
-      whenIClickSaveAndContinueButtonOn("Members Current Address Page")
+     whenIClickSaveAndContinueButtonOn("Members Current Address Page")
 
       Then("I am presented with the Is Member Currently UK Resident Page")
       thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button Yes on Is Member Currently UK Resident Page")
-      whenISelectRadioButtonOn("Yes" , "Is Member Currently UK Resident")
+      whenISelectRadioButtonOn("Yes" , "Is Member Currently UK Resident Page")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
       whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
@@ -97,27 +131,60 @@ class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
+       And("I should see the following details")
+      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
+       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
-      Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+       Then("I am presented with the Task List Page")
+       thenIAmPresentedWithThe("Task List Page")
 
     }
 
-    Scenario("2. Full Members Journey - Member is not currently or ever been UK resident") {
-      Then("I navigated to the Member Name Page")
-      andINavigatedToThe("Member Name Page")
+    Scenario(
+      "2. Full Members Journey - Member is not currently or ever been UK resident" ,
+      AllTests
+    ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
 
-      And("I should see the heading What is the member's name?")
-      andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Add details about the member hyperlink on Task List Page")
+      whenIClickStartMemberDetailsLink("Task List Page")
+
+      Then("I am presented with the Member's Name Page")
+      thenIAmPresentedWithThe("Member Name Page")
 
       When("I enter the following data into corresponding input fields on Member Name Page")
       Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
-        Map("firstName" -> "Sarah"))
+        Map("firstName" -> "Sarah","lastName" -> "Smith"))
 
       And("I click continue button on Member Name Page")
       whenIClickContinueButtonOn("Member Name Page")
@@ -342,7 +409,7 @@ class MemberDetailsFullJourneySpec extends AnyFeatureSpec with Matchers {
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
       And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
+      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")

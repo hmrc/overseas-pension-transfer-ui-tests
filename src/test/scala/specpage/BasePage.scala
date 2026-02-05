@@ -22,9 +22,8 @@ import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
-import uk.gov.hmrc.otc.driver.BrowserDriver
-//import uk.gov.hmrc.otc.Driver.instance.BrowserDriver
-import uk.gov.hmrc.otc.support.TestData
+import otc.driver.BrowserDriver
+import otc.support.TestData
 
 import java.time.{Duration, LocalDate}
 import scala.jdk.CollectionConverters._
@@ -201,7 +200,16 @@ import scala.util.matching.Regex
   def clickCheckBox(text: String): Unit =
     Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
-  def textFieldElement(field: String): WebElement = field match {
+    def searchField(): Unit =
+      Driver.instance.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/form/div/div[2]/div/div/button")).click()
+
+    def startNewTransfer(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']")).click()
+
+    def startMemberDetails(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']")).click()
+
+    def textFieldElement(field: String): WebElement = field match {
     case "firstName" => webDriver.findElement(By.id("memberFirstName"))
     case "lastName" => webDriver.findElement(By.id("memberLastName"))
     case "day" => webDriver.findElement(By.id("value.day"))

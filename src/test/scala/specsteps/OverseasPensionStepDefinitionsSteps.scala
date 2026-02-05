@@ -33,7 +33,7 @@ package specsteps
  */
 
 import specpage.auth.AuthLoginStubPage
-import uk.gov.hmrc.otc.conf.TestConfiguration
+import otc.conf.TestConfiguration
 
 
 object OverseasPensionStepDefinitionsSteps {
