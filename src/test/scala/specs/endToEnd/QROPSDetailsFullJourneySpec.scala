@@ -45,7 +45,6 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Full QROPS Details - Valid country Selected" ,
-      AllTests
 
     ) {
       Given("I cleared the data for the service")

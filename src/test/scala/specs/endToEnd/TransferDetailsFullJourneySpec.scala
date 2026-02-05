@@ -34,59 +34,100 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
+import specpage.auth.AuthLoginStubPage
+import specpage.overseasPension.transferDetails.OverseasTransferAllowancePage
 import specs.BaseSpec
-import specsteps.BaseStepDefinitionsSteps.{andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX}
+import specs.tags.AllTests
+import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, givenIClearedTheDataForTheService, navigateToPage, thenIAmPresentedWithThe, whenEnterOnSearch, whenICheckboxOn, whenIClickSaveAndContinueButtonOn, whenIClickSearchButtonOn, whenIClickStartNewTransferLink, whenIClickSubmitButtonOn, whenIEnterEnrollmentKey, whenIEnterRedirectURLOnAuthLoginStubPageFor, whenISelectRadioButtonOn}
 
 class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
   Feature("Is the Transfer details journey fully connected") {
 
-    Scenario("1. Full Transfer Details - Transfer Amount Taxable with applicable exclusion - Cash only") {
+    Scenario(
+      "1. Full Transfer Details - Transfer Amount Taxable with applicable exclusion - Cash only",
+      AllTests
+    ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
+
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      When ("I am enter search value and click on search")
+      whenEnterOnSearch("Dashboard Page","Malcolm")
+      whenIClickSearchButtonOn("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
       And("I navigated to the Overseas Transfer Allowance Page")
-        // ⚠️ No step-def match found for: I navigated to the Overseas Transfer Allowance Page
+      navigateToPage(OverseasTransferAllowancePage)
 
       Then("I am presented with the Overseas Transfer Allowance Page")
-        // ⚠️ No step-def match found for: I am presented with the Overseas Transfer Allowance Page
+      thenIAmPresentedWithThe("Overseas Transfer Allowance Page")
 
       When("I enter the following data into corresponding input fields on Overseas Transfer Allowance Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Overseas Transfer Allowance Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Leaving UK Page",
+        Map("otAllowance" -> "100100"))
 
       And("I click save and continue button on Overseas Transfer Allowance Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Overseas Transfer Allowance Page
+      whenIClickSaveAndContinueButtonOn("Overseas Transfer Allowance Page")
 
       Then("I am presented with the Amount Of Transfer Page")
-        // ⚠️ No step-def match found for: I am presented with the Amount Of Transfer Page
+      thenIAmPresentedWithThe("Amount Of Transfer Page")
 
       When("I enter the following data into corresponding input fields on Amount Of Transfer Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Amount Of Transfer Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Amount Of Transfer Page",
+        Map("value" -> "100200"))
 
       And("I click save and continue button on Amount Of Transfer Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Amount Of Transfer Page
+      whenIClickSaveAndContinueButtonOn("Amount Of Transfer Page")
 
       Then("I am presented with the Is Transfer Amount Taxable Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Transfer Amount Taxable Page
+      thenIAmPresentedWithThe("Is Transfer Amount Taxable Page")
 
       When("I select radio button Yes on Is Transfer Amount Taxable Page")
-        // ⚠️ No step-def match found for: I select radio button Yes on Is Transfer Amount Taxable Page
+      whenISelectRadioButtonOn("Yes" , "Is Transfer Amount Taxable Page")
 
       And("I click save and continue button on Is Transfer Amount Taxable Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Transfer Amount Taxable Page
+      whenIClickSaveAndContinueButtonOn("Is Transfer Amount Taxable Page")
 
       Then("I am presented with the Why Transfer Amount Taxable Page")
-        // ⚠️ No step-def match found for: I am presented with the Why Transfer Amount Taxable Page
+      thenIAmPresentedWithThe("Why Transfer Amount Taxable Page")
 
       When("I select radio button Transfer exceeds member's overseas transfer allowance and there is an applicable exclusion. on Why Transfer Amount Taxable Page")
-        // ⚠️ No step-def match found for: I select radio button Transfer exceeds member's overseas transfer allowance and there is an applicable exclusion. on Why Transfer Amount Taxable Page
+      whenISelectRadioButtonOn("Transfer exceeds member's overseas transfer allowance and there is an applicable exclusion." , "Why Transfer Amount Taxable Page")
 
       And("I click save and continue button on Why Transfer Amount Taxable Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Why Transfer Amount Taxable Page
+      whenIClickSaveAndContinueButtonOn("Why Transfer Amount Taxable Page")
 
       Then("I am presented with the Applicable Transfer Exclusion Page")
-        // ⚠️ No step-def match found for: I am presented with the Applicable Transfer Exclusion Page
+      thenIAmPresentedWithThe("Applicable Transfer Exclusion Page")
 
       When("I select checkbox The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. on Applicable Transfer Exclusion Page")
-        // ⚠️ No step-def match found for: I select checkbox The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. on Applicable Transfer Exclusion Page
-
+      whenICheckboxOn("select","","")
       And("I select checkbox Both the individual and QROPS are resident in the same country. on Applicable Transfer Exclusion Page")
         // ⚠️ No step-def match found for: I select checkbox Both the individual and QROPS are resident in the same country. on Applicable Transfer Exclusion Page
 

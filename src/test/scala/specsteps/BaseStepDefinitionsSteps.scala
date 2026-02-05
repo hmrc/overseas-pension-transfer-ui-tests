@@ -751,6 +751,11 @@ object BaseStepDefinitionsSteps extends BasePage {
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).startMemberDetails()
   }
+  def whenIClickNoNinoLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).noNinoLink()
+  }
+
   def thenIShouldSeeTheFollowingValuesOnThePage(values: Map[String, String]): Unit = {
     values.foreach { case (_, value) => val text = getMessage(value)  } }
 

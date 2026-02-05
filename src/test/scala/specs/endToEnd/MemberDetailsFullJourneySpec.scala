@@ -45,7 +45,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Full Members Journey - Member is currently UK resident",
-      AllTests
+
     ) {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
@@ -144,7 +144,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "2. Full Members Journey - Member is not currently or ever been UK resident" ,
-      AllTests
     ) {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
@@ -204,7 +203,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
-        Map("day" -> "14"))
+        Map("day" -> "14","month" -> "06","year" -> "1974"))
 
       And("I click save and continue button on Member Date Of Birth Page")
       whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
@@ -214,7 +213,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
-        Map("day" -> "14"))
+        Map("addressLine1" -> "1 Main Street","addressLine2" -> "Main Town","addressLine3" -> "Kenilworth","addressLine4" -> "Warwickshire","countryCode" -> "United Kingdom","postcode" -> "WA15BC"))
 
       And("I click save and continue button on Members Current Address Page")
       whenIClickSaveAndContinueButtonOn("Members Current Address Page")
@@ -223,7 +222,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button No on Is Member Currently UK Resident Page")
-      whenISelectRadioButtonOn("No" , "Is Member Currently UK Resident")
+      whenISelectRadioButtonOn("No" , "Is Member Currently UK Resident Page")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
       whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
@@ -241,25 +240,57 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
       And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
+        andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Member Details Check Your Answers Page")
+      thenIAmPresentedWithThe("Task List Page")
     }
 
-    Scenario("3. Full Members Journey - Member is not currently but has been UK resident with manual address entry") {
-      Then("I navigated to the Member Name Page")
-      andINavigatedToThe("Member Name Page")
+    Scenario(
+      "3. Full Members Journey - Member is not currently but has been UK resident with manual address entry" ,
+    ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
 
-      And("I should see the heading What is the member's name?")
-      andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Add details about the member hyperlink on Task List Page")
+      whenIClickStartMemberDetailsLink("Task List Page")
+
+      Then("I am presented with the Member's Name Page")
+      thenIAmPresentedWithThe("Member Name Page")
 
       When("I enter the following data into corresponding input fields on Member Name Page")
       Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
-        Map("firstName" -> "Sarah"))
+        Map("firstName" -> "Rebecca","lastName" -> "Miller"))
 
       And("I click continue button on Member Name Page")
       whenIClickContinueButtonOn("Member Name Page")
@@ -269,7 +300,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Member Nino Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Nino Page",
-        Map("value" -> "QQ987654B"))
+        Map("value" -> "QQ112233B"))
 
       And("I click save and continue button on Member Nino Page")
       whenIClickSaveAndContinueButtonOn("Member Nino Page")
@@ -279,7 +310,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
-        Map("day" -> "14"))
+        Map("day" -> "04","month" -> "09","year" -> "1980"))
 
       And("I click save and continue button on Member Date Of Birth Page")
       whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
@@ -289,7 +320,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
-        Map("day" -> "14"))
+        Map("addressLine1" -> "78 Kingsway Crescent","addressLine2" -> "Westfield Avenue","countryCode" -> "United Kingdom","postcode" -> "BA15XY"))
 
       And("I click save and continue button on Members Current Address Page")
       whenIClickSaveAndContinueButtonOn("Members Current Address Page")
@@ -298,7 +329,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button No on Is Member Currently UK Resident Page")
-      whenISelectRadioButtonOn("No" , "Is Member Currently UK Resident")
+      whenISelectRadioButtonOn("No" , "Is Member Currently UK Resident Page")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
       whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
@@ -312,25 +343,25 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       And("I click save and continue button on Has Member Ever Been UK Resident Page")
       whenIClickSaveAndContinueButtonOn("Has Member Ever Been UK Resident Page")
 
-      Then("I am presented with the Members Last UK Address Lookup Page")
-      thenIAmPresentedWithThe("Members Last UK Address Lookup Page")
+      Then("I am presented with the Members Last UK Address  Page")
+      thenIAmPresentedWithThe("Members Last UK Address Page")
 
       When("I enter the following data into corresponding input fields on Members Last UK Address Lookup Page")
-      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Last UK Address Lookup Page",
-        Map("addressLine1" -> "9 Greenbank Terrace"))
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Last UK Address Page",
+        Map("addressLine1" -> "9 Greenbank Terrace","addressLine2" -> "Old Road","postcode" -> "ZZ99ZZ"))
 
       And("I click save and continue button on Members Last UK Address Lookup Page")
       whenIClickSaveAndContinueButtonOn("Members Last UK Address Lookup Page")
 
       And("I am presented with the Member Date Of Leaving UK Page")
-      thenIAmPresentedWithThe("Members Last UK Address Lookup Page")
+      thenIAmPresentedWithThe("Member Date Of Leaving UK Page")
 
       When("I enter the following data into corresponding input fields on Member Date Of Leaving UK Page")
-      Ienterthefollowingdataintocorrespondinginputfieldson ("Members Last UK Address Lookup Page",
-        Map("addressLine1" -> "9 Greenbank Terrace"))
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Leaving UK Page",
+        Map("day" -> "20","month" -> "10","year" -> "2015"))
 
       And("I click save and continue button on Member Date Of Leaving UK Page")
-      whenIClickSaveAndContinueButtonOn("Members Last UK Address Lookup Page")
+      whenIClickSaveAndContinueButtonOn("Member Date Of Leaving UK Page")
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
@@ -346,16 +377,48 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     }
 
-    Scenario("4. Full Members Journey - Member is currently UK resident with no Nino") {
-      Then("I navigated to the Member Name Page")
-      andINavigatedToThe("Member Name Page")
+    Scenario(
+      "4. Full Members Journey - Member is currently UK resident with no Nino",
+    ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
 
-      And("I should see the heading What is the member's name?")
-      andIShouldSeeTheHeadingX("What is the member's name?")  // auto-chosen (score=0.88, BaseStepDefinitionsSteps.scala)
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Add details about the member hyperlink on Task List Page")
+      whenIClickStartMemberDetailsLink("Task List Page")
+
+      Then("I am presented with the Member's Name Page")
+      thenIAmPresentedWithThe("Member Name Page")
 
       When("I enter the following data into corresponding input fields on Member Name Page")
       Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
-        Map("firstName" -> "Sarah"))
+        Map("firstName" -> "Angelo","lastName" -> "McMannis"))
 
       And("I click continue button on Member Name Page")
       whenIClickContinueButtonOn("Member Name Page")
@@ -364,7 +427,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Member Nino Page")
 
       When("I click on Member doesn't have a National Insurance number. hyperlink on Member Nino Page")
-      whenIClickOnHyperlinkOn("Member doesn't have a National Insurance number.","Member Nino Page")
+      whenIClickNoNinoLink("Member Nino Page")
 
       And("I am presented with the Member Does Not Have NINO Page")
       thenIAmPresentedWithThe("Member Does Not Have NINO Page")
@@ -381,7 +444,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Member Date Of Birth Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Member Date Of Birth Page",
-        Map("day" -> "14"))
+        Map("day" -> "14","month" -> "08","year" -> "1990"))
 
       And("I click save and continue button on Member Date Of Birth Page")
       whenIClickSaveAndContinueButtonOn("Member Date Of Birth Page")
@@ -391,7 +454,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Members Current Address Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Members Current Address Page",
-        Map("day" -> "14"))
+        Map("addressLine1" -> "7 Falcon Lane","addressLine2" -> "Riverside Gardens","countryCode" -> "United Kingdom","postcode" -> "RG12XY","poBox" -> "77889911"))
 
       And("I click save and continue button on Members Current Address Page")
       whenIClickSaveAndContinueButtonOn("Members Current Address Page")
@@ -400,7 +463,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Is Member Currently UK Resident Page")
 
       When("I select radio button Yes on Is Member Currently UK Resident Page")
-      whenISelectRadioButtonOn("Yes" , "Is Member Currently UK Resident")
+      whenISelectRadioButtonOn("Yes" , "Is Member Currently UK Resident Page")
 
       And("I click save and continue button on Is Member Currently UK Resident Page")
       whenIClickSaveAndContinueButtonOn("Is Member Currently UK Resident Page")
