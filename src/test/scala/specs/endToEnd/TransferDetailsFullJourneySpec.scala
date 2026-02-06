@@ -127,61 +127,64 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Applicable Transfer Exclusion Page")
 
       When("I select checkbox The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer. on Applicable Transfer Exclusion Page")
-      whenICheckboxOn("select","","")
+      whenICheckboxOn("select","The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer.","Applicable Transfer Exclusion Page")
+
       And("I select checkbox Both the individual and QROPS are resident in the same country. on Applicable Transfer Exclusion Page")
-        // ⚠️ No step-def match found for: I select checkbox Both the individual and QROPS are resident in the same country. on Applicable Transfer Exclusion Page
+      whenICheckboxOn("select","Both the individual and QROPS are resident in the same country.","Applicable Transfer Exclusion Page")
 
       And("I click save and continue button on Applicable Transfer Exclusion Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Applicable Transfer Exclusion Page
+      whenIClickSaveAndContinueButtonOn("Applicable Transfer Exclusion Page")
 
       Then("I am presented with the Amount Of Tax Deducted Page")
-        // ⚠️ No step-def match found for: I am presented with the Amount Of Tax Deducted Page
+      thenIAmPresentedWithThe("Amount Of Tax Deducted Page")
 
       When("I enter the following data into corresponding input fields on Amount Of Tax Deducted Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Amount Of Tax Deducted Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Amount Of Tax Deducted Page",
+        Map("taxDeducted" -> "100300"))
 
       And("I click save and continue button on Amount Of Tax Deducted Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Amount Of Tax Deducted Page
+      whenIClickSaveAndContinueButtonOn("Amount Of Tax Deducted Page")
 
       Then("I am presented with the Net Amount Transferred After Tax Page")
-        // ⚠️ No step-def match found for: I am presented with the Net Amount Transferred After Tax Page
+      thenIAmPresentedWithThe("Net Amount Transferred After Tax Page")
 
       When("I enter the following data into corresponding input fields on Net Amount Transferred After Tax Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Net Amount Transferred After Tax Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Amount Of Tax Deducted Page",
+        Map("netAmount" -> "100400"))
 
       And("I click save and continue button on Net Amount Transferred After Tax Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Net Amount Transferred After Tax Page
+      whenIClickSaveAndContinueButtonOn("Net Amount Transferred After Tax Page")
 
       Then("I am presented with the Date Of Transfer Page")
-        // ⚠️ No step-def match found for: I am presented with the Date Of Transfer Page
+      thenIAmPresentedWithThe("Date Of Transfer Page")
 
       When("I enter the following data into corresponding input fields on Date Of Transfer Page")
-        // ⚠️ No step-def match found for: I enter the following data into corresponding input fields on Date Of Transfer Page
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Date Of Transfer Page",
+        Map("day" -> "31","month" -> "12","year" -> "2024"))
 
       And("I click save and continue button on Date Of Transfer Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Date Of Transfer Page
+      whenIClickSaveAndContinueButtonOn("Date Of Transfer Page")
 
       Then("I am presented with the Is Transfer Cash Only Page")
-        // ⚠️ No step-def match found for: I am presented with the Is Transfer Cash Only Page
+      thenIAmPresentedWithThe("Is Transfer Cash Only Page")
 
       When("I select radio button Yes on Is Transfer Cash Only Page")
-        // ⚠️ No step-def match found for: I select radio button Yes on Is Transfer Cash Only Page
+      whenISelectRadioButtonOn("Yes" , "Is Transfer Cash Only Page")
 
       And("I click save and continue button on Is Transfer Cash Only Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Is Transfer Cash Only Page
+      whenIClickSaveAndContinueButtonOn("Is Transfer Cash Only Page")
 
       Then("I am presented with the Transfer Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I am presented with the Transfer Details Check Your Answers Page
+      thenIAmPresentedWithThe("Transfer Details Check Your Answers Page")
 
       And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
+        andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Transfer Details Check Your Answers Page")
-        // ⚠️ No step-def match found for: I click save and continue button on Transfer Details Check Your Answers Page
+      whenIClickSaveAndContinueButtonOn("Transfer Details Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
-
+      thenIAmPresentedWithThe("Task List Page")
     }
 
     Scenario("2. Full Transfer Details - Transfer Amount Taxable with no applicable exclusion - Cash only") {
