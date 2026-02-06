@@ -33,7 +33,9 @@ package specs.endToEnd
  */
 
 import org.scalatest.matchers.should.Matchers
+import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
+import specs.tags.AllTests
 import specsteps.BaseStepDefinitionsSteps._
 //import specs.BaseSpec
 
@@ -41,26 +43,42 @@ class AmendJourneySpec extends BaseSpec with Matchers {
 
   Feature("Is the members details journey fully connected") {
 
-    Scenario("1. Amend Journey - Change member,transfer,QROPS and schemeManager details") {
-      Then("I am presented with the Dashboard Page")
+    Scenario(
+      "1. Amend Journey - Change member,transfer,QROPS and schemeManager details",
+      AllTests
+      )
+    {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
+
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
       thenIAmPresentedWithThe("Dashboard Page")
-      // ⚠️ No step-def match found for: I am presented with the Dashboard Page
+
 
       And("I click on Member Name hyperlink on Dashboard Page")
-      whenIClickOnHyperlinkOn("Member Name","Dashboard Page")
-        // ⚠️ No step-def match found for: I click on Member Name hyperlink on Dashboard Page
+      whenIClickOnMemberNameLink("Dashboard Page")
+
 
       Then("I am presented with the Submitted Transfer Summary Page")
       thenIAmPresentedWithThe("Submitted Transfer Summary Page")
-        // ⚠️ No step-def match found for: I am presented with the Submitted Transfer Summary Page
 
       When("I click on view-amend button on Submitted Transfer Summary Page")
-      whenIClickOnButtonOn("amend-change-amount-of-transfer","Amend Submitted Transfer Page")
-        // ⚠️ No step-def match found for: I click on view-amend button on Submitted Transfer Summary Page
+      whenIClickOnViewAmendLink("Submitted Transfer Summary Page")
 
       Then("I am presented with the View Amend Page")
       thenIAmPresentedWithThe("View Amend Page")
-        // ⚠️ No step-def match found for: I am presented with the View Amend Page
 
       And("I should see two radio buttons: View this QROPS transfer report and Amend this QROPS transfer report")
       andIShouldSeeTwoRadioButtonsAnd("View this QROPS transfer report","Amend this QROPS transfer report")

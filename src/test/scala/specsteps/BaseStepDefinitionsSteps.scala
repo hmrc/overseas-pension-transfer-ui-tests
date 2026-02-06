@@ -747,6 +747,16 @@ object BaseStepDefinitionsSteps extends BasePage {
     PageObjectFinder.page(page).startNewTransfer()
   }
 
+  def whenIClickOnMemberNameLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickMemberName()
+  }
+
+  def whenIClickOnViewAmendLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickViewAmendLink()
+  }
+
   def whenIClickStartMemberDetailsLink(page: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).startMemberDetails()

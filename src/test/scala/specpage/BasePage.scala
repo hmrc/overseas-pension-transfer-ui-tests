@@ -206,11 +206,17 @@ import scala.util.matching.Regex
     def startNewTransfer(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']")).click()
 
+    def clickMemberName(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/dashboard/transfer-report?transferId=QT564339&qtStatus=Submitted&pstr=24000001IN&versionNumber=006&memberName=Malcolm+Mendes&currentPage=1']")).click()
+
     def startMemberDetails(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']")).click()
 
     def noNinoLink(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']")).click()
+
+    def clickViewAmendLink(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']")).click()
 
     def textFieldElement(field: String): WebElement = field match {
     case "firstName" => webDriver.findElement(By.id("memberFirstName"))
