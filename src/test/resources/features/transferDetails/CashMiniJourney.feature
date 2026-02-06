@@ -140,7 +140,7 @@ Feature: Unquoted Share Mini journey(Adding  and removing Unquoted Shares)
       | addressLine3 | addressLine3         |
       | addressLine4 | addressLine4         |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ1 1ZZ              |
     And I click save and continue button on "Property Address Page"
     Then I am presented with the "Value Of Property Page"
     When I enter the following data into corresponding input fields on "Value Of Property Page"

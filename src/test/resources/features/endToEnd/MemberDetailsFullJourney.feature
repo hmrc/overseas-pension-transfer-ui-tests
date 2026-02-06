@@ -37,7 +37,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Maidenhead           |
       | addressLine4 | Berkshire            |
       | countryCode  | United Kingdom       |
-      | postcode     | AB12CD               |
+      | postcode     | AB1 2CD               |
       | poBox        | 11223344             |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
@@ -49,7 +49,7 @@ Feature: Is the members details journey fully connected
       | Is member a UK resident for tax purposes | Yes                                                                                      |
       | Date of birth             | 31 December 1991                                                                               |
       | National Insurance number | QQ123456A                                                                                |
-      | Principal residential address | 12 Burlington Avenue,Burlington Road,Maidenhead,Berkshire,United Kingdom,AB12CD,11223344 |
+      | Principal residential address | 12 Burlington Avenue,Burlington Road,Maidenhead,Berkshire,United Kingdom,AB1 2CD,11223344 |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
 
@@ -77,7 +77,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Kenilworth     |
       | addressLine4 | Warwickshire   |
       | countryCode  | United Kingdom |
-      | postcode     | WA15BC         |
+      | postcode     | WA1 5BC         |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
     When I select radio button "No" on "Is Member Currently UK Resident Page"
@@ -92,7 +92,7 @@ Feature: Is the members details journey fully connected
       | Have they ever been a UK resident for tax purposes | No                                                                    |
       | Date of birth                     | 15 June 1974                                                             |
       | National Insurance number         | QQ123456A                                                             |
-      | Principal residential address     | 1 Main Street,Main Town,Kenilworth,Warwickshire,United Kingdom,WA15BC |
+      | Principal residential address     | 1 Main Street,Main Town,Kenilworth,Warwickshire,United Kingdom,WA1 5BC |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
 
@@ -118,7 +118,7 @@ Feature: Is the members details journey fully connected
       | addressLine1 | 78 Kingsway Crescent |
       | addressLine2 | Westfield Avenue     |
       | countryCode  | United Kingdom       |
-      | postcode     | BA15XY               |
+      | postcode     | BA1 5XY               |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
     When I select radio button "No" on "Is Member Currently UK Resident Page"
@@ -145,7 +145,7 @@ Feature: Is the members details journey fully connected
       | Have they ever been a UK resident for tax purposes| Yes                                                         |
       | Date of birth                     | 4 September 1980                                                    |
       | National Insurance number         | QQ112233B                                                   |
-      | Principal residential address     | 78 Kingsway Crescent,Westfield Avenue,United Kingdom,BA15XY |
+      | Principal residential address     | 78 Kingsway Crescent,Westfield Avenue,United Kingdom,BA1 5XY |
       | Last UK address                   | 9 Greenbank Terrace,Old Road,ZZ9 9ZZ                        |
       | Date member left UK               | 20 October 2015                                                  |
     And I click save and continue button on "Member Details Check Your Answers Page"
@@ -176,7 +176,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Reading               |
       | addressLine4 | Berkshire             |
       | countryCode  | United Kingdom        |
-      | postcode     | RG12XY                |
+      | postcode     | RG1 2XY                |
       | poBox        | 77889911              |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
@@ -188,6 +188,6 @@ Feature: Is the members details journey fully connected
       | Is member a UK resident for tax purposes | Yes                                                                              |
       | Date of birth                    | 14 August 1990                                                                        |
       | Why no National Insurance number | Individual has recently moved to the UK and has not been issued a NINO yet.      |
-      | Principal residential address    | 7 Falcon Lane,Riverside Gardens,Reading,Berkshire,United Kingdom,RG12XY,77889911 |
+      | Principal residential address    | 7 Falcon Lane,Riverside Gardens,Reading,Berkshire,United Kingdom,RG1 2XY,77889911 |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"

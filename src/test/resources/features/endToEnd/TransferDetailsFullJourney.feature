@@ -275,7 +275,7 @@ Feature: Is the Transfer details journey fully connected
       | addressLine3 | London            |
       | addressLine4 | Greater London    |
       | countryCode  | United Kingdom    |
-      | postcode     | NW16XE           |
+      | postcode     | NW1 6XE           |
     And I click save and continue button on "Property Address Page"
     When I enter the following data into corresponding input fields on "Value Of Property Page"
       | value | 400700 |
@@ -286,7 +286,7 @@ Feature: Is the Transfer details journey fully connected
     And I click save and continue button on "Property Description Page"
     Then I am presented with the "Property Check Your Answers Page"
     And I should see the following details
-      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW16XE |
+      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW1 6XE |
       | Property value                            | £400,700                                                                  |
       | Description of the property and valuation | Property value description                                                |
     And I click save and continue button on "Property Check Your Answers Page"

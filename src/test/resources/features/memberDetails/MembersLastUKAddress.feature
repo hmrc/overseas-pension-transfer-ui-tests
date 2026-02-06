@@ -32,7 +32,7 @@ Feature: Entering the last UK address of the member
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
       | addressLine1 | 12 Burlington Avenue |
       | addressLine2 | Burlington Road      |
-      | postcode     | AB12CD               |
+      | postcode     | AB1 2CD               |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Member Date Of Leaving UK Page"
 # Above action would have to be rewritten upon page gets connected
@@ -43,7 +43,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | Burlington Road      |
       | addressLine3 | Maidenhead           |
       | addressLine4 | Berkshire            |
-      | postcode     | AB12CD               |
+      | postcode     | AB1 2CD               |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Member Date Of Leaving UK Page"
 # Above action would have to be rewritten upon page gets connected
@@ -54,7 +54,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | Burlington Road                                                                     |
       | addressLine3 | Maidenhead                                                                          |
       | addressLine4 | Berkshire                                                                           |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
@@ -69,7 +69,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | afsdfasdfasfdsadfadsfadsfasdfasdfsadfdasfsadfasdfsadfasdfasdfasdfdasfsafdsafasdfsda |
       | addressLine3 | Maidenhead                                                                          |
       | addressLine4 | Berkshire                                                                           |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
@@ -84,7 +84,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | Burlington Road                                                                     |
       | addressLine3 | afsdfasdfasfdsadfadsfadsfasdfasdfsadfdasfsadfasdfsadfasdfasdfasdfdasfsafdsafasdfsda |
       | addressLine4 | Berkshire                                                                           |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
@@ -99,7 +99,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | Burlington Road                                                                     |
       | addressLine3 | London                                                                              |
       | addressLine4 | afsdfasdfasfdsadfadsfadsfasdfasdfsadfdasfsadfasdfsadfasdfasdfasdfdasfsafdsafasdfsda |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
@@ -114,7 +114,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | Burlington Road |
       | addressLine3 | Maidenhead      |
       | addressLine4 | Berkshire       |
-      | postcode     | AB12CD          |
+      | postcode     | AB1 2CD          |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
@@ -129,7 +129,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 |                      |
       | addressLine3 | Maidenhead           |
       | addressLine4 | Berkshire            |
-      | postcode     | AB12CD               |
+      | postcode     | AB1 2CD               |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages
@@ -160,7 +160,7 @@ Feature: Entering the last UK address of the member
       | addressLine2 | %%Invalid@ UK address line2 |
       | addressLine3 | %%Invalid@ UK address Line3 |
       | addressLine4 | %%Invalid@ UK address Line4 |
-      | postcode     | %%AB12CD                    |
+      | postcode     | %%AB1 2CD                    |
     And I click save and continue button on "Members Last UK Address Page"
     Then I am presented with the "Members Last UK Address Page" error page
     And I should see the "There is a problem" and below error messages

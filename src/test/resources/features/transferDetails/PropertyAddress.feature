@@ -26,7 +26,7 @@ Feature: Start Page of Adding Property
       | addressLine3 | addressLine3         |
       | addressLine4 | addressLine4         |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ11 1ZZ             |
     And I click save and continue button on "Property Address Page"
     Then I am presented with the "Value Of Property Page"
 
@@ -40,6 +40,6 @@ Feature: Start Page of Adding Property
       | addressLine1 | addressLine1         |
       | addressLine2 | addressLine2         |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ11 1ZZ             |
     And I click save and continue button on "Property Address Page"
     Then I am presented with the "Value Of Property Page"
