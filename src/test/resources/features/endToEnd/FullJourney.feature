@@ -42,7 +42,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Bath                 |
       | addressLine4 | Somerset             |
       | countryCode  | United Kingdom       |
-      | postcode     | BA15XY               |
+      | postcode     | BA1 5XY               |
       | poBox        | 55667788             |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
@@ -54,7 +54,7 @@ Feature: Is the members details journey fully connected
       | Is member a UK resident for tax purposes | Yes                                                                                           |
       | Date of birth             | 14 July 1986                                                                                     |
       | National Insurance number | QQ987654B                                                                                     |
-      | Principal residential address | 78 Kingsway Crescent,Westfield Avenue,Bath,Somerset,United Kingdom,BA15XY,55667788           |
+      | Principal residential address | 78 Kingsway Crescent,Westfield Avenue,Bath,Somerset,United Kingdom,BA1 5XY,55667788           |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
     Then I see the status "Completed" for task "Change details about the member"
@@ -298,7 +298,7 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Property Description Page"
     Then I am presented with the "Property Check Your Answers Page"
     And I should see the following details
-      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW16XE |
+      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW1 6XE |
       | Property value                            | £400,700                                                                  |
       | Description of the property and valuation | Property value description                                                |
     And I click save and continue button on "Property Check Your Answers Page"

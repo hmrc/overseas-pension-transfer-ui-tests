@@ -42,7 +42,7 @@ Feature: Entering the current address of the member
       | addressLine3 | Maidenhead           |
       | addressLine4 | Berkshire            |
       | countryCode  | United Kingdom       |
-      | postcode     | AB12CD               |
+      | postcode     | AB1 2CD               |
       | poBox        | 11223344             |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
@@ -54,7 +54,7 @@ Feature: Entering the current address of the member
       | addressLine3 | Maidenhead                                                                          |
       | addressLine4 | Berkshire                                                                           |
       | countryCode  | United Kingdom                                                                      |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
       | poBox        | 11223344                                                                            |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Members Current Address Page" error page
@@ -71,7 +71,7 @@ Feature: Entering the current address of the member
       | addressLine3 | Maidenhead                                                                          |
       | addressLine4 | Berkshire                                                                           |
       | countryCode  | United Kingdom                                                                      |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
       | poBox        | 11223344                                                                            |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Members Current Address Page" error page
@@ -88,7 +88,7 @@ Feature: Entering the current address of the member
       | addressLine3 | afsdfasdfasfdsadfadsfadsfasdfasdfsadfdasfsadfasdfsadfasdfasdfasdfdasfsafdsafasdfsda |
       | addressLine4 | Berkshire                                                                           |
       | countryCode  | United Kingdom                                                                      |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
       | poBox        | 11223344                                                                            |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Members Current Address Page" error page
@@ -105,7 +105,7 @@ Feature: Entering the current address of the member
       | addressLine3 | London                                                                              |
       | addressLine4 | afsdfasdfasfdsadfadsfadsfasdfasdfsadfdasfsadfasdfsadfasdfasdfasdfdasfsafdsafasdfsda |
       | countryCode  | United Kingdom                                                                      |
-      | postcode     | AB12CD                                                                              |
+      | postcode     | AB1 2CD                                                                              |
       | poBox        | 11223344                                                                            |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Members Current Address Page" error page
