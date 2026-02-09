@@ -1098,7 +1098,7 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("value" -> "Unquoted Class"))
 
       And("I click save and continue button on Name Of Company Quoted Share Page")
-      whenIClickSaveAndContinueButtonOn("Quoted Company Name")
+      whenIClickSaveAndContinueButtonOn("Name Of Company Quoted Share Page")
 
       Then("I am presented with the Value Of Quoted Share Page")
       thenIAmPresentedWithThe("Value Of Quoted Share Page")
@@ -1118,7 +1118,7 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("value" -> "401"))
 
       And("I click save and continue button on Number Of Quoted Share Page")
-      whenIClickSaveAndContinueButtonOn("Number Of Quoted Share Pagee")
+      whenIClickSaveAndContinueButtonOn("Number Of Quoted Share Page")
 
       Then("I am presented with the Class Of Quoted Share Page")
       thenIAmPresentedWithThe("Class Of Quoted Share Page")
@@ -1158,51 +1158,51 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Other Assets Description Page")
 
       When("I enter the following data into corresponding input fields on Other Assets Description Page")
-      Ienterthefollowingdataintocorrespondinginputfieldson ("Name Of Company Unquoted Share Page",
-        Map("day" -> "31","month" -> "12","year" -> "2024"))
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Other Assets Description Page",
+        Map("value" -> "Other Assets description"))
 
       And("I click save and continue button on Other Assets Description Page")
-      whenIClickSaveAndContinueButtonOn("Add Unquoted Share Start Page")
+      whenIClickSaveAndContinueButtonOn("Other Assets Description Page")
 
       Then("I am presented with the Other Assets Value Page")
-      thenIAmPresentedWithThe("Name Of Company Unquoted Share Page")
+      thenIAmPresentedWithThe("Other Assets Value Page")
 
       When("I enter the following data into corresponding input fields on Other Assets Value Page")
-      Ienterthefollowingdataintocorrespondinginputfieldson ("Name Of Company Unquoted Share Page",
-        Map("day" -> "31","month" -> "12","year" -> "2024"))
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Other Assets Value Page",
+        Map("value" -> "400800"))
 
       And("I click save and continue button on Other Assets Value Page")
-      whenIClickSaveAndContinueButtonOn("Add Unquoted Share Start Page")
+      whenIClickSaveAndContinueButtonOn("Other Assets Value Page")
 
       Then("I am presented with the Other Assets Check Your Answers Page")
-      thenIAmPresentedWithThe("Name Of Company Unquoted Share Page")
+      thenIAmPresentedWithThe("Other Assets Check Your Answers Page")
 
       And("I should see the following details")
         andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Other Assets Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Add Unquoted Share Start Page")
+      whenIClickSaveAndContinueButtonOn("Other Assets Check Your Answers Page")
 
       Then("I am presented with the Other Assets Amend Continue Page")
-      thenIAmPresentedWithThe("Name Of Company Unquoted Share Page")
+      thenIAmPresentedWithThe("Other Assets Amend Continue Page")
 
       When("I select radio button No on Other Assets Amend Continue Page")
-      whenISelectRadioButtonOn("No" , "Unquoted Share Amend Continue Page")
+      whenISelectRadioButtonOn("No" , "Other Assets Amend Continue Page")
 
       And("I click save and continue button on Other Assets Amend Continue Page")
-      whenIClickSaveAndContinueButtonOn("Add Unquoted Share Start Page")
+      whenIClickSaveAndContinueButtonOn("Other Assets Amend Continue Page")
 
       Then("I am presented with the Check Your Answers Page")
-      thenIAmPresentedWithThe("Name Of Company Unquoted Share Page")
+      thenIAmPresentedWithThe("Check Your Answers Page")
 
       And("I should see the following details")
         andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Add Unquoted Share Start Page")
+      whenIClickSaveAndContinueButtonOn("Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Name Of Company Unquoted Share Page")
+      thenIAmPresentedWithThe("Task List Page")
 
     }
   }
