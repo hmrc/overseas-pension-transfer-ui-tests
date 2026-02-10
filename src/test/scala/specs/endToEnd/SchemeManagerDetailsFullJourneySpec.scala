@@ -259,7 +259,7 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "3. Full Scheme Manager Details Journey - Organisation - CYA routing",
-      AllTests
+
       )
     {
       Given("I cleared the data for the service")

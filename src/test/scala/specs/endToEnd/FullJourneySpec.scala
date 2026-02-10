@@ -34,36 +34,50 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
+import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
+import specs.tags.AllTests
 import specsteps.BaseStepDefinitionsSteps._
 
 class FullJourneySpec extends BaseSpec with Matchers {
 
   Feature("Is the members details journey fully connected") {
 
-    Scenario("1. Full Journey - Start a new transfer") {
+    Scenario(
+      "1. Full Journey - Start a new transfer",
+      AllTests
+    ) {
 
 
-      Then("I am presented with the Dashboard Page")
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
+
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
       thenIAmPresentedWithThe("Dashboard Page")
-        // ⚠️ No step-def match found for: I am presented with the Dashboard Page
 
-      And("I click on Start new transfer hyperlink on Dashboard Page")
-      whenIClickOnHyperlinkOn("Start a new transfer","Dashboard Page")
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
 
-        // ⚠️ No step-def match found for: I click on Start new transfer hyperlink on Dashboard Page
-
-      Then("I am presented with the What You Will Need Page")
+      Then ("I am presented with the What You Will Need Page")
       thenIAmPresentedWithThe("What You Will Need Page")
-        // ⚠️ No step-def match found for: I am presented with the What You Will Need Page
 
-      And("I click save and continue button on What You Will Need Page")
+      And ("I click save and continue button on What You Will Need Page")
       whenIClickSaveAndContinueButtonOn("What You Will Need Page")
-        // ⚠️ No step-def match found for: I click save and continue button on What You Will Need Page
 
-      Then("I am presented with the Task List Page")
+      Then ("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
-        // ⚠️ No step-def match found for: I am presented with the Task List Page
 
       Then("I see the status Not started yet for task Add details about the member")
       thenISeeTheStatusForTask("Not started yet","Add details about the member")

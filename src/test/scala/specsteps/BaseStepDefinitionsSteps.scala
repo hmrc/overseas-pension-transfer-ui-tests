@@ -726,8 +726,8 @@ object BaseStepDefinitionsSteps extends BasePage {
   // I see the status {string} for task {string}
   def thenISeeTheStatusForTask(expectedStatus: String, taskName: String): Unit = {
     val xpathExpression =
-          s"""//li[contains(@class,'govuk-task-list__item')][.//*[normalize-space(text())="$taskName"]]"""
-
+         s"""//li[contains(@class,'govuk-task-list__item')][.//*[normalize-space(text())="$taskName"]]"""
+     // s"""//a[contains(normalize-space(),'$taskName')]"""
         val taskItem = Driver.instance.findElement(By.xpath(xpathExpression))
         val statusElement = taskItem.findElement(By.cssSelector("strong.govuk-tag"))
         statusElement.getText.trim should be(expectedStatus)
