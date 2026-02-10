@@ -472,14 +472,22 @@ object BaseStepDefinitionsSteps extends BasePage {
   }
 
   // I click on {string} button on {string}
-  def whenIClickOnButtonOn(button: String, page: String): Unit = {
-    PageObjectFinder.page(page).waitForPageHeader
-        button match {
-          case _ =>
-            Driver.instance.findElement(By.xpath("//*[contains(@href,'"+button+"')]")).click()
+//  def whenIClickOnButtonOn(button: String, page: String): Unit = {
+ //  PageObjectFinder.page(page).waitForPageHeader
+ //       button match {
+ //         case _ =>
+  //          Driver.instance.findElement(By.xpath("//*[contains(@href,'"+button+"')]")).click()
+ //   }
+  //}
 
-        }
+  def whenIClickOnButtonOn(button: String, page: String): Unit = {
+    val pageObj = PageObjectFinder.page(page)
+    pageObj.waitForPageHeader
+    val locator = By.xpath(s"//*[contains(@href, '$button')]")
+    val element = webDriver.findElement(locator)
+    element.click()
   }
+
 
   // ^I should see the following status of the submission journey
   def andIShouldSeeTheFollowingStatusOfTheSubmissionJourney(): Unit = {

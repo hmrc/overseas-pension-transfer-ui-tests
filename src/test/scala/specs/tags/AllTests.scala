@@ -20,6 +20,8 @@ import org.scalatest.Tag
 
 object AllTests extends Tag("AllTests")
 
+object AmendJourney extends Tag("AmendJourney")
+
 object QROPSDetails extends Tag("QROPS")
 
 object WIP extends Tag("WIP")
