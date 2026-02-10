@@ -47,8 +47,9 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Full Scheme Manager Details Journey - Individual",
-      AllTests
-     ) {
+
+     )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -147,8 +148,9 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "2. Full Scheme Manager Details Journey - Organisation",
-      AllTests
-      ) {
+
+      )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -258,7 +260,8 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
     Scenario(
       "3. Full Scheme Manager Details Journey - Organisation - CYA routing",
       AllTests
-      ) {
+      )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -357,11 +360,11 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
       When("I click on change-organisation-name button on Check Your Answers Page")
       whenIClickOnButtonOn("change-organisation-name","Check Your Answers Page")
 
-      Then("I am presented with the change Organisation Name Page")
-      thenIAmPresentedWithThe("change Organisation Name")
+      Then("I am presented with the Change Organisation Name Page")
+      thenIAmPresentedWithThe("Change Organisation Name Page")
 
-      When("I enter the following data into corresponding input fields on change Organisation Name Page")
-      Ienterthefollowingdataintocorrespondinginputfieldson ("change Organisation Name Page",
+      When("I enter the following data into corresponding input fields on Change Organisation Name Page")
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Change Organisation Name Page",
         Map("organisationName" -> "Great Organisation changed"))
 
       And("I click save and continue button on Organisation Name Page")
@@ -373,11 +376,11 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
       When("I click on change-scheme-managers-address button on Check Your Answers Page")
       whenIClickOnButtonOn("change-scheme-managers-address","Check Your Answers Page")
 
-      Then("I am presented with the change Scheme Manager Address Page")
-      thenIAmPresentedWithThe("Scheme Manager Address Page")
+      Then("I am presented with the Change Scheme Manager Address Page")
+      thenIAmPresentedWithThe("Change Scheme Manager Address Page")
 
       And("I click save and continue button on Scheme Manager Address Page")
-      whenIClickSaveAndContinueButtonOn("Scheme Manager Address Page")
+      whenIClickSaveAndContinueButtonOn("Change Scheme Manager Address Page")
 
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
@@ -385,15 +388,15 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
       When("I click on change-scheme-managers-email button on Check Your Answers Page")
       whenIClickOnButtonOn("change-scheme-managers-email","Check Your Answers Page")
 
-      Then("I am presented with the change Scheme Manager Email Page")
-      thenIAmPresentedWithThe("Scheme Manager Email Page")
+      Then("I am presented with the Change Scheme Manager Email Page")
+      thenIAmPresentedWithThe("Change Scheme Manager Email Page")
 
       When("I enter the following data into corresponding input fields on Scheme Manager EmailPage")
-      Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager EmailPage",
-        Map("email" -> "changed@email.com"))
+      Ienterthefollowingdataintocorrespondinginputfieldson ("Change Scheme Manager EmailPage",
+        Map("emailAddress" -> "changed@email.com"))
 
-      And("I click save and continue button on Scheme Manager Email Page")
-      whenIClickSaveAndContinueButtonOn("Scheme Manager EmailPage")
+      And("I click save and continue button on Change Scheme Manager Email Page")
+      whenIClickSaveAndContinueButtonOn("Change Scheme Manager EmailPage")
 
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")

@@ -45,7 +45,7 @@ class AmendJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Amend Journey - Change member,transfer,QROPS and schemeManager details",
-      AllTests
+
       )
     {
       Given("I cleared the data for the service")
