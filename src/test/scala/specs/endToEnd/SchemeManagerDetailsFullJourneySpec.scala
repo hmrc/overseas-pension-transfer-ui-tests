@@ -34,22 +34,59 @@ package specs.endToEnd
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
+import specpage.auth.AuthLoginStubPage
+import specpage.overseasPension.qropsSchemeManagerDetails.SchemeManagerTypePage
+import specpage.overseasPension.transferDetails.OverseasTransferAllowancePage
 import specs.BaseSpec
+import specs.tags.AllTests
 import specsteps.BaseStepDefinitionsSteps._
 
 class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
   Feature("Is the members details journey fully connected") {
 
-    Scenario("1. Full Scheme Manager Details Journey - Individual") {
+    Scenario(
+      "1. Full Scheme Manager Details Journey - Individual",
+      AllTests
+     ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
+
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
       And("I navigated to the Scheme Manager Type Page")
-      andINavigatedToThe("Scheme Manager Type Page")
+      navigateToPage(SchemeManagerTypePage)
 
       Then("I am presented with the Scheme Manager Type Page")
-      thenIAmPresentedWithThe("Scheme Manager Type Page ")
+      thenIAmPresentedWithThe("Scheme Manager Type Page")
 
       When("I select radio button Individual on Scheme Manager Type Page")
-      whenISelectRadioButtonOn("Individual" , "Scheme Manager Type")
+      whenISelectRadioButtonOn("Individual" , "Scheme Manager Type Page")
 
       And("I click save and continue button on Scheme Manager Type Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Type Page")
@@ -59,7 +96,7 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Scheme Manager Name Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager Name Page",
-        Map("schemeManagersFirstName" -> "Emily"))
+        Map("schemeManagersFirstName" -> "Emily","schemeManagersLastName" -> "Parker"))
 
       And("I click save and continue button on Scheme Manager Name Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Name Page")
@@ -69,7 +106,7 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Scheme Manager Address Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager Address Page",
-        Map("addressLine1" -> "88 Willow Street"))
+        Map("addressLine1" -> "88 Willow Street","addressLine2" -> "Oakwood Park","addressLine3" -> "Stratford","addressLine4" -> "Greater London","addressLine5" -> "England","countryCode" -> "United Kingdom"))
 
       And("I click save and continue button on Scheme Manager Address Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Address Page")
@@ -97,28 +134,59 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
 
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-      thenIAmPresentedWithThe("QROPS Check Your Answers Page")
+       And("I should see the following details")
+       andIShouldSeeTheFollowingDetails()
 
-      And("I click save and continue button on Scheme Manager Check Your Answer Page")
-      whenIClickSaveAndContinueButtonOn("Scheme Manager Check Your Answer Page")
+       And("I click save and continue button on Scheme Manager Check Your Answer Page")
+       whenIClickSaveAndContinueButtonOn("Scheme Manager Check Your Answer Page")
 
-      Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
-
+       Then("I am presented with the Task List Page")
+       thenIAmPresentedWithThe("Task List Page")
 
     }
 
-    Scenario("2. Full Scheme Manager Details Journey - Organisation") {
+    Scenario(
+      "2. Full Scheme Manager Details Journey - Organisation",
+      AllTests
+      ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
+
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
       And("I navigated to the Scheme Manager Type Page")
-      andINavigatedToThe("Scheme Manager Type Page")
+      navigateToPage(SchemeManagerTypePage)
 
       Then("I am presented with the Scheme Manager Type Page")
       thenIAmPresentedWithThe("Scheme Manager Type Page")
 
       When("I select radio button Organisation on Scheme Manager Type Page")
-      whenISelectRadioButtonOn("Organisation" , "Scheme Manager Type")
+      whenISelectRadioButtonOn("Organisation" , "Scheme Manager Type Page")
 
       And("I click save and continue button on Scheme Manager Type Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Type Page")
@@ -138,17 +206,17 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Organisation Individual Name Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Organisation Name Page",
-        Map("orgIndFirstName" -> "Sarah"))
+        Map("orgIndFirstName" -> "Sarah","orgIndLastName" -> "Thompson"))
 
       And("I click save and continue button on Scheme Manager Name Page")
-      whenIClickSaveAndContinueButtonOn("Scheme Manager Name  Page")
+      whenIClickSaveAndContinueButtonOn("Scheme Manager Name Page")
 
       Then("I am presented with the Scheme Manager Address Page")
       thenIAmPresentedWithThe("Scheme Manager Address Page")
 
       When("I enter the following data into corresponding input fields on Scheme Manager Address Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager Address Page",
-        Map("addressLine1" -> "88 Willow Street"))
+        Map("addressLine1" -> "99 Elm Street","addressLine2" -> "Greenfield Estate","addressLine3" -> "Cambridge","addressLine4" -> "Cambridgeshire","addressLine5" -> "East of England","countryCode" -> "United Kingdom"))
 
       And("I click save and continue button on Scheme Manager Address Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Address Page")
@@ -177,8 +245,7 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
 
       And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-      thenIAmPresentedWithThe("QROPS Check Your Answers Page")
+      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Scheme Manager Check Your Answer Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Check Your Answer Page")
@@ -188,15 +255,48 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     }
 
-    Scenario("3. Full Scheme Manager Details Journey - Organisation - CYA routing") {
+    Scenario(
+      "3. Full Scheme Manager Details Journey - Organisation - CYA routing",
+      AllTests
+      ) {
+      Given("I cleared the data for the service")
+      givenIClearedTheDataForTheService()
+
+      When ("I navigate to the Auth Login Stub Page")
+      navigateToPage(AuthLoginStubPage)
+
+      And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
+      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
+
+      When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
+      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
+
+      And ("I click submit button on Auth Login Stub Page")
+      whenIClickSubmitButtonOn("Auth Login Stub Page")
+
+      Then ("I am presented with the Dashboard page")
+      thenIAmPresentedWithThe("Dashboard Page")
+
+      And ("I click on Start new transfer hyperlink on Dashboard Page")
+      whenIClickStartNewTransferLink("Dashboard Page")
+
+      Then ("I am presented with the What You Will Need Page")
+      thenIAmPresentedWithThe("What You Will Need Page")
+
+      And ("I click save and continue button on What You Will Need Page")
+      whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+
+      Then ("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
       And("I navigated to the Scheme Manager Type Page")
-      andINavigatedToThe("Scheme Manager Type Page")
+      navigateToPage(SchemeManagerTypePage)
 
       Then("I am presented with the Scheme Manager Type Page")
       thenIAmPresentedWithThe("Scheme Manager Type Page")
 
       When("I select radio button Organisation on Scheme Manager Type Page")
-      whenISelectRadioButtonOn("Organisation" , "Scheme Manager Type")
+      whenISelectRadioButtonOn("Organisation" , "Scheme Manager Type Page")
 
       And("I click save and continue button on Scheme Manager Type Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Type Page")
@@ -216,17 +316,17 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       When("I enter the following data into corresponding input fields on Organisation Individual Name Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Organisation Name Page",
-        Map("orgIndFirstName" -> "Sarah"))
+        Map("orgIndFirstName" -> "Sarah","orgIndLastName" -> "Thompson"))
 
       And("I click save and continue button on Scheme Manager Name Page")
-      whenIClickSaveAndContinueButtonOn("Scheme Manager Name  Page")
+      whenIClickSaveAndContinueButtonOn("Scheme Manager Name Page")
 
       Then("I am presented with the Scheme Manager Address Page")
       thenIAmPresentedWithThe("Scheme Manager Address Page")
 
       When("I enter the following data into corresponding input fields on Scheme Manager Address Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Scheme Manager Address Page",
-        Map("addressLine1" -> "88 Willow Street"))
+        Map("addressLine1" -> "99 Elm Street","addressLine2" -> "Greenfield Estate","addressLine3" -> "Cambridge","addressLine4" -> "Cambridgeshire","addressLine5" -> "East of England","countryCode" -> "United Kingdom"))
 
       And("I click save and continue button on Scheme Manager Address Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Address Page")
@@ -253,9 +353,6 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       When("I click on change-organisation-name button on Check Your Answers Page")
       whenIClickOnButtonOn("change-organisation-name","Check Your Answers Page")
