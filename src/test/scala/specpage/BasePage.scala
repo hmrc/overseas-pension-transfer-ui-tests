@@ -212,6 +212,9 @@ import scala.util.matching.Regex
     def startMemberDetails(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']")).click()
 
+    def startTransferDetails(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/transfer-details/overseas-transfer-allowance']")).click()
+
     def noNinoLink(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']")).click()
 

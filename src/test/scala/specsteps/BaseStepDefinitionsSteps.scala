@@ -726,8 +726,8 @@ object BaseStepDefinitionsSteps extends BasePage {
   // I see the status {string} for task {string}
   def thenISeeTheStatusForTask(expectedStatus: String, taskName: String): Unit = {
     val xpathExpression =
-         s"""//li[contains(@class,'govuk-task-list__item')][.//*[normalize-space(text())="$taskName"]]"""
-     // s"""//a[contains(normalize-space(),'$taskName')]"""
+          s"""//li[contains(@class,'govuk-task-list__item')][.//*[normalize-space(text())="$taskName"]]"""
+
         val taskItem = Driver.instance.findElement(By.xpath(xpathExpression))
         val statusElement = taskItem.findElement(By.cssSelector("strong.govuk-tag"))
         statusElement.getText.trim should be(expectedStatus)
@@ -768,6 +768,10 @@ object BaseStepDefinitionsSteps extends BasePage {
   def whenIClickStartMemberDetailsLink(page: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).startMemberDetails()
+  }
+  def whenIClickStartTransferDetailsLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).startTransferDetails()
   }
   def whenIClickNoNinoLink(page: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
