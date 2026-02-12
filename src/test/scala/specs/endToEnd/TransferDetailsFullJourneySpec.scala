@@ -46,7 +46,7 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Full Transfer Details - Transfer Amount Taxable with applicable exclusion - Cash only",
-
+      AllTests
     )
     {
       Given("I cleared the data for the service")
@@ -186,7 +186,7 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "2. Full Transfer Details - Transfer Amount Taxable with no applicable exclusion - Cash only",
-
+      AllTests
     )
     {
       Given("I cleared the data for the service")
@@ -315,6 +315,7 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "3. Full Transfer Details - Transfer Amount Is Not Taxable - Cash only",
+      AllTests
     )
     {
       Given("I cleared the data for the service")
@@ -443,8 +444,9 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "4. Full Transfer Details - Transfer Amount Is Not Taxable - Cash, Unquoted, Quoted, Properties, Other",
-
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -881,8 +883,9 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "5 . Full Transfer Details - Transfer Amount Is Not Taxable - Unquoted, Quoted, Other",
-
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 

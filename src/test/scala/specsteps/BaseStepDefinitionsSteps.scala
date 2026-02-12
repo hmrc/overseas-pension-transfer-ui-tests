@@ -773,6 +773,22 @@ object BaseStepDefinitionsSteps extends BasePage {
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).startTransferDetails()
   }
+  def whenIClickStartQROPSDetailsLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).startQROPSDetails()
+  }
+
+  def whenIClickStartSchemeManagerDetailsLink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).startSchemeManagerDetails()
+  }
+
+  def whenIClickFinalCYALink(page: String): Unit = {
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickFinalCYALink()
+  }
+
+
   def whenIClickNoNinoLink(page: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).noNinoLink()

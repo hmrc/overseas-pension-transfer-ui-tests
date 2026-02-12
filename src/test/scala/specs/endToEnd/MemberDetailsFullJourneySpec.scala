@@ -45,8 +45,9 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Full Members Journey - Member is currently UK resident",
-
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -144,7 +145,9 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "2. Full Members Journey - Member is not currently or ever been UK resident" ,
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -251,7 +254,9 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "3. Full Members Journey - Member is not currently but has been UK resident with manual address entry" ,
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -379,7 +384,9 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "4. Full Members Journey - Member is currently UK resident with no Nino",
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 

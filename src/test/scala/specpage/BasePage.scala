@@ -215,6 +215,15 @@ import scala.util.matching.Regex
     def startTransferDetails(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/transfer-details/overseas-transfer-allowance']")).click()
 
+    def startQROPSDetails(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/qrops-details/qrops-name']")).click()
+
+    def startSchemeManagerDetails(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/qrops-scheme-manager-details/scheme-manager-type']")).click()
+
+    def clickFinalCYALink(): Unit =
+      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/check-your-answers']")).click()
+
     def noNinoLink(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']")).click()
 

@@ -46,8 +46,9 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Full QROPS Details - Valid country Selected" ,
-      QROPSDetails
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
@@ -139,11 +140,12 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
     }
-// code was commented above
+
 
     Scenario("2. Full QROPS Details - Other country selected",
-      QROPSDetails
-    ) {
+      AllTests
+    )
+    {
       Given("I cleared the data for the service")
       givenIClearedTheDataForTheService()
 
