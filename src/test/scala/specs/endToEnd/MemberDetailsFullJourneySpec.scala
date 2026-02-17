@@ -82,7 +82,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       whenIClickStartMemberDetailsLink("Task List Page")
 
        Then("I am presented with the Member's Name Page")
-          thenIAmPresentedWithThe("Member Name Page")
+       thenIAmPresentedWithThe("Member Name Page")
 
        When("I enter the following data into corresponding input fields on Member Name Page")
        Ienterthefollowingdataintocorrespondinginputfieldson("Member Name Page",
