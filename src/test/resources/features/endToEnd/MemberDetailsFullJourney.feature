@@ -37,7 +37,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Maidenhead           |
       | addressLine4 | Berkshire            |
       | countryCode  | United Kingdom       |
-      | postcode     | AB12CD               |
+      | postcode     | AB1 2CD               |
       | poBox        | 11223344             |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
@@ -49,7 +49,7 @@ Feature: Is the members details journey fully connected
       | Is member a UK resident for tax purposes | Yes                                                                                      |
       | Date of birth             | 31 December 1991                                                                               |
       | National Insurance number | QQ123456A                                                                                |
-      | Principal residential address | 12 Burlington Avenue,Burlington Road,Maidenhead,Berkshire,United Kingdom,AB12CD,11223344 |
+      | Principal residential address | 12 Burlington Avenue,Burlington Road,Maidenhead,Berkshire,United Kingdom,AB1 2CD,11223344 |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
 
@@ -77,7 +77,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Kenilworth     |
       | addressLine4 | Warwickshire   |
       | countryCode  | United Kingdom |
-      | postcode     | WA15BC         |
+      | postcode     | WA1 5BC         |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
     When I select radio button "No" on "Is Member Currently UK Resident Page"
@@ -92,71 +92,11 @@ Feature: Is the members details journey fully connected
       | Have they ever been a UK resident for tax purposes | No                                                                    |
       | Date of birth                     | 15 June 1974                                                             |
       | National Insurance number         | QQ123456A                                                             |
-      | Principal residential address     | 1 Main Street,Main Town,Kenilworth,Warwickshire,United Kingdom,WA15BC |
+      | Principal residential address     | 1 Main Street,Main Town,Kenilworth,Warwickshire,United Kingdom,WA1 5BC |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
 
-  Scenario:3. Full Members Journey - Member is not currently but has been UK resident with Address Lookup
-    Then I navigated to the "Member Name Page"
-    And I should see the heading "What is the member's name?"
-    When I enter the following data into corresponding input fields on "Member Name Page"
-      | firstName | Craig  |
-      | lastName  | Newson |
-    And I click continue button on "Member Name Page"
-    Then I am presented with the "Member Nino Page"
-    When I enter the following data into corresponding input fields on "Member Nino Page"
-      | value | QQ987654C |
-    And I click save and continue button on "Member Nino Page"
-    Then I am presented with the "Member Date Of Birth Page"
-    When I enter the following data into corresponding input fields on "Member Date Of Birth Page"
-      | day   | 23   |  | 31   |
-      | month | 03   |  | 12   |
-      | year  | 1985 |  | 1991 |
-    And I click save and continue button on "Member Date Of Birth Page"
-    Then I am presented with the "Members Current Address Page"
-    When I enter the following data into corresponding input fields on "Members Current Address Page"
-      | addressLine1 | 45 Oakwood Drive     |
-      | addressLine2 | Elm Street           |
-      | addressLine3 | Nottingham           |
-      | countryCode  | United Kingdom       |
-      | postcode     | NG12XY               |
-      | poBox        | 55667788             |
-    And I click save and continue button on "Members Current Address Page"
-    Then I am presented with the "Is Member Currently UK Resident Page"
-    When I select radio button "No" on "Is Member Currently UK Resident Page"
-    And I click save and continue button on "Is Member Currently UK Resident Page"
-    Then I am presented with the "Has Member Ever Been UK Resident Page"
-    When I select radio button "Yes" on "Has Member Ever Been UK Resident Page"
-    And I click save and continue button on "Has Member Ever Been UK Resident Page"
-    Then I am presented with the "Members Last UK Address Lookup Page"
-    When I enter the following data into corresponding input fields on "Members Last UK Address Lookup Page"
-      | value | ZZ11ZZ |
-    And I click save and continue button on "Members Last UK Address Lookup Page"
-    And I am presented with the "Select Members Last UK Address Page"
-    And I select radio button "2 Other Place, Some District, ZZ1 1ZZ" on "Select Members Last UK Address Page"
-    And I click save and continue button on "Select Members Last UK Address Page"
-    And I am presented with the "Confirm Members Last UK Address Page"
-    And I click save and continue button on "Confirm Members Last UK Address Page"
-    And I am presented with the "Member Date Of Leaving UK Page"
-    When I enter the following data into corresponding input fields on "Member Date Of Leaving UK Page"
-      | day   | 15   |
-      | month | 07   |
-      | year  | 2012 |
-    And I click save and continue button on "Member Date Of Leaving UK Page"
-    Then I am presented with the "Member Details Check Your Answers Page"
-    And I should see the following details
-      | Name                              | Craig Newson                                                          |
-      | Is member a UK resident for tax purposes | No                                                                    |
-      | Have they ever been a UK resident for tax purposes | Yes                                                                   |
-      | Date of birth                     | 23 March 1985                                                             |
-      | National Insurance number         | QQ987654C                                                             |
-      | Principal residential address     | 45 Oakwood Drive,Elm Street,Nottingham,United Kingdom,NG12XY,55667788 |
-      | Last UK address                   | 2 Other Place,Some District,ZZ1 1ZZ                                   |
-      | Date member left UK               | 15 July 2012                                                             |
-    And I click save and continue button on "Member Details Check Your Answers Page"
-    Then I am presented with the "Task List Page"
-
-  Scenario: 4. Full Members Journey - Member is not currently but has been UK resident with manual address entry
+  Scenario: 3. Full Members Journey - Member is not currently but has been UK resident with manual address entry
     Then I navigated to the "Member Name Page"
     And I should see the heading "What is the member's name?"
     When I enter the following data into corresponding input fields on "Member Name Page"
@@ -178,7 +118,7 @@ Feature: Is the members details journey fully connected
       | addressLine1 | 78 Kingsway Crescent |
       | addressLine2 | Westfield Avenue     |
       | countryCode  | United Kingdom       |
-      | postcode     | BA15XY               |
+      | postcode     | BA1 5XY               |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
     When I select radio button "No" on "Is Member Currently UK Resident Page"
@@ -186,8 +126,6 @@ Feature: Is the members details journey fully connected
     Then I am presented with the "Has Member Ever Been UK Resident Page"
     When I select radio button "Yes" on "Has Member Ever Been UK Resident Page"
     And I click save and continue button on "Has Member Ever Been UK Resident Page"
-    Then I am presented with the "Members Last UK Address Lookup Page"
-    When I click on "enter the address manually" hyperlink on "Members Last UK Address Lookup Page"
     And I am presented with the "Members Last UK Address Page"
     When I enter the following data into corresponding input fields on "Members Last UK Address Page"
       | addressLine1 | 9 Greenbank Terrace |
@@ -207,13 +145,13 @@ Feature: Is the members details journey fully connected
       | Have they ever been a UK resident for tax purposes| Yes                                                         |
       | Date of birth                     | 4 September 1980                                                    |
       | National Insurance number         | QQ112233B                                                   |
-      | Principal residential address     | 78 Kingsway Crescent,Westfield Avenue,United Kingdom,BA15XY |
+      | Principal residential address     | 78 Kingsway Crescent,Westfield Avenue,United Kingdom,BA1 5XY |
       | Last UK address                   | 9 Greenbank Terrace,Old Road,ZZ9 9ZZ                        |
       | Date member left UK               | 20 October 2015                                                  |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
 
-  Scenario: 5. Full Members Journey - Member is currently UK resident with no Nino
+  Scenario: 4. Full Members Journey - Member is currently UK resident with no Nino
     Then I navigated to the "Member Name Page"
     And I should see the heading "What is the member's name?"
     When I enter the following data into corresponding input fields on "Member Name Page"
@@ -238,7 +176,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Reading               |
       | addressLine4 | Berkshire             |
       | countryCode  | United Kingdom        |
-      | postcode     | RG12XY                |
+      | postcode     | RG1 2XY                |
       | poBox        | 77889911              |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
@@ -250,6 +188,6 @@ Feature: Is the members details journey fully connected
       | Is member a UK resident for tax purposes | Yes                                                                              |
       | Date of birth                    | 14 August 1990                                                                        |
       | Why no National Insurance number | Individual has recently moved to the UK and has not been issued a NINO yet.      |
-      | Principal residential address    | 7 Falcon Lane,Riverside Gardens,Reading,Berkshire,United Kingdom,RG12XY,77889911 |
+      | Principal residential address    | 7 Falcon Lane,Riverside Gardens,Reading,Berkshire,United Kingdom,RG1 2XY,77889911 |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"

@@ -31,7 +31,7 @@ Feature: Property Mini journey(Adding properties and removing)
       | addressLine3 | addressLine3         |
       | addressLine4 | addressLine4         |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ11 1ZZ             |
     And I click save and continue button on "Property Address Page"
     Then I am presented with the "Value Of Property Page"
     When I enter the following data into corresponding input fields on "Value Of Property Page"
@@ -85,7 +85,7 @@ Feature: Property Mini journey(Adding properties and removing)
       | addressLine3 | addressLine3         |
       | addressLine4 | addressLine4         |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ11 1ZZ             |
     And I click save and continue button on "Property Address Page"
     Then I am presented with the "Value Of Property Page"
     When I enter the following data into corresponding input fields on "Value Of Property Page"
@@ -119,7 +119,7 @@ Feature: Property Mini journey(Adding properties and removing)
       | addressLine3 | addressLine three     |
       | addressLine4 | addressLine four      |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ11 1ZZ             |
     And I click save and continue button on "Change Property Address Page"
     Then I am presented with the "Change Value Of Property Page"
     When I enter the following data into corresponding input fields on "Change Value Of Property Page"
@@ -156,7 +156,7 @@ Feature: Property Mini journey(Adding properties and removing)
       | addressLine3 | addressLine3         |
       | addressLine4 | addressLine4         |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ11 1ZZ             |
     And I click save and continue button on "Property Address Page"
     Then I am presented with the "Value Of Property Page"
     When I enter the following data into corresponding input fields on "Value Of Property Page"
@@ -190,7 +190,7 @@ Feature: Property Mini journey(Adding properties and removing)
       | addressLine3 | addressLine three     |
       | addressLine4 | addressLine four      |
       | countryCode  | United Kingdom       |
-      | postcode     | postcode             |
+      | postcode     | ZZ11 1ZZ             |
     And I click save and continue button on "Change Property Address Page"
     Then I am presented with the "Change Value Of Property Page"
     When I enter the following data into corresponding input fields on "Change Value Of Property Page"

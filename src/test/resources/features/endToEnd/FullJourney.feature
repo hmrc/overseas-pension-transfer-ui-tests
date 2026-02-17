@@ -42,7 +42,7 @@ Feature: Is the members details journey fully connected
       | addressLine3 | Bath                 |
       | addressLine4 | Somerset             |
       | countryCode  | United Kingdom       |
-      | postcode     | BA15XY               |
+      | postcode     | BA1 5XY               |
       | poBox        | 55667788             |
     And I click save and continue button on "Members Current Address Page"
     Then I am presented with the "Is Member Currently UK Resident Page"
@@ -54,10 +54,10 @@ Feature: Is the members details journey fully connected
       | Is member a UK resident for tax purposes | Yes                                                                                           |
       | Date of birth             | 14 July 1986                                                                                     |
       | National Insurance number | QQ987654B                                                                                     |
-      | Principal residential address | 78 Kingsway Crescent,Westfield Avenue,Bath,Somerset,United Kingdom,BA15XY,55667788           |
+      | Principal residential address | 78 Kingsway Crescent,Westfield Avenue,Bath,Somerset,United Kingdom,BA1 5XY,55667788           |
     And I click save and continue button on "Member Details Check Your Answers Page"
     Then I am presented with the "Task List Page"
-    Then I see the status "Completed" for task "Add details about the member"
+    Then I see the status "Completed" for task "Change details about the member"
     Then I see the status "Not started yet" for task "Add information about the transfer"
     Then I see the status "Not started yet" for task "Add information about the QROPS"
     Then I see the status "Not started yet" for task "Add QROPS scheme manager's details"
@@ -94,8 +94,8 @@ Feature: Is the members details journey fully connected
       | Country or territory established | United Kingdom                                                                   |
     And I click save and continue button on "QROPS Check Your Answers Page"
     Then I am presented with the "Task List Page"
-    Then I see the status "Completed" for task "Add details about the member"
-    Then I see the status "Completed" for task "Add information about the QROPS"
+    Then I see the status "Completed" for task "Change details about the member"
+    Then I see the status "Completed" for task "Change information about the QROPS"
     Then I see the status "Not started yet" for task "Add information about the transfer"
     Then I see the status "Not started yet" for task "Add QROPS scheme manager's details"
     Then I see the status "Cannot start yet" for task "Check your answers and submit the report"
@@ -112,9 +112,9 @@ Feature: Is the members details journey fully connected
     #When I click on "Return to task list" hyperlink on "Scheme Manager Address Page"
     When I click on "Return to complete your transfer report" hyperlink on "Scheme Manager Address Page"
     Then I am presented with the "Task List Page"
-    Then I see the status "Completed" for task "Add details about the member"
+    Then I see the status "Completed" for task "Change details about the member"
     Then I see the status "Not started yet" for task "Add information about the transfer"
-    Then I see the status "Completed" for task "Add information about the QROPS"
+    Then I see the status "Completed" for task "Change information about the QROPS"
     Then I see the status "In progress" for task "Add QROPS scheme manager's details"
     Then I see the status "Cannot start yet" for task "Check your answers and submit the report"
     When I click on "Add QROPS scheme manager's details" hyperlink on "Task List Page"
@@ -152,10 +152,10 @@ Feature: Is the members details journey fully connected
       | Manager telephone number   | +441234567890                                                                 |
     And I click save and continue button on "Scheme Manager Check Your Answer Page"
     Then I am presented with the "Task List Page"
-    Then I see the status "Completed" for task "Add details about the member"
+    Then I see the status "Completed" for task "Change details about the member"
     Then I see the status "Not started yet" for task "Add information about the transfer"
-    Then I see the status "Completed" for task "Add information about the QROPS"
-    Then I see the status "Completed" for task "Add QROPS scheme manager's details"
+    Then I see the status "Completed" for task "Change information about the QROPS"
+    Then I see the status "Completed" for task "Change QROPS scheme manager's details"
     Then I see the status "Cannot start yet" for task "Check your answers and submit the report"
     When I click on "Add information about the transfer" hyperlink on "Task List Page"
     Then I am presented with the "Overseas Transfer Allowance Page"
@@ -298,7 +298,7 @@ Feature: Is the members details journey fully connected
     And I click save and continue button on "Property Description Page"
     Then I am presented with the "Property Check Your Answers Page"
     And I should see the following details
-      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW16XE |
+      | Property address                          | 221B Baker Street,Marylebone,London,Greater London,United Kingdom,NW1 6XE |
       | Property value                            | £400,700                                                                  |
       | Description of the property and valuation | Property value description                                                |
     And I click save and continue button on "Property Check Your Answers Page"
@@ -341,10 +341,10 @@ Feature: Is the members details journey fully connected
       | Other assets                            | 1 added                                                                                                   |
     And I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Task List Page"
-    Then I see the status "Completed" for task "Add details about the member"
-    Then I see the status "Completed" for task "Add information about the transfer"
-    Then I see the status "Completed" for task "Add information about the QROPS"
-    Then I see the status "Completed" for task "Add QROPS scheme manager's details"
+    Then I see the status "Completed" for task "Change details about the member"
+    Then I see the status "Completed" for task "Change information about the transfer"
+    Then I see the status "Completed" for task "Change information about the QROPS"
+    Then I see the status "Completed" for task "Change QROPS scheme manager's details"
     Then I see the status "Not started yet" for task "Check your answers and submit the report"
     And I click on "Check your answers and submit the report" hyperlink on "Dashboard Page"
     Then I am presented with the "Final Check Your Answers Page"
