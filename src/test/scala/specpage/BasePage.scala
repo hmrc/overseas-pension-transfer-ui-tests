@@ -15,7 +15,6 @@
  */
 
 package specpage
-import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
 import org.openqa.selenium.{By, WebDriver, WebElement}
 import org.scalatest.Assertion
@@ -24,16 +23,15 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import otc.driver.BrowserDriver
 import otc.support.TestData
+import uk.gov.hmrc.selenium.component.PageObject
+import uk.gov.hmrc.selenium.webdriver.Driver
 
 import java.time.{Duration, LocalDate}
 import scala.jdk.CollectionConverters._
 import scala.util.matching.Regex
 
-  trait BasePage extends Page
-    with Matchers
-    with BrowserDriver
-    with Eventually
-    with WebBrowser {
+trait BasePage extends Page with PageObject with Matchers with BrowserDriver with Eventually with WebBrowser {
+
     implicit lazy val webDriver: WebDriver = Driver.instance
     override val url: String = ""
     val changeUrl: String = ""
@@ -446,10 +444,6 @@ import scala.util.matching.Regex
 
 
 
-}
-
-object Driver {
-  lazy val instance: WebDriver = new ChromeDriver()
 }
 
 // trait BasePage extends Page with Matchers with Eventually with WebBrowser {

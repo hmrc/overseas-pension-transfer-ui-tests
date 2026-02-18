@@ -352,7 +352,6 @@ object BaseStepDefinitionsSteps extends BasePage {
           Driver.instance.findElement(By.id(url))
         )
       )
-      //verifyLinkById(url, text)
     }
   }
 

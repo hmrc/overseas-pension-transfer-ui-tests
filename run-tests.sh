@@ -12,6 +12,7 @@ echo "Journey:              ${JOURNEY}"
 echo "=========================================="
 sbt clean -Dbrowser="${BROWSER}" -Denvironment=local "testOnly specs.* -- -n AllTests" testReport
 
+
 #sbt clean -Dbrowser="${BROWSER}" -Dbrowser.option.headless=true -Denvironment=local "testOnly specs.* -- -n AllTests" testReport
 
 #sbt -jvm-debug 5005 clean -Dbrowser="${BROWSER}" -Dbrowser.option.headless=true -Denvironment=local "testOnly specs.* -- -n AllTests" testReport
