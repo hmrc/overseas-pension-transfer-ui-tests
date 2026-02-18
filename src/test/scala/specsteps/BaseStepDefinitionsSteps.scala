@@ -59,13 +59,6 @@ object BaseStepDefinitionsSteps extends BasePage {
   }
 
   // I am presented with the {string}
-  def thenIAmPresentedWith (pageName: String): Unit = {
-    val page = PageObjectFinder.page(pageName)
-    page.checkURL
-    page.checkPageTitle()
-  }
-
-  // I am presented with the {string}
   def thenIAmPresentedWithThe (pageName: String): Unit = {
     val page = PageObjectFinder.page(pageName)
         page.checkURL
@@ -90,18 +83,12 @@ object BaseStepDefinitionsSteps extends BasePage {
       case _                                                            =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("overseas-pension-transfer-frontend"))
     }}
+
   def whenIEnterEnrollmentKey (enrollmentKey:String, IdentifierName:String, IdentifierValue:String, page:String): Unit = {
     page match {
       case "Auth Login Stub Page" =>
         AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
     }}
-
-  // I am presented with the {string} with existing url suffix as {string}
-  def thenIAmPresentedWithTheWithExistingUrlSuffixAs(page: String, urlSuffix: String): Unit = {
-    PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
-  }
 
   // I select radio button {string} on {string}
   def whenISelectRadioButtonOn(choice: String, page: String): Unit = {
@@ -126,87 +113,13 @@ object BaseStepDefinitionsSteps extends BasePage {
     PageObjectFinder.page(page).clickContinueButton()
   }
 
-  // I click back button on {string}
-  def whenIClickBackButtonOn(page: String): Unit = {
-    PageObjectFinder.page(page).clickBackButton()
-  }
-
-  // The error summary title is {string} and the error message is {string}
-  def thenTheErrorSummaryTitleIsAndTheErrorMessageIs(errorSummaryTitle: String, errorMessage: String): Unit = {
-    PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
-          val finalErrorMessage = errorMessage.replace("^", "’")
-          PageObjectFinder.checkPageErrorMessage(finalErrorMessage)
-  }
-
-  // I enter {string} on {string}
-  def whenIEnterOn(data: String, page: String): Unit = {
-    PageObjectFinder.page(page).enterDetails(data)
-  }
-
-  // I enter {string} in the {string} input field on {string}
-  def whenIEnterInTheInputFieldOn(text: String, field: String, page: String): Unit = {
-    val element = PageObjectFinder.page(page).textFieldElement(field)
-    element.sendKeys(text)
-  }
-
-  // I enter {string} for {string} on {string}
-  def whenIEnterForOn(textToEnter: String, text: String, page: String): Unit = {
-    PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
-  }
-
-  // I enter {string} for {string} on {string} at {string} input box
-  def whenIEnterForOnAtInputBox(textToEnter: String, text: String, page: String, index: String): Unit = {
-    PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
-  }
-
-  // I enter redirect url for {string}
-  def whenIEnterRedirectUrlFor(page: String): Unit = {
-    page match {
-          case "Task List Page"            =>
-            Driver.instance.get(TestConfiguration.url("overseas-pension-transfer-frontend") + "/complete-return/task-list")
-          case "Return Summary Page"       =>
-            Driver.instance.get(TestConfiguration.url("overseas-pension-transfer-frontend") + "/complete-return/check-return")
-          case "Alcohol Duty Service"      =>
-            Driver.instance.get(
-              TestConfiguration.url("overseas-pension-transfer-frontend") + "/before-you-start-your-return/" + periodKey()
-            )
-          case "Previous Month Period Key" =>
-            Driver.instance.get(
-              TestConfiguration.url(
-                "overseas-pension-transfer-frontend"
-              ) + "/before-you-start-your-return/" + previousPeriodKey()
-            )
-        }
-  }
-
   // I am presented with the {string} {string}
   def thenIAmPresentedWithThe(page: String, specificPage: String): Unit = {
     PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageTitle(specificPage)
-  }
-
-  // I click on {string} hyperlink on {string}
-  def whenIClickOnHyperlinkOn(hyperlink: String, page: String): Unit = {
-    hyperlink match {
-      case "Member doesn't have a National Insurance number." =>
-        Driver.instance.findElement(By.xpath("//*[@id=\"noNinoPageLink\"]")).click()
-
-      case "The member has a National Insurance number." =>
-        Driver.instance.findElement(By.xpath("//*[@id=\"memberNinoPageLink\"]")).click()
-
-      case "Start new transfer" =>
-        Driver.instance.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/p/a")).click()
-
-      case "Member Name" =>
-        Driver.instance.findElement(By.xpath("//*[contains(@href,'Malcolm')]")).click()
-
-      case _ =>
-        Driver.instance.findElement(By.xpath("//a[normalize-space()=\"" + hyperlink + "\"]")).click()
-    }
+    PageObjectFinder.page(page).checkPageTitle()
   }
 
   def whenIClickOnButtonOn(button: String, page: String): Unit = {
-    val pageObj = PageObjectFinder.page(page)
     val locator = By.xpath(s"//*[contains(@href, '$button')]")
     val element = Driver.instance.findElement(locator)
     element.click()
@@ -261,7 +174,6 @@ object BaseStepDefinitionsSteps extends BasePage {
   def whenIClickFinalCYALink(page: String): Unit = {
     PageObjectFinder.page(page).clickFinalCYALink()
   }
-
 
   def whenIClickNoNinoLink(page: String): Unit = {
     PageObjectFinder.page(page).noNinoLink()

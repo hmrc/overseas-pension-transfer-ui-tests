@@ -33,7 +33,7 @@ object MemberDateOfLeavingUKPage extends BasePage {
     "When did the member leave the UK? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def enterDate(day: String, month: String, year: String): Unit = {
+  def enterDate(day: String, month: String, year: String): Unit = {
     enterText("value.day", day)
     enterText("value.month", month)
     enterText("value.year", year)

@@ -15,7 +15,6 @@
  */
 
 package specpage
-import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.{By, WebElement}
 import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
@@ -76,13 +75,9 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
   }
 
   def enterText(id: String, textToEnter: String): Unit = {
-    Driver.instance.findElement(By.id(id)).clear()
-    Driver.instance.findElement(By.id(id)).sendKeys(textToEnter)
+    sendKeys(By.id(id), textToEnter)
   }
 
-  def checkPageTitle(page: String): Unit = {}
-
-  def checkPageErrorTitle(page: String): Unit = {}
 
   def checkURL: Assertion =
     if (url.contains("...")) {
@@ -163,180 +158,50 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
 
   def clickBackButton(): Unit = click(By.xpath("//a[normalize-space()='Back']"))
 
-    def clickOnLink(): Unit = click(By.id("continueButton"))
-
-  def enterDetails(data: String): Unit = {}
-
-  def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
-
-  def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
+  def clickOnLink(): Unit = click(By.id("continueButton"))
 
   def clickRadioButton(text: String): Unit =
     Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
-  def clickCheckBox(text: String): Unit =
-    Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
-
     def searchField(): Unit =
-      Driver.instance.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/form/div/div[2]/div/div/button")).click()
+      click(By.xpath("//*[@id=\"main-content\"]/div/div/form/div/div[2]/div/div/button"))
 
     def startNewTransfer(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']"))
 
     def clickMemberName(): Unit =
       click(By.linkText("Malcolm Mendes"))
 
     def startMemberDetails(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']"))
 
     def startTransferDetails(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/transfer-details/overseas-transfer-allowance']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/transfer-details/overseas-transfer-allowance']"))
 
     def startQROPSDetails(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/qrops-details/qrops-name']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/qrops-details/qrops-name']"))
 
     def startSchemeManagerDetails(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/qrops-scheme-manager-details/scheme-manager-type']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/qrops-scheme-manager-details/scheme-manager-type']"))
 
     def clickFinalCYALink(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/check-your-answers']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/check-your-answers']"))
 
     def noNinoLink(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']"))
 
     def clickViewAmendLink(): Unit =
       click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']"))
 
     def textFieldElement(field: String): WebElement = field match {
-    case "firstName" => Driver.instance.findElement(By.id("memberFirstName"))
-    case "lastName" => Driver.instance.findElement(By.id("memberLastName"))
-    case "day" => Driver.instance.findElement(By.id("value.day"))
-    case "month" => Driver.instance.findElement(By.id("value.month"))
-    case "year" => Driver.instance.findElement(By.id("value.year"))
-    case _ => Driver.instance.findElement(By.id(field))
-  }
-
-  def verifyInputFieldsByIds(fields: List[String]): Unit = {
-    for (field <- fields) {
-      Some(textFieldElement(field)).isDefined should be(true)
+      case "firstName" => Driver.instance.findElement(By.id("memberFirstName"))
+      case "lastName" => Driver.instance.findElement(By.id("memberLastName"))
+      case "day" => Driver.instance.findElement(By.id("value.day"))
+      case "month" => Driver.instance.findElement(By.id("value.month"))
+      case "year" => Driver.instance.findElement(By.id("value.year"))
+      case _ => Driver.instance.findElement(By.id(field))
     }
-  }
 
-  def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
-    for (fieldLabel <- fieldLabels) {
-      val labelField = Driver.instance.findElement(By.xpath(s"//label[contains(text(), '$fieldLabel')]"))
-
-      val inputFieldName = labelField.getAttribute("for")
-      // get the value of the 'for' attribute of the 'label' element
-      // Search for an 'element' having the corresponding value
-      //Some(Driver.instance.findElement(By.name(inputFieldName)))
-
-      Some(Driver.instance.findElement(By.name(inputFieldName))).isDefined should be(true)
-    }
-  }
-
-  def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
-    val actualErrorSummaryTitle = Driver.instance.findElement(By.className("govuk-error-summary__title")).getText
-    actualErrorSummaryTitle should be(errorSummaryTitle)
-  }
-
-  def checkPageErrorMessage(errorMessage: String): Unit = {
-    val actualErrorMessage =
-      Driver.instance.findElement(By.cssSelector(".govuk-error-summary__body")).getText.trim.replaceAll("\n", ",")
-    assert(actualErrorMessage.contains(errorMessage))
-  }
-
-  def listOfErrorLinks(): List[WebElement] = Driver.instance.findElements(By.cssSelector(".govuk-error-summary__list a")).asScala.toList
-
-  def listOfErrorMessages(): List[String] = listOfErrorLinks().map(_.getText.trim)
-
-  def clickButton(buttonText: String): Unit = click(By.partialLinkText(buttonText))
-
-  def pageData: Map[String, String] = Driver.instance
-    .findElements(By.cssSelector(".govuk-summary-list__row"))
-    .asScala
-    .flatMap { row =>
-      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
-      val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", ",")
-      Map(key -> value)
-    }
-    .toMap
-
-  val Year: Int = LocalDate.now().getYear
-  val Month: Int = LocalDate.now().getMonthValue
-
-  def periodKey(): String =
-    s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
-
-  def previousPeriodKey(): String = s"${Year.toString.takeRight(2)}A${((generateMonth(Month: Int) - 1) + 64).toChar}"
-
-  def generateYear(Year: Int): Int =
-    if (generateMonth(Month: Int) == 12)
-      Year - 1
-    else
-      Year
-
-  def generateMonth(Month: Int): Int =
-    if ((Month - 1) == 0 || (Month - 1) == 1 || (Month - 1) == 2)
-      1
-    else if ((Month - 1) == 3 || (Month - 1) == 4 || (Month - 1) == 5)
-      4
-    else if ((Month - 1) == 6 || (Month - 1) == 7 || (Month - 1) == 8)
-      7
-    else
-      10
-
-  private def taxTypeCodeText() = Driver.instance.findElement(By.cssSelector(".govuk-radios"))
-
-  def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
-
-  def productsList: Seq[List[String]] = Driver.instance
-    .findElement(By.tagName("table"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(
-          _.getText.trim
-            .replaceAll("\nthis product", "")
-            .replaceAll("""\n.*between.*""", "")
-            .replaceAll("""\n.*at or above.*""", "")
-            .replaceAll("""\n.*adjustment with duty value.*""", "")
-            .replaceAll("\n", " ")
-        )
-        .toList
-    )
-    .toList
-
-  def outstandingReturnsList: Seq[List[String]] = Driver.instance
-    .findElement(By.xpath("//div/table[1]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nSubmit.*""", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  def completedReturnsList: Seq[List[String]] = Driver.instance
-    .findElement(By.xpath("//div/table[2]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nView.*""", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  // To get the duty due text
-  private def bulletPointsTextDutyDue() =
-    Driver.instance.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[2]"))
-
-  def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
-
-  def enterDate(day: String, month: String, year: String): Unit = {}
 
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
