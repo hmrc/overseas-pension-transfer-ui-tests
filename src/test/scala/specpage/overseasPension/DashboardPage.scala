@@ -31,7 +31,6 @@ object DashboardPage extends BasePage {
 
 
   override def checkPageTitle(): Assertion = {
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
     val actualTitle = pageTitle
     actualTitle should startWith("All transfers (page")
     actualTitle should endWith("– GOV.UK")

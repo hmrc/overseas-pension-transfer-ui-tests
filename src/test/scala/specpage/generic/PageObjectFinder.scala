@@ -16,7 +16,6 @@
 
 package specpage.generic
 
-import io.cucumber.datatable.DataTable
 import org.apache.commons.io.FileUtils
 import org.scalatest.exceptions.TestFailedException
 import specpage.BasePage
@@ -53,12 +52,5 @@ object PageObjectFinder extends BasePage {
 
   def file(path: String): File = {
     new File(path)
-  }
-
-  implicit class DataTableConverters(dataTable: DataTable) {
-    def asScalaListOfStrings: List[String] = dataTable.cells().asScala.flatMap(_.asScala).toList
-
-    def asScalaListOfLists: List[List[String]] = dataTable.rows(0).asLists().asScala.map(_.asScala.toList).toList
-
   }
 }

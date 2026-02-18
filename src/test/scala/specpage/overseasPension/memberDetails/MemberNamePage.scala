@@ -16,6 +16,7 @@
 
 package specpage.overseasPension.memberDetails
 
+import org.openqa.selenium.By
 import otc.conf.TestConfiguration
 import specpage.BasePage
 
@@ -34,6 +35,6 @@ object  MemberNamePage extends BasePage {
   )
 
   override def clickContinueButton(): Unit = {
-    click on cssSelector(".govuk-button")
+    click(By.cssSelector(".govuk-button"))
   }
 }

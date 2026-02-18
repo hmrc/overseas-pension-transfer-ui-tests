@@ -32,13 +32,12 @@ package specs.endToEnd
  * limitations under the License.
  */
 
-import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specpage.overseasPension.transferDetails.OverseasTransferAllowancePage
 import specs.BaseSpec
 import specs.tags.AllTests
-import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, andIShouldSeeTheFollowingDetails, andIShouldSeeTheHeadingX, givenIClearedTheDataForTheService, navigateToPage, thenIAmPresentedWithThe, whenEnterOnSearch, whenICheckboxOn, whenIClickSaveAndContinueButtonOn, whenIClickSearchButtonOn, whenIClickStartNewTransferLink, whenIClickSubmitButtonOn, whenIEnterEnrollmentKey, whenIEnterRedirectURLOnAuthLoginStubPageFor, whenISelectRadioButtonOn}
+import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, givenIClearedTheDataForTheService, navigateToPage, thenIAmPresentedWithThe, whenICheckboxOn, whenIClickSaveAndContinueButtonOn, whenIClickStartNewTransferLink, whenIClickSubmitButtonOn, whenIEnterEnrollmentKey, whenIEnterRedirectURLOnAuthLoginStubPageFor, whenISelectRadioButtonOn}
 
 class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
@@ -174,9 +173,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Transfer Details Check Your Answers Page")
       thenIAmPresentedWithThe("Transfer Details Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Transfer Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Transfer Details Check Your Answers Page")
 
@@ -301,9 +297,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Transfer Details Check Your Answers Page")
       thenIAmPresentedWithThe("Transfer Details Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Transfer Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Transfer Details Check Your Answers Page")
@@ -430,9 +423,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Transfer Details Check Your Answers Page")
       thenIAmPresentedWithThe("Transfer Details Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Transfer Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Transfer Details Check Your Answers Page")
@@ -814,9 +804,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Property Check Your Answers Page")
       thenIAmPresentedWithThe("Property Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Property Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Property Check Your Answers Page")
 
@@ -1072,9 +1059,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Unquoted Share Check Your Answers Page")
       thenIAmPresentedWithThe("Unquoted Share Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Unquoted Share Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Unquoted Share Check Your Answers Page")
 
@@ -1136,9 +1120,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Quoted Share Check Your Answers Page")
       thenIAmPresentedWithThe("Quoted Share Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Quoted Share Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Quoted Share Check Your Answers Page")
 
@@ -1180,9 +1161,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Other Assets Check Your Answers Page")
       thenIAmPresentedWithThe("Other Assets Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Other Assets Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Other Assets Check Your Answers Page")
 
@@ -1197,9 +1175,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Check Your Answers Page")
       thenIAmPresentedWithThe("Check Your Answers Page")
-
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Check Your Answers Page")

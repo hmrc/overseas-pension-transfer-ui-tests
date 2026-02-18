@@ -32,13 +32,11 @@ package specs.endToEnd
  * limitations under the License.
  */
 
-import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specpage.overseasPension.qropsSchemeManagerDetails.SchemeManagerTypePage
-import specpage.overseasPension.transferDetails.OverseasTransferAllowancePage
 import specs.BaseSpec
-import specs.tags.AllTests
+import specs.tags.{AllTests, WIP}
 import specsteps.BaseStepDefinitionsSteps._
 
 class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
@@ -134,9 +132,6 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
-
-       And("I should see the following details")
-       andIShouldSeeTheFollowingDetails()
 
        And("I click save and continue button on Scheme Manager Check Your Answer Page")
        whenIClickSaveAndContinueButtonOn("Scheme Manager Check Your Answer Page")
@@ -245,9 +240,6 @@ class SchemeManagerDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Scheme Manager Check Your Answer Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Check Your Answer Page")

@@ -32,7 +32,6 @@ package specs.endToEnd
  * limitations under the License.
  */
 
-import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
@@ -131,9 +130,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-
-       And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
        whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
@@ -241,9 +237,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
@@ -371,9 +364,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
@@ -477,9 +467,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")

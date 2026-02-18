@@ -18,7 +18,6 @@ package specpage.overseasPension.transferDetails
 
 import otc.conf.TestConfiguration
 import specpage.BasePage
-import otc.conf.TestConfiguration
 
 object OverseasTransferAllowancePage extends BasePage {
 

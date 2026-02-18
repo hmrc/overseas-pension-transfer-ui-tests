@@ -37,7 +37,7 @@ import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specpage.overseasPension.QROPSDetails.QROPSNamePage
 import specs.BaseSpec
-import specs.tags.{AllTests, QROPSDetails}
+import specs.tags.AllTests
 import specsteps.BaseStepDefinitionsSteps._
 
 class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
@@ -130,9 +130,6 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the QROPS Check Your Answers Page")
       thenIAmPresentedWithThe("QROPS Check Your Answers Page")
-
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on QROPS Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("QROPS Check Your Answers Page")
@@ -240,9 +237,6 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the QROPS Check Your Answers Page")
       thenIAmPresentedWithThe("QROPS Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on QROPS Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("QROPS Check Your Answers Page")

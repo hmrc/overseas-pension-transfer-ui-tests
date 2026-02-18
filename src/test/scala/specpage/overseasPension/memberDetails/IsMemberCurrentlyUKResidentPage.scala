@@ -16,6 +16,7 @@
 
 package specpage.overseasPension.memberDetails
 
+import org.openqa.selenium.By
 import otc.conf.TestConfiguration
 import specpage.BasePage
 
@@ -35,7 +36,7 @@ object IsMemberCurrentlyUKResidentPage extends BasePage {
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#value")
-      case "No"  => click on cssSelector("#value-no")
+      case "Yes" => click(By.cssSelector("#value"))
+      case "No"  => click(By.cssSelector("#value-no"))
     }
 }

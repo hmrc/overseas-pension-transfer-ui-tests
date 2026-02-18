@@ -15,24 +15,22 @@
  */
 
 package specpage
-import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
-import org.openqa.selenium.{By, WebDriver, WebElement}
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.{By, WebElement}
 import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
-import org.scalatestplus.selenium.{Page, WebBrowser}
-import otc.driver.BrowserDriver
+import org.scalatestplus.selenium.Page
 import otc.support.TestData
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 
-import java.time.{Duration, LocalDate}
+import java.time.LocalDate
 import scala.jdk.CollectionConverters._
 import scala.util.matching.Regex
 
-trait BasePage extends Page with PageObject with Matchers with BrowserDriver with Eventually with WebBrowser {
+trait BasePage extends Page with PageObject with Matchers with Eventually {
 
-    implicit lazy val webDriver: WebDriver = Driver.instance
     override val url: String = ""
     val changeUrl: String = ""
     val newUrl: String = ""
@@ -51,13 +49,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
       case  urlPattern(_, _, _, _, _, _) => true
       case _ => false
     }
-  /** Fluent Wait config * */
-
-  var fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
-    .withTimeout(Duration.ofSeconds(20))
-    .pollingEvery(Duration.ofMillis(500))
-
-  def waitForPageHeader: WebElement = fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
 
   /** Page assertions * */
   def expectedPageTitle: Option[String] = None
@@ -66,14 +57,9 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def expectedPageHeader: Option[String] = None
 
-  def pageHeader: Option[String] = {
-    waitForPageHeader
-    val header: Option[String] = find(tagName("h1")).map(_.text)
-    if (header.get.takeRight(2) == " ?")
-      Some(header.get.replaceAll(" \\?$", "?"))
-    else
-      header
-  }
+  def pageHeader: String = getText(By.tagName("h1"))
+
+  def pageTitle: String = getTitle
 
   private def expectedPageTitleList = expectedPageTitle.map(_.split(";").toList)
 
@@ -82,12 +68,10 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   private def expectedPageHeaderList = expectedPageHeader.map(_.split(";").toList)
 
   def checkPageTitle(): Assertion = {
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
     expectedPageTitleList should contain(List(pageTitle))
   }
 
   def checkPageErrorTitle(): Assertion = {
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
     expectedPageErrorTitleList should contain(List(pageTitle))
   }
 
@@ -166,25 +150,20 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     }
   }
 
-  def checkPageHeader(): Assertion = {
-    fluentWait.until(ExpectedConditions.textToBe(By.cssSelector("h1"), expectedPageHeader.get))
-    expectedPageHeaderList should contain(List(pageHeader.get))
-  }
+  def checkPageHeader(): Assertion = expectedPageHeaderList should contain(List(pageHeader))
 
-  def clickSubmitButton(): Unit = click on cssSelector("#submit")
 
-  //def clickAgreeSubmitButton(): Unit = click on xpath("//button[text()='Agree and Submit']")
+  def clickSubmitButton(): Unit = click(By.cssSelector("#submit"))
 
-  //def clickAgreeSubmitButton(): Unit = click on xpath("//*[@id="main-content"]/div/div/form/button")
-  def clickAgreeSubmitButton(): Unit = click on cssSelector(".govuk-button")
+  def clickAgreeSubmitButton(): Unit = click(By.cssSelector(".govuk-button"))
 
-  def clickSaveAndContinueButton(): Unit = click on cssSelector(".govuk-button")
+  def clickSaveAndContinueButton(): Unit = click(By.cssSelector(".govuk-button"))
 
-  def clickContinueButton(): Unit = click on id("continueButton")
+  def clickContinueButton(): Unit = click(By.id("continueButton"))
 
-  def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
+  def clickBackButton(): Unit = click(By.xpath("//a[normalize-space()='Back']"))
 
-    def clickOnLink(): Unit = click on id("continueButton")
+    def clickOnLink(): Unit = click(By.id("continueButton"))
 
   def enterDetails(data: String): Unit = {}
 
@@ -205,7 +184,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']")).click()
 
     def clickMemberName(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/dashboard/transfer-report?transferId=QT564339&qtStatus=Submitted&pstr=24000001IN&versionNumber=006&memberName=Malcolm+Mendes&currentPage=1']")).click()
+      click(By.linkText("Malcolm Mendes"))
 
     def startMemberDetails(): Unit =
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']")).click()
@@ -226,15 +205,15 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
       Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']")).click()
 
     def clickViewAmendLink(): Unit =
-      Driver.instance.findElement(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']")).click()
+      click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']"))
 
     def textFieldElement(field: String): WebElement = field match {
-    case "firstName" => webDriver.findElement(By.id("memberFirstName"))
-    case "lastName" => webDriver.findElement(By.id("memberLastName"))
-    case "day" => webDriver.findElement(By.id("value.day"))
-    case "month" => webDriver.findElement(By.id("value.month"))
-    case "year" => webDriver.findElement(By.id("value.year"))
-    case _ => webDriver.findElement(By.id(field))
+    case "firstName" => Driver.instance.findElement(By.id("memberFirstName"))
+    case "lastName" => Driver.instance.findElement(By.id("memberLastName"))
+    case "day" => Driver.instance.findElement(By.id("value.day"))
+    case "month" => Driver.instance.findElement(By.id("value.month"))
+    case "year" => Driver.instance.findElement(By.id("value.year"))
+    case _ => Driver.instance.findElement(By.id(field))
   }
 
   def verifyInputFieldsByIds(fields: List[String]): Unit = {
@@ -245,9 +224,9 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def verifyInputFieldsWithLabels(fieldLabels: List[String]): Unit = {
     for (fieldLabel <- fieldLabels) {
-      val labelField = find(xpath(s"//label[contains(text(), '$fieldLabel')]"))
+      val labelField = Driver.instance.findElement(By.xpath(s"//label[contains(text(), '$fieldLabel')]"))
 
-      val inputFieldName = labelField.get.attribute("for").get
+      val inputFieldName = labelField.getAttribute("for")
       // get the value of the 'for' attribute of the 'label' element
       // Search for an 'element' having the corresponding value
       //Some(Driver.instance.findElement(By.name(inputFieldName)))
@@ -271,7 +250,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def listOfErrorMessages(): List[String] = listOfErrorLinks().map(_.getText.trim)
 
-  def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
+  def clickButton(buttonText: String): Unit = click(By.partialLinkText(buttonText))
 
   def pageData: Map[String, String] = Driver.instance
     .findElements(By.cssSelector(".govuk-summary-list__row"))
@@ -361,7 +340,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
-      click on xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']")
+      click(By.xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']"))
 
   def subSectionsHeaderText: List[String] = Driver.instance
     .findElement(By.cssSelector("main[id='main-content'] div[class='govuk-grid-column-two-thirds']"))
@@ -378,7 +357,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def taskListPageContentView: Map[String, String] =
     //Driver.instance
-    webDriver
+    Driver.instance
       //val rows: Seq[WebElement] =
       // Driver.instance
       .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
@@ -440,15 +419,15 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     case _             => throw new IllegalArgumentException("Invalid ordinal")
   }
 
-  def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
+  def clickAgreeAndSendReturnButton(): Unit = click(By.cssSelector("#continueButton"))
 
 
 
 }
 
 // trait BasePage extends Page with Matchers with Eventually with WebBrowser {
- //override implicit def webDriver: WebDriver = Driver.instance
- //implicit val webDriver: WebDriver
+ //override implicit def Driver.instance: WebDriver = Driver.instance
+ //implicit val Driver.instance: WebDriver
 
     //override val url: String = ""
     //val changeUrl: String = ""

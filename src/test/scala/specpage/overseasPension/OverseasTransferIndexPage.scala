@@ -16,6 +16,7 @@
 
 package specpage.overseasPension
 
+import org.openqa.selenium.By
 import otc.conf.TestConfiguration
 import specpage.BasePage
 
@@ -35,6 +36,6 @@ object OverseasTransferIndexPage extends BasePage {
   override def expectedPageHeader: Option[String] = Some("overseas-pension-transfer-frontend")
 
   override def clickContinueButton(): Unit = {
-    click on cssSelector(".govuk-button")
+    click(By.cssSelector(".govuk-button"))
   }
 }
