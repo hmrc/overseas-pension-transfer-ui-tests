@@ -30,9 +30,8 @@ object  MemberNamePage extends BasePage {
     "Error: What is the member's name? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What is the member's name? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 
   override def clickContinueButton(): Unit = {
     click(By.cssSelector(".govuk-button"))

@@ -27,7 +27,6 @@ object QuotedShareAmendContinue3Page extends BasePage {
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: You have added 3 groups of quoted shares - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "You have added 3 groups of quoted shares - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

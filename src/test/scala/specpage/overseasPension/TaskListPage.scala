@@ -24,7 +24,6 @@ object TaskListPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/task-list"
   override val title       = "Complete your transfer report"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Complete your transfer report"
-  )
 }

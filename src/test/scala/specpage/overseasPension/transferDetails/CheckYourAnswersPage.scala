@@ -24,7 +24,6 @@ object CheckYourAnswersPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/check-your-answers"
   override val title = "Check transfer details - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Check transfer details - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

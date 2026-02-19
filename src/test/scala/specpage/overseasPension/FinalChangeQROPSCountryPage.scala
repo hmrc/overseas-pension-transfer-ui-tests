@@ -25,7 +25,6 @@ object FinalChangeQROPSCountryPage extends BasePage {
   override val title = "Country or territory in which QROPS was established? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Country or territory in which QROPS was established? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

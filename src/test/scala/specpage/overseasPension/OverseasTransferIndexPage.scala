@@ -29,11 +29,10 @@ object OverseasTransferIndexPage extends BasePage {
     "Error:  overseas-pension-transfer-frontend - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "overseas-pension-transfer-frontend - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 
-  override def expectedPageHeader: Option[String] = Some("overseas-pension-transfer-frontend")
+  override def expectedPageHeader: String = "overseas-pension-transfer-frontend"
 
   override def clickContinueButton(): Unit = {
     click(By.cssSelector(".govuk-button"))

@@ -28,7 +28,6 @@ object SelectMembersLastUKAddressPage extends BasePage {
     s"Error: Select the member's last UK address - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     s"Select the member's last UK address - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

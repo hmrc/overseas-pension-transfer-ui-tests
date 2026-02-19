@@ -29,9 +29,8 @@ object MemberDateOfLeavingUKPage extends BasePage {
     "Error: When did the member leave the UK? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "When did the member leave the UK? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 
   def enterDate(day: String, month: String, year: String): Unit = {
     enterText("value.day", day)

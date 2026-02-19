@@ -25,7 +25,6 @@ object SubmittedTransferSummaryPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/submitted-transfer-summary?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006"
   override val title       = "Reports for Malcolm Mendes - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Reports for Malcolm Mendes - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

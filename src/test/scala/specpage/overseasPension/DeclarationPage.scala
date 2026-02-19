@@ -24,7 +24,6 @@ object DeclarationPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/psa-declaration"
   override val title       = "Declaration - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Declaration - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

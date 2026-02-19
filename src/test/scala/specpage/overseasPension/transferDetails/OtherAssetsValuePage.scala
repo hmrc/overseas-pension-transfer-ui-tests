@@ -24,7 +24,6 @@ object OtherAssetsValuePage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/other-assets-value?index=0"
   override val title = "What is the value of the asset?"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What is the value of the asset? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

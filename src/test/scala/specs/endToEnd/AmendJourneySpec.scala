@@ -35,7 +35,7 @@ package specs.endToEnd
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
-import specs.tags.AllTests
+import specs.tags.{AllTests, WIP}
 import specsteps.BaseStepDefinitionsSteps._
 
 class AmendJourneySpec extends BaseSpec with Matchers {
@@ -44,7 +44,8 @@ class AmendJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Amend Journey - Change member,transfer,QROPS and schemeManager details",
-      AllTests
+      AllTests,
+      WIP
       )
     {
       Given("I cleared the data for the service")

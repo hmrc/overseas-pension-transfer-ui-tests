@@ -29,7 +29,6 @@ object ApplicableTransferExclusionPage extends BasePage {
     "Error: What are the applicable exclusions? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What are the applicable exclusions? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

@@ -24,7 +24,6 @@ object UnquotedShareConfirmRemovalPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/unquoted-shares-confirm-removal?index=0"
   override val title = " Are you sure you want to remove these unquoted shares?"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Are you sure you want to remove these unquoted shares? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

@@ -177,8 +177,6 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then ("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
 
-      // new added
-
       When("I navigated to the QROPS Name Page")
       navigateToPage(QROPSNamePage)
 
@@ -208,9 +206,8 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
       Ienterthefollowingdataintocorrespondinginputfieldson("QROPS Reference Page",
         Map("addressLine1" -> "45 Oakfield Way","addressLine2" -> "Sycamore Park","addressLine3" -> "Sutton Coalfield","addressLine4" -> "West Midlands","addressLine5" -> "England","countryCode" -> "United Kingdom"))
 
-      //new code
       And("I click save and continue button on QROPS Address Page")
-      whenIClickSaveAndContinueButtonOn("QROPS Reference Page")
+      whenIClickSaveAndContinueButtonOn("QROPS Address Page")
 
       Then("I am presented with the QROPS Country Page")
       thenIAmPresentedWithThe("QROPS Country Page")

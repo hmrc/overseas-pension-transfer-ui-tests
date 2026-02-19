@@ -61,9 +61,8 @@ object BaseStepDefinitionsSteps extends BasePage {
   // I am presented with the {string}
   def thenIAmPresentedWithThe (pageName: String): Unit = {
     val page = PageObjectFinder.page(pageName)
-        page.checkURL
-        page.checkPageTitle()
-
+    page.checkURL
+    page.checkPageTitle()
   }
 
   def whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney: String): Unit = {
@@ -121,8 +120,7 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   def whenIClickOnButtonOn(button: String, page: String): Unit = {
     val locator = By.xpath(s"//*[contains(@href, '$button')]")
-    val element = Driver.instance.findElement(locator)
-    element.click()
+    click(locator)
   }
 
   // I cleared the data for the service
@@ -181,11 +179,8 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   def Ienterthefollowingdataintocorrespondinginputfieldson(page: String, formData: Map[String, String]): Unit = {
     for ((field, value) <- formData) {
-      val key = s"${page.trim.toLowerCase.replaceAll(" ", "_")}.$field"
-      TestData.set(key, value)
-      val inputField = PageObjectFinder.page(page).textFieldElement(field)
-      inputField.clear()
-      inputField.sendKeys(Option(value).getOrElse(""))
+      val inputField = textFieldElement(field)
+      sendKeys(inputField, value)
     }
   }
 

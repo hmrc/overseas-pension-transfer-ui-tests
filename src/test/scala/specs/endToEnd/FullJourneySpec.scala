@@ -35,7 +35,7 @@ package specs.endToEnd
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
-import specs.tags.AllTests
+import specs.tags.{AllTests, WIP}
 import specsteps.BaseStepDefinitionsSteps._
 
 class FullJourneySpec extends BaseSpec with Matchers {
@@ -44,7 +44,8 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Full Journey - PSA Starts a new transfer and submits",
-      AllTests
+      AllTests,
+      WIP
     )
     {
       Given("I cleared the data for the service")
@@ -88,7 +89,7 @@ class FullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "John","lastName" -> "Doe"))
 
       When("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -791,7 +792,7 @@ class FullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "John","lastName" -> "Doe"))
 
       When("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")

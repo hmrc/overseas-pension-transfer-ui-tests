@@ -30,9 +30,8 @@ object IsMemberCurrentlyUKResidentPage extends BasePage {
     "Error: Is the member currently a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Is the member currently a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 
   override def clickRadioButton(text: String): Unit =
     text match {

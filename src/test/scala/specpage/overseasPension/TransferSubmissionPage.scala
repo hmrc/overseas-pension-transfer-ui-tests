@@ -24,7 +24,6 @@ object TransferSubmissionPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-submitted"
   override val title = " Transfer submitted - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Transfer submitted - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

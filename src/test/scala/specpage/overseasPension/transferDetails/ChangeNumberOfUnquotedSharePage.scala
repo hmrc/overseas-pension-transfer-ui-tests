@@ -28,7 +28,6 @@ object ChangeNumberOfUnquotedSharePage extends BasePage {
     "Error: How many unquoted shares in this company are part of this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "How many unquoted shares in this company are part of this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

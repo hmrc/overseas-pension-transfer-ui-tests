@@ -29,7 +29,6 @@ object MembersLastUKAddressPage extends BasePage {
     "Error: What was member's last principal residential address in the UK? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What was member's last principal residential address in the UK? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

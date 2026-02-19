@@ -36,7 +36,7 @@ import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specpage.overseasPension.transferDetails.OverseasTransferAllowancePage
 import specs.BaseSpec
-import specs.tags.AllTests
+import specs.tags.{AllTests, WIP}
 import specsteps.BaseStepDefinitionsSteps.{Ienterthefollowingdataintocorrespondinginputfieldson, givenIClearedTheDataForTheService, navigateToPage, thenIAmPresentedWithThe, whenICheckboxOn, whenIClickSaveAndContinueButtonOn, whenIClickStartNewTransferLink, whenIClickSubmitButtonOn, whenIEnterEnrollmentKey, whenIEnterRedirectURLOnAuthLoginStubPageFor, whenISelectRadioButtonOn}
 
 class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
@@ -434,7 +434,8 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "4. Full Transfer Details - Transfer Amount Is Not Taxable - Cash, Unquoted, Quoted, Properties, Other",
-      AllTests
+      AllTests,
+      WIP
     )
     {
       Given("I cleared the data for the service")
@@ -754,7 +755,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Second Quoted Share Check Your Answers Page")
       thenIAmPresentedWithThe("Second Quoted Share Check Your Answers Page")
-
 
       And("I click save and continue button on Second Quoted Share Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Second Quoted Share Check Your Answers Page")

@@ -185,7 +185,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "Sarah","lastName" -> "Smith"))
 
       And("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -291,7 +291,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "Rebecca","lastName" -> "Miller"))
 
       And("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -418,7 +418,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "Angelo","lastName" -> "McMannis"))
 
       And("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")

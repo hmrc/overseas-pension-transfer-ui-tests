@@ -28,7 +28,6 @@ object OverseasTransferAllowancePage extends BasePage {
     "Error: How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "How much of the member's overseas transfer allowance is available before this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

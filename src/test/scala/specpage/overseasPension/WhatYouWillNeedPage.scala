@@ -24,7 +24,6 @@ object WhatYouWillNeedPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/what-will-be-needed"
   override val title       = "What you will need"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What you will need - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

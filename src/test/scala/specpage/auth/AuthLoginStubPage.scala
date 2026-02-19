@@ -29,9 +29,9 @@ object AuthLoginStubPage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Authority Wizard")
+  override def expectedPageTitle: String = "Authority Wizard"
 
-  override def expectedPageHeader: Option[String] = Some("Authority Wizard")
+  override def expectedPageHeader: String = "Authority Wizard"
 
   def enterRedirectURL(url: String): Unit = {
     Driver.instance.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)

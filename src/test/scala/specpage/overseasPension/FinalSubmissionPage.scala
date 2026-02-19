@@ -28,7 +28,6 @@ object FinalSubmissionPage extends BasePage {
     "Error: Do you want to submit this report to HMRC? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Do you want to submit this report to HMRC? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

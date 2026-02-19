@@ -28,7 +28,6 @@ object SecondClassOfQuotedSharePage extends BasePage {
     "Error: What class are these quoted shares? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What class are these quoted shares? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }
