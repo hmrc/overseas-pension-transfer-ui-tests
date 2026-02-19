@@ -31,22 +31,7 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
 
     override val url: String = ""
     val changeUrl: String = ""
-    val newUrl: String = ""
     val title: String = ""
-    val urlPattern: Regex =
-      "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
-
-  def expectedFullName: String = {
-    val expectedFirstName = TestData.get("member_name_page.firstName").getOrElse("Undefined")
-    val expectedLastName = TestData.get("member_name_page.lastName").getOrElse("Undefined")
-    s"$expectedFirstName $expectedLastName"
-  }
-
-  def validateUrl(url: String): Boolean =
-    url match {
-      case  urlPattern(_, _, _, _, _, _) => true
-      case _ => false
-    }
 
   /** Page assertions * */
   def expectedPageTitle: String = ""
@@ -122,7 +107,7 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']"))
 
   def clickViewAmendLink(): Unit =
-    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']"))
+    click(By.linkText("View or amend"))
 
   def textFieldElement(field: String): By = field match {
     case "firstName" => By.id("memberFirstName")
