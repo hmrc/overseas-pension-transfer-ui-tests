@@ -16,22 +16,24 @@
 
 package specpage
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
 import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.Page
-import otc.support.TestData
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 
+import java.time.Duration
 import scala.jdk.CollectionConverters._
-import scala.util.matching.Regex
 
 trait BasePage extends Page with PageObject with Matchers with Eventually {
 
-    override val url: String = ""
-    val changeUrl: String = ""
-    val title: String = ""
+  private val defaultWaitTimeSeconds = 20
+  private def waitFor(timeInSeconds: Int = defaultWaitTimeSeconds) = new WebDriverWait(Driver.instance, Duration.ofSeconds(defaultWaitTimeSeconds))
+  override val url: String = ""
+  val changeUrl: String = ""
+  val title: String = ""
 
   /** Page assertions * */
   def expectedPageTitle: String = ""
@@ -47,33 +49,34 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
   def currentUrl: String = getCurrentUrl
 
   def checkPageTitle(): Assertion = {
-    getTitle shouldBe pageTitle
+    waitFor().until(ExpectedConditions.titleIs(pageTitle))
+    getTitle shouldBe expectedPageTitle
   }
 
   def enterText(id: String, textToEnter: String): Unit = {
     sendKeys(By.id(id), textToEnter)
   }
 
-  def checkURL: Assertion = currentUrl shouldBe url
+  def checkURL: Assertion ={
+    waitFor().until(ExpectedConditions.urlToBe(url))
+    currentUrl shouldBe url
+  }
 
   def clickSubmitButton(): Unit = {
     click(By.cssSelector("#submit"))
-    waitForInvisibilityOfElementWithText(By.id("submit"), "Submit")
+//    waitForInvisibilityOfElementWithText(By.id("submit"), "Submit")
   }
 
   def clickAgreeSubmitButton(): Unit = {
     click(By.cssSelector(".govuk-button"))
-    waitForInvisibilityOfElementWithText(By.tagName("h1"), "")
   }
 
   def clickSaveAndContinueButton(): Unit = {
     click(By.cssSelector(".govuk-button"))
-    waitForInvisibilityOfElementWithText(By.tagName("h1"), "")
   }
 
   def clickContinueButton(): Unit = {
     click(By.id("continueButton"))
-    waitForInvisibilityOfElementWithText(By.tagName("h1"), "")
   }
 
   def clickRadioButton(text: String): Unit =
@@ -107,7 +110,7 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-does-not-have-nino']"))
 
   def clickViewAmendLink(): Unit =
-    click(By.linkText("View or amend"))
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']"))
 
   def textFieldElement(field: String): By = field match {
     case "firstName" => By.id("memberFirstName")
