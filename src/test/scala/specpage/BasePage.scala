@@ -86,13 +86,13 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
     click(By.xpath("//*[@id=\"main-content\"]/div/div/form/div/div[2]/div/div/button"))
 
   def startNewTransfer(): Unit =
-    click(By.linkText("Start a new transfer"))
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']"))
 
   def clickMemberName(): Unit =
     click(By.linkText("Malcolm Mendes"))
 
   def startMemberDetails(): Unit =
-    click(By.linkText("Add details about the member"))
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']"))
 
   def startTransferDetails(): Unit =
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/transfer-details/overseas-transfer-allowance']"))

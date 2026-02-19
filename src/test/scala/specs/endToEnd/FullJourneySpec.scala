@@ -438,6 +438,9 @@ class FullJourneySpec extends BaseSpec with Matchers {
       And("I click save and continue button on Property Address Page")
       whenIClickSaveAndContinueButtonOn("Property Address Page")
 
+      Then("I am presented with the Value Of Property Page")
+      thenIAmPresentedWithThe("Value Of Property Page")
+
       When("I enter the following data into corresponding input fields on Value Of Property Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Value Of Property Page",
         Map("value" -> "400700"))
@@ -1140,6 +1143,9 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       And("I click save and continue button on Property Address Page")
       whenIClickSaveAndContinueButtonOn("Property Address Page")
+
+      Then("I am presented with the Value Of property Page")
+      thenIAmPresentedWithThe("Value Of Property Page")
 
       When("I enter the following data into corresponding input fields on Value Of Property Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Value Of Property Page",
