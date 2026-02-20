@@ -19,7 +19,7 @@ package specs.endToEnd
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
-import specs.tags.{AllTests, WIP}
+import specs.tags.AllTests
 import specsteps.BaseStepDefinitionsSteps._
 
 class FullJourneySpec extends BaseSpec with Matchers {

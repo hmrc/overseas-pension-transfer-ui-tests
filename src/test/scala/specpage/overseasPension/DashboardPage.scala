@@ -16,8 +16,6 @@
 
 package specpage.overseasPension
 
-import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.ExpectedConditions
 import org.scalatest.Assertion
 import otc.conf.TestConfiguration
 import specpage.BasePage
