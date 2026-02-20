@@ -28,7 +28,6 @@ object SchemeManagerEmailPage extends BasePage {
     "Error: What is the scheme manager's email address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What is the scheme manager's email address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

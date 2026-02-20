@@ -29,7 +29,6 @@ object MemberDoesNotHaveNINOPage extends BasePage {
     "Error: Why does the member not have a National Insurance number? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Why does the member not have a National Insurance number? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

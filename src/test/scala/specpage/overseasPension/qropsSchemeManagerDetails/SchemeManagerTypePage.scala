@@ -28,7 +28,6 @@ object SchemeManagerTypePage extends BasePage {
     "Error: Is the scheme manager an individual or organisation? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
       "Is the scheme manager an individual or organisation? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

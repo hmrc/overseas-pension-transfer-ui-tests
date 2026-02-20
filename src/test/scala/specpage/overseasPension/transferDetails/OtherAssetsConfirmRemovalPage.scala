@@ -24,7 +24,6 @@ object OtherAssetsConfirmRemovalPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/other-assets-confirm-removal?index=0"
   override val title = " Are you sure you want to remove these other assets?"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Are you sure you want to remove these other assets? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

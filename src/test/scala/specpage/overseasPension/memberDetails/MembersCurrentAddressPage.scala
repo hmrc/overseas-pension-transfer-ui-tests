@@ -29,8 +29,7 @@ object MembersCurrentAddressPage extends BasePage {
     s"Error: What is the member's current address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     s"What is the member's current address? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 
 }

@@ -28,7 +28,6 @@ object TypeOfAssetPage extends BasePage {
     "Error: What type of assets are part of this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What type of assets are part of this transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

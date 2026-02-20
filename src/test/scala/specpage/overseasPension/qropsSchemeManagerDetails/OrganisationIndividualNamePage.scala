@@ -16,6 +16,7 @@
 
 package specpage.overseasPension.qropsSchemeManagerDetails
 
+import org.openqa.selenium.By
 import otc.conf.TestConfiguration
 import specpage.BasePage
 
@@ -29,11 +30,10 @@ object OrganisationIndividualNamePage extends BasePage {
     "Error: Who is the contact within the organisation? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Who is the contact within the organisation? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 
   override def clickContinueButton(): Unit = {
-    click on cssSelector(".govuk-button")
+    click(By.cssSelector(".govuk-button"))
   }
 }

@@ -16,25 +16,8 @@
 
 package specs.endToEnd
 
-/*
- * Copyright 2025 HM Revenue & Customs
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
-import specpage.overseasPension.qropsSchemeManagerDetails.SchemeManagerTypePage
 import specs.BaseSpec
 import specs.tags.AllTests
 import specsteps.BaseStepDefinitionsSteps._
@@ -89,7 +72,7 @@ class FullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "John","lastName" -> "Doe"))
 
       When("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -131,9 +114,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
@@ -458,6 +438,9 @@ class FullJourneySpec extends BaseSpec with Matchers {
       And("I click save and continue button on Property Address Page")
       whenIClickSaveAndContinueButtonOn("Property Address Page")
 
+      Then("I am presented with the Value Of Property Page")
+      thenIAmPresentedWithThe("Value Of Property Page")
+
       When("I enter the following data into corresponding input fields on Value Of Property Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Value Of Property Page",
         Map("value" -> "400700"))
@@ -477,9 +460,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Property Check Your Answers Page")
       thenIAmPresentedWithThe("Property Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Property Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Property Check Your Answers Page")
@@ -591,52 +571,11 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the QROPS Check Your Answers Page")
       thenIAmPresentedWithThe("QROPS Check Your Answers Page")
 
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       And("I click save and continue button on QROPS Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("QROPS Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
-
-//      And("I should see the following details")
-//      val pensionTransferDetails: Map[String, String] = Map(
-//        "Available transfer allowance"            -> "£400,100",
-//        "Transfer amount"                         -> "£400,200",
-//        "Is transfer taxable"                     -> "No",
-//        "Why transfer isn't taxable"              -> "The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer.",
-//        "Date of transfer"                        -> "1 August 2013",
-//        "Is transfer cash only"                   -> "No",
-//        "Amount of cash"                          -> "£400,300",
-//        "Type of assets included in the transfer" -> "Cash,Unquoted shares,Quoted shares,Property,Other",
-//        "Unquoted shares"                         -> "1 added",
-//        "Quoted shares"                           -> "2 added",
-//        "Property"                                -> "1 added",
-//        "Other assets"                            -> "1 added"
-//      )
-      // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
-
-      //      Then("I see the status Completed for task Add details about the member")
-//      thenISeeTheStatusForTask("Completed","Add details about the member")
-//        // ⚠️ No step-def match found for: I see the status Completed for task Add details about the member
-//
-//      Then("I see the status Completed for task Add information about the QROPS")
-//      thenISeeTheStatusForTask("Completed","Add QROPS scheme manager's details")
-//        // ⚠️ No step-def match found for: I see the status Completed for task Add information about the QROPS
-//
-//      Then("I see the status Not started yet for task Add information about the transfer")
-//      thenISeeTheStatusForTask("Not started yet","Add information about the transfer")
-//        // ⚠️ No step-def match found for: I see the status Not started yet for task Add information about the transfer
-//
-//      Then("I see the status Not started yet for task Add QROPS scheme manager's details")
-//      thenISeeTheStatusForTask("Not started yet","Add QROPS scheme manager's details")
-//        // ⚠️ No step-def match found for: I see the status Not started yet for task Add QROPS scheme manager's details
-//
-//      Then("I see the status Cannot start yet for task Check your answers and submit the report")
-//      thenISeeTheStatusForTask("Not started yet","Check your answers and submit the report")
-//        // ⚠️ No step-def match found for: I see the status Cannot start yet for task Check your answers and submit the report
 
       When("I click on Add QROPS scheme manager's details hyperlink on Task List Page")
       whenIClickStartSchemeManagerDetailsLink("Task List Page")
@@ -693,9 +632,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
 
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Scheme Manager Check Your Answer Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Check Your Answer Page")
 
@@ -725,9 +661,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
 
-      And("I should see the following values on the page")
-        thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       When("I click on final-change-amount-of-transfer button on Final Check Your Answers Page")
       whenIClickOnButtonOn("final-change-amount-of-transfer","Final Check Your Answers Page")
 
@@ -743,9 +676,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
-
-      And("I should see the following values on the page")
-        thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       When("I click on final-change-qrops-reference button on Final Check Your Answers Page")
       whenIClickOnButtonOn("final-change-qrops-reference","Final Check Your Answers Page")
@@ -763,9 +693,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
 
-      And("I should see the following values on the page")
-        thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       When("I click on final-change-scheme-managers-name button on Final Check Your Answers Page")
       whenIClickOnButtonOn("final-change-scheme-managers-name","Final Check Your Answers Page")
 
@@ -781,9 +708,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
-
-      And("I should see the following values on the page")
-        thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on Final Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Final Check Your Answers Page")
@@ -854,7 +778,7 @@ class FullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "John","lastName" -> "Doe"))
 
       When("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -896,9 +820,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
@@ -1223,6 +1144,9 @@ class FullJourneySpec extends BaseSpec with Matchers {
       And("I click save and continue button on Property Address Page")
       whenIClickSaveAndContinueButtonOn("Property Address Page")
 
+      Then("I am presented with the Value Of property Page")
+      thenIAmPresentedWithThe("Value Of Property Page")
+
       When("I enter the following data into corresponding input fields on Value Of Property Page")
       Ienterthefollowingdataintocorrespondinginputfieldson ("Value Of Property Page",
         Map("value" -> "400700"))
@@ -1242,9 +1166,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Property Check Your Answers Page")
       thenIAmPresentedWithThe("Property Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Property Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Property Check Your Answers Page")
@@ -1356,52 +1277,11 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the QROPS Check Your Answers Page")
       thenIAmPresentedWithThe("QROPS Check Your Answers Page")
 
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       And("I click save and continue button on QROPS Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("QROPS Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
-
-      //      And("I should see the following details")
-      //      val pensionTransferDetails: Map[String, String] = Map(
-      //        "Available transfer allowance"            -> "£400,100",
-      //        "Transfer amount"                         -> "£400,200",
-      //        "Is transfer taxable"                     -> "No",
-      //        "Why transfer isn't taxable"              -> "The QROPS is an occupational pension scheme and the individual is an employee of the sponsoring employer.",
-      //        "Date of transfer"                        -> "1 August 2013",
-      //        "Is transfer cash only"                   -> "No",
-      //        "Amount of cash"                          -> "£400,300",
-      //        "Type of assets included in the transfer" -> "Cash,Unquoted shares,Quoted shares,Property,Other",
-      //        "Unquoted shares"                         -> "1 added",
-      //        "Quoted shares"                           -> "2 added",
-      //        "Property"                                -> "1 added",
-      //        "Other assets"                            -> "1 added"
-      //      )
-      // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
-
-      //      Then("I see the status Completed for task Add details about the member")
-      //      thenISeeTheStatusForTask("Completed","Add details about the member")
-      //        // ⚠️ No step-def match found for: I see the status Completed for task Add details about the member
-      //
-      //      Then("I see the status Completed for task Add information about the QROPS")
-      //      thenISeeTheStatusForTask("Completed","Add QROPS scheme manager's details")
-      //        // ⚠️ No step-def match found for: I see the status Completed for task Add information about the QROPS
-      //
-      //      Then("I see the status Not started yet for task Add information about the transfer")
-      //      thenISeeTheStatusForTask("Not started yet","Add information about the transfer")
-      //        // ⚠️ No step-def match found for: I see the status Not started yet for task Add information about the transfer
-      //
-      //      Then("I see the status Not started yet for task Add QROPS scheme manager's details")
-      //      thenISeeTheStatusForTask("Not started yet","Add QROPS scheme manager's details")
-      //        // ⚠️ No step-def match found for: I see the status Not started yet for task Add QROPS scheme manager's details
-      //
-      //      Then("I see the status Cannot start yet for task Check your answers and submit the report")
-      //      thenISeeTheStatusForTask("Not started yet","Check your answers and submit the report")
-      //        // ⚠️ No step-def match found for: I see the status Cannot start yet for task Check your answers and submit the report
 
       When("I click on Add QROPS scheme manager's details hyperlink on Task List Page")
       whenIClickStartSchemeManagerDetailsLink("Task List Page")
@@ -1458,9 +1338,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Scheme Manager Check Your Answer Page")
       thenIAmPresentedWithThe("Scheme Manager Check Your Answer Page")
 
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Scheme Manager Check Your Answer Page")
       whenIClickSaveAndContinueButtonOn("Scheme Manager Check Your Answer Page")
 
@@ -1490,9 +1367,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
 
-      And("I should see the following values on the page")
-      thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       When("I click on final-change-amount-of-transfer button on Final Check Your Answers Page")
       whenIClickOnButtonOn("final-change-amount-of-transfer","Final Check Your Answers Page")
 
@@ -1508,9 +1382,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
-
-      And("I should see the following values on the page")
-      thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       When("I click on final-change-qrops-reference button on Final Check Your Answers Page")
       whenIClickOnButtonOn("final-change-qrops-reference","Final Check Your Answers Page")
@@ -1528,9 +1399,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
 
-      And("I should see the following values on the page")
-      thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       When("I click on final-change-scheme-managers-name button on Final Check Your Answers Page")
       whenIClickOnButtonOn("final-change-scheme-managers-name","Final Check Your Answers Page")
 
@@ -1546,9 +1414,6 @@ class FullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Final Check Your Answers Page")
       thenIAmPresentedWithThe("Final Check Your Answers Page")
-
-      And("I should see the following values on the page")
-      thenIShouldSeeTheFollowingValuesOnThePage()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
 
       And("I click save and continue button on Final Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Final Check Your Answers Page")

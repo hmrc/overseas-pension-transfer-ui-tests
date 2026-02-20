@@ -28,7 +28,6 @@ object ChangePropertyAmendContinuePage extends BasePage {
     "Error: You have added 1 property - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "You have added 1 property - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

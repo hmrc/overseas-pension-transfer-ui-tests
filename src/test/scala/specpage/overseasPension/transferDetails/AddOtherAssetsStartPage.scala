@@ -25,7 +25,6 @@ object AddOtherAssetsStartPage extends BasePage {
   override val url: String = TestConfiguration.url("overseas-pension-transfer-frontend") + "/transfer-details/assets/other-assets-start"
   override val title = "Add other assets"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Add other assets - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

@@ -29,7 +29,6 @@ object QROPSNamePage extends BasePage {
     "Error: What is the full name of the QROPS receiving the transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What is the full name of the QROPS receiving the transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

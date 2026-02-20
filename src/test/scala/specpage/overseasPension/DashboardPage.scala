@@ -16,8 +16,6 @@
 
 package specpage.overseasPension
 
-import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.ExpectedConditions
 import org.scalatest.Assertion
 import otc.conf.TestConfiguration
 import specpage.BasePage
@@ -31,7 +29,6 @@ object DashboardPage extends BasePage {
 
 
   override def checkPageTitle(): Assertion = {
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
     val actualTitle = pageTitle
     actualTitle should startWith("All transfers (page")
     actualTitle should endWith("– GOV.UK")

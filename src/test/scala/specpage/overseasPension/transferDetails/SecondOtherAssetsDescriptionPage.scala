@@ -28,7 +28,6 @@ object SecondOtherAssetsDescriptionPage extends BasePage {
     "Error: Describe the asset and how it was valued - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Describe the asset and how it was valued - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

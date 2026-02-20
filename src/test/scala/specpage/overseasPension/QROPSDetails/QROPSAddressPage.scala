@@ -29,7 +29,6 @@ object QROPSAddressPage extends BasePage {
     "Error: What is the address of the QROPS? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What is the address of the QROPS? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

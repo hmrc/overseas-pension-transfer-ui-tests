@@ -19,6 +19,7 @@ package specpage.auth
 import org.openqa.selenium.By
 import otc.conf.TestConfiguration
 import specpage.BasePage
+import uk.gov.hmrc.selenium.webdriver.Driver
 
 
 object AuthLoginStubPage extends BasePage {
@@ -28,28 +29,17 @@ object AuthLoginStubPage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Authority Wizard")
+  override def expectedPageTitle: String = "Authority Wizard"
 
-  override def expectedPageHeader: Option[String] = Some("Authority Wizard")
+  override def expectedPageHeader: String = "Authority Wizard"
 
   def enterRedirectURL(url: String): Unit = {
-    webDriver.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
+    Driver.instance.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
   }
 
   def enrolments(enrollmentKey: String, IdentifierName: String, IdentifierValue: String): Unit = {
-    webDriver.findElement(By.id("enrolment[0].name")).sendKeys(enrollmentKey)
-    webDriver.findElement(By.id("input-0-0-name")).sendKeys(IdentifierName)
-    webDriver.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
-    //clickSubmitButton()
+    Driver.instance.findElement(By.id("enrolment[0].name")).sendKeys(enrollmentKey)
+    Driver.instance.findElement(By.id("input-0-0-name")).sendKeys(IdentifierName)
+    Driver.instance.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
   }
-
-  def whenIClickSubmitButtonOn(): Unit = {
-    webDriver.findElement(By.id("submit")).click()
-  }
-
-
-  def selectAffinityGroup(value: String): Unit = {
-    webDriver.findElement(By.cssSelector("select[name=affinityGroup]")).sendKeys(value)
-  }
-
 }

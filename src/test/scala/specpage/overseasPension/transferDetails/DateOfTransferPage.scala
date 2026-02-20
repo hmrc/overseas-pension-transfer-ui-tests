@@ -28,7 +28,6 @@ object DateOfTransferPage extends BasePage {
     "Error: What was the date of the transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What was the date of the transfer? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }

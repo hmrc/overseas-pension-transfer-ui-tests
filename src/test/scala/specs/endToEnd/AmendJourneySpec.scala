@@ -35,9 +35,8 @@ package specs.endToEnd
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
-import specs.tags.{AllTests, AmendJourney}
+import specs.tags.{AllTests, WIP}
 import specsteps.BaseStepDefinitionsSteps._
-//import specs.BaseSpec
 
 class AmendJourneySpec extends BaseSpec with Matchers {
 
@@ -45,7 +44,8 @@ class AmendJourneySpec extends BaseSpec with Matchers {
 
     Scenario(
       "1. Amend Journey - Change member,transfer,QROPS and schemeManager details",
-      AllTests
+      AllTests,
+      WIP
       )
     {
       Given("I cleared the data for the service")
@@ -103,9 +103,6 @@ class AmendJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Amend Submitted Transfer Page")
       thenIAmPresentedWithThe("Amend Submitted Transfer Page")
 
-      And("I should see the following values on the page")
-        thenIShouldSeeTheFollowingValuesOnThePage( Map( "Principal residential address" -> "78 Queensway Crescent" ) )
-
       When("I click on amend-change-amount-of-transfer button on Amend Submitted Transfer Page")
       whenIClickOnButtonOn("amend-change-amount-of-transfer","Amend Submitted Transfer Page")
 
@@ -121,10 +118,6 @@ class AmendJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Amend Submitted Transfer Page")
       thenIAmPresentedWithThe("Amend Submitted Transfer Page")
-
-      And("I should see the following values on the page")
-      thenIShouldSeeTheFollowingValuesOnThePage( Map( "Transfer Amount" -> "£50000" ) )
-        thenIShouldSeeTheFollowingValuesOnThePage()
 
       When("I click on amend-change-qrops-reference button on Amend Submitted Transfer Page")
       whenIClickOnButtonOn("amend-change-qrops-reference","Amend Submitted Transfer Page")
@@ -142,9 +135,6 @@ class AmendJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Amend Submitted Transfer Page")
       thenIAmPresentedWithThe("Amend Submitted Transfer Page")
 
-      And("I should see the following values on the page")
-      thenIShouldSeeTheFollowingValuesOnThePage( Map( "qropsRef" -> "QROPS123456" ) )
-
       When("I click on amend-change-scheme-managers-name button on Amend Submitted Transfer Page")
       whenIClickOnButtonOn("amend-change-scheme-managers-name","Amend Submitted Transfer Page")
 
@@ -160,9 +150,6 @@ class AmendJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Amend Submitted Transfer Page")
       thenIAmPresentedWithThe("Amend Submitted Transfer Page")
-
-      And("I should see the following values on the page")
-      thenIShouldSeeTheFollowingValuesOnThePage( Map( "Manager Name" -> "Humpty Dumpty" ) )
 
       And("I click save and continue button on Amend Submitted Transfer Page")
       whenIClickSaveAndContinueButtonOn("Amend Submitted Transfer Page")

@@ -16,6 +16,7 @@
 
 package specpage.overseasPension.memberDetails
 
+import org.openqa.selenium.By
 import otc.conf.TestConfiguration
 import specpage.BasePage
 
@@ -29,13 +30,12 @@ object IsMemberCurrentlyUKResidentPage extends BasePage {
     "Error: Is the member currently a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "Is the member currently a resident of the UK for tax purposes? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#value")
-      case "No"  => click on cssSelector("#value-no")
+      case "Yes" => click(By.cssSelector("#value"))
+      case "No"  => click(By.cssSelector("#value-no"))
     }
 }

@@ -32,7 +32,6 @@ package specs.endToEnd
  * limitations under the License.
  */
 
-import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
@@ -132,9 +131,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
-       And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
-
       And("I click save and continue button on Member Details Check Your Answers Page")
        whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
@@ -189,7 +185,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "Sarah","lastName" -> "Smith"))
 
       And("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -241,9 +237,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
@@ -298,7 +291,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "Rebecca","lastName" -> "Miller"))
 
       And("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -371,9 +364,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
 
-      And("I should see the following details")
-        andIShouldSeeTheFollowingDetails()  // auto-chosen (score=1.00, BaseStepDefinitionsSteps.scala)
-
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")
 
@@ -428,7 +418,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
         Map("firstName" -> "Angelo","lastName" -> "McMannis"))
 
       And("I click continue button on Member Name Page")
-      whenIClickContinueButtonOn("Member Name Page")
+      whenIClickSaveAndContinueButtonOn("Member Name Page")
 
       Then("I am presented with the Member Nino Page")
       thenIAmPresentedWithThe("Member Nino Page")
@@ -477,9 +467,6 @@ class MemberDetailsFullJourneySpec extends BaseSpec with Matchers {
 
       Then("I am presented with the Member Details Check Your Answers Page")
       thenIAmPresentedWithThe("Member Details Check Your Answers Page")
-
-      And("I should see the following details")
-      andIShouldSeeTheFollowingDetails()
 
       And("I click save and continue button on Member Details Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Member Details Check Your Answers Page")

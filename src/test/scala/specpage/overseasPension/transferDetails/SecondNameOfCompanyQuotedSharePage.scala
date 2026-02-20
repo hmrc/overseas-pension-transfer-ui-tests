@@ -28,7 +28,6 @@ object SecondNameOfCompanyQuotedSharePage extends BasePage {
     "Error: What is the name of the company these quoted shares relate to? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: String =
     "What is the name of the company these quoted shares relate to? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
-  )
 }
