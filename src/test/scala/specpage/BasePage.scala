@@ -35,6 +35,11 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
   val changeUrl: String = ""
   val title: String = ""
 
+  override def click(locator: By): Unit = {
+    waitFor().until(ExpectedConditions.presenceOfElementLocated(locator))
+    BasePage.super.click(locator)
+  }
+
   /** Page assertions * */
   def expectedPageTitle: String = ""
 
@@ -64,7 +69,6 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
 
   def clickSubmitButton(): Unit = {
     click(By.cssSelector("#submit"))
-//    waitForInvisibilityOfElementWithText(By.id("submit"), "Submit")
   }
 
   def clickAgreeSubmitButton(): Unit = {
