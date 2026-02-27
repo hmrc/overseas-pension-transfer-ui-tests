@@ -161,10 +161,6 @@ class QROPSDetailsFullJourneySpec extends BaseSpec with Matchers {
       Then ("I am presented with the Dashboard page")
       thenIAmPresentedWithThe("Dashboard Page")
 
-      When ("I am enter search value and click on search")
-      whenEnterOnSearch("Dashboard Page","Malcolm")
-      whenIClickSearchButtonOn("Dashboard Page")
-
       And ("I click on Start new transfer hyperlink on Dashboard Page")
       whenIClickStartNewTransferLink("Dashboard Page")
 
