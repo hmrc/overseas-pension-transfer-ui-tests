@@ -90,8 +90,12 @@ trait BasePage extends PageObject with Matchers with Eventually {
   def startNewTransfer(): Unit =
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']"))
 
-  def clickMemberName(): Unit =
+  def searchClear(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/dashboard']"))
+
+  def clickMemberName(): Unit = {
     click(By.linkText("Malcolm Mendes"))
+  }
 
   def startMemberDetails(): Unit =
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']"))
@@ -113,6 +117,18 @@ trait BasePage extends PageObject with Matchers with Eventually {
 
   def clickViewAmendLink(): Unit =
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']"))
+
+  def clickDiscardTransfer(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/discard-transfer-confirm/view']"))
+
+  def clickDiscardAmendment(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/discard-transfer-confirm/amend']"))
+
+  def clickReturnToTaskList(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/task-list']"))
+
+  def clickReturnToDashboard(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/dashboard']"))
 
   def textFieldElement(field: String): By = field match {
     case "firstName" => By.id("memberFirstName")

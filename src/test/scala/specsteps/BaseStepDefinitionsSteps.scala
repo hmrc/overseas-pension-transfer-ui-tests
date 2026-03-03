@@ -67,6 +67,14 @@ object BaseStepDefinitionsSteps extends BasePage {
     page.checkPageTitle()
   }
 
+  def thenIAmPresentedWithTheSearch (pageName: String ,value:String): Unit = {
+    val page = PageObjectFinder.page(pageName)
+    page.checkURL
+    page.checkPageTitle()
+    Driver.instance.findElement(By.linkText(s"${value}"))
+  }
+
+
   def whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney: String): Unit = {
     typeOfJourney match {
       case "Journey entry URL" =>
@@ -137,7 +145,22 @@ object BaseStepDefinitionsSteps extends BasePage {
   def whenIClickSearchButtonOn(page: String): Unit = {
     PageObjectFinder.page(page).searchField()
   }
+  
+  def whenIClickOnReturnToTaskListLink(): Unit = {
+    clickReturnToTaskList()
+  }
+  
+  def whenIClickOnReturnToDashboardLink(): Unit = {
+    clickReturnToDashboard()
+  }
 
+  def whenIClickDiscardTransferReportsLink(page: String): Unit = {
+    PageObjectFinder.page(page).clickDiscardTransfer()
+  }
+
+  def whenIClickDiscardAmendmentLink(page: String): Unit = {
+    PageObjectFinder.page(page).clickDiscardAmendment()
+  }
 
   def whenIClickStartNewTransferLink(page: String): Unit = {
     PageObjectFinder.page(page).startNewTransfer()
@@ -145,6 +168,10 @@ object BaseStepDefinitionsSteps extends BasePage {
 
   def whenIClickOnMemberNameLink(page: String): Unit = {
     PageObjectFinder.page(page).clickMemberName()
+  }
+
+  def whenIClickOnClearSearchLink(page: String): Unit = {
+    PageObjectFinder.page(page).searchClear()
   }
 
   def whenIClickOnViewAmendLink(page: String): Unit = {
@@ -178,6 +205,7 @@ object BaseStepDefinitionsSteps extends BasePage {
       val inputField = textFieldElement(field)
       sendKeys(inputField, value)
     }
+
   }
 
 }
