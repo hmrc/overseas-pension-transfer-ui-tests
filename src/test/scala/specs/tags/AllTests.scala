@@ -22,6 +22,8 @@ object AllTests extends Tag("AllTests")
 
 object AmendJourney extends Tag("AmendJourney")
 
+object DiscardJourney extends Tag("DiscardJourney")
+
 object QROPSDetails extends Tag("QROPS")
 
 object WIP extends Tag("WIP")

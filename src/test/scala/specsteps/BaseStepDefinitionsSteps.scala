@@ -150,6 +150,13 @@ object BaseStepDefinitionsSteps extends BasePage {
     PageObjectFinder.page(page).searchField()
   }
 
+  def whenIClickDiscardTransferReportsLink(page: String): Unit = {
+    PageObjectFinder.page(page).DiscardTransfer()
+  }
+
+  def whenIClickDiscardAmendmentLink(page: String): Unit = {
+    PageObjectFinder.page(page).DiscardAmendment()
+  }
 
   def whenIClickStartNewTransferLink(page: String): Unit = {
     PageObjectFinder.page(page).startNewTransfer()
@@ -194,6 +201,7 @@ object BaseStepDefinitionsSteps extends BasePage {
       val inputField = textFieldElement(field)
       sendKeys(inputField, value)
     }
+
   }
 
 }
