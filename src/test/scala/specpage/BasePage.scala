@@ -92,8 +92,12 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
   def startNewTransfer(): Unit =
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/what-will-be-needed']"))
 
-  def clickMemberName(): Unit =
+  def searchClear(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/dashboard']"))
+
+  def clickMemberName(): Unit = {
     click(By.linkText("Malcolm Mendes"))
+  }
 
   def startMemberDetails(): Unit =
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/member-details/member-name']"))
