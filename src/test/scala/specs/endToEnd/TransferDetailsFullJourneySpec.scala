@@ -435,7 +435,6 @@ class TransferDetailsFullJourneySpec extends BaseSpec with Matchers {
     Scenario(
       "4. Full Transfer Details - Transfer Amount Is Not Taxable - Cash, Unquoted, Quoted, Properties, Other",
       AllTests,
-      WIP
     )
     {
       Given("I cleared the data for the service")
