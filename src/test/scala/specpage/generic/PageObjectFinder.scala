@@ -16,41 +16,28 @@
 
 package specpage.generic
 
-import org.apache.commons.io.FileUtils
 import org.scalatest.exceptions.TestFailedException
 import specpage.BasePage
 
-import java.io.{File, FileNotFoundException}
-import scala.jdk.CollectionConverters.CollectionHasAsScala
+import java.io.FileNotFoundException
+import java.nio.file.{FileSystems, Files, Path}
+import scala.jdk.CollectionConverters.*
 
 object PageObjectFinder extends BasePage {
 
   override val title: String = ""
   override val url: String   = ""
 
-  private val files = {
-    val directories = Seq(
-      file("src/test/scala/specpage")
-    )
-
-    val fileList: File => List[File] = f =>
-      FileUtils
-        .listFiles(f, Array("scala"), true)
-        .asScala.toList
-
-    directories.flatMap(fileList)
-  }
+  private val filePath: Path = FileSystems.getDefault.getPath("src/test/scala/specpage")
 
   def page(pageIn: String): BasePage = {
     val page = pageIn.replaceAll(" ", "")
     println(s"The page is --------------------------------- $page")
-    files.find(_.getName == s"$page.scala")
-      .map(_.getAbsolutePath.replaceAll(".*/(specpage/.*).scala", "$1").replaceAll("/", "."))
+    val files: List[Path] = Files.walk(filePath).iterator().asScala.filter(Files.isRegularFile(_)).toList
+    files.find(_.getFileName.toString == s"$page.scala")
+      .map(_.toString.replaceAll(".*/(specpage/.*).scala", "$1").replaceAll("/", "."))
       .map(str => Class.forName(str + "$").getField("MODULE$").get(classOf[BasePage]).asInstanceOf[BasePage])
       .getOrElse(throw new TestFailedException(s"$page does not exist in tests, or it does not conform to Web page format", new FileNotFoundException(), 12))
   }
 
-  def file(path: String): File = {
-    new File(path)
-  }
 }

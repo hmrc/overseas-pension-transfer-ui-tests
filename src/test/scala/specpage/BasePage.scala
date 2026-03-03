@@ -20,20 +20,18 @@ import org.openqa.selenium.support.ui.{ExpectedConditions, WebDriverWait}
 import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
-import org.scalatestplus.selenium.Page
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 
 import java.time.Duration
 import scala.jdk.CollectionConverters._
 
-trait BasePage extends Page with PageObject with Matchers with Eventually {
+trait BasePage extends PageObject with Matchers with Eventually {
 
   private val defaultWaitTimeSeconds = 20
-  private def waitFor(timeInSeconds: Int = defaultWaitTimeSeconds) = new WebDriverWait(Driver.instance, Duration.ofSeconds(defaultWaitTimeSeconds))
-  override val url: String = ""
-  val changeUrl: String = ""
-  val title: String = ""
+  private def waitFor(timeInSeconds: Int = defaultWaitTimeSeconds) = new WebDriverWait(Driver.instance, Duration.ofSeconds(timeInSeconds))
+  val url: String
+  val title: String
 
   override def click(locator: By): Unit = {
     waitFor().until(ExpectedConditions.presenceOfElementLocated(locator))
@@ -41,7 +39,7 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
   }
 
   /** Page assertions * */
-  def expectedPageTitle: String = ""
+  def expectedPageTitle: String = title
 
   def expectedPageErrorTitle: Option[String] = None
 
@@ -125,8 +123,8 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
     case _ => By.id(field)
   }
 
-def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
-  for (i <- choiceOfCheckBox.indices)
-    click(By.xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']"))
+  def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
+    for (i <- choiceOfCheckBox.indices)
+      click(By.xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']"))
 
 }

@@ -179,7 +179,7 @@ object InjectStepDefsIntoSpecs {
     val out   = new StringBuilder
 
     for (line <- lines) line match {
-      case stepLinePattern(indent, kw, text) =>
+      case stepLinePattern(indent, _, text) =>
         out ++= line + "\n"
 
         val scored = stepDefs

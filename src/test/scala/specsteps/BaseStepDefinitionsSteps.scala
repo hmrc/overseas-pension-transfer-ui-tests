@@ -34,7 +34,6 @@ package specsteps
 
 
 import org.openqa.selenium.By
-import org.scalatestplus.selenium.Page
 import otc.conf.TestConfiguration
 import otc.support.TestData
 import specpage.BasePage
@@ -46,11 +45,14 @@ import java.time.LocalDate
 
 object BaseStepDefinitionsSteps extends BasePage {
 
+  override val title: String = ""
+  override val url: String = ""
+
   val currentYear: Int  = LocalDate.now().minusMonths(5).getYear
   val shortYear: String = currentYear.toString.substring(2)
 
   // I navigate to the {string}
-  def navigateToPage(page: Page): Unit =
+  def navigateToPage(page: BasePage): Unit =
     Driver.instance.navigate.to(page.url)
 
   // I click submit button on {string}
@@ -112,13 +114,7 @@ object BaseStepDefinitionsSteps extends BasePage {
     PageObjectFinder.page(page).clickContinueButton()
   }
 
-  // I am presented with the {string} {string}
-  def thenIAmPresentedWithThe(page: String, specificPage: String): Unit = {
-    PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageTitle()
-  }
-
-  def whenIClickOnButtonOn(button: String, page: String): Unit = {
+  def whenIClickOnButtonOn(button: String): Unit = {
     val locator = By.xpath(s"//*[contains(@href, '$button')]")
     click(locator)
   }
@@ -177,7 +173,7 @@ object BaseStepDefinitionsSteps extends BasePage {
     PageObjectFinder.page(page).noNinoLink()
   }
 
-  def Ienterthefollowingdataintocorrespondinginputfieldson(page: String, formData: Map[String, String]): Unit = {
+  def Ienterthefollowingdataintocorrespondinginputfieldson(formData: Map[String, String]): Unit = {
     for ((field, value) <- formData) {
       val inputField = textFieldElement(field)
       sendKeys(inputField, value)

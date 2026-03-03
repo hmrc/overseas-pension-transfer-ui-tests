@@ -29,8 +29,6 @@ object AuthLoginStubPage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: String = "Authority Wizard"
-
   override def expectedPageHeader: String = "Authority Wizard"
 
   def enterRedirectURL(url: String): Unit = {
