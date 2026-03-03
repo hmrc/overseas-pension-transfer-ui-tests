@@ -120,6 +120,13 @@ trait BasePage extends Page with PageObject with Matchers with Eventually {
   def clickViewAmendLink(): Unit =
     click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/view-amend?qtReference=QT564339&pstr=24000001IN&qtStatus=Submitted&versionNumber=006']"))
 
+  def DiscardTransfer(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/discard-transfer-confirm/view']"))
+
+  def DiscardAmendment(): Unit =
+    click(By.cssSelector("a[href='/report-transfer-qualifying-recognised-overseas-pension-scheme/discard-transfer-confirm/amend']"))
+
+
   def textFieldElement(field: String): By = field match {
     case "firstName" => By.id("memberFirstName")
     case "lastName" => By.id("memberLastName")
