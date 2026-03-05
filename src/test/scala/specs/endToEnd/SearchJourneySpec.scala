@@ -16,27 +16,11 @@
 
 package specs.endToEnd
 
-/*
- * Copyright 2025 HM Revenue & Customs
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import org.scalatest.matchers.should.Matchers
 import specpage.auth.AuthLoginStubPage
 import specs.BaseSpec
-import specs.tags.{AllTests, WIP}
-import specsteps.BaseStepDefinitionsSteps._
+import specs.tags.AllTests
+import specsteps.BaseStepDefinitionsSteps.*
 
 class SearchJourneySpec extends BaseSpec with Matchers {
 
@@ -45,52 +29,67 @@ class SearchJourneySpec extends BaseSpec with Matchers {
     Scenario(
       "1. Search - Search by name,insurance number and transfer reference number",
       AllTests,
-    )
-    {
+    ) {
       Given("I cleared the data for the service")
-      givenIClearedTheDataForTheService()
-
+        givenIClearedTheDataForTheService()
       When ("I navigate to the Auth Login Stub Page")
-      navigateToPage(AuthLoginStubPage)
-
+        navigateToPage(AuthLoginStubPage)
       And ("I enter redirect URL on Auth Login Stub Page for Journey entry URL")
-      whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
-
+        whenIEnterRedirectURLOnAuthLoginStubPageFor("Journey entry URL")
       When ("I enter Enrollment Key HMRC-PODS-ORG, Identifier Name PSAID and Identifier Value A2100005 on Auth Login Stub Page and submit")
-      whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
-
+        whenIEnterEnrollmentKey("HMRC-PODS-ORG","PSAID","A2100005","Auth Login Stub Page")
       And ("I click submit button on Auth Login Stub Page")
-      whenIClickSubmitButtonOn("Auth Login Stub Page")
-
+        whenIClickSubmitButtonOn("Auth Login Stub Page")
       Then ("I am presented with the Dashboard page")
-      thenIAmPresentedWithThe("Dashboard Page")
-
+        thenIAmPresentedWithThe("Dashboard Page")
+      And("I click on Start new transfer hyperlink on Dashboard Page")
+        whenIClickStartNewTransferLink("Dashboard Page")
+      Then("I am presented with the What You Will Need Page")
+        thenIAmPresentedWithThe("What You Will Need Page")
+      And("I click save and continue button on What You Will Need Page")
+        whenIClickSaveAndContinueButtonOn("What You Will Need Page")
+      Then("I am presented with the Task List Page")
+        thenIAmPresentedWithThe("Task List Page")
+      When("I click on Add details about the member hyperlink on Task List Page")
+        whenIClickStartMemberDetailsLink("Task List Page")
+      Then("I am presented with the Member's Name Page")
+        thenIAmPresentedWithThe("Member Name Page")
+      When("I enter the following data into corresponding input fields on Member Name Page")
+        Ienterthefollowingdataintocorrespondinginputfieldson(
+          Map("firstName" -> "Rebecca", "lastName" -> "Miller")
+        )
+      When("I click continue button on Member Name Page")
+        whenIClickSaveAndContinueButtonOn("Member Name Page")
+      Then("I am presented with the Member Nino Page")
+        thenIAmPresentedWithThe("Member Nino Page")
+      When("I enter the following data into corresponding input fields on Member Nino Page")
+        Ienterthefollowingdataintocorrespondinginputfieldson(
+          Map("value" -> "QQ112233B")
+        )
+      When ("I click the return to Task List link")
+        whenIClickOnReturnToTaskListLink()
+      Then ("I am presented with the Task List page")
+        thenIAmPresentedWithThe("Task List Page")
+      When ("I click on the Return to Dashboard link")
+        whenIClickOnReturnToDashboardLink()
       When ("I am enter first name as search value and click on search")
-      whenEnterOnSearch("Dashboard Page","Malcolm")
-
+        whenEnterOnSearch("Dashboard Page","Malcolm")
       Then ("I am presented with the Dashboard page with search results")
-      thenIAmPresentedWithTheSearch("Dashboard Page","Malcolm Mendes")
-
+        thenIAmPresentedWithTheSearch("Dashboard Page","Malcolm Mendes")
       Then ("I am click on clear search button to clear out search results")
-      whenIClickOnClearSearchLink("Dashboard Page")
-
+        whenIClickOnClearSearchLink("Dashboard Page")
       When ("I am enter national insurance number as search value and click on search")
-      whenEnterOnSearch("Dashboard Page","QQ112233B")
-
+        whenEnterOnSearch("Dashboard Page","QQ112233B")
       Then ("I am presented with the Dashboard page with search results")
-      thenIAmPresentedWithTheSearch("Dashboard Page","Rebecca Miller")
-
+        thenIAmPresentedWithTheSearch("Dashboard Page","Rebecca Miller")
       Then ("I am click on clear search button to clear out search results")
-      whenIClickOnClearSearchLink("Dashboard Page")
-
+        whenIClickOnClearSearchLink("Dashboard Page")
       Then ("I am presented with the Dashboard page")
-      thenIAmPresentedWithThe("Dashboard Page")
-
+        thenIAmPresentedWithThe("Dashboard Page")
       When ("I am enter reference number as search value and click on search")
-      whenEnterOnSearch("Dashboard Page","QT564351")
-
+        whenEnterOnSearch("Dashboard Page","QT564351")
       Then ("I am presented with the Dashboard page")
-      thenIAmPresentedWithThe("Dashboard Page")
+        thenIAmPresentedWithTheSearch("Dashboard Page","Herman Hislop")
     }
   }
 }

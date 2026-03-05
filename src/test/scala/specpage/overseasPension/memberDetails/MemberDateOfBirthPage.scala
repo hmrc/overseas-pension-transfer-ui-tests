@@ -28,7 +28,7 @@ object MemberDateOfBirthPage extends BasePage {
     s"Error: What is the members's date of birth? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
   )
 
-  override def expectedPageTitle: String =
+  override val title: String =
     s"What is the members's date of birth? - Report a transfer to a qualifying recognised overseas pension scheme - GOV.UK"
 
   def enterDate(day: String, month: String, year: String): Unit = {

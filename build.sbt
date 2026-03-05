@@ -3,6 +3,6 @@ lazy val testSuite = (project in file("."))
   .settings(
     name := "overseas-pension-transfer-ui-tests",
     version := "0.1.0",
-    scalaVersion := "2.13.16",
+    scalaVersion := "3.5.2",
     libraryDependencies ++= Dependencies.test,
   )
