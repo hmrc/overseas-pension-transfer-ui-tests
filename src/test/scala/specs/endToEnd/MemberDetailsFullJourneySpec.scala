@@ -305,7 +305,7 @@ class MemberDetailsFullJourneySpec extends BaseSpec {
         whenIClickSaveAndContinueButtonOn("Member Name Page")
       Then("I am presented with the Member Nino Page")
         thenIAmPresentedWithThe("Member Nino Page")
-      When("I click on Member doesn't have a National Insurance number. hyperlink on Member Nino Page")
+      When("I click on Member does not have a National Insurance number.  hyperlink on Member Nino Page")
         whenIClickNoNinoLink("Member Nino Page")
       And("I am presented with the Member Does Not Have NINO Page")
         thenIAmPresentedWithThe("Member Does Not Have NINO Page")
